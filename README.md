@@ -2,7 +2,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/vangricky/osrs-drop-simulator/actions/workflows/deploy.yml/badge.svg)](https://github.com/vangricky/osrs-drop-simulator/actions/workflows/deploy.yml)
 
-**[Play it live →](https://vangricky.github.io/osrs-drop-simulator/)**
+**[Play it live →](https://osrsdropsimulation.com/)**
 
 A fan-made drop rate simulator for *Old School RuneScape*. Kill monsters, roll their real drop tables, sell your loot, and grind your way from a level-1 chicken up to the richest bosses in the game — all without leaving your browser. Not affiliated with or endorsed by Jagex.
 

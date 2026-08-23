@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/osrs-drop-simulator/',
+  // Custom domain serves from the root, not a /osrs-drop-simulator/ subpath
+  // (that was only needed for the old vangricky.github.io/osrs-drop-simulator/ URL).
+  base: '/',
   plugins: [react(), tailwindcss()],
 })

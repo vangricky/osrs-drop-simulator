@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vangricky.github.io/osrs-drop-simulator/sitemap.xml
+Sitemap: https://osrsdropsimulation.com/sitemap.xml
