@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { npcs, type Npc } from "../data/npcData";
+import { useGameData } from "../hooks/useGameData";
+import type { Npc } from "../data/npcData";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
@@ -25,6 +26,7 @@ function combatColor(level: number): string {
 }
 
 export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlockedNpcIds }: NpcBrowserProps) {
+  const { npcs } = useGameData();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"all" | Npc["category"]>("all");
 
@@ -34,7 +36,7 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
       .filter((n) => (category === "all" ? true : n.category === category))
       .filter((n) => (q ? n.name.toLowerCase().includes(q) : true))
       .sort((a, b) => a.combatLevel - b.combatLevel);
-  }, [query, category]);
+  }, [npcs, query, category]);
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">

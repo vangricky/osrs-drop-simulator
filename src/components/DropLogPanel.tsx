@@ -1,4 +1,4 @@
-import { items as allItems } from "../data/npcData";
+import { useGameData } from "../hooks/useGameData";
 import type { LogEntry } from "../hooks/useGameState";
 import IconImg from "./IconImg";
 
@@ -17,6 +17,7 @@ function timeAgo(ts: number): string {
 }
 
 export default function DropLogPanel({ log }: DropLogPanelProps) {
+  const { items: allItems } = useGameData();
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
       <div className="border-b-2 border-osrs-border-dark px-3 py-2">

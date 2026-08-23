@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates src/data/generated/monsters.json and items.json from:
+ * Generates public/data/monsters.json and items.json from:
  *  - osrsreboxed-db (community-maintained, cache-derived monster/drop database)
  *  - the OSRS Wiki's real-time prices API (item names/icons/live values)
  *
@@ -52,8 +52,11 @@ function existingHandcraftedIds() {
 }
 
 function unlockCostFor(combatLevel, isBoss) {
-  if (combatLevel <= 15) return 0;
-  let raw = 20 * combatLevel ** 2.1 * (isBoss ? 8 : 1);
+  // Monsters under combat level 10 are the free starter tier; everything
+  // from 10 up must be unlocked. Steep on purpose — this is meant to be a
+  // long grind, not a quick unlock-everything session.
+  if (combatLevel < 10) return 0;
+  let raw = 400 * combatLevel ** 2.5 * (isBoss ? 40 : 1);
   // Round to ~2 significant figures for a "chunky" number.
   const magnitude = 10 ** Math.floor(Math.log10(raw) - 1);
   return Math.round(raw / magnitude) * magnitude;
@@ -179,7 +182,7 @@ async function main() {
     }
   }
 
-  const outDir = path.join(ROOT, "src/data/generated");
+  const outDir = path.join(ROOT, "public/data");
   writeFileSync(path.join(outDir, "monsters.json"), JSON.stringify(generatedMonsters, null, 2));
   writeFileSync(path.join(outDir, "items.json"), JSON.stringify(generatedItems, null, 2));
 

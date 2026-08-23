@@ -10,7 +10,7 @@ import {
   type DragStartEvent,
 } from "@dnd-kit/core";
 import { useState } from "react";
-import { containers, items as allItems } from "../data/npcData";
+import { useGameData } from "../hooks/useGameData";
 import type { InventorySlot } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
@@ -26,6 +26,7 @@ interface InventoryGridProps {
 }
 
 function SlotContent({ slot }: { slot: InventorySlot }) {
+  const { items: allItems } = useGameData();
   const item = allItems[slot.itemId];
   if (!item) return null;
   return (
@@ -58,6 +59,7 @@ function Slot({
   onSell: (index: number) => void;
   onOpen: (index: number) => void;
 }) {
+  const { items: allItems, containers } = useGameData();
   const { setNodeRef: setDropRef, isOver } = useDroppable({ id: `slot-${index}`, data: { index } });
   const { attributes, listeners, setNodeRef: setDragRef, isDragging } = useDraggable({
     id: `slot-${index}`,
@@ -112,6 +114,7 @@ function Slot({
 }
 
 export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onSellAll, onClear, onOpen }: InventoryGridProps) {
+  const { items: allItems } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }));
 

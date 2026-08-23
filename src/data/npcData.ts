@@ -43,9 +43,6 @@ export interface ContainerDef extends LootTable {
   name: string;
 }
 
-import generatedMonstersRaw from './generated/monsters.json';
-import generatedItemsRaw from './generated/items.json';
-
 const img = (name: string) => `https://oldschool.runescape.wiki/images/${name.replace(/ /g, '_')}.png`;
 
 const handcraftedNpcs: Npc[] = [
@@ -165,7 +162,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'guard',
-    unlockCost: 2000,
+    unlockCost: 810000,
     name: 'Guard',
     combatLevel: 21,
     iconUrl: img('Guard chathead'),
@@ -193,7 +190,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'al-kharid-warrior',
-    unlockCost: 5000,
+    unlockCost: 0,
     name: 'Al-Kharid warrior',
     combatLevel: 9,
     iconUrl: img('Al Kharid warrior'),
@@ -220,7 +217,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'hill-giant',
-    unlockCost: 25000,
+    unlockCost: 1700000,
     name: 'Hill Giant',
     combatLevel: 28,
     iconUrl: img('Hill Giant'),
@@ -253,7 +250,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'moss-giant',
-    unlockCost: 75000,
+    unlockCost: 4600000,
     name: 'Moss giant',
     combatLevel: 42,
     iconUrl: img('Moss giant'),
@@ -287,7 +284,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'lesser-demon',
-    unlockCost: 200000,
+    unlockCost: 24000000,
     name: 'Lesser demon',
     combatLevel: 82,
     iconUrl: img('Lesser demon'),
@@ -316,7 +313,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'greater-demon',
-    unlockCost: 500000,
+    unlockCost: 32000000,
     name: 'Greater demon',
     combatLevel: 92,
     iconUrl: img('Greater demon'),
@@ -340,7 +337,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'hellhound',
-    unlockCost: 1000000,
+    unlockCost: 66000000,
     name: 'Hellhound',
     combatLevel: 122,
     iconUrl: img('Hellhound'),
@@ -365,7 +362,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'ankou',
-    unlockCost: 2000000,
+    unlockCost: 19000000,
     name: 'Ankou',
     combatLevel: 75,
     iconUrl: img('Ankou'),
@@ -392,7 +389,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'aberrant-spectre',
-    unlockCost: 3500000,
+    unlockCost: 36000000,
     name: 'Aberrant spectre',
     combatLevel: 96,
     iconUrl: img('Aberrant spectre'),
@@ -413,7 +410,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'abyssal-demon',
-    unlockCost: 5000000,
+    unlockCost: 68000000,
     name: 'Abyssal demon',
     combatLevel: 124,
     iconUrl: img('Abyssal demon'),
@@ -441,7 +438,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'nechryael',
-    unlockCost: 7500000,
+    unlockCost: 57000000,
     name: 'Nechryael',
     combatLevel: 115,
     iconUrl: img('Nechryael'),
@@ -470,7 +467,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'dust-devil',
-    unlockCost: 10000000,
+    unlockCost: 33000000,
     name: 'Dust devil',
     combatLevel: 93,
     iconUrl: img('Dust devil'),
@@ -502,7 +499,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'dark-beast',
-    unlockCost: 20000000,
+    unlockCost: 180000000,
     name: 'Dark beast',
     combatLevel: 182,
     iconUrl: img('Dark beast'),
@@ -538,7 +535,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'blue-dragon',
-    unlockCost: 30000000,
+    unlockCost: 52000000,
     name: 'Blue dragon',
     combatLevel: 111,
     iconUrl: img('Blue dragon (2)'),
@@ -566,7 +563,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'red-dragon',
-    unlockCost: 50000000,
+    unlockCost: 110000000,
     name: 'Red dragon',
     combatLevel: 152,
     iconUrl: img('Red dragon'),
@@ -592,7 +589,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'black-dragon',
-    unlockCost: 80000000,
+    unlockCost: 310000000,
     name: 'Black dragon',
     combatLevel: 227,
     iconUrl: img('Black dragon'),
@@ -619,7 +616,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'brutal-black-dragon',
-    unlockCost: 120000000,
+    unlockCost: 720000000,
     name: 'Brutal black dragon',
     combatLevel: 318,
     iconUrl: img('Brutal black dragon'),
@@ -654,7 +651,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'king-black-dragon',
-    unlockCost: 250000000,
+    unlockCost: 20000000000,
     name: 'King Black Dragon',
     combatLevel: 276,
     iconUrl: img('King Black Dragon'),
@@ -698,7 +695,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'giant-mole',
-    unlockCost: 350000000,
+    unlockCost: 13000000000,
     name: 'Giant Mole',
     combatLevel: 230,
     iconUrl: img('Giant Mole'),
@@ -741,7 +738,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'kalphite-queen',
-    unlockCost: 600000000,
+    unlockCost: 32000000000,
     name: 'Kalphite Queen',
     combatLevel: 333,
     iconUrl: img('Kalphite Queen'),
@@ -783,7 +780,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'general-graardor',
-    unlockCost: 1000000000,
+    unlockCost: 160000000000,
     name: 'General Graardor',
     combatLevel: 624,
     iconUrl: img('General Graardor'),
@@ -823,7 +820,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'vorkath',
-    unlockCost: 2500000000,
+    unlockCost: 230000000000,
     name: 'Vorkath',
     combatLevel: 732,
     iconUrl: img('Vorkath'),
@@ -867,7 +864,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'zulrah',
-    unlockCost: 4000000000,
+    unlockCost: 230000000000,
     name: 'Zulrah',
     combatLevel: 725,
     iconUrl: img('Zulrah (serpentine)'),
@@ -898,10 +895,14 @@ const handcraftedNpcs: Npc[] = [
   },
 ];
 
-/** Monsters bulk-generated from the community OSRS monster database (see scripts/generate-monsters.mjs). */
-const generatedNpcs = generatedMonstersRaw as unknown as Npc[];
-
-export const npcs: Npc[] = [...handcraftedNpcs, ...generatedNpcs];
+/**
+ * Merges bulk-generated monsters (see scripts/generate-monsters.mjs) with the
+ * hand-verified ones. Pure/sync so it works identically whether the generated
+ * data was fetched at runtime (browser) or read from disk (Node scripts).
+ */
+export function mergeNpcs(generatedMonsters: Npc[]): Npc[] {
+  return [...handcraftedNpcs, ...generatedMonsters];
+}
 
 function makeItems(
   defs: [string, string, boolean, number, boolean, string?][],
@@ -1161,10 +1162,10 @@ const handcraftedItems: Record<string, DropItem> = makeItems([
   ["3rd-age-longsword", "3rd Age longsword", true, 1194128468, true],
 ]);
 
-/** Items bulk-generated from the OSRS Wiki's live price API (see scripts/generate-monsters.mjs / update-prices.mjs). */
-const generatedItems = generatedItemsRaw as unknown as Record<string, DropItem>;
-
-export const items: Record<string, DropItem> = { ...handcraftedItems, ...generatedItems };
+/** Merges bulk-generated items (see scripts/generate-monsters.mjs / update-prices.mjs) with the hand-verified ones. */
+export function mergeItems(generatedItems: Record<string, DropItem>): Record<string, DropItem> {
+  return { ...handcraftedItems, ...generatedItems };
+}
 
 export const containers: Record<string, ContainerDef> = {
   "clue-scroll-beginner": {

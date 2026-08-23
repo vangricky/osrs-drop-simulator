@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { items as allItems, type DropEntry, type Npc } from "../data/npcData";
+import { useGameData } from "../hooks/useGameData";
+import type { DropEntry, Npc } from "../data/npcData";
 import type { KillResult } from "../hooks/useGameState";
 import { RARITY_STYLES, formatDropRate, formatGp, rarityTier } from "../utils/dropLogic";
 import IconImg from "./IconImg";
@@ -15,6 +16,7 @@ interface NpcDetailPanelProps {
 }
 
 function DropRow({ entry }: { entry: DropEntry }) {
+  const { items: allItems } = useGameData();
   const item = allItems[entry.itemId];
   if (!item) return null;
   const tier = rarityTier(entry);

@@ -5,7 +5,8 @@ import Header from "./components/Header";
 import InventoryGrid from "./components/InventoryGrid";
 import NpcBrowser from "./components/NpcBrowser";
 import NpcDetailPanel from "./components/NpcDetailPanel";
-import { npcs, type Npc } from "./data/npcData";
+import { useGameData } from "./hooks/useGameData";
+import type { Npc } from "./data/npcData";
 import { useAuth } from "./hooks/useAuth";
 import { useGameState } from "./hooks/useGameState";
 
@@ -18,6 +19,7 @@ const Leaderboard = lazy(() => import("./components/Leaderboard"));
 const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 
 function App() {
+  const { npcs } = useGameData();
   const [selectedNpc, setSelectedNpc] = useState<Npc | null>(npcs[0] ?? null);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [celebratingNpc, setCelebratingNpc] = useState<Npc | null>(null);

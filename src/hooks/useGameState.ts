@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { containers, items as allItems, npcs, type Npc } from "../data/npcData";
+import { useGameData } from "../hooks/useGameData";
+import type { DropItem, Npc } from "../data/npcData";
 import { supabase } from "../lib/supabase";
 import { isStackable, rollDrop, type RolledDrop } from "../utils/dropLogic";
 
@@ -30,7 +31,7 @@ interface PersistedState {
 const STORAGE_KEY = "osrs-drop-sim-state-v2";
 const MAX_LOG_ENTRIES = 150;
 
-function starterUnlockedIds(): string[] {
+function starterUnlockedIds(npcs: Npc[]): string[] {
   return npcs.filter((n) => n.unlockCost === 0).map((n) => n.id);
 }
 
@@ -38,18 +39,18 @@ function emptyInventory(): (InventorySlot | null)[] {
   return Array.from({ length: INVENTORY_SIZE }, () => null);
 }
 
-function freshState(): PersistedState {
+function freshState(npcs: Npc[]): PersistedState {
   return {
     inventory: emptyInventory(),
     log: [],
     killCounts: {},
     collectionLog: {},
     gp: 0,
-    unlockedNpcIds: starterUnlockedIds(),
+    unlockedNpcIds: starterUnlockedIds(npcs),
   };
 }
 
-function loadState(): PersistedState {
+function loadState(npcs: Npc[]): PersistedState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) throw new Error("no state");
@@ -58,23 +59,23 @@ function loadState(): PersistedState {
       throw new Error("bad shape");
     }
     return {
-      ...freshState(),
+      ...freshState(npcs),
       ...parsed,
-      unlockedNpcIds: Array.from(new Set([...starterUnlockedIds(), ...(parsed.unlockedNpcIds ?? [])])),
+      unlockedNpcIds: Array.from(new Set([...starterUnlockedIds(npcs), ...(parsed.unlockedNpcIds ?? [])])),
     };
   } catch {
-    return freshState();
+    return freshState(npcs);
   }
 }
 
 /** Arranges a server item-quantity ledger into a display-only 28-slot grid (stackables get one slot, non-stackables one-per-unit, extras beyond 28 slots are simply not shown). */
-function inventoryFromLedger(ledger: Record<string, number>): (InventorySlot | null)[] {
+function inventoryFromLedger(ledger: Record<string, number>, items: Record<string, DropItem>): (InventorySlot | null)[] {
   const next = emptyInventory();
   const firstEmptySlot = () => next.findIndex((slot) => slot === null);
 
   for (const [itemId, quantity] of Object.entries(ledger)) {
     if (quantity <= 0) continue;
-    const item = allItems[itemId];
+    const item = items[itemId];
     if (!item) continue;
     if (isStackable(item)) {
       const slotIndex = firstEmptySlot();
@@ -90,20 +91,20 @@ function inventoryFromLedger(ledger: Record<string, number>): (InventorySlot | n
   return next;
 }
 
-async function loadCloudState(userId: string): Promise<PersistedState | null> {
+async function loadCloudState(userId: string, npcs: Npc[], items: Record<string, DropItem>): Promise<PersistedState | null> {
   if (!supabase) return null;
-  const [{ data: gs }, { data: items }] = await Promise.all([
+  const [{ data: gs }, { data: userItems }] = await Promise.all([
     supabase.from("game_state").select("*").eq("user_id", userId).maybeSingle(),
     supabase.from("user_items").select("item_id, quantity").eq("user_id", userId),
   ]);
   if (!gs) return null;
 
   const ledger: Record<string, number> = {};
-  for (const row of items ?? []) ledger[row.item_id] = row.quantity;
+  for (const row of userItems ?? []) ledger[row.item_id] = row.quantity;
 
   const cachedInventory = Array.isArray(gs.inventory_cache) ? (gs.inventory_cache as (InventorySlot | null)[]) : [];
   const inventory =
-    cachedInventory.length === INVENTORY_SIZE ? cachedInventory : inventoryFromLedger(ledger);
+    cachedInventory.length === INVENTORY_SIZE ? cachedInventory : inventoryFromLedger(ledger, items);
 
   return {
     inventory,
@@ -111,7 +112,7 @@ async function loadCloudState(userId: string): Promise<PersistedState | null> {
     killCounts: (gs.kill_counts as Record<string, number>) ?? {},
     collectionLog: (gs.collection_log as Record<string, number>) ?? {},
     gp: Number(gs.gp),
-    unlockedNpcIds: (gs.unlocked_npc_ids as string[]) ?? starterUnlockedIds(),
+    unlockedNpcIds: (gs.unlocked_npc_ids as string[]) ?? starterUnlockedIds(npcs),
   };
 }
 
@@ -171,7 +172,8 @@ export interface ContainerOpenResult extends KillResult {
 }
 
 export function useGameState(userId: string | null = null) {
-  const [state, setState] = useState<PersistedState>(loadState);
+  const { npcs, items: allItems, containers } = useGameData();
+  const [state, setState] = useState<PersistedState>(() => loadState(npcs));
   // Not rendered anywhere — only read inside the sync effect below, so a
   // ref avoids an extra render pass instead of using React state for it.
   const cloudLoadedRef = useRef(false);
@@ -193,12 +195,12 @@ export function useGameState(userId: string | null = null) {
     if (!userId) {
       // No need to reset cloudLoaded here: the inventory-sync effect below
       // already bails out on `!userId` regardless of cloudLoaded's value.
-      if (!isInitialMount) setState(loadState());
+      if (!isInitialMount) setState(loadState(npcs));
       return;
     }
     cloudLoadedRef.current = false;
     let cancelled = false;
-    loadCloudState(userId).then((cloud) => {
+    loadCloudState(userId, npcs, allItems).then((cloud) => {
       if (cancelled || !cloud) return;
       cloudLoadedRef.current = true;
       setState(cloud);
@@ -206,7 +208,7 @@ export function useGameState(userId: string | null = null) {
     return () => {
       cancelled = true;
     };
-  }, [userId]);
+  }, [userId, npcs, allItems]);
 
   useEffect(() => {
     if (userId) return;
@@ -275,7 +277,7 @@ export function useGameState(userId: string | null = null) {
     const result: KillResult = { drops, overflow };
     setLastKill(result);
     return result;
-  }, [userId]);
+  }, [userId, allItems]);
 
   const openContainer = useCallback((index: number): ContainerOpenResult | null => {
     const slot0 = stateRef.current.inventory[index];
@@ -336,7 +338,7 @@ export function useGameState(userId: string | null = null) {
     const result: ContainerOpenResult = { drops, overflow, containerName: container.name };
     setLastContainerOpen(result);
     return result;
-  }, [userId]);
+  }, [userId, allItems, containers]);
 
   const moveItem = useCallback((from: number, to: number) => {
     setState((prev) => {
@@ -377,7 +379,7 @@ export function useGameState(userId: string | null = null) {
         });
       }
     }
-  }, [userId]);
+  }, [userId, allItems]);
 
   const sellAll = useCallback(() => {
     setState((prev) => {
@@ -397,7 +399,7 @@ export function useGameState(userId: string | null = null) {
         if (error) console.error("sell_all_items failed", error);
       });
     }
-  }, [userId]);
+  }, [userId, allItems]);
 
   const unlockNpc = useCallback((npc: Npc): boolean => {
     let success = false;
@@ -420,10 +422,10 @@ export function useGameState(userId: string | null = null) {
     // cloud save" RPC (deliberately out of scope), so this only applies to
     // guest/local play. The UI hides/disables reset while signed in.
     if (userId) return;
-    setState(freshState());
+    setState(freshState(npcs));
     setLastKill(null);
     setLastContainerOpen(null);
-  }, [userId]);
+  }, [userId, npcs]);
 
   const closeContainerModal = useCallback(() => setLastContainerOpen(null), []);
 

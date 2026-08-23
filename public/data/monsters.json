@@ -6,7 +6,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Molanisk.png",
     "examine": "A strange mole-like being.",
     "category": "mid",
-    "unlockCost": 77000,
+    "unlockCost": 7400000,
     "always": [
       {
         "itemId": "bones",
@@ -258,7 +258,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Death_spawn.png",
     "examine": "An evil death spawn.",
     "category": "mid",
-    "unlockCost": 62000,
+    "unlockCost": 5700000,
     "always": [
       {
         "itemId": "fiendish-ashes",
@@ -275,10 +275,10 @@
     "id": "zombie",
     "name": "Zombie",
     "combatLevel": 13,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_(Level_13).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie.png",
     "examine": "Dead man walking.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "bones",
@@ -1328,7 +1328,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Summoned_Zombie.png",
     "examine": "The living dead.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "bones",
@@ -1353,10 +1353,10 @@
     "id": "skeleton",
     "name": "Skeleton",
     "combatLevel": 22,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_(level_21,_1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton.png",
     "examine": "Could do with gaining a few pounds.",
     "category": "low",
-    "unlockCost": 13000,
+    "unlockCost": 910000,
     "always": [
       {
         "itemId": "bones",
@@ -1668,10 +1668,10 @@
     "id": "skeleton-mage",
     "name": "Skeleton Mage",
     "combatLevel": 16,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_Mage_(lv_16).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_Mage.png",
     "examine": "An undead worker of dark magic.",
     "category": "low",
-    "unlockCost": 6800,
+    "unlockCost": 410000,
     "always": [
       {
         "itemId": "bones",
@@ -1699,7 +1699,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ghost.png",
     "examine": "Eeek! A ghost!",
     "category": "low",
-    "unlockCost": 9700,
+    "unlockCost": 630000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -1716,10 +1716,10 @@
     "id": "rock-crab",
     "name": "Rock Crab",
     "combatLevel": 13,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Rock_crab_(exposed).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rock_Crab.png",
     "examine": "No one likes crabs...",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "reward-casket-elite",
@@ -1985,7 +1985,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Wolf.png",
     "examine": "Not man's best friend.",
     "category": "mid",
-    "unlockCost": 120000,
+    "unlockCost": 13000000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -2027,7 +2027,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/White_wolf.png",
     "examine": "A vicious mountain wolf.",
     "category": "low",
-    "unlockCost": 17000,
+    "unlockCost": 1300000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -2062,7 +2062,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Big_Wolf.png",
     "examine": "Must be the pack leader.",
     "category": "mid",
-    "unlockCost": 160000,
+    "unlockCost": 18000000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -2090,7 +2090,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Wild_dog.png",
     "examine": "Looks like it's got Rabies!sic",
     "category": "mid",
-    "unlockCost": 120000,
+    "unlockCost": 13000000,
     "always": [
       {
         "itemId": "bones",
@@ -2118,7 +2118,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Guard_dog.png",
     "examine": "He doesn't seem pleased to see me.",
     "category": "mid",
-    "unlockCost": 57000,
+    "unlockCost": 5100000,
     "always": [
       {
         "itemId": "bones",
@@ -2146,7 +2146,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Hobgoblin.png",
     "examine": "He doesn't look very welcoming.",
     "category": "mid",
-    "unlockCost": 87000,
+    "unlockCost": 8600000,
     "always": [
       {
         "itemId": "bones",
@@ -3049,7 +3049,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ogre.png",
     "examine": "A large dim looking humanoid.",
     "category": "mid",
-    "unlockCost": 84000,
+    "unlockCost": 8200000,
     "always": [
       {
         "itemId": "big-bones",
@@ -3284,10 +3284,10 @@
     "id": "baby-red-dragon",
     "name": "Baby red dragon",
     "combatLevel": 65,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_red_dragon_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_red_dragon.png",
     "examine": "Young, but still dangerous.",
     "category": "mid",
-    "unlockCost": 130000,
+    "unlockCost": 14000000,
     "always": [
       {
         "itemId": "babydragon-bones",
@@ -3343,7 +3343,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kalphite_Soldier.png",
     "examine": "I don't think insect repellent will work...",
     "category": "mid",
-    "unlockCost": 230000,
+    "unlockCost": 27000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -3650,7 +3650,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_dragon.png",
     "examine": "Its scales seem to be made of steel.",
     "category": "mid",
-    "unlockCost": 2100000,
+    "unlockCost": 380000000,
     "always": [
       {
         "itemId": "dragon-bones",
@@ -3853,7 +3853,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth.png",
     "examine": "A darkened horror from the ocean depths.",
     "category": "mid",
-    "unlockCost": 600000,
+    "unlockCost": 85000000,
     "always": [
       {
         "itemId": "bones",
@@ -4245,7 +4245,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jungle_Wolf.png",
     "examine": "A rare jungle wolf - specific to the Kharazi jungle.",
     "category": "mid",
-    "unlockCost": 120000,
+    "unlockCost": 13000000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -4273,7 +4273,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_demon.png",
     "examine": "A big, scary, jet-black demon.",
     "category": "mid",
-    "unlockCost": 990000,
+    "unlockCost": 160000000,
     "always": [
       {
         "itemId": "malicious-ashes",
@@ -4571,10 +4571,10 @@
     "id": "baby-blue-dragon",
     "name": "Baby blue dragon",
     "combatLevel": 48,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_blue_dragon_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_blue_dragon.png",
     "examine": "Young but still dangerous.",
     "category": "mid",
-    "unlockCost": 68000,
+    "unlockCost": 6400000,
     "always": [
       {
         "itemId": "babydragon-bones",
@@ -4609,7 +4609,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Green_dragon.png",
     "examine": "Must be related to Elvarg.",
     "category": "mid",
-    "unlockCost": 190000,
+    "unlockCost": 22000000,
     "always": [
       {
         "itemId": "dragon-bones",
@@ -4931,7 +4931,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_dragon.png",
     "examine": "Its scales seem to be made of bronze.",
     "category": "mid",
-    "unlockCost": 560000,
+    "unlockCost": 79000000,
     "always": [
       {
         "itemId": "dragon-bones",
@@ -5127,7 +5127,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_dragon.png",
     "examine": "Its scales seem to be made of iron.",
     "category": "mid",
-    "unlockCost": 1200000,
+    "unlockCost": 200000000,
     "always": [
       {
         "itemId": "dragon-bones",
@@ -5323,7 +5323,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ghoul.png",
     "examine": "It's totally savage.",
     "category": "mid",
-    "unlockCost": 51000,
+    "unlockCost": 4600000,
     "always": [
       {
         "itemId": "bones",
@@ -5358,7 +5358,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf.png",
     "examine": "A dwarven worker.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 130000,
     "always": [
       {
         "itemId": "bones",
@@ -5715,7 +5715,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_dwarf.png",
     "examine": "A dwarf gone bad.",
     "category": "mid",
-    "unlockCost": 68000,
+    "unlockCost": 6400000,
     "always": [
       {
         "itemId": "bones",
@@ -5981,7 +5981,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Gunthor_the_brave.png",
     "examine": "A mighty warrior!",
     "category": "low",
-    "unlockCost": 24000,
+    "unlockCost": 1800000,
     "always": [
       {
         "itemId": "bones",
@@ -6233,7 +6233,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jailer.png",
     "examine": "Guards prisoners for the black knights.",
     "category": "mid",
-    "unlockCost": 65000,
+    "unlockCost": 6100000,
     "always": [
       {
         "itemId": "bones",
@@ -6260,7 +6260,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_Heather.png",
     "examine": "Has a fearsome scowl.",
     "category": "mid",
-    "unlockCost": 33000,
+    "unlockCost": 2700000,
     "always": [
       {
         "itemId": "bones",
@@ -6583,7 +6583,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Donny_the_lad.png",
     "examine": "Has a fearsome posture.",
     "category": "mid",
-    "unlockCost": 33000,
+    "unlockCost": 2700000,
     "always": [
       {
         "itemId": "bones",
@@ -6906,7 +6906,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Speedy_Keith.png",
     "examine": "Nice hair.",
     "category": "mid",
-    "unlockCost": 33000,
+    "unlockCost": 2700000,
     "always": [
       {
         "itemId": "bones",
@@ -7229,7 +7229,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Salarin_the_twisted.png",
     "examine": "Twisted by name, twisted by nature.",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "bones",
@@ -7509,7 +7509,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Corporeal_Beast.png",
     "examine": "A vision of supernatural horror.",
     "category": "mid",
-    "unlockCost": 24000000,
+    "unlockCost": 6900000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -7884,7 +7884,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dark_energy_core.png",
     "examine": "A small being of dark energy.",
     "category": "mid",
-    "unlockCost": 170000,
+    "unlockCost": 19000000,
     "always": [
       {
         "itemId": "ashes",
@@ -7901,10 +7901,10 @@
     "id": "cave-crawler",
     "name": "Cave crawler",
     "combatLevel": 23,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_crawler_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_crawler.png",
     "examine": "A spiky crawling critter.",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -8239,7 +8239,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kurask.png",
     "examine": "Large, heavy, with sharp things attached to its head.",
     "category": "mid",
-    "unlockCost": 360000,
+    "unlockCost": 46000000,
     "always": [
       {
         "itemId": "bones",
@@ -8678,7 +8678,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Gargoyle.png",
     "examine": "Flies like a rock.",
     "category": "mid",
-    "unlockCost": 390000,
+    "unlockCost": 52000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -8948,7 +8948,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Banshee.png",
     "examine": "A tortured screaming soul.",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -9249,7 +9249,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Basilisk.png",
     "examine": "The eyes of evil.",
     "category": "mid",
-    "unlockCost": 110000,
+    "unlockCost": 12000000,
     "always": [
       {
         "itemId": "bones",
@@ -9578,7 +9578,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Cockatrice.png",
     "examine": "The winged reptile.",
     "category": "mid",
-    "unlockCost": 39000,
+    "unlockCost": 3300000,
     "always": [
       {
         "itemId": "bones",
@@ -9963,7 +9963,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Rockslug.png",
     "examine": "The slime of evil.",
     "category": "low",
-    "unlockCost": 24000,
+    "unlockCost": 1800000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -10204,10 +10204,10 @@
     "id": "turoth",
     "name": "Turoth",
     "combatLevel": 86,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Turoth_(lv_83).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Turoth.png",
     "examine": "It's one small leg short!",
     "category": "mid",
-    "unlockCost": 230000,
+    "unlockCost": 27000000,
     "always": [
       {
         "itemId": "bones",
@@ -10599,7 +10599,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Pyrefiend.png",
     "examine": "A small fire demon.",
     "category": "mid",
-    "unlockCost": 54000,
+    "unlockCost": 4800000,
     "always": [
       {
         "itemId": "fiendish-ashes",
@@ -10844,7 +10844,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jelly.png",
     "examine": "Looks scared to see me.",
     "category": "mid",
-    "unlockCost": 190000,
+    "unlockCost": 21000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -11060,7 +11060,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Infernal_Mage.png",
     "examine": "An evil magic user.",
     "category": "mid",
-    "unlockCost": 130000,
+    "unlockCost": 14000000,
     "always": [
       {
         "itemId": "bones",
@@ -11417,7 +11417,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Lizard.png",
     "examine": "Run away, it's massive!",
     "category": "mid",
-    "unlockCost": 51000,
+    "unlockCost": 4600000,
     "always": [
       {
         "itemId": "big-bones",
@@ -11767,7 +11767,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Desert_Lizard.png",
     "examine": "A cold-blooded creature, partial to warmth.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "bones",
@@ -12096,7 +12096,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Small_Lizard.png",
     "examine": "A small cold-blooded creature, partial to warmth.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 200000,
     "always": [
       {
         "itemId": "bones",
@@ -12425,7 +12425,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Harpie_Bug_Swarm.png",
     "examine": "A swarm of bugs.",
     "category": "mid",
-    "unlockCost": 62000,
+    "unlockCost": 5700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -12648,7 +12648,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skeletal_Wyvern.png",
     "examine": "A very dangerous pile of animated wyvern bones.",
     "category": "mid",
-    "unlockCost": 640000,
+    "unlockCost": 93000000,
     "always": [
       {
         "itemId": "wyvern-bones",
@@ -13006,7 +13006,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Killerwatt.png",
     "examine": "An angry electrical shock!",
     "category": "mid",
-    "unlockCost": 90000,
+    "unlockCost": 9000000,
     "always": [
       {
         "itemId": "ashes",
@@ -13342,7 +13342,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Wall_beast.png",
     "examine": "A big, scary hand!",
     "category": "mid",
-    "unlockCost": 71000,
+    "unlockCost": 6700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -13495,7 +13495,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_frog.png",
     "examine": "It didn't get that big eating flies.",
     "category": "mid",
-    "unlockCost": 310000,
+    "unlockCost": 39000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -13632,10 +13632,10 @@
     "id": "big-frog",
     "name": "Big frog",
     "combatLevel": 24,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_frog.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Big_frog.png",
     "examine": "It didn't get that big eating flies.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "big-frog-leg",
@@ -13719,7 +13719,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Cave_slime.png",
     "examine": "A foul-smelling blob of protoplasm.",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [
       {
         "itemId": "swamp-tar",
@@ -13933,7 +13933,7 @@
     "id": "cave-bug",
     "name": "Cave bug",
     "combatLevel": 6,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_bug_(level_6).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_bug.png",
     "examine": "A nasty crawling critter.",
     "category": "low",
     "unlockCost": 0,
@@ -14131,7 +14131,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bloodveld.png",
     "examine": "The tongue of evil.",
     "category": "mid",
-    "unlockCost": 180000,
+    "unlockCost": 20000000,
     "always": [
       {
         "itemId": "vile-ashes",
@@ -14495,7 +14495,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Cave_kraken.png",
     "examine": "Kraken' good time!",
     "category": "mid",
-    "unlockCost": 520000,
+    "unlockCost": 73000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -15003,7 +15003,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kraken.png",
     "examine": "We'll fight, until world's end.",
     "category": "boss",
-    "unlockCost": 24000000,
+    "unlockCost": 23000000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -15389,7 +15389,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Smoke_devil.png",
     "examine": "Stay away from smoke, kids.",
     "category": "mid",
-    "unlockCost": 850000,
+    "unlockCost": 130000000,
     "always": [
       {
         "itemId": "ashes",
@@ -15713,7 +15713,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Thermonuclear_smoke_devil.png",
     "examine": "Woah.",
     "category": "boss",
-    "unlockCost": 26000000,
+    "unlockCost": 25000000000,
     "always": [
       {
         "itemId": "ashes",
@@ -16143,7 +16143,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Soulless.png",
     "examine": "A servant to Iban.",
     "category": "low",
-    "unlockCost": 8700,
+    "unlockCost": 550000,
     "always": [
       {
         "itemId": "bones",
@@ -16163,7 +16163,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Death_wing.png",
     "examine": "A shadowy, barely visible flying entity from some evil place.",
     "category": "mid",
-    "unlockCost": 210000,
+    "unlockCost": 25000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -16183,7 +16183,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dark_wizard.png",
     "examine": "A practicer of dark arts.",
     "category": "low",
-    "unlockCost": 11000,
+    "unlockCost": 720000,
     "always": [
       {
         "itemId": "bones",
@@ -16414,7 +16414,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Invrigar_the_Necromancer.png",
     "examine": "An evil user of Magic powerssic",
     "category": "low",
-    "unlockCost": 11000,
+    "unlockCost": 720000,
     "always": [
       {
         "itemId": "bones",
@@ -16648,10 +16648,10 @@
     "id": "black-knight",
     "name": "Black Knight",
     "combatLevel": 33,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Knight_(male).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Knight.png",
     "examine": "A dark-hearted knight.",
     "category": "mid",
-    "unlockCost": 31000,
+    "unlockCost": 2500000,
     "always": [
       {
         "itemId": "bones",
@@ -17099,7 +17099,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_druid.png",
     "examine": "A crazy, evil druid.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "bones",
@@ -17411,10 +17411,10 @@
     "id": "pirate",
     "name": "Pirate",
     "combatLevel": 23,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Pirate_(Brimhaven).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Pirate.png",
     "examine": "Yar! Shiver me timbers!",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [
       {
         "itemId": "bones",
@@ -17680,7 +17680,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Thug.png",
     "examine": "Low on brains, high on aggression.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 130000,
     "always": [
       {
         "itemId": "bones",
@@ -17897,7 +17897,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Rogue.png",
     "examine": "Rogueish.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 350000,
     "always": [
       {
         "itemId": "bones",
@@ -18139,10 +18139,10 @@
     "id": "monk-of-zamorak",
     "name": "Monk of Zamorak",
     "combatLevel": 22,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Monk_of_Zamorak_(level_17).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Monk_of_Zamorak.png",
     "examine": "An evil human cleric.",
     "category": "low",
-    "unlockCost": 13000,
+    "unlockCost": 910000,
     "always": [
       {
         "itemId": "bones",
@@ -18191,7 +18191,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Tribesman.png",
     "examine": "A vicious warrior.",
     "category": "mid",
-    "unlockCost": 29000,
+    "unlockCost": 2300000,
     "always": [
       {
         "itemId": "bones",
@@ -18758,7 +18758,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_druid_warrior.png",
     "examine": "A crazy evil druid.",
     "category": "mid",
-    "unlockCost": 39000,
+    "unlockCost": 3300000,
     "always": [
       {
         "itemId": "bones",
@@ -19063,10 +19063,10 @@
     "id": "zygomite",
     "name": "Zygomite",
     "combatLevel": 74,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zygomite_(level_74).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zygomite.png",
     "examine": "A bouncy fungus.",
     "category": "mid",
-    "unlockCost": 170000,
+    "unlockCost": 19000000,
     "always": [
       {
         "itemId": "ashes",
@@ -19527,10 +19527,10 @@
     "id": "sorebones",
     "name": "Sorebones",
     "combatLevel": 57,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Sorebones_(jacket).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Sorebones.png",
     "examine": "Bedside manner is a little lacking, I think.",
     "category": "mid",
-    "unlockCost": 97000,
+    "unlockCost": 9800000,
     "always": [
       {
         "itemId": "bones",
@@ -19884,10 +19884,10 @@
     "id": "zombie-pirate",
     "name": "Zombie pirate",
     "combatLevel": 57,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_pirate_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_pirate.png",
     "examine": "Aaaarg, me hearty!",
     "category": "mid",
-    "unlockCost": 97000,
+    "unlockCost": 9800000,
     "always": [
       {
         "itemId": "bones",
@@ -20444,10 +20444,10 @@
     "id": "zombie-swab",
     "name": "Zombie swab",
     "combatLevel": 55,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_swab_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_swab.png",
     "examine": "He talks a good fight.",
     "category": "mid",
-    "unlockCost": 90000,
+    "unlockCost": 9000000,
     "always": [
       {
         "itemId": "bones",
@@ -20776,7 +20776,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Evil_spirit.png",
     "examine": "The pun was intended.",
     "category": "mid",
-    "unlockCost": 740000,
+    "unlockCost": 110000000,
     "always": [
       {
         "itemId": "ashes",
@@ -20796,7 +20796,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Fever_spider.png",
     "examine": "A bunch of legs, eyes and teeth.",
     "category": "mid",
-    "unlockCost": 71000,
+    "unlockCost": 6700000,
     "always": [
       {
         "itemId": "fever-spider-body",
@@ -20824,7 +20824,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Tyras_guard.png",
     "examine": "One of King Tyras's men.",
     "category": "mid",
-    "unlockCost": 390000,
+    "unlockCost": 51000000,
     "always": [
       {
         "itemId": "bones",
@@ -21055,7 +21055,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Arrg.png",
     "examine": "A massive, scary-looking troll.",
     "category": "mid",
-    "unlockCost": 410000,
+    "unlockCost": 54000000,
     "always": [
       {
         "itemId": "bones",
@@ -21470,7 +21470,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ice_wolf.png",
     "examine": "Not man's best friend.",
     "category": "mid",
-    "unlockCost": 290000,
+    "unlockCost": 36000000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -21495,10 +21495,10 @@
     "id": "ice-troll",
     "name": "Ice Troll",
     "combatLevel": 124,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Ice_troll_(level_120,_1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ice_Troll.png",
     "examine": "Brrrrr...he must be cold!",
     "category": "mid",
-    "unlockCost": 500000,
+    "unlockCost": 68000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -21821,7 +21821,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Damis.png",
     "examine": "The warrior of darkness.",
     "category": "mid",
-    "unlockCost": 340000,
+    "unlockCost": 43000000,
     "always": [
       {
         "itemId": "shadow-diamond",
@@ -21841,7 +21841,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bandit.png",
     "examine": "A wilderness outlaw.",
     "category": "low",
-    "unlockCost": 13000,
+    "unlockCost": 910000,
     "always": [
       {
         "itemId": "bones",
@@ -22156,7 +22156,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mummy.png",
     "examine": "Highly flammable!",
     "category": "mid",
-    "unlockCost": 290000,
+    "unlockCost": 36000000,
     "always": [
       {
         "itemId": "ashes",
@@ -22513,7 +22513,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bandit_champion.png",
     "examine": "A very tough-looking bandit.",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "bones",
@@ -22547,7 +22547,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Baby_Roc.png",
     "examine": "A mountain-dwelling bird. Cute, but vicious.",
     "category": "mid",
-    "unlockCost": 170000,
+    "unlockCost": 19000000,
     "always": [
       {
         "itemId": "bones",
@@ -22567,7 +22567,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Roc.png",
     "examine": "A very, very large mountain-dwelling bird.",
     "category": "mid",
-    "unlockCost": 990000,
+    "unlockCost": 160000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -22602,7 +22602,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Me.png",
     "examine": "It's like looking in the mirror.",
     "category": "mid",
-    "unlockCost": 190000,
+    "unlockCost": 22000000,
     "always": [
       {
         "itemId": "bones",
@@ -22619,10 +22619,10 @@
     "id": "suqah",
     "name": "Suqah",
     "combatLevel": 111,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Suqah_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Suqah.png",
     "examine": "A strange creature unique to Lunar Isle.",
     "category": "mid",
-    "unlockCost": 390000,
+    "unlockCost": 52000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -22783,7 +22783,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Scarab_Mage.png",
     "examine": "Part scarab, part human.",
     "category": "mid",
-    "unlockCost": 270000,
+    "unlockCost": 33000000,
     "always": [
       {
         "itemId": "bones",
@@ -23145,10 +23145,10 @@
     "id": "locust-rider",
     "name": "Locust rider",
     "combatLevel": 106,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Locust_rider_(ranged).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Locust_rider.png",
     "examine": "A mounted lancer.",
     "category": "mid",
-    "unlockCost": 360000,
+    "unlockCost": 46000000,
     "always": [
       {
         "itemId": "bones",
@@ -23520,7 +23520,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Scarab.png",
     "examine": "A huge scarab.",
     "category": "mid",
-    "unlockCost": 1200000,
+    "unlockCost": 200000000,
     "always": [
       {
         "itemId": "keris",
@@ -23557,10 +23557,10 @@
     "id": "icelord",
     "name": "Icelord",
     "combatLevel": 51,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Icelord_(melee).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Icelord.png",
     "examine": "Sturdy cold being.",
     "category": "mid",
-    "unlockCost": 77000,
+    "unlockCost": 7400000,
     "always": [
       {
         "itemId": "big-bones",
@@ -23592,10 +23592,10 @@
     "id": "zogre",
     "name": "Zogre",
     "combatLevel": 44,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zogre_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zogre.png",
     "examine": "A partially decomposing zombie ogre.",
     "category": "mid",
-    "unlockCost": 57000,
+    "unlockCost": 5100000,
     "always": [
       {
         "itemId": "ogre-coffin-key",
@@ -23634,10 +23634,10 @@
     "id": "skogre",
     "name": "Skogre",
     "combatLevel": 44,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Skogre_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skogre.png",
     "examine": "It's falling apart!",
     "category": "mid",
-    "unlockCost": 57000,
+    "unlockCost": 5100000,
     "always": [
       {
         "itemId": "zogre-bones",
@@ -23664,7 +23664,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Slash_Bash.png",
     "examine": "A powerful looking Zogre.",
     "category": "mid",
-    "unlockCost": 390000,
+    "unlockCost": 52000000,
     "always": [
       {
         "itemId": "zogre-bones",
@@ -23706,7 +23706,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Moss_Guardian.png",
     "examine": "Bigger than your average moss giant.",
     "category": "mid",
-    "unlockCost": 220000,
+    "unlockCost": 26000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -23748,7 +23748,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Agrith_Naar.png",
     "examine": "A summoned demon.",
     "category": "mid",
-    "unlockCost": 320000,
+    "unlockCost": 40000000,
     "always": [
       {
         "itemId": "vile-ashes",
@@ -23768,7 +23768,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Stick.png",
     "examine": "A big, bad troll.",
     "category": "mid",
-    "unlockCost": 340000,
+    "unlockCost": 44000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -24127,7 +24127,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Pee_Hat.png",
     "examine": "A nasty looking troll.",
     "category": "mid",
-    "unlockCost": 260000,
+    "unlockCost": 32000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -24486,7 +24486,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kraka.png",
     "examine": "A nasty looking troll.",
     "category": "mid",
-    "unlockCost": 260000,
+    "unlockCost": 32000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -24845,7 +24845,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Thrower_Troll.png",
     "examine": "Small for a troll but mean, ugly and throws rocks.",
     "category": "mid",
-    "unlockCost": 140000,
+    "unlockCost": 15000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -25365,7 +25365,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mountain_troll.png",
     "examine": "Small for a troll but mean and ugly.",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -25885,7 +25885,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ghast.png",
     "examine": "Arrghhh... A ghast!",
     "category": "mid",
-    "unlockCost": 25000,
+    "unlockCost": 2000000,
     "always": [
       {
         "itemId": "bones",
@@ -26186,7 +26186,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kalphite_Worker.png",
     "examine": "I don't think insect repellent will work...",
     "category": "low",
-    "unlockCost": 22000,
+    "unlockCost": 1700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -26507,7 +26507,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kalphite_Guardian.png",
     "examine": "I don't think insect repellent will work...",
     "category": "mid",
-    "unlockCost": 650000,
+    "unlockCost": 94000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -26741,10 +26741,10 @@
     "id": "dagannoth-mother",
     "name": "Dagannoth mother",
     "combatLevel": 100,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_mother_white.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_mother.png",
     "examine": "A horror from the ocean depths...",
     "category": "mid",
-    "unlockCost": 320000,
+    "unlockCost": 40000000,
     "always": [
       {
         "itemId": "bones",
@@ -26771,7 +26771,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sigmund.png",
     "examine": "Former advisor to the Duke of Lumbridge.",
     "category": "mid",
-    "unlockCost": 74000,
+    "unlockCost": 7100000,
     "always": [
       {
         "itemId": "key-the-lost-tribe",
@@ -26791,7 +26791,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Necromancer.png",
     "examine": "A crazy evil necromancer.",
     "category": "low",
-    "unlockCost": 19000,
+    "unlockCost": 1400000,
     "always": [
       {
         "itemId": "bones",
@@ -26945,7 +26945,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Guard_Bandit.png",
     "examine": "Bandit Camp guard.",
     "category": "low",
-    "unlockCost": 13000,
+    "unlockCost": 910000,
     "always": [
       {
         "itemId": "bones",
@@ -26987,7 +26987,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Snake.png",
     "examine": "Snake! Snaaaaake!",
     "category": "mid",
-    "unlockCost": 35000,
+    "unlockCost": 2900000,
     "always": [
       {
         "itemId": "bones",
@@ -27015,7 +27015,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Albino_bat.png",
     "examine": "It's all white by me.",
     "category": "mid",
-    "unlockCost": 80000,
+    "unlockCost": 7800000,
     "always": [
       {
         "itemId": "bat-bones",
@@ -27035,7 +27035,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jungle_horror.png",
     "examine": "A horrible, emaciated ape like creature with beady red eyes.",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "bones",
@@ -27383,10 +27383,10 @@
     "id": "cave-horror",
     "name": "Cave horror",
     "combatLevel": 80,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_horror_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_horror.png",
     "examine": "A horrible, emaciated ape like creature with beady red eyes.",
     "category": "mid",
-    "unlockCost": 200000,
+    "unlockCost": 23000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -27846,10 +27846,10 @@
     "id": "angry-giant-rat",
     "name": "Angry giant rat",
     "combatLevel": 45,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Angry_giant_rat_(level_45,_1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Angry_giant_rat.png",
     "examine": "He looks a little on the cross side!",
     "category": "mid",
-    "unlockCost": 59000,
+    "unlockCost": 5400000,
     "always": [
       {
         "itemId": "bones",
@@ -27869,7 +27869,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sea_Snake_Young.png",
     "examine": "Snake, snake, oh, it's a young snake...",
     "category": "mid",
-    "unlockCost": 250000,
+    "unlockCost": 31000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -28373,7 +28373,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sea_Snake_Hatchling.png",
     "examine": "A baby sea snake. Snaaaaaaake!",
     "category": "mid",
-    "unlockCost": 120000,
+    "unlockCost": 12000000,
     "always": [
       {
         "itemId": "bones",
@@ -28611,7 +28611,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Sea_Snake.png",
     "examine": "A big snake that lives in the sea. How did it get in here?",
     "category": "mid",
-    "unlockCost": 730000,
+    "unlockCost": 110000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -29119,10 +29119,10 @@
     "id": "giant-scarab-hard",
     "name": "Giant Scarab (hard)",
     "combatLevel": 316,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Scarab.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Scarab_(hard).png",
     "examine": "A huge scarab.",
     "category": "mid",
-    "unlockCost": 3600000,
+    "unlockCost": 710000000,
     "always": [
       {
         "itemId": "keris",
@@ -29139,10 +29139,10 @@
     "id": "dessous-hard",
     "name": "Dessous (hard)",
     "combatLevel": 217,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dessous.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dessous_(hard).png",
     "examine": "A vampyre warrior of Zamorak.",
     "category": "mid",
-    "unlockCost": 1600000,
+    "unlockCost": 280000000,
     "always": [
       {
         "itemId": "vampyre-dust",
@@ -29159,10 +29159,10 @@
     "id": "kamil-hard",
     "name": "Kamil (hard)",
     "combatLevel": 273,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Kamil.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Kamil_(hard).png",
     "examine": "Ice warrior.",
     "category": "mid",
-    "unlockCost": 2600000,
+    "unlockCost": 490000000,
     "always": [
       {
         "itemId": "chocolate-cake",
@@ -29186,10 +29186,10 @@
     "id": "damis-hard",
     "name": "Damis (hard)",
     "combatLevel": 200,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Damis_first_form.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Damis_(hard).png",
     "examine": "The warrior of darkness.",
     "category": "mid",
-    "unlockCost": 1400000,
+    "unlockCost": 230000000,
     "always": [
       {
         "itemId": "shadow-diamond",
@@ -29209,7 +29209,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Paladin.png",
     "examine": "A holy warrior.",
     "category": "mid",
-    "unlockCost": 100000,
+    "unlockCost": 11000000,
     "always": [
       {
         "itemId": "bones",
@@ -29503,7 +29503,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Tree_spirit.png",
     "examine": "Guardian of the dramen tree.",
     "category": "mid",
-    "unlockCost": 320000,
+    "unlockCost": 41000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -29901,7 +29901,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Khazard_Guard.png",
     "examine": "It's one of General Khazard's guards.",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [
       {
         "itemId": "bones",
@@ -29921,7 +29921,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bouncer.png",
     "examine": "Postie Pete's worst nightmare.",
     "category": "mid",
-    "unlockCost": 610000,
+    "unlockCost": 88000000,
     "always": [
       {
         "itemId": "vile-ashes",
@@ -29968,7 +29968,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Vulture.png",
     "examine": "If you see them circling: run.",
     "category": "mid",
-    "unlockCost": 27000,
+    "unlockCost": 2100000,
     "always": [
       {
         "itemId": "bones",
@@ -29993,10 +29993,10 @@
     "id": "experiment",
     "name": "Experiment",
     "combatLevel": 51,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Experiment_(level_51).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Experiment.png",
     "examine": "It has a key hanging from its collar.",
     "category": "mid",
-    "unlockCost": 77000,
+    "unlockCost": 7400000,
     "always": [
       {
         "itemId": "bones",
@@ -30024,7 +30024,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Loar_Shade.png",
     "examine": "The shadowy remains of a long departed soul.",
     "category": "mid",
-    "unlockCost": 46000,
+    "unlockCost": 4000000,
     "always": [
       {
         "itemId": "loar-remains",
@@ -30044,7 +30044,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Phrin_Shadow.png",
     "examine": "A shadowy sort of entity, kind of creepy looking.",
     "category": "mid",
-    "unlockCost": 110000,
+    "unlockCost": 11000000,
     "always": [
       {
         "itemId": "phrin-remains",
@@ -30064,7 +30064,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Phrin_Shade.png",
     "examine": "The shadowy remains of a long departed soul.",
     "category": "mid",
-    "unlockCost": 110000,
+    "unlockCost": 11000000,
     "always": [
       {
         "itemId": "phrin-remains",
@@ -30084,7 +30084,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Riyl_Shadow.png",
     "examine": "A shadowy sort of entity, kind of creepy looking.",
     "category": "mid",
-    "unlockCost": 200000,
+    "unlockCost": 23000000,
     "always": [
       {
         "itemId": "riyl-remains",
@@ -30104,7 +30104,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Riyl_Shade.png",
     "examine": "The shadowy remains of a long departed soul.",
     "category": "mid",
-    "unlockCost": 200000,
+    "unlockCost": 23000000,
     "always": [
       {
         "itemId": "riyl-remains",
@@ -30124,7 +30124,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Asyn_Shade.png",
     "examine": "The shadowy remains of a long departed soul.",
     "category": "mid",
-    "unlockCost": 320000,
+    "unlockCost": 40000000,
     "always": [
       {
         "itemId": "asyn-remains",
@@ -30144,7 +30144,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Fiyr_Shadow.png",
     "examine": "A shadowy sort of entity, kind of creepy looking.",
     "category": "mid",
-    "unlockCost": 460000,
+    "unlockCost": 63000000,
     "always": [
       {
         "itemId": "fiyr-remains",
@@ -30164,7 +30164,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Fiyr_Shade.png",
     "examine": "The shadowy remains of a long departed soul.",
     "category": "mid",
-    "unlockCost": 460000,
+    "unlockCost": 63000000,
     "always": [
       {
         "itemId": "fiyr-remains",
@@ -30181,10 +30181,10 @@
     "id": "afflicted",
     "name": "Afflicted",
     "combatLevel": 37,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Afflicted_(level_30).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Afflicted.png",
     "examine": "A local villager of Mort'ton.",
     "category": "mid",
-    "unlockCost": 39000,
+    "unlockCost": 3300000,
     "always": [
       {
         "itemId": "bones",
@@ -30447,10 +30447,10 @@
     "id": "dwarf-gang-member",
     "name": "Dwarf gang member",
     "combatLevel": 44,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf_gang_member_(1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf_gang_member.png",
     "examine": "A short stout menacing fellow.",
     "category": "mid",
-    "unlockCost": 57000,
+    "unlockCost": 5100000,
     "always": [
       {
         "itemId": "bones",
@@ -30470,7 +30470,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Slagilith.png",
     "examine": "This monster totally rocks!",
     "category": "mid",
-    "unlockCost": 270000,
+    "unlockCost": 32000000,
     "always": [
       {
         "itemId": "adamantite-ore",
@@ -30504,7 +30504,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Fire_elemental.png",
     "examine": "A fire elemental.",
     "category": "mid",
-    "unlockCost": 35000,
+    "unlockCost": 2900000,
     "always": [
       {
         "itemId": "ashes",
@@ -30756,7 +30756,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Earth_elemental.png",
     "examine": "An earth elemental.",
     "category": "mid",
-    "unlockCost": 35000,
+    "unlockCost": 2900000,
     "always": [
       {
         "itemId": "rock-elemental",
@@ -31022,7 +31022,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Air_elemental.png",
     "examine": "An air elemental.",
     "category": "mid",
-    "unlockCost": 33000,
+    "unlockCost": 2700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -31266,7 +31266,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Water_elemental.png",
     "examine": "A water elemental.",
     "category": "mid",
-    "unlockCost": 33000,
+    "unlockCost": 2700000,
     "always": [
       {
         "itemId": "vial-of-water",
@@ -31518,7 +31518,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/The_Kendal.png",
     "examine": "Is that a bear... or a man?",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "bones",
@@ -31542,10 +31542,10 @@
     "id": "camp-dweller",
     "name": "Camp dweller",
     "combatLevel": 31,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Camp_dweller_(level_25).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Camp_dweller.png",
     "examine": "One of the inhabitants of the camp.",
     "category": "mid",
-    "unlockCost": 27000,
+    "unlockCost": 2100000,
     "always": [
       {
         "itemId": "bones",
@@ -31562,10 +31562,10 @@
     "id": "black-guard",
     "name": "Black Guard",
     "combatLevel": 25,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Guard_(level_25,_1).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Guard.png",
     "examine": "A member of the Black Guard, a special division of the dwarven army.",
     "category": "low",
-    "unlockCost": 17000,
+    "unlockCost": 1300000,
     "always": [
       {
         "itemId": "bones",
@@ -31796,7 +31796,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Foreman.png",
     "examine": "The boss!",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [
       {
         "itemId": "bones",
@@ -31816,7 +31816,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jungle_Demon.png",
     "examine": "A Greater Jungle Demon. A magical aura emanates from its hide.",
     "category": "mid",
-    "unlockCost": 1300000,
+    "unlockCost": 210000000,
     "always": [
       {
         "itemId": "ashes",
@@ -31833,10 +31833,10 @@
     "id": "thief",
     "name": "Thief",
     "combatLevel": 16,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Thief_(Standard,_2).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Thief.png",
     "examine": "Known for his light-fingered qualities.",
     "category": "low",
-    "unlockCost": 6800,
+    "unlockCost": 410000,
     "always": [
       {
         "itemId": "bones",
@@ -32099,10 +32099,10 @@
     "id": "kebbit",
     "name": "Kebbit",
     "combatLevel": 13,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Common_kebbit.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Kebbit.png",
     "examine": "A little bigger than usual...",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "bones",
@@ -32129,7 +32129,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_hero.png",
     "examine": "An opponent from the grave. He seems unimpressed by your bone rummaging.",
     "category": "mid",
-    "unlockCost": 730000,
+    "unlockCost": 110000000,
     "always": [
       {
         "itemId": "bones",
@@ -32572,7 +32572,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_brute.png",
     "examine": "An ex-barbarian, willing to make you ex too.",
     "category": "mid",
-    "unlockCost": 570000,
+    "unlockCost": 80000000,
     "always": [
       {
         "itemId": "bones",
@@ -33015,7 +33015,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_warlord.png",
     "examine": "He's heartless.",
     "category": "mid",
-    "unlockCost": 570000,
+    "unlockCost": 80000000,
     "always": [
       {
         "itemId": "bones",
@@ -33458,7 +33458,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_heavy.png",
     "examine": "He's less heavy now.",
     "category": "mid",
-    "unlockCost": 570000,
+    "unlockCost": 80000000,
     "always": [
       {
         "itemId": "bones",
@@ -33901,7 +33901,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_thug.png",
     "examine": "Floats like an anvil, hits like a hammer.",
     "category": "mid",
-    "unlockCost": 570000,
+    "unlockCost": 80000000,
     "always": [
       {
         "itemId": "bones",
@@ -34344,7 +34344,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Fire_wizard.png",
     "examine": "Caution: HOT!",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "ashes",
@@ -34379,7 +34379,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Water_wizard.png",
     "examine": "Hydro-power!",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "ashes",
@@ -34414,7 +34414,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Earth_wizard.png",
     "examine": "His hands are covered in mud. At least, I hope that's mud.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "ashes",
@@ -34449,7 +34449,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Air_wizard.png",
     "examine": "At least he looks solid enough to fight.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 240000,
     "always": [
       {
         "itemId": "ashes",
@@ -34481,10 +34481,10 @@
     "id": "battle-mage",
     "name": "Battle mage",
     "combatLevel": 54,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Battle_mage_(Saradomin).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Battle_mage.png",
     "examine": "He kills in the name of Zamorak.",
     "category": "mid",
-    "unlockCost": 87000,
+    "unlockCost": 8600000,
     "always": [
       {
         "itemId": "bones",
@@ -34512,7 +34512,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ahrim_the_Blighted.png",
     "examine": "A vengeful spirit corrupted by dark magic.",
     "category": "boss",
-    "unlockCost": 2400000,
+    "unlockCost": 1500000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -34532,7 +34532,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dharok_the_Wretched.png",
     "examine": "A vengeful spirit corrupted by dark magic.",
     "category": "boss",
-    "unlockCost": 3400000,
+    "unlockCost": 2300000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -34552,7 +34552,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Guthan_the_Infested.png",
     "examine": "A vengeful spirit corrupted by dark magic.",
     "category": "boss",
-    "unlockCost": 3400000,
+    "unlockCost": 2300000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -34572,7 +34572,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Karil_the_Tainted.png",
     "examine": "A vengeful spirit corrupted by dark magic.",
     "category": "boss",
-    "unlockCost": 2400000,
+    "unlockCost": 1500000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -34592,7 +34592,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Torag_the_Corrupted.png",
     "examine": "A vengeful spirit corrupted by dark magic.",
     "category": "boss",
-    "unlockCost": 3400000,
+    "unlockCost": 2300000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -34612,7 +34612,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Verac_the_Defiled.png",
     "examine": "A vengeful spirit corrupted by dark magic.",
     "category": "boss",
-    "unlockCost": 3400000,
+    "unlockCost": 2300000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -34632,7 +34632,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Crypt_rat.png",
     "examine": "A nasty little rodent.",
     "category": "mid",
-    "unlockCost": 54000,
+    "unlockCost": 4800000,
     "always": [
       {
         "itemId": "bones",
@@ -34660,7 +34660,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_crypt_rat.png",
     "examine": "A nasty overgrown rodent.",
     "category": "mid",
-    "unlockCost": 180000,
+    "unlockCost": 20000000,
     "always": [
       {
         "itemId": "bones",
@@ -34684,10 +34684,10 @@
     "id": "double-agent",
     "name": "Double agent",
     "combatLevel": 65,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Uri.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Double_agent.png",
     "examine": "He's playing both sides!",
     "category": "mid",
-    "unlockCost": 130000,
+    "unlockCost": 14000000,
     "always": [
       {
         "itemId": "bones",
@@ -34715,7 +34715,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Scarab_Swarm.png",
     "examine": "I think they're some kind of beetle.",
     "category": "mid",
-    "unlockCost": 300000,
+    "unlockCost": 38000000,
     "always": [
       {
         "itemId": "bones",
@@ -34732,10 +34732,10 @@
     "id": "goat",
     "name": "Goat",
     "combatLevel": 23,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Goat_(tan).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Goat.png",
     "examine": "They'll eat anything!",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [
       {
         "itemId": "bones",
@@ -34759,10 +34759,10 @@
     "id": "billy-goat",
     "name": "Billy Goat",
     "combatLevel": 33,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Billy_Goat_(brown).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Billy_Goat.png",
     "examine": "They'll eat anything!",
     "category": "mid",
-    "unlockCost": 31000,
+    "unlockCost": 2500000,
     "always": [
       {
         "itemId": "bones",
@@ -34786,10 +34786,10 @@
     "id": "white-knight",
     "name": "White Knight",
     "combatLevel": 36,
-    "iconUrl": "https://oldschool.runescape.wiki/images/White_Knight_(initiate,_male).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/White_Knight.png",
     "examine": "Shiny armour!",
     "category": "mid",
-    "unlockCost": 37000,
+    "unlockCost": 3100000,
     "always": [
       {
         "itemId": "bones",
@@ -36259,7 +36259,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Gorak.png",
     "examine": "Comes with a vicious kick.",
     "category": "mid",
-    "unlockCost": 730000,
+    "unlockCost": 110000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -36629,7 +36629,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Stag.png",
     "examine": "A noble creature!",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 350000,
     "always": [
       {
         "itemId": "bones",
@@ -36684,7 +36684,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Evil_Chicken.png",
     "examine": "A fowl beast.",
     "category": "mid",
-    "unlockCost": 840000,
+    "unlockCost": 130000000,
     "always": [
       {
         "itemId": "bones",
@@ -36718,7 +36718,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Baby_black_dragon.png",
     "examine": "Young but still dangerous.",
     "category": "mid",
-    "unlockCost": 210000,
+    "unlockCost": 25000000,
     "always": [
       {
         "itemId": "babydragon-bones",
@@ -36746,7 +36746,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ice_troll_grunt.png",
     "examine": "A large ice troll.",
     "category": "mid",
-    "unlockCost": 320000,
+    "unlockCost": 40000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -37232,7 +37232,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_Elemental.png",
     "examine": "pUre A cHaOs of crEatuRe!",
     "category": "boss",
-    "unlockCost": 26000000,
+    "unlockCost": 26000000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -37526,7 +37526,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Oomlie_bird.png",
     "examine": "A jungle version of the chicken, but more vicious.",
     "category": "mid",
-    "unlockCost": 62000,
+    "unlockCost": 5700000,
     "always": [
       {
         "itemId": "bones",
@@ -37553,7 +37553,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Terrorbird.png",
     "examine": "A giant raptor.",
     "category": "low",
-    "unlockCost": 22000,
+    "unlockCost": 1700000,
     "always": [
       {
         "itemId": "bones",
@@ -37581,7 +37581,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mounted_terrorbird_gnome.png",
     "examine": "These gnomes know how to get around!",
     "category": "mid",
-    "unlockCost": 27000,
+    "unlockCost": 2100000,
     "always": [
       {
         "itemId": "bones",
@@ -37601,7 +37601,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Fire_giant.png",
     "examine": "A very large elemental adversary.",
     "category": "mid",
-    "unlockCost": 230000,
+    "unlockCost": 27000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -37888,7 +37888,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ice_giant.png",
     "examine": "He's got icicles in his beard.",
     "category": "mid",
-    "unlockCost": 84000,
+    "unlockCost": 8200000,
     "always": [
       {
         "itemId": "big-bones",
@@ -38393,7 +38393,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jogre.png",
     "examine": "An aggressive humanoid.",
     "category": "mid",
-    "unlockCost": 84000,
+    "unlockCost": 8200000,
     "always": [
       {
         "itemId": "jogre-bones",
@@ -38876,7 +38876,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Cyclops.png",
     "examine": "A one-eyed man eater.",
     "category": "mid",
-    "unlockCost": 94000,
+    "unlockCost": 9400000,
     "always": [
       {
         "itemId": "big-bones",
@@ -39356,10 +39356,10 @@
     "id": "market-guard",
     "name": "Market Guard",
     "combatLevel": 20,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Market_Guard_(Fremennik).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Market_Guard.png",
     "examine": "He guards the Draynor Market stalls from thieves.",
     "category": "low",
-    "unlockCost": 11000,
+    "unlockCost": 720000,
     "always": [
       {
         "itemId": "bones",
@@ -39695,7 +39695,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Undead_Druid.png",
     "examine": "A fallen worshiper of a forgotten religion.",
     "category": "mid",
-    "unlockCost": 350000,
+    "unlockCost": 45000000,
     "always": [
       {
         "itemId": "bones",
@@ -40238,7 +40238,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Hur.png",
     "examine": "Looks like a craftsman of some kind.",
     "category": "mid",
-    "unlockCost": 170000,
+    "unlockCost": 19000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -40353,10 +40353,10 @@
     "id": "tzhaar-xil",
     "name": "TzHaar-Xil",
     "combatLevel": 133,
-    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Xil_(sword).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Xil.png",
     "examine": "Doesn't look very social.",
     "category": "mid",
-    "unlockCost": 580000,
+    "unlockCost": 82000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -40429,10 +40429,10 @@
     "id": "tzhaar-ket",
     "name": "TzHaar-Ket",
     "combatLevel": 149,
-    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Ket_(level_149).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Ket.png",
     "examine": "Must be a guard or something.",
     "category": "mid",
-    "unlockCost": 730000,
+    "unlockCost": 110000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -40515,7 +40515,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Commander_Zilyana.png",
     "examine": "Commander of Saradomin's forces.",
     "category": "boss",
-    "unlockCost": 110000000,
+    "unlockCost": 140000000000,
     "always": [
       {
         "itemId": "bones",
@@ -40720,7 +40720,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Starlight.png",
     "examine": "Bane of darkness.",
     "category": "mid",
-    "unlockCost": 730000,
+    "unlockCost": 110000000,
     "always": [
       {
         "itemId": "bones",
@@ -40856,7 +40856,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Growler.png",
     "examine": "Defender of the faithful.",
     "category": "mid",
-    "unlockCost": 630000,
+    "unlockCost": 91000000,
     "always": [
       {
         "itemId": "bones",
@@ -40992,7 +40992,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bree.png",
     "examine": "Champion of truth.",
     "category": "mid",
-    "unlockCost": 700000,
+    "unlockCost": 100000000,
     "always": [
       {
         "itemId": "bones",
@@ -41128,7 +41128,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin_priest.png",
     "examine": "A holy man wearing ancient clothing.",
     "category": "mid",
-    "unlockCost": 410000,
+    "unlockCost": 54000000,
     "always": [
       {
         "itemId": "bones",
@@ -41167,10 +41167,10 @@
     "id": "spiritual-warrior",
     "name": "Spiritual warrior",
     "combatLevel": 125,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_warrior_(Zamorak).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_warrior.png",
     "examine": "Saradomin's chosen warrior.",
     "category": "mid",
-    "unlockCost": 510000,
+    "unlockCost": 70000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -41439,10 +41439,10 @@
     "id": "spiritual-ranger",
     "name": "Spiritual ranger",
     "combatLevel": 122,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_ranger_(Zamorak).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_ranger.png",
     "examine": "A ranger spirit dedicated to Saradomin.",
     "category": "mid",
-    "unlockCost": 480000,
+    "unlockCost": 66000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -41627,10 +41627,10 @@
     "id": "spiritual-mage",
     "name": "Spiritual mage",
     "combatLevel": 120,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_mage_(Zamorak).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_mage.png",
     "examine": "Saradomin's holy mage.",
     "category": "mid",
-    "unlockCost": 460000,
+    "unlockCost": 63000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -41918,7 +41918,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Knight_of_Saradomin.png",
     "examine": "A valiant knight.",
     "category": "mid",
-    "unlockCost": 340000,
+    "unlockCost": 43000000,
     "always": [
       {
         "itemId": "bones",
@@ -41960,7 +41960,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sergeant_Strongstack.png",
     "examine": "A battle-honed goblin.",
     "category": "mid",
-    "unlockCost": 650000,
+    "unlockCost": 94000000,
     "always": [
       {
         "itemId": "bones",
@@ -42129,7 +42129,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sergeant_Steelwill.png",
     "examine": "A battle-honed goblin.",
     "category": "mid",
-    "unlockCost": 660000,
+    "unlockCost": 96000000,
     "always": [
       {
         "itemId": "bones",
@@ -42298,7 +42298,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sergeant_Grimspike.png",
     "examine": "A battle-honed goblin.",
     "category": "mid",
-    "unlockCost": 660000,
+    "unlockCost": 96000000,
     "always": [
       {
         "itemId": "bones",
@@ -42467,7 +42467,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ork.png",
     "examine": "Ugly, fierce and with a bad attitude.",
     "category": "mid",
-    "unlockCost": 370000,
+    "unlockCost": 47000000,
     "always": [
       {
         "itemId": "bones",
@@ -42698,7 +42698,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Rock_Crab.png",
     "examine": "No one likes crabs... especially really big ones!",
     "category": "mid",
-    "unlockCost": 610000,
+    "unlockCost": 88000000,
     "always": [
       {
         "itemId": "bones",
@@ -43174,7 +43174,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_fledgeling.png",
     "examine": "A knee-high horror from the ocean depths...",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "bones",
@@ -43202,7 +43202,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_Supreme.png",
     "examine": "The dagannoth king responsible for the death of the Bukalla.",
     "category": "boss",
-    "unlockCost": 26000000,
+    "unlockCost": 26000000000,
     "always": [
       {
         "itemId": "dagannoth-bones",
@@ -43617,7 +43617,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_Prime.png",
     "examine": "A legendary dagannoth king, rumoured to fly on the North winds.",
     "category": "boss",
-    "unlockCost": 26000000,
+    "unlockCost": 26000000000,
     "always": [
       {
         "itemId": "dagannoth-bones",
@@ -44042,7 +44042,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_Rex.png",
     "examine": "Firstborn of the legendary dagannoth kings.",
     "category": "boss",
-    "unlockCost": 26000000,
+    "unlockCost": 26000000000,
     "always": [
       {
         "itemId": "dagannoth-bones",
@@ -44410,7 +44410,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Bronze_Armour.png",
     "examine": "Animated bronze armour.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 160000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44452,7 +44452,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Iron_Armour.png",
     "examine": "Animated iron armour.",
     "category": "low",
-    "unlockCost": 14000,
+    "unlockCost": 1000000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44494,7 +44494,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Steel_Armour.png",
     "examine": "Animated steel armour.",
     "category": "mid",
-    "unlockCost": 62000,
+    "unlockCost": 5700000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44536,7 +44536,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Black_Armour.png",
     "examine": "Animated black armour.",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44577,7 +44577,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Mithril_Armour.png",
     "examine": "Animated mithril armour.",
     "category": "mid",
-    "unlockCost": 270000,
+    "unlockCost": 32000000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44618,7 +44618,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Adamant_Armour.png",
     "examine": "Animated adamant armour.",
     "category": "mid",
-    "unlockCost": 410000,
+    "unlockCost": 54000000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44659,7 +44659,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Animated_Rune_Armour.png",
     "examine": "Animated rune armour.",
     "category": "mid",
-    "unlockCost": 620000,
+    "unlockCost": 89000000,
     "always": [
       {
         "itemId": "warrior-guild-token",
@@ -44700,7 +44700,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Catablepon.png",
     "examine": "Big... Cow-like... But cows don't have serpent tails!",
     "category": "mid",
-    "unlockCost": 71000,
+    "unlockCost": 6700000,
     "always": [
       {
         "itemId": "bones",
@@ -45071,10 +45071,10 @@
     "id": "giant-spider",
     "name": "Giant spider",
     "combatLevel": 50,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_spider_(Level_2).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_spider.png",
     "examine": "I think this spider has been genetically modified.",
     "category": "mid",
-    "unlockCost": 74000,
+    "unlockCost": 7100000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -45115,7 +45115,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Spider.png",
     "examine": "Incey wincey... with a nasty bite.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -45156,7 +45156,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Scorpion.png",
     "examine": "An extremely vicious scorpion.",
     "category": "mid",
-    "unlockCost": 100000,
+    "unlockCost": 11000000,
     "always": [
       {
         "itemId": "book-page-1",
@@ -45212,7 +45212,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Minotaur.png",
     "examine": "He doesn't look very pleased to see you.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 200000,
     "always": [
       {
         "itemId": "bones",
@@ -45489,7 +45489,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Flesh_Crawler.png",
     "examine": "I don't think insect repellent will work...",
     "category": "low",
-    "unlockCost": 22000,
+    "unlockCost": 1700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -45738,10 +45738,10 @@
     "id": "h-a-m-guard",
     "name": "H.A.M. Guard",
     "combatLevel": 12,
-    "iconUrl": "https://oldschool.runescape.wiki/images/H.A.M._Guard_(level_12).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/H.A.M._Guard.png",
     "examine": "A guard for the 'Humans Against Monsters' group.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 200000,
     "always": [
       {
         "itemId": "bones",
@@ -46111,7 +46111,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Abyssal_leech.png",
     "examine": "A blood-drinking denizen of the Abyss.",
     "category": "mid",
-    "unlockCost": 49000,
+    "unlockCost": 4300000,
     "always": [
       {
         "itemId": "ashes",
@@ -46283,7 +46283,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Abyssal_guardian.png",
     "examine": "It seems to have eyes in the back of its head...",
     "category": "mid",
-    "unlockCost": 100000,
+    "unlockCost": 11000000,
     "always": [
       {
         "itemId": "ashes",
@@ -46455,7 +46455,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Abyssal_walker.png",
     "examine": "Apparently walks the Abyss.",
     "category": "mid",
-    "unlockCost": 200000,
+    "unlockCost": 24000000,
     "always": [
       {
         "itemId": "ashes",
@@ -46634,7 +46634,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mogre.png",
     "examine": "An angry Ogre in a funny hat.",
     "category": "mid",
-    "unlockCost": 110000,
+    "unlockCost": 11000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -46974,10 +46974,10 @@
     "id": "werewolf",
     "name": "Werewolf",
     "combatLevel": 88,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Werewolf_(Boris).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Werewolf.png",
     "examine": "Eek! A werewolf!",
     "category": "mid",
-    "unlockCost": 240000,
+    "unlockCost": 29000000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -47236,7 +47236,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Boris.png",
     "examine": "A travelingsic|Jagex and the wiki use British English, where travelling is the appropriate spelling. man. Are those fleas?",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -47635,7 +47635,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Imre.png",
     "examine": "A well organised shop keeper.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -48034,7 +48034,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Yuri.png",
     "examine": "He's staring at the moon.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -48433,7 +48433,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Joseph.png",
     "examine": "He keeps calling me comrade.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -48832,7 +48832,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Nikolai.png",
     "examine": "There's a set of brows that mean business.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -49231,7 +49231,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Eduard.png",
     "examine": "This is one feral looking innkeeper.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -49630,7 +49630,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Lev.png",
     "examine": "A tough looking villager.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -50029,7 +50029,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Georgy.png",
     "examine": "A simple villager.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -50428,7 +50428,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Svetlana.png",
     "examine": "Seems a bit of a drama queen.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -50827,7 +50827,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Irina.png",
     "examine": "I bet she works out.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -51226,7 +51226,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Alexis.png",
     "examine": "She doesn't say much.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -51625,7 +51625,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Milla.png",
     "examine": "She looks like she can handle herself.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -52024,7 +52024,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Galina.png",
     "examine": "She seems light on her feet.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -52423,7 +52423,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sofiya.png",
     "examine": "A wise villager.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -52822,7 +52822,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ksenia.png",
     "examine": "Not exactly a warrior princess.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -53221,7 +53221,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Yadviga.png",
     "examine": "A well off villager.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -53620,7 +53620,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Nikita.png",
     "examine": "The woman.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -54019,7 +54019,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Vera.png",
     "examine": "She seems sure of herself.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -54418,7 +54418,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Zoja.png",
     "examine": "A healthy villager.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -54817,7 +54817,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Liliya.png",
     "examine": "She's looking for flowers.",
     "category": "low",
-    "unlockCost": 16000,
+    "unlockCost": 1100000,
     "always": [
       {
         "itemId": "wolf-bones",
@@ -55213,7 +55213,7 @@
     "id": "myre-blamish-snail",
     "name": "Myre Blamish Snail",
     "combatLevel": 9,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Myre_blamish_snail_(rounded).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Myre_Blamish_Snail.png",
     "examine": "A marsh coloured blamish snail, these types are said to spit acid.",
     "category": "low",
     "unlockCost": 0,
@@ -55247,10 +55247,10 @@
     "id": "blood-blamish-snail",
     "name": "Blood Blamish Snail",
     "combatLevel": 20,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Blood_Blamish_Snail_(round).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Blood_Blamish_Snail.png",
     "examine": "A blood coloured blamish snail, these types are said to spit acid.",
     "category": "low",
-    "unlockCost": 11000,
+    "unlockCost": 720000,
     "always": [
       {
         "itemId": "fat-snail",
@@ -55274,10 +55274,10 @@
     "id": "ochre-blamish-snail",
     "name": "Ochre Blamish Snail",
     "combatLevel": 10,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Ochre_Blamish_Snail_(round).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ochre_Blamish_Snail.png",
     "examine": "A muddy coloured blamish snail, these types are said to spit acid.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 130000,
     "always": [
       {
         "itemId": "blamish-ochre-shell-round",
@@ -55308,10 +55308,10 @@
     "id": "bruise-blamish-snail",
     "name": "Bruise Blamish Snail",
     "combatLevel": 20,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Bruise_Blamish_Snail_(round).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bruise_Blamish_Snail.png",
     "examine": "A bruise blue coloured blamish snail, these types are said to spit acid.",
     "category": "low",
-    "unlockCost": 11000,
+    "unlockCost": 720000,
     "always": [
       {
         "itemId": "fat-snail",
@@ -55338,7 +55338,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bark_Blamish_Snail.png",
     "examine": "A branch bark coloured blamish snail, these types are said to spit acid.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 350000,
     "always": [
       {
         "itemId": "blamish-bark-shell",
@@ -55442,7 +55442,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_bat.png",
     "examine": "An annoying flappy thing.",
     "category": "low",
-    "unlockCost": 20000,
+    "unlockCost": 1500000,
     "always": [
       {
         "itemId": "bat-bones",
@@ -55484,7 +55484,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Golem.png",
     "examine": "A creature made from clay.",
     "category": "mid",
-    "unlockCost": 90000,
+    "unlockCost": 9000000,
     "always": [
       {
         "itemId": "imbued-tephra",
@@ -55504,7 +55504,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Unicorn.png",
     "examine": "Horse with a horn.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 350000,
     "always": [
       {
         "itemId": "bones",
@@ -55543,10 +55543,10 @@
     "id": "grizzly-bear",
     "name": "Grizzly bear",
     "combatLevel": 21,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Grizzly_bear_(level_21).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Grizzly_bear.png",
     "examine": "Eek! A bear!",
     "category": "low",
-    "unlockCost": 12000,
+    "unlockCost": 810000,
     "always": [
       {
         "itemId": "bones",
@@ -55623,7 +55623,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_bear.png",
     "examine": "Eek! A bear!",
     "category": "low",
-    "unlockCost": 9700,
+    "unlockCost": 630000,
     "always": [
       {
         "itemId": "bones",
@@ -55700,7 +55700,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Earth_warrior.png",
     "examine": "A strange, inhuman, elemental warrior.",
     "category": "mid",
-    "unlockCost": 77000,
+    "unlockCost": 7400000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -56147,7 +56147,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ice_warrior.png",
     "examine": "A cold-hearted elemental warrior.",
     "category": "mid",
-    "unlockCost": 97000,
+    "unlockCost": 9800000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -56615,7 +56615,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Otherworldly_being.png",
     "examine": "Is he invisible or just a set of floating clothing?",
     "category": "mid",
-    "unlockCost": 120000,
+    "unlockCost": 13000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -56859,7 +56859,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Magic_axe.png",
     "examine": "A magic axe with a mind of its own.",
     "category": "mid",
-    "unlockCost": 51000,
+    "unlockCost": 4600000,
     "always": [
       {
         "itemId": "iron-battleaxe",
@@ -56978,7 +56978,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_unicorn.png",
     "examine": "A unicorn with a blackened heart.",
     "category": "low",
-    "unlockCost": 20000,
+    "unlockCost": 1500000,
     "always": [
       {
         "itemId": "bones",
@@ -57027,7 +57027,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Shadow_warrior.png",
     "examine": "A fighter from the supernatural world. He's a shadow of his former self.",
     "category": "mid",
-    "unlockCost": 68000,
+    "unlockCost": 6400000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -57285,7 +57285,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dungeon_rat.png",
     "examine": "A dirty rat.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 200000,
     "always": [
       {
         "itemId": "bones",
@@ -57361,7 +57361,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Waterfiend.png",
     "examine": "A fiendish embodiment of water.",
     "category": "mid",
-    "unlockCost": 430000,
+    "unlockCost": 57000000,
     "always": [
       {
         "itemId": "water-rune",
@@ -57919,7 +57919,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Brutal_green_dragon.png",
     "examine": "It appears intelligent and savage.",
     "category": "mid",
-    "unlockCost": 1800000,
+    "unlockCost": 310000000,
     "always": [
       {
         "itemId": "dragon-bones",
@@ -58200,7 +58200,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_dragon.png",
     "examine": "Experimenting with mithril gone bad!",
     "category": "mid",
-    "unlockCost": 3300000,
+    "unlockCost": 640000000,
     "always": [
       {
         "itemId": "dragon-bones",
@@ -58431,7 +58431,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Confused_barbarian.png",
     "examine": "He looks about, blankly.",
     "category": "mid",
-    "unlockCost": 570000,
+    "unlockCost": 80000000,
     "always": [
       {
         "itemId": "mangled-bones",
@@ -58451,7 +58451,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Lost_barbarian.png",
     "examine": "His face is expressionless.",
     "category": "mid",
-    "unlockCost": 570000,
+    "unlockCost": 80000000,
     "always": [
       {
         "itemId": "mangled-bones",
@@ -58471,7 +58471,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Nail_beast.png",
     "examine": "A huge nail beast. Its nails appear very sharp.",
     "category": "mid",
-    "unlockCost": 150000,
+    "unlockCost": 16000000,
     "always": [
       {
         "itemId": "big-bones",
@@ -58513,7 +58513,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorak_wizard.png",
     "examine": "A servant of Zamorak.",
     "category": "mid",
-    "unlockCost": 130000,
+    "unlockCost": 14000000,
     "always": [
       {
         "itemId": "bones",
@@ -58702,7 +58702,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin_wizard.png",
     "examine": "A follower of Saradomin.",
     "category": "mid",
-    "unlockCost": 370000,
+    "unlockCost": 48000000,
     "always": [
       {
         "itemId": "bones",
@@ -58884,7 +58884,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Big_Snake.png",
     "examine": "A big snake.",
     "category": "mid",
-    "unlockCost": 220000,
+    "unlockCost": 26000000,
     "always": [
       {
         "itemId": "bones",
@@ -58995,7 +58995,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_lobster.png",
     "examine": "An extremely vicious lobster.",
     "category": "mid",
-    "unlockCost": 29000,
+    "unlockCost": 2300000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59169,7 +59169,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Tortured_soul.png",
     "examine": "This poor soul cannot understand why it has not passed to the next world.",
     "category": "mid",
-    "unlockCost": 100000,
+    "unlockCost": 11000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59700,7 +59700,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Shadow_spider.png",
     "examine": "Is it a spider or is it a shadow?",
     "category": "mid",
-    "unlockCost": 80000,
+    "unlockCost": 7800000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59741,7 +59741,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Jungle_spider.png",
     "examine": "A barely visible deadly jungle spider.",
     "category": "mid",
-    "unlockCost": 57000,
+    "unlockCost": 5100000,
     "always": [
       {
         "itemId": "spider-carcass",
@@ -59761,7 +59761,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Deadly_red_spider.png",
     "examine": "I think this spider has been genetically modified.",
     "category": "mid",
-    "unlockCost": 33000,
+    "unlockCost": 2700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59802,7 +59802,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Ice_spider.png",
     "examine": "I think this spider has been genetically modified.",
     "category": "mid",
-    "unlockCost": 110000,
+    "unlockCost": 12000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59840,10 +59840,10 @@
     "id": "poison-spider",
     "name": "Poison spider",
     "combatLevel": 64,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Poison_spider_(Level_31).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Poison_spider.png",
     "examine": "I think this spider has been genetically modified.",
     "category": "mid",
-    "unlockCost": 120000,
+    "unlockCost": 13000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59884,7 +59884,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Poison_Scorpion.png",
     "examine": "It has a very vicious looking tail.",
     "category": "low",
-    "unlockCost": 11000,
+    "unlockCost": 720000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59911,7 +59911,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Pit_Scorpion.png",
     "examine": "Tiny, annoying, stinging thing.",
     "category": "low",
-    "unlockCost": 22000,
+    "unlockCost": 1700000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59938,7 +59938,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/King_Scorpion.png",
     "examine": "Wow! Scorpions shouldn't grow that big.",
     "category": "mid",
-    "unlockCost": 29000,
+    "unlockCost": 2300000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -59983,10 +59983,10 @@
     "id": "barbarian",
     "name": "Barbarian",
     "combatLevel": 17,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Barbarian_(Blue_Moon_Inn).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Barbarian.png",
     "examine": "Alberich, a fierce barbarian warrior.",
     "category": "low",
-    "unlockCost": 7700,
+    "unlockCost": 480000,
     "always": [
       {
         "itemId": "bones",
@@ -60151,7 +60151,7 @@
     "id": "farmer",
     "name": "Farmer",
     "combatLevel": 7,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Farmer_(straw_hat,_brown_hair).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Farmer.png",
     "examine": "He grows the crops in this area.",
     "category": "low",
     "unlockCost": 0,
@@ -60553,7 +60553,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/TzTok-Jad.png",
     "examine": "This is going to hurt...",
     "category": "mid",
-    "unlockCost": 19000000,
+    "unlockCost": 5200000000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -60573,7 +60573,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/K'ril_Tsutsaroth.png",
     "examine": "A servant of the god Zamorak.",
     "category": "boss",
-    "unlockCost": 130000000,
+    "unlockCost": 170000000000,
     "always": [
       {
         "itemId": "infernal-ashes",
@@ -60770,7 +60770,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Tstanon_Karlak.png",
     "examine": "Destroyer of 1000 planes!",
     "category": "mid",
-    "unlockCost": 690000,
+    "unlockCost": 100000000,
     "always": [
       {
         "itemId": "malicious-ashes",
@@ -60911,7 +60911,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Zakl'n_Gritch.png",
     "examine": "Scourge of the Light.",
     "category": "mid",
-    "unlockCost": 660000,
+    "unlockCost": 96000000,
     "always": [
       {
         "itemId": "malicious-ashes",
@@ -61059,7 +61059,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Balfrug_Kreeyath.png",
     "examine": "Despoiler of Ullek.",
     "category": "mid",
-    "unlockCost": 750000,
+    "unlockCost": 110000000,
     "always": [
       {
         "itemId": "malicious-ashes",
@@ -61473,7 +61473,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Feral_Vampyre.png",
     "examine": "A feral vampyre. It looks really hungry!",
     "category": "mid",
-    "unlockCost": 180000,
+    "unlockCost": 21000000,
     "always": [
       {
         "itemId": "vampyre-dust",
@@ -61907,7 +61907,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Icefiend.png",
     "examine": "A small ice demon.",
     "category": "low",
-    "unlockCost": 8700,
+    "unlockCost": 550000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -62053,7 +62053,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kree'arra.png",
     "examine": "Graceful avatar of Armadyl.",
     "category": "boss",
-    "unlockCost": 100000000,
+    "unlockCost": 130000000000,
     "always": [
       {
         "itemId": "big-bones",

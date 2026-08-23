@@ -1,4 +1,4 @@
-import { items as allItems } from "../data/npcData";
+import { useGameData } from "../hooks/useGameData";
 import type { ContainerOpenResult } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
@@ -9,6 +9,7 @@ interface ContainerModalProps {
 }
 
 export default function ContainerModal({ result, onClose }: ContainerModalProps) {
+  const { items: allItems } = useGameData();
   const coinsGained = result.drops
     .filter((d) => d.item.id === "coins")
     .reduce((sum, d) => sum + d.quantity, 0);

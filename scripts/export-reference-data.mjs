@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 /**
  * Exports npc/item reference data used to seed Postgres validation tables
- * (see supabase/migrations). Transpiles src/data/npcData.ts with esbuild
- * and loads it directly, so this is always in sync with the real app data
- * rather than a second hand-maintained copy.
+ * (see supabase/migrations). Transpiles src/data/npcData.ts with esbuild for
+ * its merge functions and hand-authored data, reads the bulk-generated
+ * public/data/*.json directly, and merges them the same way the browser
+ * does — so this is always in sync with the real app data rather than a
+ * second hand-maintained copy.
  *
  * Output: supabase/reference-data.json
  */
 import { build } from "esbuild";
-import { writeFileSync, mkdtempSync } from "node:fs";
+import { writeFileSync, readFileSync, mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -30,7 +32,11 @@ async function main() {
     format: "cjs",
     outfile,
   });
-  const { npcs, items, containers } = await import(`file://${outfile}`);
+  const { mergeNpcs, mergeItems, containers } = await import(`file://${outfile}`);
+  const generatedMonsters = JSON.parse(readFileSync(path.join(ROOT, "public/data/monsters.json"), "utf8"));
+  const generatedItems = JSON.parse(readFileSync(path.join(ROOT, "public/data/items.json"), "utf8"));
+  const npcs = mergeNpcs(generatedMonsters);
+  const items = mergeItems(generatedItems);
 
   const npcReference = npcs.map((npc) => {
     // Generous ceiling: guaranteed coins + best possible single main-table coin
@@ -58,9 +64,15 @@ async function main() {
   const out = { npcs: npcReference, items: itemReference, containers: containerReference };
   writeFileSync(path.join(ROOT, "supabase/reference-data.json"), JSON.stringify(out, null, 2));
 
-  writeFileSync(path.join(ROOT, "supabase/migrations/0003_seed_reference.sql"), toSeedSql(out));
+  // Supabase's migration tracker keys off filename, so re-running this
+  // against an already-migrated database requires a NEW file each time —
+  // overwriting 0003_seed_reference.sql's content wouldn't get re-applied.
+  const timestamp = new Date().toISOString().replace(/[-:TZ]|\.\d+/g, "").slice(0, 14);
+  const migrationPath = path.join(ROOT, `supabase/migrations/${timestamp}_reseed_reference_data.sql`);
+  writeFileSync(migrationPath, toSeedSql(out));
 
   console.log(`Exported ${npcReference.length} npcs, ${Object.keys(itemReference).length} items, ${Object.keys(containerReference).length} containers.`);
+  console.log(`Wrote migration: ${path.basename(migrationPath)} — run "supabase db push" to apply it.`);
 }
 
 function sqlString(s) {

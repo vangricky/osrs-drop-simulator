@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Lightweight daily refresh: updates the `value` field of every tradeable
- * item in src/data/generated/items.json using the OSRS Wiki's live GE
+ * item in public/data/items.json using the OSRS Wiki's live GE
  * prices. Cheap and fast — safe to run on a schedule (e.g. a daily GitHub
  * Actions cron). Does NOT touch monster data or hand-authored items in
  * npcData.ts; re-run generate-monsters.mjs for that (only needed after a
@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ITEMS_PATH = path.resolve(__dirname, "../src/data/generated/items.json");
+const ITEMS_PATH = path.resolve(__dirname, "../public/data/items.json");
 const UA = "osrs-drop-simulator-fan-site (daily price refresh)";
 
 async function fetchJson(url) {
