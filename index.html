@@ -2,6 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--
+      GitHub Pages can't set custom HTTP headers for a static site, so this
+      meta-tag CSP is the strongest policy available here. Note: the CSP
+      spec doesn't allow `frame-ancestors` in a <meta> tag — that directive
+      is silently ignored by browsers in this context, so clickjacking
+      protection isn't achievable without server-controlled headers.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'"
+    />
     <link rel="icon" type="image/png" href="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
