@@ -20,29 +20,21 @@ everything). No manual dashboard step needed here, unlike the email settings bel
 4. In **Settings → API**, copy the **Project URL** and the **anon public** key (not the `service_role` key — that one must never be exposed client-side).
 5. Give those two values to whoever manages the GitHub repo secrets (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) — the deploy workflow reads them from there. For local development, put them in a `.env` file (see `.env.example`).
 
-## Fixing auth emails ("Supabase Auth" sender, confirm link goes to localhost)
+## Auth emails (sender name, branded template, confirm-link domain)
 
-**Already done** (applied directly via the Management API on 2026-08-23): Site URL is set to
-`https://vangricky.github.io/osrs-drop-simulator/`, and Redirect URLs allow-lists both that and
-`http://localhost:5173/**` for local dev. Combined with the app's code, which explicitly asks Supabase to
-redirect back to wherever the user actually signed up from (`src/hooks/useAuth.ts`), confirm-email links no
-longer land on localhost.
+**Done** (applied directly via the Management API on 2026-08-23):
+- Site URL is `https://osrsdropsimulation.com/`; Redirect URLs allow-lists that, the old
+  `vangricky.github.io/osrs-drop-simulator/**` (kept as a fallback during the DNS/HTTPS transition — safe to
+  remove later), and `http://localhost:5173/**` for local dev.
+- Custom SMTP is on, via [Resend](https://resend.com) on the `osrsdropsimulation.com` domain: host
+  `smtp.resend.com`, sender `verify@osrsdropsimulation.com`, sender name `OSRS Drop Simulator`.
+- The Confirm signup template is `email-templates/confirm-signup.html` from this folder (subject: "Verify your
+  OSRS Drop Simulator account"), with a VERIFY ACCOUNT button. It uses `{{ .ConfirmationURL }}`, which already
+  picks up the redirect fix from `src/hooks/useAuth.ts` (send users back to wherever they actually signed up
+  from, rather than defaulting to Site URL).
 
-**Still needs manual setup — Custom SMTP.** Supabase's API rejected changing the sender name *and* the email
-template body with the same error: on the free tier, both are locked to the built-in mailer and only unlock
-once Custom SMTP is configured. There's no way around this without connecting a transactional email provider:
-
-1. Create an account with a provider like [Resend](https://resend.com) or [Postmark](https://postmarkapp.com)
-   (both have a workable free tier) and verify a domain you own via their DNS instructions (SPF/DKIM records)
-   — a raw Gmail/Yahoo address won't pass those checks, so this needs a real domain.
-2. In **Project Settings → Authentication → SMTP Settings**, enable "Enable Custom SMTP" and fill in the
-   host/port/username/password from that provider, with **Sender name** set to `OSRS Drop Simulator` and
-   **Sender email** on the verified domain.
-3. Once Custom SMTP is on, go to **Authentication → Emails → Templates → Confirm signup** and paste in
-   `email-templates/confirm-signup.html` from this folder as the body (subject line suggestion: "Confirm your
-   OSRS Drop Simulator account"). It already uses `{{ .ConfirmationURL }}`, so it picks up the redirect fix
-   above automatically. Apply the same pattern to the other templates (Magic Link, Reset Password, etc.) if
-   you want those on-brand too.
+Not applied: the other templates (Magic Link, Reset Password, etc.) are still Supabase's generic default —
+apply the same `email-templates/confirm-signup.html` pattern to those if you want them on-brand too.
 
 ## Keeping reference data in sync
 
