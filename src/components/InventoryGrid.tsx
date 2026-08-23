@@ -141,7 +141,7 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
   }, 0);
 
   return (
-    <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
+    <div className="osrs-bevel osrs-panel flex max-h-[70vh] min-h-0 flex-col lg:h-full lg:max-h-none">
       <div className="flex items-center justify-between border-b-2 border-osrs-border-dark px-3 py-2">
         <h2 className="font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">Inventory</h2>
         <div className="flex items-center gap-2">

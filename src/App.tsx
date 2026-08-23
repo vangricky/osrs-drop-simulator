@@ -56,7 +56,7 @@ function App() {
         <AdBanner variant="skyscraper-left" />
 
         <main className="grid min-w-0 flex-1 grid-cols-1 gap-4 lg:h-[720px] lg:grid-cols-12">
-          <div className="min-h-[420px] lg:col-span-3 lg:h-full">
+          <div className="lg:col-span-3 lg:h-full lg:min-h-[420px]">
             <NpcBrowser
               selectedNpcId={selectedNpc?.id ?? null}
               onSelect={setSelectedNpc}
@@ -65,8 +65,8 @@ function App() {
             />
           </div>
 
-          <div className="flex min-h-[520px] flex-col gap-4 lg:col-span-5 lg:h-full">
-            <div className="min-h-0 flex-1">
+          <div className="flex flex-col gap-4 lg:col-span-5 lg:h-full lg:min-h-[520px]">
+            <div className="min-h-0 lg:flex-1">
               <NpcDetailPanel
                 npc={selectedNpc}
                 killCount={selectedNpc ? game.killCounts[selectedNpc.id] ?? 0 : 0}
@@ -80,8 +80,8 @@ function App() {
             {selectedNpc && !isSelectedUnlocked && <AdBanner variant="rectangle" className="shrink-0" />}
           </div>
 
-          <div className="flex min-h-[600px] flex-col gap-4 lg:col-span-4 lg:h-full">
-            <div className="min-h-[340px] flex-[1.3]">
+          <div className="flex flex-col gap-4 lg:col-span-4 lg:h-full lg:min-h-[600px]">
+            <div className="lg:min-h-[340px] lg:flex-[1.3]">
               <InventoryGrid
                 inventory={game.inventory}
                 onMove={game.moveItem}
@@ -92,7 +92,7 @@ function App() {
                 onOpen={game.openContainer}
               />
             </div>
-            <div className="min-h-[220px] flex-1">
+            <div className="lg:min-h-[220px] lg:flex-1">
               <DropLogPanel log={game.log} />
             </div>
           </div>

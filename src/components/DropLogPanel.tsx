@@ -19,7 +19,7 @@ function timeAgo(ts: number): string {
 export default function DropLogPanel({ log }: DropLogPanelProps) {
   const { items: allItems } = useGameData();
   return (
-    <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
+    <div className="osrs-bevel osrs-panel flex max-h-[50vh] min-h-0 flex-col lg:h-full lg:max-h-none">
       <div className="border-b-2 border-osrs-border-dark px-3 py-2">
         <h2 className="font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">Drop Log</h2>
       </div>

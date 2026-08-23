@@ -39,7 +39,7 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
   }, [npcs, query, category]);
 
   return (
-    <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
+    <div className="osrs-bevel osrs-panel flex max-h-[70vh] min-h-0 flex-col lg:h-full lg:max-h-none">
       <div className="border-b-2 border-osrs-border-dark p-3">
         <h2 className="mb-2 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">
           Find an NPC
