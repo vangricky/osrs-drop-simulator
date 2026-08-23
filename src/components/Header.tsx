@@ -12,6 +12,11 @@ interface HeaderProps {
   onSignOut: () => void;
   onOpenLeaderboard: () => void;
   onOpenHowToPlay: () => void;
+  prestigeCount: number;
+  canPrestige: boolean;
+  unlockedNpcCount: number;
+  totalNpcCount: number;
+  onOpenPrestige: () => void;
 }
 
 export default function Header({
@@ -25,7 +30,15 @@ export default function Header({
   onSignOut,
   onOpenLeaderboard,
   onOpenHowToPlay,
+  prestigeCount,
+  canPrestige,
+  unlockedNpcCount,
+  totalNpcCount,
+  onOpenPrestige,
 }: HeaderProps) {
+  const prestigeTitle = canPrestige
+    ? "Every monster is unlocked. Prestige to reset and climb again."
+    : `${unlockedNpcCount}/${totalNpcCount} monsters unlocked`;
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -81,6 +94,15 @@ export default function Header({
             <span className="text-osrs-parchment-dark/70">Unique drops:</span>
             <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
           </div>
+          {prestigeCount > 0 && (
+            <div
+              className="osrs-bevel-inset hidden items-center gap-1.5 bg-osrs-panel-dark/60 px-2 py-1.5 sm:flex sm:gap-2 sm:px-3"
+              title={`Prestiged ${prestigeCount}x`}
+            >
+              <span className="text-osrs-parchment-dark/70">Prestige:</span>
+              <span className="font-semibold text-osrs-gold">{prestigeCount}</span>
+            </div>
+          )}
 
           {/* sm+ (tablet/desktop): every control shown inline, same as before. */}
           <div className="hidden items-center gap-2 sm:flex">
@@ -89,6 +111,14 @@ export default function Header({
               className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
             >
               How to play
+            </button>
+            <button
+              onClick={onOpenPrestige}
+              disabled={!canPrestige}
+              title={prestigeTitle}
+              className="osrs-bevel bg-osrs-gold/20 px-3 py-1.5 text-xs font-semibold text-osrs-gold transition hover:bg-osrs-gold/30 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:border-osrs-border-light disabled:bg-osrs-panel-dark/30 disabled:text-osrs-parchment-dark/40 disabled:hover:bg-osrs-panel-dark/30"
+            >
+              Prestige
             </button>
             {authEnabled && (
               <button
@@ -167,6 +197,23 @@ export default function Header({
                     <span className="text-osrs-parchment-dark/70">Unique drops</span>
                     <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
                   </div>
+                  {prestigeCount > 0 && (
+                    <div className="osrs-bevel-inset flex items-center justify-between bg-osrs-panel-dark/60 px-3 py-2">
+                      <span className="text-osrs-parchment-dark/70">Prestige</span>
+                      <span className="font-semibold text-osrs-gold">{prestigeCount}</span>
+                    </div>
+                  )}
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      onOpenPrestige();
+                    }}
+                    disabled={!canPrestige}
+                    title={prestigeTitle}
+                    className="osrs-bevel bg-osrs-gold/20 px-3 py-2 text-left font-semibold text-osrs-gold transition active:osrs-bevel-inset disabled:cursor-not-allowed disabled:bg-osrs-panel-dark/30 disabled:text-osrs-parchment-dark/40"
+                  >
+                    Prestige
+                  </button>
 
                   {authEnabled && (
                     <button

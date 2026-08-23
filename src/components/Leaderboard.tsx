@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { supabase, supabaseEnabled } from "../lib/supabase";
 import { formatGp } from "../utils/dropLogic";
 
+type Tab = "gp" | "prestige";
+
 interface LeaderboardRow {
   username: string;
   gp: number;
+  prestige_count: number;
   updated_at: string;
 }
 
@@ -14,20 +17,22 @@ interface LeaderboardProps {
 }
 
 export default function Leaderboard({ currentUsername, onClose }: LeaderboardProps) {
+  const [tab, setTab] = useState<Tab>("gp");
   const [rows, setRows] = useState<LeaderboardRow[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!supabase) return;
-    supabase
-      .from("leaderboard")
-      .select("username, gp, updated_at")
-      .limit(100)
-      .then(({ data, error }) => {
-        if (error) setError(error.message);
-        else setRows(data ?? []);
-      });
-  }, []);
+    let query = supabase.from("leaderboard").select("username, gp, prestige_count, updated_at");
+    query =
+      tab === "gp"
+        ? query.order("gp", { ascending: false })
+        : query.order("prestige_count", { ascending: false }).order("gp", { ascending: false });
+    query.limit(100).then(({ data, error }) => {
+      if (error) setError(error.message);
+      else setRows(data ?? []);
+    });
+  }, [tab]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
@@ -36,12 +41,35 @@ export default function Leaderboard({ currentUsername, onClose }: LeaderboardPro
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="font-display text-lg font-bold text-osrs-gold">Richest players</h2>
+          <h2 className="font-display text-lg font-bold text-osrs-gold">Leaderboard</h2>
           <button
             onClick={onClose}
             className="osrs-bevel bg-osrs-panel-dark/50 px-2 py-1 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
           >
             Close
+          </button>
+        </div>
+
+        <div className="mb-3 flex gap-1">
+          <button
+            onClick={() => {
+              setTab("gp");
+              setRows(null);
+              setError(null);
+            }}
+            className={`flex-1 py-1.5 text-xs font-semibold uppercase tracking-wide transition ${tab === "gp" ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold" : "text-osrs-parchment-dark/70"}`}
+          >
+            Richest
+          </button>
+          <button
+            onClick={() => {
+              setTab("prestige");
+              setRows(null);
+              setError(null);
+            }}
+            className={`flex-1 py-1.5 text-xs font-semibold uppercase tracking-wide transition ${tab === "prestige" ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold" : "text-osrs-parchment-dark/70"}`}
+          >
+            Most prestiges
           </button>
         </div>
 
@@ -85,7 +113,13 @@ export default function Leaderboard({ currentUsername, onClose }: LeaderboardPro
                     {row.username}
                     {isMe && <span className="ml-1 text-[10px] text-osrs-parchment-dark/60">(you)</span>}
                   </span>
-                  <span className="shrink-0 text-sm font-semibold text-osrs-gold">{formatGp(row.gp)} gp</span>
+                  {tab === "gp" ? (
+                    <span className="shrink-0 text-sm font-semibold text-osrs-gold">{formatGp(row.gp)} gp</span>
+                  ) : (
+                    <span className="shrink-0 text-sm font-semibold text-osrs-gold">
+                      {row.prestige_count} {row.prestige_count === 1 ? "prestige" : "prestiges"}
+                    </span>
+                  )}
                 </li>
               );
             })}

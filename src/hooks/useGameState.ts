@@ -26,6 +26,7 @@ interface PersistedState {
   collectionLog: Record<string, number>;
   gp: number;
   unlockedNpcIds: string[];
+  prestigeCount: number;
 }
 
 const STORAGE_KEY = "osrs-drop-sim-state-v2";
@@ -39,7 +40,9 @@ function emptyInventory(): (InventorySlot | null)[] {
   return Array.from({ length: INVENTORY_SIZE }, () => null);
 }
 
-function freshState(npcs: Npc[]): PersistedState {
+// A fresh board, but `prestigeCount` is passed in separately by callers —
+// it's the one thing prestiging is supposed to NOT wipe.
+function freshState(npcs: Npc[], prestigeCount = 0): PersistedState {
   return {
     inventory: emptyInventory(),
     log: [],
@@ -47,6 +50,7 @@ function freshState(npcs: Npc[]): PersistedState {
     collectionLog: {},
     gp: 0,
     unlockedNpcIds: starterUnlockedIds(npcs),
+    prestigeCount,
   };
 }
 
@@ -62,6 +66,7 @@ function loadState(npcs: Npc[]): PersistedState {
       ...freshState(npcs),
       ...parsed,
       unlockedNpcIds: Array.from(new Set([...starterUnlockedIds(npcs), ...(parsed.unlockedNpcIds ?? [])])),
+      prestigeCount: parsed.prestigeCount ?? 0,
     };
   } catch {
     return freshState(npcs);
@@ -113,6 +118,7 @@ async function loadCloudState(userId: string, npcs: Npc[], items: Record<string,
     collectionLog: (gs.collection_log as Record<string, number>) ?? {},
     gp: Number(gs.gp),
     unlockedNpcIds: (gs.unlocked_npc_ids as string[]) ?? starterUnlockedIds(npcs),
+    prestigeCount: Number(gs.prestige_count ?? 0),
   };
 }
 
@@ -417,6 +423,40 @@ export function useGameState(userId: string | null = null) {
     return success;
   }, [userId]);
 
+  // Requires every monster (bosses included) to be unlocked at once — checked
+  // against the CURRENT npc list rather than a stored count, so it stays
+  // correct if the roster ever changes size after someone's already unlocked
+  // everything that existed at the time.
+  const prestige = useCallback(async (): Promise<number | null> => {
+    const allUnlocked = npcs.length > 0 && npcs.every((n) => stateRef.current.unlockedNpcIds.includes(n.id));
+    if (!allUnlocked) return null;
+
+    if (!userId) {
+      // Read the pre-update count directly off the ref rather than out of
+      // the setState updater: a setState earlier in the same click handler
+      // (closing the confirm modal) can cost the updater its usual
+      // synchronous eager-execution, leaving a value read from inside it
+      // stale by the time this function returns.
+      const newCount = stateRef.current.prestigeCount + 1;
+      setState(() => freshState(npcs, newCount));
+      setLastKill(null);
+      setLastContainerOpen(null);
+      return newCount;
+    }
+
+    if (!supabase) return null;
+    const { data, error } = await supabase.rpc("prestige");
+    if (error) {
+      console.error("prestige failed", error);
+      return null;
+    }
+    const cloud = await loadCloudState(userId, npcs, allItems);
+    if (cloud) setState(cloud);
+    setLastKill(null);
+    setLastContainerOpen(null);
+    return typeof data === "number" ? data : null;
+  }, [userId, npcs, allItems]);
+
   const resetAll = useCallback(() => {
     // Signed-in progress isn't resettable from here — there's no "wipe my
     // cloud save" RPC (deliberately out of scope), so this only applies to
@@ -438,6 +478,11 @@ export function useGameState(userId: string | null = null) {
 
   const unlockedNpcIds = useMemo(() => new Set(state.unlockedNpcIds), [state.unlockedNpcIds]);
 
+  const canPrestige = useMemo(
+    () => npcs.length > 0 && npcs.every((n) => unlockedNpcIds.has(n.id)),
+    [npcs, unlockedNpcIds],
+  );
+
   return {
     isCloudSynced: Boolean(userId),
     inventory: state.inventory,
@@ -446,6 +491,9 @@ export function useGameState(userId: string | null = null) {
     collectionLog: state.collectionLog,
     gp: state.gp,
     unlockedNpcIds,
+    totalNpcCount: npcs.length,
+    prestigeCount: state.prestigeCount,
+    canPrestige,
     totalKills,
     uniqueItemsObtained,
     lastKill,
@@ -459,6 +507,7 @@ export function useGameState(userId: string | null = null) {
     sellItem,
     sellAll,
     unlockNpc,
+    prestige,
     resetAll,
   };
 }

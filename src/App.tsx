@@ -17,6 +17,7 @@ const ConfirmModal = lazy(() => import("./components/ConfirmModal"));
 const ContainerModal = lazy(() => import("./components/ContainerModal"));
 const HowToPlayModal = lazy(() => import("./components/HowToPlayModal"));
 const Leaderboard = lazy(() => import("./components/Leaderboard"));
+const PrestigeCelebration = lazy(() => import("./components/PrestigeCelebration"));
 const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
   const [showAuth, setShowAuth] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showPrestigeConfirm, setShowPrestigeConfirm] = useState(false);
+  const [celebratingPrestige, setCelebratingPrestige] = useState<number | null>(null);
   const auth = useAuth();
   const game = useGameState(auth.userId);
   const isSelectedUnlocked = selectedNpc ? game.unlockedNpcIds.has(selectedNpc.id) : false;
@@ -36,6 +39,12 @@ function App() {
     if (game.unlockNpc(npc)) {
       setCelebratingNpc(npc);
     }
+  };
+
+  const handlePrestige = async () => {
+    setShowPrestigeConfirm(false);
+    const newCount = await game.prestige();
+    if (newCount !== null) setCelebratingPrestige(newCount);
   };
 
   return (
@@ -54,6 +63,11 @@ function App() {
         onSignOut={auth.signOut}
         onOpenLeaderboard={() => setShowLeaderboard(true)}
         onOpenHowToPlay={() => setShowHowToPlay(true)}
+        prestigeCount={game.prestigeCount}
+        canPrestige={game.canPrestige}
+        unlockedNpcCount={game.unlockedNpcIds.size}
+        totalNpcCount={game.totalNpcCount}
+        onOpenPrestige={() => setShowPrestigeConfirm(true)}
       />
 
       <div className="mx-auto flex w-full max-w-[1600px] flex-1 items-start justify-center gap-4 px-4 py-4">
@@ -128,6 +142,16 @@ function App() {
           />
         )}
 
+        {showPrestigeConfirm && (
+          <ConfirmModal
+            title="Prestige?"
+            message="Every monster is unlocked. Prestiging resets your GP, inventory, kill counts, and unlocked monsters back to the start, and adds 1 to your prestige count on the leaderboard. This can't be undone."
+            confirmLabel="Prestige"
+            onCancel={() => setShowPrestigeConfirm(false)}
+            onConfirm={handlePrestige}
+          />
+        )}
+
         {game.lastContainerOpen && (
           <ContainerModal result={game.lastContainerOpen} onClose={game.closeContainerModal} />
         )}
@@ -148,6 +172,10 @@ function App() {
         )}
 
         {showHowToPlay && <HowToPlayModal onClose={() => setShowHowToPlay(false)} />}
+
+        {celebratingPrestige !== null && (
+          <PrestigeCelebration prestigeCount={celebratingPrestige} onDismiss={() => setCelebratingPrestige(null)} />
+        )}
       </Suspense>
     </div>
   );

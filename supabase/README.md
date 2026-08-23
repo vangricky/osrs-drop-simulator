@@ -2,7 +2,12 @@
 
 This app can run in two modes:
 - **Guest** (default, no setup): progress lives in the browser's localStorage, exactly as before.
-- **Cloud** (once configured): sign in, progress syncs to Postgres, and a public leaderboard shows everyone's GP.
+- **Cloud** (once configured): sign in, progress syncs to Postgres, and a public leaderboard shows everyone's GP (and separately, prestige count).
+
+Once every monster is unlocked, a player can prestige: gp/kills/unlocks/inventory reset, and a permanent
+`prestige_count` goes up by one, validated server-side by `public.prestige()` in
+`migrations/20260823230000_add_prestige.sql` against `npc_reference` (a client can't just claim it unlocked
+everything). No manual dashboard step needed here, unlike the email settings below — it's all in migrations.
 
 ## One-time setup
 
