@@ -48,15 +48,19 @@ export function useAuth() {
   // allow-list in the dashboard, or Supabase silently falls back anyway.
   const redirectTo = `${window.location.origin}${import.meta.env.BASE_URL}`;
 
-  const signUp = useCallback(async (email: string, password: string) => {
+  const signUp = useCallback(async (email: string, password: string, captchaToken?: string) => {
     if (!supabase) throw new Error("accounts are not configured");
-    const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: redirectTo } });
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: redirectTo, captchaToken },
+    });
     if (error) throw error;
   }, [redirectTo]);
 
-  const signIn = useCallback(async (email: string, password: string) => {
+  const signIn = useCallback(async (email: string, password: string, captchaToken?: string) => {
     if (!supabase) throw new Error("accounts are not configured");
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({ email, password, options: { captchaToken } });
     if (error) throw error;
   }, []);
 

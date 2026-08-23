@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { useAuth } from "../hooks/useAuth";
+import TurnstileWidget, { type TurnstileHandle } from "./TurnstileWidget";
+import { turnstileConfigured } from "../lib/turnstile";
 
 interface AuthModalProps {
   auth: ReturnType<typeof useAuth>;
@@ -58,6 +60,8 @@ function SignInStep({ auth, onClose }: AuthModalProps) {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileHandle>(null);
 
   const submit = async () => {
     setError(null);
@@ -65,16 +69,18 @@ function SignInStep({ auth, onClose }: AuthModalProps) {
     setBusy(true);
     try {
       if (mode === "in") {
-        await auth.signIn(email, password);
+        await auth.signIn(email, password, captchaToken ?? undefined);
         onClose();
       } else {
-        await auth.signUp(email, password);
+        await auth.signUp(email, password, captchaToken ?? undefined);
         setNotice("Check your email to confirm your account, then sign in.");
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
     } finally {
       setBusy(false);
+      // Turnstile tokens are single-use — a fresh one is needed for any retry.
+      turnstileRef.current?.reset();
     }
   };
 
@@ -112,12 +118,14 @@ function SignInStep({ auth, onClose }: AuthModalProps) {
         />
       </div>
 
+      {turnstileConfigured && <TurnstileWidget ref={turnstileRef} onToken={setCaptchaToken} />}
+
       {error && <p className="mt-2 text-xs font-semibold text-osrs-red">{error}</p>}
       {notice && <p className="mt-2 text-xs font-semibold text-osrs-green">{notice}</p>}
 
       <button
         onClick={submit}
-        disabled={busy || !email || !password}
+        disabled={busy || !email || !password || (turnstileConfigured && !captchaToken)}
         className="osrs-bevel mt-3 w-full bg-gradient-to-b from-osrs-gold/30 to-osrs-gold/10 py-2 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold transition hover:from-osrs-gold/40 hover:to-osrs-gold/20 active:osrs-bevel-inset disabled:opacity-50"
       >
         {busy ? "..." : mode === "in" ? "Sign in" : "Create account"}
