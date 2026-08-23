@@ -61,7 +61,7 @@ export default function ContainerModal({ result, onClose }: ContainerModalProps)
 
         {result.overflow.length > 0 && (
           <p className="mt-3 text-[11px] font-semibold text-osrs-red">
-            Inventory full &mdash; {result.overflow.map((d) => d.item.name).join(", ")} was not obtained!
+            Inventory full: {result.overflow.map((d) => d.item.name).join(", ")} was not obtained!
           </p>
         )}
 

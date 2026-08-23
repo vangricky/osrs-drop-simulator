@@ -12,25 +12,25 @@ interface Step {
 const STEPS: Step[] = [
   {
     title: "1. Pick a monster",
-    body: "Browse or search the monster list on the left. Low-level monsters (under combat level 10) are free to fight — tougher ones cost GP to unlock.",
+    body: "Browse or search the monster list on the left. Low-level monsters (under combat level 10) are free to fight. Tougher ones cost GP to unlock.",
     iconUrl: "https://oldschool.runescape.wiki/images/Coins_10000.png",
     iconAlt: "Coins",
   },
   {
     title: "2. Simulate a kill",
-    body: "Hit Simulate drop. Guaranteed drops always show up, one main-table item rolls per kill, and rare tertiary drops (clue scrolls, pets) roll independently — real OSRS drop rates, every time.",
+    body: "Hit Simulate drop. Guaranteed drops always show up, one main-table item rolls per kill, and rare tertiary drops (clue scrolls, pets) roll independently. Real drop rates, every time.",
     iconUrl: "https://oldschool.runescape.wiki/images/Clue_scroll_(master).png",
     iconAlt: "Clue scroll",
   },
   {
-    title: "3. Fill your inventory",
-    body: "Loot lands in your 28-slot inventory. Stackable items like feathers, ores, and runes share a single slot, exactly like the real game.",
+    title: "3. Manage your loot",
+    body: "Loot lands in your 28-slot inventory. Sell it straight from there, or open containers like clue caskets for a shot at bonus rewards.",
     iconUrl: "https://oldschool.runescape.wiki/images/Blue_partyhat.png",
     iconAlt: "Blue partyhat",
   },
   {
     title: "4. Cash in & level up",
-    body: "Sell your loot for GP, then spend it unlocking stronger monsters with better drop tables. Chase the rares and work your way up to the bosses.",
+    body: "Spend your GP unlocking stronger monsters with better drop tables. Chase the rares and work your way up to the bosses.",
     iconUrl: "https://oldschool.runescape.wiki/images/Twisted_bow.png",
     iconAlt: "Twisted bow",
   },
@@ -83,9 +83,9 @@ export default function HowToPlayModal({ onClose }: HowToPlayModalProps) {
           </div>
 
           <div className="osrs-bevel-inset mt-3 bg-osrs-panel-dark/50 p-3 text-xs text-osrs-parchment-dark/80">
-            <span className="font-semibold text-osrs-gold">Tip:</span> sign in (top-right / menu) to save your
+            <span className="font-semibold text-osrs-gold">Tip:</span> sign in (top-right or menu) to save your
             progress to the cloud and put your GP on the public leaderboard. You can always keep playing as a
-            guest instead — progress just stays on this device.
+            guest instead. Progress just stays on this device.
           </div>
         </div>
 

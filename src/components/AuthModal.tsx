@@ -124,7 +124,7 @@ function SignInStep({ auth, onClose }: AuthModalProps) {
       </button>
 
       <p className="mt-4 text-center text-[10px] text-osrs-parchment-dark/50">
-        Playing without an account still works &mdash; progress just stays on this device.
+        Playing without an account still works. Progress just stays on this device.
       </p>
     </div>
   );

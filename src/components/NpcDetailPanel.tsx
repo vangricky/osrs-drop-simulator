@@ -124,7 +124,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
             </div>
             {lastKill!.overflow.length > 0 && (
               <p className="mt-1.5 text-[11px] font-semibold text-osrs-red">
-                Inventory full &mdash; {lastKill!.overflow.map((d) => d.item.name).join(", ")} was not obtained!
+                Inventory full: {lastKill!.overflow.map((d) => d.item.name).join(", ")} was not obtained!
               </p>
             )}
           </div>

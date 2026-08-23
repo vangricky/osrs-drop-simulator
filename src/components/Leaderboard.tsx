@@ -47,7 +47,7 @@ export default function Leaderboard({ currentUsername, onClose }: LeaderboardPro
 
         {!supabaseEnabled && (
           <p className="text-center text-sm text-osrs-parchment-dark/60">
-            The leaderboard needs an account &mdash; sign in to see it and take your spot.
+            The leaderboard needs an account. Sign in to see it and take your spot.
           </p>
         )}
 
@@ -59,7 +59,7 @@ export default function Leaderboard({ currentUsername, onClose }: LeaderboardPro
 
         {supabaseEnabled && rows && rows.length === 0 && (
           <p className="text-center text-sm text-osrs-parchment-dark/60">
-            No one's on the board yet &mdash; be the first.
+            No one's on the board yet. Be the first.
           </p>
         )}
 
