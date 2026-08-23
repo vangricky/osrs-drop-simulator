@@ -15,6 +15,9 @@ dist-ssr
 .env.*
 !.env.example
 
+# Supabase CLI local link/cache state (machine-specific, not secret but not shareable)
+supabase/.temp
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
