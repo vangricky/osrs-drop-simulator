@@ -17,30 +17,27 @@ This app can run in two modes:
 
 ## Fixing auth emails ("Supabase Auth" sender, confirm link goes to localhost)
 
-By default, a fresh Supabase project sends auth emails from **"Supabase Auth" <noreply@mail.app.supabase.io>**,
-using a generic template, with confirm/reset links pointing at whatever **Site URL** the project happens to
-have (a new project defaults this to `http://localhost:3000`, which is why a real user landed on "localhost").
-The app's code now explicitly asks Supabase to send users back to wherever they actually signed up from
-(`src/hooks/useAuth.ts`), but two things still have to be set in the dashboard for that to take effect, plus a
-third step for the sender name — none of these are configurable from the CLI/migrations:
+**Already done** (applied directly via the Management API on 2026-08-23): Site URL is set to
+`https://vangricky.github.io/osrs-drop-simulator/`, and Redirect URLs allow-lists both that and
+`http://localhost:5173/**` for local dev. Combined with the app's code, which explicitly asks Supabase to
+redirect back to wherever the user actually signed up from (`src/hooks/useAuth.ts`), confirm-email links no
+longer land on localhost.
 
-1. **Authentication → URL Configuration → Site URL**: set to `https://vangricky.github.io/osrs-drop-simulator/`
-   (this is also the fallback used if a redirect isn't explicitly allow-listed below).
-2. **Authentication → URL Configuration → Redirect URLs**: add both
-   `https://vangricky.github.io/osrs-drop-simulator/**` (production) and `http://localhost:5173/**`
-   (local dev) — Supabase ignores the app's requested redirect for any URL not on this list and falls back
-   to Site URL instead, so this step is required, not optional.
-3. **Sender name ("Supabase Auth" → "OSRS Drop Simulator")**: this requires **Custom SMTP**, since the
-   built-in mailer has a fixed sender identity. Under **Project Settings → Authentication → SMTP Settings**,
-   enable "Enable Custom SMTP" and connect a transactional email provider (e.g. [Resend](https://resend.com)
-   or [Postmark](https://postmarkapp.com) — both have a workable free tier and a quick DNS-verification
-   setup). Set **Sender name** to `OSRS Drop Simulator` and **Sender email** to an address on a domain you've
-   verified with that provider (a raw Gmail/Yahoo address won't pass SPF/DKIM checks).
-4. **Branded email body**: under **Authentication → Emails → Templates → Confirm signup**, replace the
-   message body with `email-templates/confirm-signup.html` from this folder (subject line suggestion:
-   "Confirm your OSRS Drop Simulator account"). It already uses `{{ .ConfirmationURL }}` so it works with
-   whatever the app passes as the redirect. Apply the same pattern to the other templates (Magic Link,
-   Reset Password, etc.) if you want them on-brand too.
+**Still needs manual setup — Custom SMTP.** Supabase's API rejected changing the sender name *and* the email
+template body with the same error: on the free tier, both are locked to the built-in mailer and only unlock
+once Custom SMTP is configured. There's no way around this without connecting a transactional email provider:
+
+1. Create an account with a provider like [Resend](https://resend.com) or [Postmark](https://postmarkapp.com)
+   (both have a workable free tier) and verify a domain you own via their DNS instructions (SPF/DKIM records)
+   — a raw Gmail/Yahoo address won't pass those checks, so this needs a real domain.
+2. In **Project Settings → Authentication → SMTP Settings**, enable "Enable Custom SMTP" and fill in the
+   host/port/username/password from that provider, with **Sender name** set to `OSRS Drop Simulator` and
+   **Sender email** on the verified domain.
+3. Once Custom SMTP is on, go to **Authentication → Emails → Templates → Confirm signup** and paste in
+   `email-templates/confirm-signup.html` from this folder as the body (subject line suggestion: "Confirm your
+   OSRS Drop Simulator account"). It already uses `{{ .ConfirmationURL }}`, so it picks up the redirect fix
+   above automatically. Apply the same pattern to the other templates (Magic Link, Reset Password, etc.) if
+   you want those on-brand too.
 
 ## Keeping reference data in sync
 
