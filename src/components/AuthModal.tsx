@@ -78,15 +78,6 @@ function SignInStep({ auth, onClose }: AuthModalProps) {
     }
   };
 
-  const provider = async (p: "google" | "discord") => {
-    setError(null);
-    try {
-      await auth.signInWithProvider(p);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Something went wrong.");
-    }
-  };
-
   return (
     <div className="osrs-bevel osrs-panel w-full max-w-sm p-5" onClick={(e) => e.stopPropagation()}>
       <div className="mb-4 flex gap-1">
@@ -131,27 +122,6 @@ function SignInStep({ auth, onClose }: AuthModalProps) {
       >
         {busy ? "..." : mode === "in" ? "Sign in" : "Create account"}
       </button>
-
-      <div className="my-3 flex items-center gap-2 text-[10px] uppercase text-osrs-parchment-dark/50">
-        <div className="h-px flex-1 bg-osrs-border-dark" />
-        or
-        <div className="h-px flex-1 bg-osrs-border-dark" />
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <button
-          onClick={() => provider("google")}
-          className="osrs-bevel bg-osrs-panel-dark/50 py-2 text-xs font-semibold text-osrs-parchment transition hover:bg-osrs-panel-dark active:osrs-bevel-inset"
-        >
-          Continue with Google
-        </button>
-        <button
-          onClick={() => provider("discord")}
-          className="osrs-bevel bg-osrs-panel-dark/50 py-2 text-xs font-semibold text-osrs-parchment transition hover:bg-osrs-panel-dark active:osrs-bevel-inset"
-        >
-          Continue with Discord
-        </button>
-      </div>
 
       <p className="mt-4 text-center text-[10px] text-osrs-parchment-dark/50">
         Playing without an account still works &mdash; progress just stays on this device.
