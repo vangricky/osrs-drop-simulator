@@ -32,7 +32,7 @@
     },
     {
       "id": "al-kharid-warrior",
-      "unlockCost": 0,
+      "unlockCost": 97000,
       "maxGpPerKill": 1050
     },
     {
@@ -377,7 +377,7 @@
     },
     {
       "id": "crawling-hand",
-      "unlockCost": 0,
+      "unlockCost": 72000,
       "maxGpPerKill": 1026
     },
     {
@@ -432,7 +432,7 @@
     },
     {
       "id": "cave-bug",
-      "unlockCost": 0,
+      "unlockCost": 35000,
       "maxGpPerKill": 1022
     },
     {
@@ -482,7 +482,7 @@
     },
     {
       "id": "mugger",
-      "unlockCost": 0,
+      "unlockCost": 35000,
       "maxGpPerKill": 1110
     },
     {
@@ -527,7 +527,7 @@
     },
     {
       "id": "dark-warrior",
-      "unlockCost": 0,
+      "unlockCost": 72000,
       "maxGpPerKill": 1164
     },
     {
@@ -947,7 +947,7 @@
     },
     {
       "id": "chompy-bird",
-      "unlockCost": 0,
+      "unlockCost": 35000,
       "maxGpPerKill": 1000
     },
     {
@@ -1467,7 +1467,7 @@
     },
     {
       "id": "myre-blamish-snail",
-      "unlockCost": 0,
+      "unlockCost": 97000,
       "maxGpPerKill": 1000
     },
     {
@@ -1497,7 +1497,7 @@
     },
     {
       "id": "bat",
-      "unlockCost": 0,
+      "unlockCost": 35000,
       "maxGpPerKill": 1000
     },
     {
@@ -1677,7 +1677,7 @@
     },
     {
       "id": "farmer",
-      "unlockCost": 0,
+      "unlockCost": 52000,
       "maxGpPerKill": 1134
     },
     {
@@ -1707,7 +1707,7 @@
     },
     {
       "id": "imp",
-      "unlockCost": 0,
+      "unlockCost": 52000,
       "maxGpPerKill": 1000
     },
     {
@@ -2700,7 +2700,7 @@
       "tradeable": true
     },
     "chaos-talisman": {
-      "value": 353,
+      "value": 217,
       "tradeable": true
     },
     "nature-talisman": {
@@ -2708,19 +2708,19 @@
       "tradeable": true
     },
     "loop-half-of-key": {
-      "value": 9588,
+      "value": 9636,
       "tradeable": true
     },
     "tooth-half-of-key": {
-      "value": 9615,
+      "value": 9627,
       "tradeable": true
     },
     "rune-spear": {
-      "value": 12346,
+      "value": 11709,
       "tradeable": true
     },
     "shield-left-half": {
-      "value": 65118,
+      "value": 67528,
       "tradeable": true
     },
     "grimy-harralander": {
@@ -2728,27 +2728,27 @@
       "tradeable": true
     },
     "grimy-irit-leaf": {
-      "value": 1441,
+      "value": 1361,
       "tradeable": true
     },
     "grimy-avantoe": {
-      "value": 1573,
+      "value": 1550,
       "tradeable": true
     },
     "grimy-kwuarm": {
-      "value": 2063,
+      "value": 2043,
       "tradeable": true
     },
     "grimy-cadantine": {
-      "value": 2141,
+      "value": 2168,
       "tradeable": true
     },
     "grimy-lantadyme": {
-      "value": 1154,
+      "value": 1135,
       "tradeable": true
     },
     "grimy-dwarf-weed": {
-      "value": 1290,
+      "value": 1260,
       "tradeable": true
     },
     "swamp-weed": {
@@ -2756,23 +2756,23 @@
       "tradeable": true
     },
     "cosmic-rune": {
-      "value": 120,
+      "value": 123,
       "tradeable": true
     },
     "mud-rune": {
-      "value": 96,
+      "value": 98,
       "tradeable": true
     },
     "grimy-guam-leaf": {
-      "value": 219,
+      "value": 216,
       "tradeable": true
     },
     "grimy-marrentill": {
-      "value": 190,
+      "value": 189,
       "tradeable": true
     },
     "grimy-tarromin": {
-      "value": 193,
+      "value": 161,
       "tradeable": true
     },
     "fiendish-ashes": {
@@ -2792,7 +2792,7 @@
       "tradeable": true
     },
     "tinderbox": {
-      "value": 113,
+      "value": 104,
       "tradeable": true
     },
     "zombie-bone": {
@@ -2820,11 +2820,11 @@
       "tradeable": true
     },
     "bronze-kiteshield": {
-      "value": 169,
+      "value": 156,
       "tradeable": true
     },
     "mithril-arrow": {
-      "value": 5,
+      "value": 6,
       "tradeable": true
     },
     "tin-ore": {
@@ -2832,7 +2832,7 @@
       "tradeable": true
     },
     "bronze-longsword": {
-      "value": 58,
+      "value": 102,
       "tradeable": true
     },
     "iron-axe": {
@@ -2840,7 +2840,7 @@
       "tradeable": true
     },
     "fire-talisman": {
-      "value": 2369,
+      "value": 2314,
       "tradeable": true
     },
     "grain": {
@@ -2864,15 +2864,15 @@
       "tradeable": false
     },
     "bronze-arrow": {
-      "value": 5,
+      "value": 4,
       "tradeable": true
     },
     "bronze-pickaxe": {
-      "value": 89,
+      "value": 67,
       "tradeable": true
     },
     "oyster": {
-      "value": 44,
+      "value": 66,
       "tradeable": true
     },
     "empty-oyster": {
@@ -2884,19 +2884,19 @@
       "tradeable": true
     },
     "iron-pickaxe": {
-      "value": 40,
+      "value": 59,
       "tradeable": true
     },
     "opal-bolt-tips": {
-      "value": 19,
+      "value": 18,
       "tradeable": true
     },
     "spinach-roll": {
-      "value": 367,
+      "value": 428,
       "tradeable": true
     },
     "casket": {
-      "value": 581,
+      "value": 453,
       "tradeable": true
     },
     "seaweed": {
@@ -2908,11 +2908,11 @@
       "tradeable": false
     },
     "edible-seaweed": {
-      "value": 105,
+      "value": 82,
       "tradeable": true
     },
     "wolf-bones": {
-      "value": 627,
+      "value": 478,
       "tradeable": true
     },
     "wolf-bone": {
@@ -2924,51 +2924,51 @@
       "tradeable": false
     },
     "mushroom-spore": {
-      "value": 83,
+      "value": 146,
       "tradeable": true
     },
     "toadflax-seed": {
-      "value": 935,
+      "value": 932,
       "tradeable": true
     },
     "belladonna-seed": {
-      "value": 105,
+      "value": 114,
       "tradeable": true
     },
     "irit-seed": {
-      "value": 61,
+      "value": 89,
       "tradeable": true
     },
     "poison-ivy-seed": {
-      "value": 45,
+      "value": 40,
       "tradeable": true
     },
     "avantoe-seed": {
-      "value": 270,
+      "value": 269,
       "tradeable": true
     },
     "cactus-seed": {
-      "value": 113,
+      "value": 97,
       "tradeable": true
     },
     "kwuarm-seed": {
-      "value": 1341,
+      "value": 1368,
       "tradeable": true
     },
     "potato-cactus-seed": {
-      "value": 11,
+      "value": 10,
       "tradeable": true
     },
     "cadantine-seed": {
-      "value": 2849,
+      "value": 3092,
       "tradeable": true
     },
     "lantadyme-seed": {
-      "value": 110,
+      "value": 340,
       "tradeable": true
     },
     "dwarf-weed-seed": {
-      "value": 662,
+      "value": 732,
       "tradeable": true
     },
     "ecumenical-key": {
@@ -2980,15 +2980,15 @@
       "tradeable": false
     },
     "potato-seed": {
-      "value": 7,
+      "value": 8,
       "tradeable": true
     },
     "onion-seed": {
-      "value": 10,
+      "value": 8,
       "tradeable": true
     },
     "cabbage-seed": {
-      "value": 8,
+      "value": 10,
       "tradeable": true
     },
     "tomato-seed": {
@@ -2996,7 +2996,7 @@
       "tradeable": true
     },
     "iron-sword": {
-      "value": 74,
+      "value": 39,
       "tradeable": true
     },
     "sweetcorn-seed": {
@@ -3004,19 +3004,19 @@
       "tradeable": true
     },
     "strawberry-seed": {
-      "value": 5,
+      "value": 12,
       "tradeable": true
     },
     "watermelon-seed": {
-      "value": 161,
+      "value": 160,
       "tradeable": true
     },
     "snape-grass-seed": {
-      "value": 11315,
+      "value": 10963,
       "tradeable": true
     },
     "steel-dagger": {
-      "value": 148,
+      "value": 129,
       "tradeable": true
     },
     "trading-sticks": {
@@ -3024,11 +3024,11 @@
       "tradeable": true
     },
     "iron-spear": {
-      "value": 1225,
+      "value": 120,
       "tradeable": true
     },
     "steel-spear": {
-      "value": 514,
+      "value": 516,
       "tradeable": true
     },
     "iron-javelin": {
@@ -3040,19 +3040,19 @@
       "tradeable": true
     },
     "jangerberry-seed": {
-      "value": 27,
+      "value": 6,
       "tradeable": true
     },
     "tarromin-seed": {
-      "value": 12,
+      "value": 28,
       "tradeable": true
     },
     "wildblood-seed": {
-      "value": 52,
+      "value": 44,
       "tradeable": true
     },
     "harralander-seed": {
-      "value": 32,
+      "value": 35,
       "tradeable": true
     },
     "whiteberry-seed": {
@@ -3068,7 +3068,7 @@
       "tradeable": false
     },
     "babydragon-bones": {
-      "value": 735,
+      "value": 745,
       "tradeable": true
     },
     "tattered-moon-page": {
@@ -3084,27 +3084,27 @@
       "tradeable": false
     },
     "grubby-key": {
-      "value": 35000,
+      "value": 35132,
       "tradeable": true
     },
     "waterskin-4": {
-      "value": 84,
+      "value": 70,
       "tradeable": true
     },
     "adamant-med-helm": {
-      "value": 949,
+      "value": 952,
       "tradeable": true
     },
     "super-attack-3": {
-      "value": 1422,
+      "value": 1356,
       "tradeable": true
     },
     "super-defence-2": {
-      "value": 1497,
+      "value": 1394,
       "tradeable": true
     },
     "curry": {
-      "value": 383,
+      "value": 395,
       "tradeable": true
     },
     "rune-dart-p": {
@@ -3112,27 +3112,27 @@
       "tradeable": true
     },
     "rune-mace": {
-      "value": 8334,
+      "value": 7812,
       "tradeable": true
     },
     "rune-knife": {
-      "value": 120,
+      "value": 126,
       "tradeable": true
     },
     "rune-axe": {
-      "value": 7354,
+      "value": 7530,
       "tradeable": true
     },
     "lobster-pot": {
-      "value": 138,
+      "value": 120,
       "tradeable": true
     },
     "raw-herring": {
-      "value": 60,
+      "value": 53,
       "tradeable": true
     },
     "raw-sardine": {
-      "value": 17,
+      "value": 16,
       "tradeable": true
     },
     "harpoon": {
@@ -3144,7 +3144,7 @@
       "tradeable": true
     },
     "raw-tuna": {
-      "value": 45,
+      "value": 46,
       "tradeable": true
     },
     "dagannoth-ribs": {
@@ -3160,19 +3160,19 @@
       "tradeable": true
     },
     "lobster": {
-      "value": 96,
+      "value": 95,
       "tradeable": true
     },
     "adamantite-bar": {
-      "value": 1889,
+      "value": 1860,
       "tradeable": true
     },
     "defence-potion-3": {
-      "value": 114,
+      "value": 137,
       "tradeable": true
     },
     "mithril-kiteshield": {
-      "value": 1069,
+      "value": 1162,
       "tradeable": true
     },
     "baby-dragon-bone": {
@@ -3180,19 +3180,19 @@
       "tradeable": false
     },
     "bass": {
-      "value": 56,
+      "value": 60,
       "tradeable": true
     },
     "adamantite-ore": {
-      "value": 521,
+      "value": 538,
       "tradeable": true
     },
     "adamant-full-helm": {
-      "value": 1970,
+      "value": 1922,
       "tradeable": true
     },
     "mithril-bolts": {
-      "value": 23,
+      "value": 19,
       "tradeable": true
     },
     "bronze-bar": {
@@ -3204,27 +3204,27 @@
       "tradeable": true
     },
     "adamant-dart-p": {
-      "value": 24,
+      "value": 20,
       "tradeable": true
     },
     "adamant-bolts": {
-      "value": 172,
+      "value": 168,
       "tradeable": true
     },
     "iron-bar": {
-      "value": 164,
+      "value": 155,
       "tradeable": true
     },
     "super-strength-1": {
-      "value": 1052,
+      "value": 838,
       "tradeable": true
     },
     "adamant-2h-sword": {
-      "value": 3684,
+      "value": 3478,
       "tradeable": true
     },
     "adamant-battleaxe": {
-      "value": 2415,
+      "value": 2408,
       "tradeable": true
     },
     "ghoul-bone": {
@@ -3236,7 +3236,7 @@
       "tradeable": false
     },
     "bronze-battleaxe": {
-      "value": 70,
+      "value": 71,
       "tradeable": true
     },
     "iron-battleaxe": {
@@ -3244,7 +3244,7 @@
       "tradeable": true
     },
     "muddy-key": {
-      "value": 5986,
+      "value": 6059,
       "tradeable": true
     },
     "cheese": {
@@ -3252,23 +3252,23 @@
       "tradeable": true
     },
     "tomato": {
-      "value": 20,
+      "value": 22,
       "tradeable": true
     },
     "mithril-longsword": {
-      "value": 612,
+      "value": 583,
       "tradeable": true
     },
     "cooked-meat": {
-      "value": 71,
+      "value": 72,
       "tradeable": true
     },
     "amulet-mould": {
-      "value": 135,
+      "value": 171,
       "tradeable": true
     },
     "bear-fur": {
-      "value": 22,
+      "value": 11,
       "tradeable": true
     },
     "flyer": {
@@ -3284,15 +3284,15 @@
       "tradeable": true
     },
     "white-berries": {
-      "value": 683,
+      "value": 676,
       "tradeable": true
     },
     "snape-grass": {
-      "value": 641,
+      "value": 648,
       "tradeable": true
     },
     "black-dagger": {
-      "value": 340,
+      "value": 345,
       "tradeable": true
     },
     "vial-of-water": {
@@ -3304,7 +3304,7 @@
       "tradeable": true
     },
     "sinister-key": {
-      "value": 21911,
+      "value": 21361,
       "tradeable": true
     },
     "spectral-sigil": {
@@ -3312,55 +3312,55 @@
       "tradeable": true
     },
     "onyx-bolts-e": {
-      "value": 8433,
+      "value": 8469,
       "tradeable": true
     },
     "steel-cannonball": {
-      "value": 248,
+      "value": 246,
       "tradeable": true
     },
     "raw-shark": {
-      "value": 683,
+      "value": 701,
       "tradeable": true
     },
     "arcane-sigil": {
-      "value": 122710996,
+      "value": 125443508,
       "tradeable": true
     },
     "teak-plank": {
-      "value": 744,
+      "value": 754,
       "tradeable": true
     },
     "mahogany-logs": {
-      "value": 156,
+      "value": 160,
       "tradeable": true
     },
     "tuna-potato": {
-      "value": 1420,
+      "value": 1471,
       "tradeable": true
     },
     "goat-horn": {
-      "value": 30,
+      "value": 23,
       "tradeable": true
     },
     "elysian-sigil": {
-      "value": 549215256,
+      "value": 550387928,
       "tradeable": true
     },
     "antidote-4": {
-      "value": 10224,
+      "value": 10107,
       "tradeable": true
     },
     "spirit-shield": {
-      "value": 85336,
+      "value": 85097,
       "tradeable": true
     },
     "holy-elixir": {
-      "value": 894000,
+      "value": 893301,
       "tradeable": true
     },
     "mystic-robe-top": {
-      "value": 72110,
+      "value": 71275,
       "tradeable": true
     },
     "jar-of-spirits": {
@@ -3372,23 +3372,23 @@
       "tradeable": false
     },
     "mystic-robe-bottom": {
-      "value": 48249,
+      "value": 48149,
       "tradeable": true
     },
     "mystic-air-staff": {
-      "value": 24750,
+      "value": 25350,
       "tradeable": true
     },
     "mystic-water-staff": {
-      "value": 24900,
+      "value": 25019,
       "tradeable": true
     },
     "mystic-earth-staff": {
-      "value": 25050,
+      "value": 25075,
       "tradeable": true
     },
     "mystic-fire-staff": {
-      "value": 25062,
+      "value": 25102,
       "tradeable": true
     },
     "bronze-boots": {
@@ -3396,11 +3396,11 @@
       "tradeable": true
     },
     "unicorn-horn-dust": {
-      "value": 618,
+      "value": 610,
       "tradeable": true
     },
     "red-spiders-eggs": {
-      "value": 173,
+      "value": 174,
       "tradeable": true
     },
     "flax": {
@@ -3408,15 +3408,15 @@
       "tradeable": true
     },
     "papaya-fruit": {
-      "value": 1443,
+      "value": 1457,
       "tradeable": true
     },
     "coconut": {
-      "value": 1368,
+      "value": 1362,
       "tradeable": true
     },
     "leaf-bladed-sword": {
-      "value": 39839,
+      "value": 39970,
       "tradeable": true
     },
     "kurask-head": {
@@ -3424,23 +3424,23 @@
       "tradeable": false
     },
     "mystic-robe-top-light": {
-      "value": 72500,
+      "value": 71130,
       "tradeable": true
     },
     "leaf-bladed-battleaxe": {
-      "value": 70934,
+      "value": 77901,
       "tradeable": true
     },
     "granite-maul": {
-      "value": 92413,
+      "value": 91204,
       "tradeable": true
     },
     "gold-bar": {
-      "value": 87,
+      "value": 86,
       "tradeable": true
     },
     "mystic-robe-top-dark": {
-      "value": 72555,
+      "value": 71638,
       "tradeable": true
     },
     "brittle-key": {
@@ -3448,7 +3448,7 @@
       "tradeable": false
     },
     "adamant-boots": {
-      "value": 1202,
+      "value": 769,
       "tradeable": true
     },
     "mystic-gloves-dark": {
@@ -3464,11 +3464,11 @@
       "tradeable": false
     },
     "mystic-hat-light": {
-      "value": 8997,
+      "value": 8352,
       "tradeable": true
     },
     "iron-boots": {
-      "value": 6395,
+      "value": 8047,
       "tradeable": true
     },
     "cockatrice-head": {
@@ -3476,19 +3476,19 @@
       "tradeable": false
     },
     "mystic-boots-light": {
-      "value": 9584,
+      "value": 9315,
       "tradeable": true
     },
     "mystic-gloves-light": {
-      "value": 5650,
+      "value": 5564,
       "tradeable": true
     },
     "dwarven-stout": {
-      "value": 102,
+      "value": 103,
       "tradeable": true
     },
     "mystic-robe-bottom-light": {
-      "value": 46924,
+      "value": 47092,
       "tradeable": true
     },
     "jug-of-wine": {
@@ -3496,11 +3496,11 @@
       "tradeable": true
     },
     "staff-of-fire": {
-      "value": 864,
+      "value": 967,
       "tradeable": true
     },
     "steel-boots": {
-      "value": 1208,
+      "value": 1214,
       "tradeable": true
     },
     "thread": {
@@ -3508,23 +3508,23 @@
       "tradeable": true
     },
     "mithril-boots": {
-      "value": 524,
+      "value": 755,
       "tradeable": true
     },
     "mystic-boots-dark": {
-      "value": 56423,
+      "value": 57898,
       "tradeable": true
     },
     "mystic-hat-dark": {
-      "value": 77062,
+      "value": 68105,
       "tradeable": true
     },
     "staff": {
-      "value": 107,
+      "value": 67,
       "tradeable": true
     },
     "leather-gloves": {
-      "value": 4,
+      "value": 9,
       "tradeable": true
     },
     "crawling-hand-item": {
@@ -3532,27 +3532,27 @@
       "tradeable": false
     },
     "purple-gloves": {
-      "value": 1011,
+      "value": 994,
       "tradeable": true
     },
     "yellow-gloves": {
-      "value": 670,
+      "value": 844,
       "tradeable": true
     },
     "red-gloves": {
-      "value": 1200,
+      "value": 1134,
       "tradeable": true
     },
     "teal-gloves": {
-      "value": 535,
+      "value": 578,
       "tradeable": true
     },
     "gold-ring": {
-      "value": 146,
+      "value": 144,
       "tradeable": true
     },
     "sapphire-ring": {
-      "value": 417,
+      "value": 420,
       "tradeable": true
     },
     "emerald-ring": {
@@ -3560,15 +3560,15 @@
       "tradeable": true
     },
     "silver-bar": {
-      "value": 98,
+      "value": 113,
       "tradeable": true
     },
     "kebab": {
-      "value": 58,
+      "value": 55,
       "tradeable": true
     },
     "waterskin-0": {
-      "value": 12,
+      "value": 11,
       "tradeable": true
     },
     "desert-lizard-bone": {
@@ -3576,31 +3576,31 @@
       "tradeable": false
     },
     "wyvern-bones": {
-      "value": 3113,
+      "value": 3126,
       "tradeable": true
     },
     "granite-legs": {
-      "value": 70813,
+      "value": 68925,
       "tradeable": true
     },
     "prayer-potion-4": {
-      "value": 9203,
+      "value": 9190,
       "tradeable": true
     },
     "unpowered-orb": {
-      "value": 58,
+      "value": 59,
       "tradeable": true
     },
     "runite-crossbow-u": {
-      "value": 9196,
+      "value": 9174,
       "tradeable": true
     },
     "earth-battlestaff": {
-      "value": 8789,
+      "value": 8755,
       "tradeable": true
     },
     "rune-warhammer": {
-      "value": 24801,
+      "value": 24616,
       "tradeable": true
     },
     "steam-rune": {
@@ -3608,11 +3608,11 @@
       "tradeable": true
     },
     "staff-of-air": {
-      "value": 1476,
+      "value": 1281,
       "tradeable": true
     },
     "fire-orb": {
-      "value": 1769,
+      "value": 1792,
       "tradeable": true
     },
     "soda-ash": {
@@ -3620,15 +3620,15 @@
       "tradeable": true
     },
     "fire-battlestaff": {
-      "value": 8784,
+      "value": 8813,
       "tradeable": true
     },
     "mithril-full-helm": {
-      "value": 814,
+      "value": 676,
       "tradeable": true
     },
     "lantern-lens": {
-      "value": 3,
+      "value": 2,
       "tradeable": true
     },
     "torch": {
@@ -3636,19 +3636,19 @@
       "tradeable": false
     },
     "bullseye-lantern-unf": {
-      "value": 1222,
+      "value": 740,
       "tradeable": true
     },
     "bronze-full-helm": {
-      "value": 123,
+      "value": 79,
       "tradeable": true
     },
     "mithril-med-helm": {
-      "value": 485,
+      "value": 407,
       "tradeable": true
     },
     "giant-frog-legs": {
-      "value": 6532,
+      "value": 7397,
       "tradeable": true
     },
     "earth-talisman": {
@@ -3668,7 +3668,7 @@
       "tradeable": true
     },
     "oil-lantern-frame": {
-      "value": 6,
+      "value": 20,
       "tradeable": true
     },
     "bronze-axe": {
@@ -3676,15 +3676,15 @@
       "tradeable": true
     },
     "empty-candle-lantern": {
-      "value": 5,
+      "value": 17,
       "tradeable": true
     },
     "candle": {
-      "value": 413,
+      "value": 884,
       "tradeable": true
     },
     "meat-pizza": {
-      "value": 259,
+      "value": 252,
       "tradeable": true
     },
     "ensouled-bloodveld-head": {
@@ -3696,11 +3696,11 @@
       "tradeable": true
     },
     "staff-of-water": {
-      "value": 825,
+      "value": 1214,
       "tradeable": true
     },
     "adamant-spear": {
-      "value": 648,
+      "value": 823,
       "tradeable": true
     },
     "old-boot": {
@@ -3712,15 +3712,15 @@
       "tradeable": true
     },
     "water-orb": {
-      "value": 1445,
+      "value": 1432,
       "tradeable": true
     },
     "kraken-tentacle": {
-      "value": 266457,
+      "value": 263078,
       "tradeable": true
     },
     "water-battlestaff": {
-      "value": 8760,
+      "value": 8775,
       "tradeable": true
     },
     "trident-of-the-seas": {
@@ -3728,27 +3728,27 @@
       "tradeable": false
     },
     "magic-seed": {
-      "value": 70163,
+      "value": 71422,
       "tradeable": true
     },
     "diamond": {
-      "value": 1670,
+      "value": 1681,
       "tradeable": true
     },
     "oak-plank": {
-      "value": 391,
+      "value": 400,
       "tradeable": true
     },
     "raw-monkfish": {
-      "value": 127,
+      "value": 124,
       "tradeable": true
     },
     "pirate-boots": {
-      "value": 812,
+      "value": 1162,
       "tradeable": true
     },
     "sanfew-serum-4": {
-      "value": 20821,
+      "value": 21189,
       "tradeable": true
     },
     "rusty-sword": {
@@ -3756,11 +3756,11 @@
       "tradeable": false
     },
     "dragonstone-ring": {
-      "value": 11144,
+      "value": 10590,
       "tradeable": true
     },
     "jar-of-dirt": {
-      "value": 34630,
+      "value": 40099,
       "tradeable": true
     },
     "pet-kraken": {
@@ -3768,67 +3768,67 @@
       "tradeable": false
     },
     "mist-rune": {
-      "value": 83,
+      "value": 82,
       "tradeable": true
     },
     "red-dhide-body": {
-      "value": 5855,
+      "value": 5898,
       "tradeable": true
     },
     "occult-necklace": {
-      "value": 335832,
+      "value": 349769,
       "tradeable": true
     },
     "smoke-rune": {
-      "value": 62,
+      "value": 59,
       "tradeable": true
     },
     "crossbow-string": {
-      "value": 320,
+      "value": 313,
       "tradeable": true
     },
     "ugthanki-kebab": {
-      "value": 662,
+      "value": 653,
       "tradeable": true
     },
     "black-dhide-vambraces": {
-      "value": 2523,
+      "value": 1990,
       "tradeable": true
     },
     "mithril-plateskirt": {
-      "value": 1311,
+      "value": 1620,
       "tradeable": true
     },
     "dragon-scimitar": {
-      "value": 59410,
+      "value": 59661,
       "tradeable": true
     },
     "ancient-staff": {
-      "value": 60949,
+      "value": 60316,
       "tradeable": true
     },
     "smoke-battlestaff": {
-      "value": 1914087,
+      "value": 1910104,
       "tradeable": true
     },
     "molten-glass": {
-      "value": 91,
+      "value": 81,
       "tradeable": true
     },
     "bullseye-lantern": {
-      "value": 2041,
+      "value": 1843,
       "tradeable": true
     },
     "onyx-bolt-tips": {
-      "value": 8108,
+      "value": 8104,
       "tradeable": true
     },
     "grapes": {
-      "value": 67,
+      "value": 66,
       "tradeable": true
     },
     "jar-of-smoke": {
-      "value": 84087,
+      "value": 78500,
       "tradeable": true
     },
     "pet-smoke-devil": {
@@ -3836,15 +3836,15 @@
       "tradeable": false
     },
     "rune-scimitar": {
-      "value": 15170,
+      "value": 15190,
       "tradeable": true
     },
     "rune-knife-p": {
-      "value": 136,
+      "value": 135,
       "tradeable": true
     },
     "wizard-hat": {
-      "value": 541,
+      "value": 461,
       "tradeable": true
     },
     "rope": {
@@ -3860,11 +3860,11 @@
       "tradeable": true
     },
     "pot-of-flour": {
-      "value": 93,
+      "value": 99,
       "tradeable": true
     },
     "steel-mace": {
-      "value": 44,
+      "value": 16,
       "tradeable": true
     },
     "bread": {
@@ -3872,7 +3872,7 @@
       "tradeable": true
     },
     "black-cape": {
-      "value": 248,
+      "value": 227,
       "tradeable": true
     },
     "unholy-mould": {
@@ -3884,15 +3884,15 @@
       "tradeable": false
     },
     "right-eye-patch": {
-      "value": 109,
+      "value": 80,
       "tradeable": true
     },
     "chefs-hat": {
-      "value": 354,
+      "value": 330,
       "tradeable": true
     },
     "bronze-scimitar": {
-      "value": 73,
+      "value": 85,
       "tradeable": true
     },
     "iron-platebody": {
@@ -3900,11 +3900,11 @@
       "tradeable": true
     },
     "zamorak-monk-bottom": {
-      "value": 2875,
+      "value": 3194,
       "tradeable": true
     },
     "zamorak-monk-top": {
-      "value": 894,
+      "value": 975,
       "tradeable": true
     },
     "golden-key": {
@@ -3916,11 +3916,11 @@
       "tradeable": false
     },
     "cleaning-cloth": {
-      "value": 504,
+      "value": 503,
       "tradeable": true
     },
     "superantipoison-2": {
-      "value": 450,
+      "value": 900,
       "tradeable": true
     },
     "steel-javelin": {
@@ -3928,7 +3928,7 @@
       "tradeable": true
     },
     "superantipoison-3": {
-      "value": 805,
+      "value": 779,
       "tradeable": true
     },
     "steel-arrow-p": {
@@ -3940,7 +3940,7 @@
       "tradeable": false
     },
     "sardine": {
-      "value": 10,
+      "value": 11,
       "tradeable": true
     },
     "black-med-helm": {
@@ -3952,15 +3952,15 @@
       "tradeable": true
     },
     "supercompost": {
-      "value": 26,
+      "value": 28,
       "tradeable": true
     },
     "mort-myre-fungus": {
-      "value": 267,
+      "value": 263,
       "tradeable": true
     },
     "clay": {
-      "value": 77,
+      "value": 75,
       "tradeable": true
     },
     "fungicide": {
@@ -3968,11 +3968,11 @@
       "tradeable": false
     },
     "steel-bolts": {
-      "value": 38,
+      "value": 20,
       "tradeable": true
     },
     "mithril-dagger": {
-      "value": 130,
+      "value": 123,
       "tradeable": true
     },
     "rusty-scimitar": {
@@ -3984,7 +3984,7 @@
       "tradeable": false
     },
     "bandana-eyepatch-blue": {
-      "value": 178,
+      "value": 100,
       "tradeable": true
     },
     "brain-tongs": {
@@ -4008,7 +4008,7 @@
       "tradeable": true
     },
     "mithril-scimitar": {
-      "value": 422,
+      "value": 441,
       "tradeable": true
     },
     "karamthulhu": {
@@ -4020,23 +4020,23 @@
       "tradeable": false
     },
     "tuna": {
-      "value": 48,
+      "value": 50,
       "tradeable": true
     },
     "black-warhammer": {
-      "value": 1070,
+      "value": 748,
       "tradeable": true
     },
     "steel-warhammer": {
-      "value": 257,
+      "value": 229,
       "tradeable": true
     },
     "raw-mackerel": {
-      "value": 5,
+      "value": 3,
       "tradeable": true
     },
     "adamant-warhammer": {
-      "value": 2872,
+      "value": 2551,
       "tradeable": true
     },
     "troll-bone": {
@@ -4048,7 +4048,7 @@
       "tradeable": false
     },
     "black-platebody": {
-      "value": 2514,
+      "value": 2394,
       "tradeable": true
     },
     "shadow-diamond": {
@@ -4056,19 +4056,19 @@
       "tradeable": false
     },
     "iron-scimitar": {
-      "value": 31,
+      "value": 21,
       "tradeable": true
     },
     "steel-sq-shield": {
-      "value": 203,
+      "value": 210,
       "tradeable": true
     },
     "sapphire-necklace": {
-      "value": 458,
+      "value": 460,
       "tradeable": true
     },
     "emerald-amulet-u": {
-      "value": 633,
+      "value": 624,
       "tradeable": true
     },
     "ring-of-dueling-1": {
@@ -4080,27 +4080,27 @@
       "tradeable": true
     },
     "papyrus": {
-      "value": 105,
+      "value": 111,
       "tradeable": true
     },
     "rune-sq-shield": {
-      "value": 22807,
+      "value": 22811,
       "tradeable": true
     },
     "gold-amulet-u": {
-      "value": 157,
+      "value": 151,
       "tradeable": true
     },
     "gold-necklace": {
-      "value": 148,
+      "value": 151,
       "tradeable": true
     },
     "willow-blackjack": {
-      "value": 254,
+      "value": 150,
       "tradeable": true
     },
     "adamant-scimitar": {
-      "value": 1910,
+      "value": 1900,
       "tradeable": true
     },
     "suqah-hide": {
@@ -4116,7 +4116,7 @@
       "tradeable": false
     },
     "lava-rune": {
-      "value": 29,
+      "value": 28,
       "tradeable": true
     },
     "raw-bass": {
@@ -4124,7 +4124,7 @@
       "tradeable": true
     },
     "marrentill-tar": {
-      "value": 5,
+      "value": 4,
       "tradeable": true
     },
     "keris": {
@@ -4136,7 +4136,7 @@
       "tradeable": false
     },
     "ogre-coffin-key": {
-      "value": 1890,
+      "value": 6970,
       "tradeable": true
     },
     "zogre-bones": {
@@ -4148,7 +4148,7 @@
       "tradeable": false
     },
     "ourg-bones": {
-      "value": 49911,
+      "value": 47103,
       "tradeable": true
     },
     "ogre-artefact": {
@@ -4160,11 +4160,11 @@
       "tradeable": false
     },
     "steel-platebody": {
-      "value": 943,
+      "value": 997,
       "tradeable": true
     },
     "granite-shield": {
-      "value": 37464,
+      "value": 34775,
       "tradeable": true
     },
     "hardleather-body": {
@@ -4172,7 +4172,7 @@
       "tradeable": true
     },
     "adamant-dagger": {
-      "value": 285,
+      "value": 297,
       "tradeable": true
     },
     "rusty-casket": {
@@ -4184,7 +4184,7 @@
       "tradeable": false
     },
     "air-talisman": {
-      "value": 165,
+      "value": 157,
       "tradeable": true
     },
     "snake-spine": {
@@ -4192,15 +4192,15 @@
       "tradeable": false
     },
     "bat-bones": {
-      "value": 682,
+      "value": 586,
       "tradeable": true
     },
     "iron-warhammer": {
-      "value": 20,
+      "value": 29,
       "tradeable": true
     },
     "teak-logs": {
-      "value": 119,
+      "value": 117,
       "tradeable": true
     },
     "pineapple": {
@@ -4212,7 +4212,7 @@
       "tradeable": false
     },
     "black-mask-10": {
-      "value": 743417,
+      "value": 737396,
       "tradeable": true
     },
     "broad-arrows": {
@@ -4220,11 +4220,11 @@
       "tradeable": false
     },
     "adamant-dart-tip": {
-      "value": 179,
+      "value": 186,
       "tradeable": true
     },
     "pearl-bolt-tips": {
-      "value": 6,
+      "value": 7,
       "tradeable": true
     },
     "heavy-box": {
@@ -4236,11 +4236,11 @@
       "tradeable": true
     },
     "chocolate-cake": {
-      "value": 165,
+      "value": 167,
       "tradeable": true
     },
     "super-restore-4": {
-      "value": 9995,
+      "value": 10095,
       "tradeable": true
     },
     "steel-sword": {
@@ -4260,23 +4260,23 @@
       "tradeable": false
     },
     "loar-remains": {
-      "value": 106,
+      "value": 117,
       "tradeable": true
     },
     "phrin-remains": {
-      "value": 3089,
+      "value": 2897,
       "tradeable": true
     },
     "riyl-remains": {
-      "value": 751,
+      "value": 753,
       "tradeable": true
     },
     "asyn-remains": {
-      "value": 2750,
+      "value": 2799,
       "tradeable": true
     },
     "fiyr-remains": {
-      "value": 8085,
+      "value": 8100,
       "tradeable": true
     },
     "seagull-wing": {
@@ -4288,7 +4288,7 @@
       "tradeable": false
     },
     "staff-of-earth": {
-      "value": 811,
+      "value": 739,
       "tradeable": true
     },
     "elemental-ore": {
@@ -4300,7 +4300,7 @@
       "tradeable": false
     },
     "raw-chompy": {
-      "value": 1255,
+      "value": 1275,
       "tradeable": true
     },
     "chompy-chick": {
@@ -4312,7 +4312,7 @@
       "tradeable": false
     },
     "steel-dart": {
-      "value": 3,
+      "value": 4,
       "tradeable": true
     },
     "silver-bolts": {
@@ -4320,7 +4320,7 @@
       "tradeable": true
     },
     "iron-plateskirt": {
-      "value": 15,
+      "value": 22,
       "tradeable": true
     },
     "steel-hasta": {
@@ -4336,15 +4336,15 @@
       "tradeable": true
     },
     "mith-grapple": {
-      "value": 1583,
+      "value": 1823,
       "tradeable": true
     },
     "yew-shortbow": {
-      "value": 331,
+      "value": 336,
       "tradeable": true
     },
     "steel-knife": {
-      "value": 57,
+      "value": 80,
       "tradeable": true
     },
     "rat-bone": {
@@ -4356,15 +4356,15 @@
       "tradeable": false
     },
     "apple-pie": {
-      "value": 71,
+      "value": 68,
       "tradeable": true
     },
     "iron-longsword": {
-      "value": 33,
+      "value": 30,
       "tradeable": true
     },
     "iron-halberd": {
-      "value": 24717,
+      "value": 18361,
       "tradeable": true
     },
     "bronze-dagger-p": {
@@ -4372,7 +4372,7 @@
       "tradeable": true
     },
     "iron-2h-sword": {
-      "value": 61,
+      "value": 80,
       "tradeable": true
     },
     "steel-thrownaxe": {
@@ -4384,7 +4384,7 @@
       "tradeable": true
     },
     "steel-plateskirt": {
-      "value": 438,
+      "value": 430,
       "tradeable": true
     },
     "gorak-claws": {
@@ -4396,7 +4396,7 @@
       "tradeable": true
     },
     "ring-of-life": {
-      "value": 1878,
+      "value": 1893,
       "tradeable": true
     },
     "raw-rabbit": {
@@ -4408,7 +4408,7 @@
       "tradeable": false
     },
     "mithril-warhammer": {
-      "value": 918,
+      "value": 956,
       "tradeable": true
     },
     "ball-of-wool": {
@@ -4416,15 +4416,15 @@
       "tradeable": true
     },
     "anchovy-pizza": {
-      "value": 553,
+      "value": 558,
       "tradeable": true
     },
     "mithril-dart": {
-      "value": 8,
+      "value": 9,
       "tradeable": true
     },
     "strange-fruit": {
-      "value": 663,
+      "value": 658,
       "tradeable": true
     },
     "weapon-poison": {
@@ -4436,15 +4436,15 @@
       "tradeable": false
     },
     "super-attack-4": {
-      "value": 2041,
+      "value": 2052,
       "tradeable": true
     },
     "super-defence-4": {
-      "value": 3331,
+      "value": 3316,
       "tradeable": true
     },
     "super-strength-4": {
-      "value": 3215,
+      "value": 3293,
       "tradeable": true
     },
     "raw-oomlie": {
@@ -4468,19 +4468,19 @@
       "tradeable": false
     },
     "adamant-sword": {
-      "value": 1541,
+      "value": 1057,
       "tradeable": true
     },
     "mithril-platelegs": {
-      "value": 1381,
+      "value": 1406,
       "tradeable": true
     },
     "adamant-mace": {
-      "value": 653,
+      "value": 623,
       "tradeable": true
     },
     "jogre-bones": {
-      "value": 2999,
+      "value": 1002,
       "tradeable": true
     },
     "jogre-bone": {
@@ -4492,7 +4492,7 @@
       "tradeable": false
     },
     "barley-seed": {
-      "value": 3,
+      "value": 9,
       "tradeable": true
     },
     "hammerstone-seed": {
@@ -4500,7 +4500,7 @@
       "tradeable": true
     },
     "asgarnian-seed": {
-      "value": 6,
+      "value": 8,
       "tradeable": true
     },
     "jute-seed": {
@@ -4512,11 +4512,11 @@
       "tradeable": true
     },
     "krandorian-seed": {
-      "value": 5,
+      "value": 11,
       "tradeable": true
     },
     "bronze-warhammer": {
-      "value": 28,
+      "value": 22,
       "tradeable": true
     },
     "bucket-of-water": {
@@ -4524,7 +4524,7 @@
       "tradeable": true
     },
     "keg-of-beer": {
-      "value": 773,
+      "value": 706,
       "tradeable": true
     },
     "cake": {
@@ -4552,23 +4552,23 @@
       "tradeable": true
     },
     "potato-cactus": {
-      "value": 64,
+      "value": 63,
       "tradeable": true
     },
     "wine-of-zamorak": {
-      "value": 1015,
+      "value": 983,
       "tradeable": true
     },
     "amulet-of-defence": {
-      "value": 807,
+      "value": 811,
       "tradeable": true
     },
     "amulet-of-magic": {
-      "value": 514,
+      "value": 646,
       "tradeable": true
     },
     "pot": {
-      "value": 12,
+      "value": 14,
       "tradeable": true
     },
     "tokkul": {
@@ -4576,7 +4576,7 @@
       "tradeable": false
     },
     "chisel": {
-      "value": 82,
+      "value": 88,
       "tradeable": true
     },
     "jug": {
@@ -4584,23 +4584,23 @@
       "tradeable": true
     },
     "toktz-xil-ul": {
-      "value": 2909,
+      "value": 2911,
       "tradeable": true
     },
     "toktz-xil-ak": {
-      "value": 531125,
+      "value": 529886,
       "tradeable": true
     },
     "toktz-xil-ek": {
-      "value": 82922,
+      "value": 97978,
       "tradeable": true
     },
     "obsidian-cape": {
-      "value": 476372,
+      "value": 480532,
       "tradeable": true
     },
     "tzhaar-ket-om": {
-      "value": 162427,
+      "value": 165590,
       "tradeable": true
     },
     "ensouled-tzhaar-head": {
@@ -4608,47 +4608,47 @@
       "tradeable": false
     },
     "toktz-ket-xil": {
-      "value": 295724,
+      "value": 299988,
       "tradeable": true
     },
     "rune-dart": {
-      "value": 219,
+      "value": 217,
       "tradeable": true
     },
     "rune-plateskirt": {
-      "value": 38403,
+      "value": 38147,
       "tradeable": true
     },
     "saradomin-brew-3": {
-      "value": 5035,
+      "value": 4798,
       "tradeable": true
     },
     "super-defence-3": {
-      "value": 2296,
+      "value": 2257,
       "tradeable": true
     },
     "magic-potion-3": {
-      "value": 141,
+      "value": 85,
       "tradeable": true
     },
     "saradomin-sword": {
-      "value": 128201,
+      "value": 128110,
       "tradeable": true
     },
     "rune-sword": {
-      "value": 12295,
+      "value": 11949,
       "tradeable": true
     },
     "saradomins-light": {
-      "value": 50923,
+      "value": 54617,
       "tradeable": true
     },
     "armadyl-crossbow": {
-      "value": 36951440,
+      "value": 36847619,
       "tradeable": true
     },
     "saradomin-hilt": {
-      "value": 24432000,
+      "value": 24388000,
       "tradeable": true
     },
     "pet-zilyana": {
@@ -4656,27 +4656,27 @@
       "tradeable": false
     },
     "summer-pie": {
-      "value": 679,
+      "value": 686,
       "tradeable": true
     },
     "unicorn-horn": {
-      "value": 510,
+      "value": 527,
       "tradeable": true
     },
     "rune-halberd": {
-      "value": 37318,
+      "value": 37818,
       "tradeable": true
     },
     "steel-chainbody": {
-      "value": 365,
+      "value": 371,
       "tradeable": true
     },
     "black-kiteshield": {
-      "value": 1086,
+      "value": 999,
       "tradeable": true
     },
     "mithril-mace": {
-      "value": 128,
+      "value": 130,
       "tradeable": true
     },
     "mithril-spear-p": {
@@ -4684,7 +4684,7 @@
       "tradeable": true
     },
     "oak-shortbow": {
-      "value": 108,
+      "value": 138,
       "tradeable": true
     },
     "adamant-arrow-p": {
@@ -4696,19 +4696,19 @@
       "tradeable": false
     },
     "headless-arrow": {
-      "value": 10,
-      "tradeable": true
-    },
-    "iron-arrowtips": {
       "value": 9,
       "tradeable": true
     },
+    "iron-arrowtips": {
+      "value": 8,
+      "tradeable": true
+    },
     "adamant-arrowtips": {
-      "value": 103,
+      "value": 94,
       "tradeable": true
     },
     "bow-string": {
-      "value": 157,
+      "value": 159,
       "tradeable": true
     },
     "broken-arrow": {
@@ -4720,15 +4720,15 @@
       "tradeable": true
     },
     "oak-longbow-u": {
-      "value": 12,
+      "value": 11,
       "tradeable": true
     },
     "maple-longbow": {
-      "value": 269,
+      "value": 271,
       "tradeable": true
     },
     "magic-shortbow": {
-      "value": 783,
+      "value": 781,
       "tradeable": true
     },
     "bronze-arrow-p": {
@@ -4740,23 +4740,23 @@
       "tradeable": true
     },
     "antipoison-3": {
-      "value": 295,
+      "value": 299,
       "tradeable": true
     },
     "chilli-potato": {
-      "value": 243,
+      "value": 379,
       "tradeable": true
     },
     "combat-potion-3": {
-      "value": 79,
+      "value": 78,
       "tradeable": true
     },
     "super-strength-3": {
-      "value": 2321,
+      "value": 2328,
       "tradeable": true
     },
     "bronze-platelegs": {
-      "value": 227,
+      "value": 157,
       "tradeable": true
     },
     "bronze-2h-sword": {
@@ -4764,15 +4764,15 @@
       "tradeable": true
     },
     "iron-chainbody": {
-      "value": 124,
+      "value": 232,
       "tradeable": true
     },
     "bronze-dart": {
-      "value": 28,
+      "value": 20,
       "tradeable": true
     },
     "bronze-halberd": {
-      "value": 470,
+      "value": 1175,
       "tradeable": true
     },
     "iron-dart": {
@@ -4784,11 +4784,11 @@
       "tradeable": true
     },
     "mind-talisman": {
-      "value": 991,
+      "value": 925,
       "tradeable": true
     },
     "cosmic-talisman": {
-      "value": 211,
+      "value": 172,
       "tradeable": true
     },
     "rock-shell-splinter": {
@@ -4796,7 +4796,7 @@
       "tradeable": true
     },
     "rock-shell-chunk": {
-      "value": 8300,
+      "value": 8978,
       "tradeable": true
     },
     "rock-shell-shard": {
@@ -4812,31 +4812,31 @@
       "tradeable": true
     },
     "dagannoth-bones": {
-      "value": 12426,
+      "value": 12307,
       "tradeable": true
     },
     "seercull": {
-      "value": 26851,
+      "value": 34841,
       "tradeable": true
     },
     "dragon-axe": {
-      "value": 71495,
+      "value": 69543,
       "tradeable": true
     },
     "archer-helm": {
-      "value": 37070,
+      "value": 38611,
       "tradeable": true
     },
     "spined-body": {
-      "value": 4313,
+      "value": 7157,
       "tradeable": true
     },
     "spined-chaps": {
-      "value": 15150,
+      "value": 25973,
       "tradeable": true
     },
     "archers-ring": {
-      "value": 2379754,
+      "value": 2429024,
       "tradeable": true
     },
     "dagannoth-hide": {
@@ -4844,15 +4844,15 @@
       "tradeable": true
     },
     "mithril-knife": {
-      "value": 181,
+      "value": 199,
       "tradeable": true
     },
     "rune-thrownaxe": {
-      "value": 132,
+      "value": 133,
       "tradeable": true
     },
     "maple-logs": {
-      "value": 12,
+      "value": 10,
       "tradeable": true
     },
     "adamant-dart": {
@@ -4860,7 +4860,7 @@
       "tradeable": true
     },
     "iron-knife": {
-      "value": 37,
+      "value": 44,
       "tradeable": true
     },
     "pet-dagannoth-supreme": {
@@ -4868,11 +4868,11 @@
       "tradeable": false
     },
     "mud-battlestaff": {
-      "value": 24788,
+      "value": 25611,
       "tradeable": true
     },
     "farseer-helm": {
-      "value": 33526,
+      "value": 38556,
       "tradeable": true
     },
     "skeletal-top": {
@@ -4884,7 +4884,7 @@
       "tradeable": true
     },
     "seers-ring": {
-      "value": 715376,
+      "value": 711333,
       "tradeable": true
     },
     "pet-dagannoth-prime": {
@@ -4892,23 +4892,23 @@
       "tradeable": false
     },
     "rock-shell-plate": {
-      "value": 42412,
+      "value": 40431,
       "tradeable": true
     },
     "rock-shell-legs": {
-      "value": 37590,
+      "value": 38449,
       "tradeable": true
     },
     "berserker-ring": {
-      "value": 3730854,
+      "value": 3729654,
       "tradeable": true
     },
     "warrior-ring": {
-      "value": 50344,
+      "value": 62182,
       "tradeable": true
     },
     "antifire-potion-2": {
-      "value": 370,
+      "value": 300,
       "tradeable": true
     },
     "prayer-potion-2": {
@@ -4920,19 +4920,19 @@
       "tradeable": true
     },
     "super-attack-2": {
-      "value": 972,
+      "value": 978,
       "tradeable": true
     },
     "super-strength-2": {
-      "value": 1468,
+      "value": 1380,
       "tradeable": true
     },
     "zamorak-brew-2": {
-      "value": 222,
+      "value": 270,
       "tradeable": true
     },
     "mithril-pickaxe": {
-      "value": 541,
+      "value": 616,
       "tradeable": true
     },
     "pet-dagannoth-rex": {
@@ -4944,19 +4944,19 @@
       "tradeable": false
     },
     "bronze-platebody": {
-      "value": 76,
+      "value": 75,
       "tradeable": true
     },
     "iron-platelegs": {
-      "value": 34,
+      "value": 48,
       "tradeable": true
     },
     "black-full-helm": {
-      "value": 487,
+      "value": 391,
       "tradeable": true
     },
     "black-platelegs": {
-      "value": 1106,
+      "value": 1011,
       "tradeable": true
     },
     "rune-essence": {
@@ -4964,7 +4964,7 @@
       "tradeable": true
     },
     "trout": {
-      "value": 20,
+      "value": 17,
       "tradeable": true
     },
     "top-of-sceptre": {
@@ -4988,7 +4988,7 @@
       "tradeable": false
     },
     "bronze-dagger": {
-      "value": 102,
+      "value": 107,
       "tradeable": true
     },
     "rats-tail": {
@@ -5000,43 +5000,43 @@
       "tradeable": false
     },
     "steel-pickaxe": {
-      "value": 134,
+      "value": 146,
       "tradeable": true
     },
     "ham-boots": {
-      "value": 1488,
+      "value": 1959,
       "tradeable": true
     },
     "ham-shirt": {
-      "value": 154,
+      "value": 340,
       "tradeable": true
     },
     "ham-robe": {
-      "value": 373,
+      "value": 1214,
       "tradeable": true
     },
     "ham-logo": {
-      "value": 2354,
+      "value": 1750,
       "tradeable": true
     },
     "ham-hood": {
-      "value": 829,
+      "value": 1119,
       "tradeable": true
     },
     "ham-cloak": {
-      "value": 2169,
+      "value": 2517,
       "tradeable": true
     },
     "logs": {
-      "value": 25,
+      "value": 24,
       "tradeable": true
     },
     "uncut-opal": {
-      "value": 86,
+      "value": 76,
       "tradeable": true
     },
     "uncut-jade": {
-      "value": 82,
+      "value": 96,
       "tradeable": true
     },
     "raw-anchovies": {
@@ -5048,19 +5048,19 @@
       "tradeable": false
     },
     "needle": {
-      "value": 43,
+      "value": 50,
       "tradeable": true
     },
     "leather-body": {
-      "value": 23,
+      "value": 20,
       "tradeable": true
     },
     "ham-gloves": {
-      "value": 5077,
+      "value": 2521,
       "tradeable": true
     },
     "elemental-talisman": {
-      "value": 2336,
+      "value": 2125,
       "tradeable": true
     },
     "small-pouch": {
@@ -5080,15 +5080,15 @@
       "tradeable": false
     },
     "binding-necklace": {
-      "value": 608,
+      "value": 604,
       "tradeable": true
     },
     "raw-swordfish": {
-      "value": 195,
+      "value": 198,
       "tradeable": true
     },
     "raw-pike": {
-      "value": 79,
+      "value": 81,
       "tradeable": true
     },
     "raw-salmon": {
@@ -5140,7 +5140,7 @@
       "tradeable": false
     },
     "blamish-myre-shell-round": {
-      "value": 254,
+      "value": 265,
       "tradeable": true
     },
     "blamish-myre-shell-pointed": {
@@ -5148,11 +5148,11 @@
       "tradeable": true
     },
     "thin-snail": {
-      "value": 1105,
+      "value": 1114,
       "tradeable": true
     },
     "fat-snail": {
-      "value": 1830,
+      "value": 1680,
       "tradeable": true
     },
     "blamish-red-shell-round": {
@@ -5168,15 +5168,15 @@
       "tradeable": true
     },
     "blamish-blue-shell-round": {
-      "value": 2270,
+      "value": 3158,
       "tradeable": true
     },
     "blamish-bark-shell": {
-      "value": 7509,
+      "value": 7534,
       "tradeable": true
     },
     "lean-snail": {
-      "value": 1422,
+      "value": 2544,
       "tradeable": true
     },
     "bat-wing": {
@@ -5208,11 +5208,11 @@
       "tradeable": false
     },
     "ruby-ring": {
-      "value": 1029,
+      "value": 1045,
       "tradeable": true
     },
     "mackerel": {
-      "value": 6,
+      "value": 7,
       "tradeable": true
     },
     "black-dagger-p": {
@@ -5220,43 +5220,43 @@
       "tradeable": true
     },
     "black-longsword": {
-      "value": 706,
+      "value": 701,
       "tradeable": true
     },
     "red-chinchompa": {
-      "value": 1462,
+      "value": 1461,
       "tradeable": true
     },
     "blue-dhide-vambraces": {
-      "value": 1361,
+      "value": 1382,
       "tradeable": true
     },
     "sapphire-bolts": {
-      "value": 60,
+      "value": 33,
       "tradeable": true
     },
     "mist-battlestaff": {
-      "value": 62922,
+      "value": 50727,
       "tradeable": true
     },
     "adamant-chainbody": {
-      "value": 2691,
+      "value": 2770,
       "tradeable": true
     },
     "mithril-hasta": {
-      "value": 50,
+      "value": 99,
       "tradeable": true
     },
     "adamant-knife": {
-      "value": 303,
+      "value": 339,
       "tradeable": true
     },
     "dragon-full-helm": {
-      "value": 47968168,
+      "value": 48152137,
       "tradeable": true
     },
     "prayer-mix-2": {
-      "value": 3928,
+      "value": 3564,
       "tradeable": true
     },
     "superattack-mix-2": {
@@ -5280,7 +5280,7 @@
       "tradeable": false
     },
     "nail-beast-nails": {
-      "value": 685,
+      "value": 666,
       "tradeable": true
     },
     "snake-corpse": {
@@ -5304,11 +5304,11 @@
       "tradeable": false
     },
     "spider-carcass": {
-      "value": 177,
+      "value": 195,
       "tradeable": true
     },
     "rake": {
-      "value": 103,
+      "value": 229,
       "tradeable": true
     },
     "gardening-boots": {
@@ -5316,7 +5316,7 @@
       "tradeable": true
     },
     "seed-dibber": {
-      "value": 142,
+      "value": 145,
       "tradeable": true
     },
     "secateurs": {
@@ -5332,35 +5332,35 @@
       "tradeable": false
     },
     "infernal-ashes": {
-      "value": 3891,
+      "value": 3967,
       "tradeable": true
     },
     "dragon-dagger-p": {
-      "value": 17314,
+      "value": 17499,
       "tradeable": true
     },
     "super-restore-3": {
-      "value": 7377,
+      "value": 7343,
       "tradeable": true
     },
     "zamorak-brew-3": {
-      "value": 401,
+      "value": 400,
       "tradeable": true
     },
     "steam-battlestaff": {
-      "value": 34071,
+      "value": 118239,
       "tradeable": true
     },
     "zamorakian-spear": {
-      "value": 1289565,
+      "value": 1277916,
       "tradeable": true
     },
     "staff-of-the-dead": {
-      "value": 5906631,
+      "value": 5940117,
       "tradeable": true
     },
     "zamorak-hilt": {
-      "value": 18950283,
+      "value": 18886500,
       "tradeable": true
     },
     "pet-kril-tsutsaroth": {
@@ -5380,11 +5380,11 @@
       "tradeable": true
     },
     "shears": {
-      "value": 99,
+      "value": 52,
       "tradeable": true
     },
     "black-bead": {
-      "value": 1268,
+      "value": 1084,
       "tradeable": true
     },
     "jug-of-water": {
@@ -5392,11 +5392,11 @@
       "tradeable": true
     },
     "cadava-berries": {
-      "value": 82,
+      "value": 96,
       "tradeable": true
     },
     "red-bead": {
-      "value": 1992,
+      "value": 2897,
       "tradeable": true
     },
     "potion": {
@@ -5412,7 +5412,7 @@
       "tradeable": false
     },
     "white-bead": {
-      "value": 1281,
+      "value": 1362,
       "tradeable": true
     },
     "yellow-bead": {
@@ -5420,39 +5420,39 @@
       "tradeable": true
     },
     "blue-wizard-hat": {
-      "value": 370,
+      "value": 291,
       "tradeable": true
     },
     "egg": {
-      "value": 37,
+      "value": 30,
       "tradeable": true
     },
     "black-dhide-body": {
-      "value": 7101,
+      "value": 7342,
       "tradeable": true
     },
     "dragonstone-bolts-e": {
-      "value": 359,
+      "value": 357,
       "tradeable": true
     },
     "ranging-potion-3": {
-      "value": 1430,
+      "value": 1539,
       "tradeable": true
     },
     "yew-seed": {
-      "value": 19498,
+      "value": 18294,
       "tradeable": true
     },
     "armadyl-helmet": {
-      "value": 8301920,
+      "value": 8238259,
       "tradeable": true
     },
     "armadyl-chestplate": {
-      "value": 32761000,
+      "value": 33026720,
       "tradeable": true
     },
     "armadyl-chainskirt": {
-      "value": 24744234,
+      "value": 24722345,
       "tradeable": true
     },
     "pet-kreearra": {
@@ -5460,7 +5460,7 @@
       "tradeable": false
     },
     "armadyl-hilt": {
-      "value": 6615500,
+      "value": 6614502,
       "tradeable": true
     }
   },

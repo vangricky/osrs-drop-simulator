@@ -192,7 +192,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'al-kharid-warrior',
-    unlockCost: 0,
+    unlockCost: 97000,
     name: 'Al-Kharid warrior',
     combatLevel: 9,
     iconUrl: img('Al Kharid warrior'),

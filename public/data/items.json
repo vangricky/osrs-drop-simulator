@@ -4,7 +4,7 @@
     "name": "Chaos talisman",
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_talisman.png",
     "members": true,
-    "value": 353,
+    "value": 217,
     "tradeable": true,
     "stackable": false
   },
@@ -22,7 +22,7 @@
     "name": "Loop half of key",
     "iconUrl": "https://oldschool.runescape.wiki/images/Loop_half_of_key.png",
     "members": true,
-    "value": 9588,
+    "value": 9636,
     "tradeable": true,
     "stackable": false
   },
@@ -31,7 +31,7 @@
     "name": "Tooth half of key",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tooth_half_of_key.png",
     "members": true,
-    "value": 9615,
+    "value": 9627,
     "tradeable": true,
     "stackable": false
   },
@@ -40,7 +40,7 @@
     "name": "Rune spear",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_spear.png",
     "members": true,
-    "value": 12346,
+    "value": 11709,
     "tradeable": true,
     "stackable": false
   },
@@ -49,7 +49,7 @@
     "name": "Shield left half",
     "iconUrl": "https://oldschool.runescape.wiki/images/Shield_left_half.png",
     "members": true,
-    "value": 65118,
+    "value": 67528,
     "tradeable": true,
     "stackable": false
   },
@@ -67,7 +67,7 @@
     "name": "Grimy irit leaf",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_irit_leaf.png",
     "members": true,
-    "value": 1441,
+    "value": 1361,
     "tradeable": true,
     "stackable": false
   },
@@ -76,7 +76,7 @@
     "name": "Grimy avantoe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_avantoe.png",
     "members": true,
-    "value": 1573,
+    "value": 1550,
     "tradeable": true,
     "stackable": false
   },
@@ -85,7 +85,7 @@
     "name": "Grimy kwuarm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_kwuarm.png",
     "members": true,
-    "value": 2063,
+    "value": 2043,
     "tradeable": true,
     "stackable": false
   },
@@ -94,7 +94,7 @@
     "name": "Grimy cadantine",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_cadantine.png",
     "members": true,
-    "value": 2141,
+    "value": 2168,
     "tradeable": true,
     "stackable": false
   },
@@ -103,7 +103,7 @@
     "name": "Grimy lantadyme",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_lantadyme.png",
     "members": true,
-    "value": 1154,
+    "value": 1135,
     "tradeable": true,
     "stackable": false
   },
@@ -112,7 +112,7 @@
     "name": "Grimy dwarf weed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_dwarf_weed.png",
     "members": true,
-    "value": 1290,
+    "value": 1260,
     "tradeable": true,
     "stackable": false
   },
@@ -130,7 +130,7 @@
     "name": "Cosmic rune",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cosmic_rune.png",
     "members": false,
-    "value": 120,
+    "value": 123,
     "tradeable": true,
     "stackable": true
   },
@@ -139,7 +139,7 @@
     "name": "Mud rune",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mud_rune.png",
     "members": true,
-    "value": 96,
+    "value": 98,
     "tradeable": true,
     "stackable": true
   },
@@ -148,7 +148,7 @@
     "name": "Grimy guam leaf",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_guam_leaf.png",
     "members": true,
-    "value": 219,
+    "value": 216,
     "tradeable": true,
     "stackable": false
   },
@@ -157,7 +157,7 @@
     "name": "Grimy marrentill",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_marrentill.png",
     "members": true,
-    "value": 190,
+    "value": 189,
     "tradeable": true,
     "stackable": false
   },
@@ -166,7 +166,7 @@
     "name": "Grimy tarromin",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_tarromin.png",
     "members": true,
-    "value": 193,
+    "value": 161,
     "tradeable": true,
     "stackable": false
   },
@@ -211,7 +211,7 @@
     "name": "Tinderbox",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tinderbox.png",
     "members": false,
-    "value": 113,
+    "value": 104,
     "tradeable": true,
     "stackable": false
   },
@@ -274,7 +274,7 @@
     "name": "Bronze kiteshield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_kiteshield.png",
     "members": false,
-    "value": 169,
+    "value": 156,
     "tradeable": true,
     "stackable": false
   },
@@ -283,7 +283,7 @@
     "name": "Mithril arrow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_arrow_5.png",
     "members": false,
-    "value": 5,
+    "value": 6,
     "tradeable": true,
     "stackable": true
   },
@@ -301,7 +301,7 @@
     "name": "Bronze longsword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_longsword.png",
     "members": false,
-    "value": 58,
+    "value": 102,
     "tradeable": true,
     "stackable": false
   },
@@ -319,7 +319,7 @@
     "name": "Fire talisman",
     "iconUrl": "https://oldschool.runescape.wiki/images/Fire_talisman.png",
     "members": false,
-    "value": 2369,
+    "value": 2314,
     "tradeable": true,
     "stackable": false
   },
@@ -373,7 +373,7 @@
     "name": "Bronze arrow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_arrow_5.png",
     "members": false,
-    "value": 5,
+    "value": 4,
     "tradeable": true,
     "stackable": true
   },
@@ -382,7 +382,7 @@
     "name": "Bronze pickaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_pickaxe.png",
     "members": false,
-    "value": 89,
+    "value": 67,
     "tradeable": true,
     "stackable": false
   },
@@ -391,7 +391,7 @@
     "name": "Oyster",
     "iconUrl": "https://oldschool.runescape.wiki/images/Oyster.png",
     "members": true,
-    "value": 44,
+    "value": 66,
     "tradeable": true,
     "stackable": false
   },
@@ -418,7 +418,7 @@
     "name": "Iron pickaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_pickaxe.png",
     "members": false,
-    "value": 40,
+    "value": 59,
     "tradeable": true,
     "stackable": false
   },
@@ -427,7 +427,7 @@
     "name": "Opal bolt tips",
     "iconUrl": "https://oldschool.runescape.wiki/images/Opal_bolt_tips_5.png",
     "members": true,
-    "value": 19,
+    "value": 18,
     "tradeable": true,
     "stackable": true
   },
@@ -436,7 +436,7 @@
     "name": "Spinach roll",
     "iconUrl": "https://oldschool.runescape.wiki/images/Spinach_roll.png",
     "members": false,
-    "value": 367,
+    "value": 428,
     "tradeable": true,
     "stackable": false
   },
@@ -445,7 +445,7 @@
     "name": "Casket",
     "iconUrl": "https://oldschool.runescape.wiki/images/Casket.png",
     "members": true,
-    "value": 581,
+    "value": 453,
     "tradeable": true,
     "stackable": false
   },
@@ -472,7 +472,7 @@
     "name": "Edible seaweed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Edible_seaweed.png",
     "members": true,
-    "value": 105,
+    "value": 82,
     "tradeable": true,
     "stackable": false
   },
@@ -481,7 +481,7 @@
     "name": "Wolf bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Wolf_bones.png",
     "members": true,
-    "value": 627,
+    "value": 478,
     "tradeable": true,
     "stackable": false
   },
@@ -508,7 +508,7 @@
     "name": "Mushroom spore",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mushroom_spore_5.png",
     "members": true,
-    "value": 83,
+    "value": 146,
     "tradeable": true,
     "stackable": true
   },
@@ -517,7 +517,7 @@
     "name": "Toadflax seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Toadflax_seed_5.png",
     "members": true,
-    "value": 935,
+    "value": 932,
     "tradeable": true,
     "stackable": true
   },
@@ -526,7 +526,7 @@
     "name": "Belladonna seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Belladonna_seed_5.png",
     "members": true,
-    "value": 105,
+    "value": 114,
     "tradeable": true,
     "stackable": true
   },
@@ -535,7 +535,7 @@
     "name": "Irit seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Irit_seed_5.png",
     "members": true,
-    "value": 61,
+    "value": 89,
     "tradeable": true,
     "stackable": true
   },
@@ -544,7 +544,7 @@
     "name": "Poison ivy seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Poison_ivy_seed_5.png",
     "members": true,
-    "value": 45,
+    "value": 40,
     "tradeable": true,
     "stackable": true
   },
@@ -553,7 +553,7 @@
     "name": "Avantoe seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Avantoe_seed_5.png",
     "members": true,
-    "value": 270,
+    "value": 269,
     "tradeable": true,
     "stackable": true
   },
@@ -562,7 +562,7 @@
     "name": "Cactus seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cactus_seed_5.png",
     "members": true,
-    "value": 113,
+    "value": 97,
     "tradeable": true,
     "stackable": true
   },
@@ -571,7 +571,7 @@
     "name": "Kwuarm seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Kwuarm_seed_5.png",
     "members": true,
-    "value": 1341,
+    "value": 1368,
     "tradeable": true,
     "stackable": true
   },
@@ -580,7 +580,7 @@
     "name": "Potato cactus seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Potato_cactus_seed_5.png",
     "members": true,
-    "value": 11,
+    "value": 10,
     "tradeable": true,
     "stackable": true
   },
@@ -589,7 +589,7 @@
     "name": "Cadantine seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cadantine_seed_5.png",
     "members": true,
-    "value": 2849,
+    "value": 3092,
     "tradeable": true,
     "stackable": true
   },
@@ -598,7 +598,7 @@
     "name": "Lantadyme seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Lantadyme_seed_5.png",
     "members": true,
-    "value": 110,
+    "value": 340,
     "tradeable": true,
     "stackable": true
   },
@@ -607,7 +607,7 @@
     "name": "Dwarf weed seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf_weed_seed_5.png",
     "members": true,
-    "value": 662,
+    "value": 732,
     "tradeable": true,
     "stackable": true
   },
@@ -634,7 +634,7 @@
     "name": "Potato seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Potato_seed_5.png",
     "members": true,
-    "value": 7,
+    "value": 8,
     "tradeable": true,
     "stackable": true
   },
@@ -643,7 +643,7 @@
     "name": "Onion seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Onion_seed_5.png",
     "members": true,
-    "value": 10,
+    "value": 8,
     "tradeable": true,
     "stackable": true
   },
@@ -652,7 +652,7 @@
     "name": "Cabbage seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cabbage_seed_5.png",
     "members": true,
-    "value": 8,
+    "value": 10,
     "tradeable": true,
     "stackable": true
   },
@@ -670,7 +670,7 @@
     "name": "Iron sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_sword.png",
     "members": false,
-    "value": 74,
+    "value": 39,
     "tradeable": true,
     "stackable": false
   },
@@ -688,7 +688,7 @@
     "name": "Strawberry seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Strawberry_seed_5.png",
     "members": true,
-    "value": 5,
+    "value": 12,
     "tradeable": true,
     "stackable": true
   },
@@ -697,7 +697,7 @@
     "name": "Watermelon seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Watermelon_seed_5.png",
     "members": true,
-    "value": 161,
+    "value": 160,
     "tradeable": true,
     "stackable": true
   },
@@ -706,7 +706,7 @@
     "name": "Snape grass seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Snape_grass_seed_5.png",
     "members": true,
-    "value": 11315,
+    "value": 10963,
     "tradeable": true,
     "stackable": true
   },
@@ -715,7 +715,7 @@
     "name": "Steel dagger",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_dagger.png",
     "members": false,
-    "value": 148,
+    "value": 129,
     "tradeable": true,
     "stackable": false
   },
@@ -733,7 +733,7 @@
     "name": "Iron spear",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_spear.png",
     "members": true,
-    "value": 1225,
+    "value": 120,
     "tradeable": true,
     "stackable": false
   },
@@ -742,7 +742,7 @@
     "name": "Steel spear",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_spear.png",
     "members": true,
-    "value": 514,
+    "value": 516,
     "tradeable": true,
     "stackable": false
   },
@@ -769,7 +769,7 @@
     "name": "Jangerberry seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Jangerberry_seed_5.png",
     "members": true,
-    "value": 27,
+    "value": 6,
     "tradeable": true,
     "stackable": true
   },
@@ -778,7 +778,7 @@
     "name": "Tarromin seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tarromin_seed_5.png",
     "members": true,
-    "value": 12,
+    "value": 28,
     "tradeable": true,
     "stackable": true
   },
@@ -787,7 +787,7 @@
     "name": "Wildblood seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Wildblood_seed_5.png",
     "members": true,
-    "value": 52,
+    "value": 44,
     "tradeable": true,
     "stackable": true
   },
@@ -796,7 +796,7 @@
     "name": "Harralander seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Harralander_seed_5.png",
     "members": true,
-    "value": 32,
+    "value": 35,
     "tradeable": true,
     "stackable": true
   },
@@ -832,7 +832,7 @@
     "name": "Babydragon bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Babydragon_bones.png",
     "members": true,
-    "value": 735,
+    "value": 745,
     "tradeable": true,
     "stackable": false
   },
@@ -868,7 +868,7 @@
     "name": "Grubby key",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grubby_key.png",
     "members": true,
-    "value": 35000,
+    "value": 35132,
     "tradeable": true,
     "stackable": false
   },
@@ -877,7 +877,7 @@
     "name": "Waterskin(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Waterskin(4).png",
     "members": true,
-    "value": 84,
+    "value": 70,
     "tradeable": true,
     "stackable": false
   },
@@ -886,7 +886,7 @@
     "name": "Adamant med helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_med_helm.png",
     "members": false,
-    "value": 949,
+    "value": 952,
     "tradeable": true,
     "stackable": false
   },
@@ -895,7 +895,7 @@
     "name": "Super attack(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_attack(3).png",
     "members": true,
-    "value": 1422,
+    "value": 1356,
     "tradeable": true,
     "stackable": false
   },
@@ -904,7 +904,7 @@
     "name": "Super defence(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_defence(2).png",
     "members": true,
-    "value": 1497,
+    "value": 1394,
     "tradeable": true,
     "stackable": false
   },
@@ -913,7 +913,7 @@
     "name": "Curry",
     "iconUrl": "https://oldschool.runescape.wiki/images/Curry.png",
     "members": true,
-    "value": 383,
+    "value": 395,
     "tradeable": true,
     "stackable": false
   },
@@ -931,7 +931,7 @@
     "name": "Rune mace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_mace.png",
     "members": false,
-    "value": 8334,
+    "value": 7812,
     "tradeable": true,
     "stackable": false
   },
@@ -940,7 +940,7 @@
     "name": "Rune knife",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_knife.png",
     "members": true,
-    "value": 120,
+    "value": 126,
     "tradeable": true,
     "stackable": true
   },
@@ -949,7 +949,7 @@
     "name": "Rune axe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_axe.png",
     "members": false,
-    "value": 7354,
+    "value": 7530,
     "tradeable": true,
     "stackable": false
   },
@@ -958,7 +958,7 @@
     "name": "Lobster pot",
     "iconUrl": "https://oldschool.runescape.wiki/images/Lobster_pot.png",
     "members": false,
-    "value": 138,
+    "value": 120,
     "tradeable": true,
     "stackable": false
   },
@@ -967,7 +967,7 @@
     "name": "Raw herring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_herring.png",
     "members": false,
-    "value": 60,
+    "value": 53,
     "tradeable": true,
     "stackable": false
   },
@@ -976,7 +976,7 @@
     "name": "Raw sardine",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_sardine.png",
     "members": false,
-    "value": 17,
+    "value": 16,
     "tradeable": true,
     "stackable": false
   },
@@ -1003,7 +1003,7 @@
     "name": "Raw tuna",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_tuna.png",
     "members": false,
-    "value": 45,
+    "value": 46,
     "tradeable": true,
     "stackable": false
   },
@@ -1039,7 +1039,7 @@
     "name": "Lobster",
     "iconUrl": "https://oldschool.runescape.wiki/images/Lobster.png",
     "members": false,
-    "value": 96,
+    "value": 95,
     "tradeable": true,
     "stackable": false
   },
@@ -1048,7 +1048,7 @@
     "name": "Adamantite bar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamantite_bar.png",
     "members": false,
-    "value": 1889,
+    "value": 1860,
     "tradeable": true,
     "stackable": false
   },
@@ -1057,7 +1057,7 @@
     "name": "Defence potion(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Defence_potion(3).png",
     "members": true,
-    "value": 114,
+    "value": 137,
     "tradeable": true,
     "stackable": false
   },
@@ -1066,7 +1066,7 @@
     "name": "Mithril kiteshield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_kiteshield.png",
     "members": false,
-    "value": 1069,
+    "value": 1162,
     "tradeable": true,
     "stackable": false
   },
@@ -1084,7 +1084,7 @@
     "name": "Bass",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bass.png",
     "members": true,
-    "value": 56,
+    "value": 60,
     "tradeable": true,
     "stackable": false
   },
@@ -1093,7 +1093,7 @@
     "name": "Adamantite ore",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamantite_ore.png",
     "members": false,
-    "value": 521,
+    "value": 538,
     "tradeable": true,
     "stackable": false
   },
@@ -1102,7 +1102,7 @@
     "name": "Adamant full helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_full_helm.png",
     "members": false,
-    "value": 1970,
+    "value": 1922,
     "tradeable": true,
     "stackable": false
   },
@@ -1111,7 +1111,7 @@
     "name": "Mithril bolts",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_bolts_5.png",
     "members": true,
-    "value": 23,
+    "value": 19,
     "tradeable": true,
     "stackable": true
   },
@@ -1138,7 +1138,7 @@
     "name": "Adamant dart(p)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_dart(p).png",
     "members": true,
-    "value": 24,
+    "value": 20,
     "tradeable": true,
     "stackable": true
   },
@@ -1147,7 +1147,7 @@
     "name": "Adamant bolts",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_bolts_5.png",
     "members": true,
-    "value": 172,
+    "value": 168,
     "tradeable": true,
     "stackable": true
   },
@@ -1156,7 +1156,7 @@
     "name": "Iron bar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_bar.png",
     "members": false,
-    "value": 164,
+    "value": 155,
     "tradeable": true,
     "stackable": false
   },
@@ -1165,7 +1165,7 @@
     "name": "Super strength(1)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_strength(1).png",
     "members": true,
-    "value": 1052,
+    "value": 838,
     "tradeable": true,
     "stackable": false
   },
@@ -1174,7 +1174,7 @@
     "name": "Adamant 2h sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_2h_sword.png",
     "members": false,
-    "value": 3684,
+    "value": 3478,
     "tradeable": true,
     "stackable": false
   },
@@ -1183,7 +1183,7 @@
     "name": "Adamant battleaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_battleaxe.png",
     "members": false,
-    "value": 2415,
+    "value": 2408,
     "tradeable": true,
     "stackable": false
   },
@@ -1210,7 +1210,7 @@
     "name": "Bronze battleaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_battleaxe.png",
     "members": false,
-    "value": 70,
+    "value": 71,
     "tradeable": true,
     "stackable": false
   },
@@ -1228,7 +1228,7 @@
     "name": "Muddy key",
     "iconUrl": "https://oldschool.runescape.wiki/images/Muddy_key.png",
     "members": false,
-    "value": 5986,
+    "value": 6059,
     "tradeable": true,
     "stackable": false
   },
@@ -1246,7 +1246,7 @@
     "name": "Tomato",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tomato.png",
     "members": false,
-    "value": 20,
+    "value": 22,
     "tradeable": true,
     "stackable": false
   },
@@ -1255,7 +1255,7 @@
     "name": "Mithril longsword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_longsword.png",
     "members": false,
-    "value": 612,
+    "value": 583,
     "tradeable": true,
     "stackable": false
   },
@@ -1264,7 +1264,7 @@
     "name": "Cooked meat",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cooked_meat.png",
     "members": false,
-    "value": 71,
+    "value": 72,
     "tradeable": true,
     "stackable": false
   },
@@ -1273,7 +1273,7 @@
     "name": "Amulet mould",
     "iconUrl": "https://oldschool.runescape.wiki/images/Amulet_mould.png",
     "members": false,
-    "value": 135,
+    "value": 171,
     "tradeable": true,
     "stackable": false
   },
@@ -1282,7 +1282,7 @@
     "name": "Bear fur",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bear_fur.png",
     "members": false,
-    "value": 22,
+    "value": 11,
     "tradeable": true,
     "stackable": false
   },
@@ -1318,7 +1318,7 @@
     "name": "White berries",
     "iconUrl": "https://oldschool.runescape.wiki/images/White_berries.png",
     "members": true,
-    "value": 683,
+    "value": 676,
     "tradeable": true,
     "stackable": false
   },
@@ -1327,7 +1327,7 @@
     "name": "Snape grass",
     "iconUrl": "https://oldschool.runescape.wiki/images/Snape_grass.png",
     "members": true,
-    "value": 641,
+    "value": 648,
     "tradeable": true,
     "stackable": false
   },
@@ -1336,7 +1336,7 @@
     "name": "Black dagger",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_dagger.png",
     "members": false,
-    "value": 340,
+    "value": 345,
     "tradeable": true,
     "stackable": false
   },
@@ -1363,7 +1363,7 @@
     "name": "Sinister key",
     "iconUrl": "https://oldschool.runescape.wiki/images/Sinister_key.png",
     "members": true,
-    "value": 21911,
+    "value": 21361,
     "tradeable": true,
     "stackable": false
   },
@@ -1381,7 +1381,7 @@
     "name": "Onyx bolts (e)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Onyx_bolts_(e)_5.png",
     "members": true,
-    "value": 8433,
+    "value": 8469,
     "tradeable": true,
     "stackable": true
   },
@@ -1390,7 +1390,7 @@
     "name": "Steel cannonball",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_cannonball.png",
     "members": true,
-    "value": 248,
+    "value": 246,
     "tradeable": true,
     "stackable": false
   },
@@ -1399,7 +1399,7 @@
     "name": "Raw shark",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_shark.png",
     "members": true,
-    "value": 683,
+    "value": 701,
     "tradeable": true,
     "stackable": false
   },
@@ -1408,7 +1408,7 @@
     "name": "Arcane sigil",
     "iconUrl": "https://oldschool.runescape.wiki/images/Arcane_sigil.png",
     "members": true,
-    "value": 122710996,
+    "value": 125443508,
     "tradeable": true,
     "stackable": false
   },
@@ -1417,7 +1417,7 @@
     "name": "Teak plank",
     "iconUrl": "https://oldschool.runescape.wiki/images/Teak_plank.png",
     "members": true,
-    "value": 744,
+    "value": 754,
     "tradeable": true,
     "stackable": false
   },
@@ -1426,7 +1426,7 @@
     "name": "Mahogany logs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mahogany_logs.png",
     "members": true,
-    "value": 156,
+    "value": 160,
     "tradeable": true,
     "stackable": false
   },
@@ -1435,7 +1435,7 @@
     "name": "Tuna potato",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tuna_potato.png",
     "members": true,
-    "value": 1420,
+    "value": 1471,
     "tradeable": true,
     "stackable": false
   },
@@ -1444,7 +1444,7 @@
     "name": "Goat horn",
     "iconUrl": "https://oldschool.runescape.wiki/images/Goat_horn.png",
     "members": true,
-    "value": 30,
+    "value": 23,
     "tradeable": true,
     "stackable": false
   },
@@ -1453,7 +1453,7 @@
     "name": "Elysian sigil",
     "iconUrl": "https://oldschool.runescape.wiki/images/Elysian_sigil.png",
     "members": true,
-    "value": 549215256,
+    "value": 550387928,
     "tradeable": true,
     "stackable": false
   },
@@ -1462,7 +1462,7 @@
     "name": "Antidote++(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Antidote++(4).png",
     "members": true,
-    "value": 10224,
+    "value": 10107,
     "tradeable": true,
     "stackable": false
   },
@@ -1471,7 +1471,7 @@
     "name": "Spirit shield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Spirit_shield.png",
     "members": true,
-    "value": 85336,
+    "value": 85097,
     "tradeable": true,
     "stackable": false
   },
@@ -1480,7 +1480,7 @@
     "name": "Holy elixir",
     "iconUrl": "https://oldschool.runescape.wiki/images/Holy_elixir.png",
     "members": true,
-    "value": 894000,
+    "value": 893301,
     "tradeable": true,
     "stackable": false
   },
@@ -1489,7 +1489,7 @@
     "name": "Mystic robe top",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_robe_top.png",
     "members": true,
-    "value": 72110,
+    "value": 71275,
     "tradeable": true,
     "stackable": false
   },
@@ -1516,7 +1516,7 @@
     "name": "Mystic robe bottom",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_robe_bottom.png",
     "members": true,
-    "value": 48249,
+    "value": 48149,
     "tradeable": true,
     "stackable": false
   },
@@ -1525,7 +1525,7 @@
     "name": "Mystic air staff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_air_staff.png",
     "members": true,
-    "value": 24750,
+    "value": 25350,
     "tradeable": true,
     "stackable": false
   },
@@ -1534,7 +1534,7 @@
     "name": "Mystic water staff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_water_staff.png",
     "members": true,
-    "value": 24900,
+    "value": 25019,
     "tradeable": true,
     "stackable": false
   },
@@ -1543,7 +1543,7 @@
     "name": "Mystic earth staff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_earth_staff.png",
     "members": true,
-    "value": 25050,
+    "value": 25075,
     "tradeable": true,
     "stackable": false
   },
@@ -1552,7 +1552,7 @@
     "name": "Mystic fire staff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_fire_staff.png",
     "members": true,
-    "value": 25062,
+    "value": 25102,
     "tradeable": true,
     "stackable": false
   },
@@ -1570,7 +1570,7 @@
     "name": "Unicorn horn dust",
     "iconUrl": "https://oldschool.runescape.wiki/images/Unicorn_horn_dust.png",
     "members": true,
-    "value": 618,
+    "value": 610,
     "tradeable": true,
     "stackable": false
   },
@@ -1579,7 +1579,7 @@
     "name": "Red spiders' eggs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Red_spiders'_eggs.png",
     "members": false,
-    "value": 173,
+    "value": 174,
     "tradeable": true,
     "stackable": false
   },
@@ -1597,7 +1597,7 @@
     "name": "Papaya fruit",
     "iconUrl": "https://oldschool.runescape.wiki/images/Papaya_fruit.png",
     "members": true,
-    "value": 1443,
+    "value": 1457,
     "tradeable": true,
     "stackable": false
   },
@@ -1606,7 +1606,7 @@
     "name": "Coconut",
     "iconUrl": "https://oldschool.runescape.wiki/images/Coconut.png",
     "members": true,
-    "value": 1368,
+    "value": 1362,
     "tradeable": true,
     "stackable": false
   },
@@ -1615,7 +1615,7 @@
     "name": "Leaf-bladed sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Leaf-bladed_sword.png",
     "members": true,
-    "value": 39839,
+    "value": 39970,
     "tradeable": true,
     "stackable": false
   },
@@ -1633,7 +1633,7 @@
     "name": "Mystic robe top (light)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_robe_top_(light).png",
     "members": true,
-    "value": 72500,
+    "value": 71130,
     "tradeable": true,
     "stackable": false
   },
@@ -1642,7 +1642,7 @@
     "name": "Leaf-bladed battleaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Leaf-bladed_battleaxe.png",
     "members": true,
-    "value": 70934,
+    "value": 77901,
     "tradeable": true,
     "stackable": false
   },
@@ -1651,7 +1651,7 @@
     "name": "Granite maul",
     "iconUrl": "https://oldschool.runescape.wiki/images/Granite_maul.png",
     "members": true,
-    "value": 92413,
+    "value": 91204,
     "tradeable": true,
     "stackable": false
   },
@@ -1660,7 +1660,7 @@
     "name": "Gold bar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Gold_bar.png",
     "members": false,
-    "value": 87,
+    "value": 86,
     "tradeable": true,
     "stackable": false
   },
@@ -1669,7 +1669,7 @@
     "name": "Mystic robe top (dark)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_robe_top_(dark).png",
     "members": true,
-    "value": 72555,
+    "value": 71638,
     "tradeable": true,
     "stackable": false
   },
@@ -1687,7 +1687,7 @@
     "name": "Adamant boots",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_boots.png",
     "members": true,
-    "value": 1202,
+    "value": 769,
     "tradeable": true,
     "stackable": false
   },
@@ -1723,7 +1723,7 @@
     "name": "Mystic hat (light)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_hat_(light).png",
     "members": true,
-    "value": 8997,
+    "value": 8352,
     "tradeable": true,
     "stackable": false
   },
@@ -1732,7 +1732,7 @@
     "name": "Iron boots",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_boots.png",
     "members": true,
-    "value": 6395,
+    "value": 8047,
     "tradeable": true,
     "stackable": false
   },
@@ -1750,7 +1750,7 @@
     "name": "Mystic boots (light)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_boots_(light).png",
     "members": true,
-    "value": 9584,
+    "value": 9315,
     "tradeable": true,
     "stackable": false
   },
@@ -1759,7 +1759,7 @@
     "name": "Mystic gloves (light)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_gloves_(light).png",
     "members": true,
-    "value": 5650,
+    "value": 5564,
     "tradeable": true,
     "stackable": false
   },
@@ -1768,7 +1768,7 @@
     "name": "Dwarven stout",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dwarven_stout.png",
     "members": false,
-    "value": 102,
+    "value": 103,
     "tradeable": true,
     "stackable": false
   },
@@ -1777,7 +1777,7 @@
     "name": "Mystic robe bottom (light)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_robe_bottom_(light).png",
     "members": true,
-    "value": 46924,
+    "value": 47092,
     "tradeable": true,
     "stackable": false
   },
@@ -1795,7 +1795,7 @@
     "name": "Staff of fire",
     "iconUrl": "https://oldschool.runescape.wiki/images/Staff_of_fire.png",
     "members": false,
-    "value": 864,
+    "value": 967,
     "tradeable": true,
     "stackable": false
   },
@@ -1804,7 +1804,7 @@
     "name": "Steel boots",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_boots.png",
     "members": true,
-    "value": 1208,
+    "value": 1214,
     "tradeable": true,
     "stackable": false
   },
@@ -1822,7 +1822,7 @@
     "name": "Mithril boots",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_boots.png",
     "members": true,
-    "value": 524,
+    "value": 755,
     "tradeable": true,
     "stackable": false
   },
@@ -1831,7 +1831,7 @@
     "name": "Mystic boots (dark)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_boots_(dark).png",
     "members": true,
-    "value": 56423,
+    "value": 57898,
     "tradeable": true,
     "stackable": false
   },
@@ -1840,7 +1840,7 @@
     "name": "Mystic hat (dark)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mystic_hat_(dark).png",
     "members": true,
-    "value": 77062,
+    "value": 68105,
     "tradeable": true,
     "stackable": false
   },
@@ -1849,7 +1849,7 @@
     "name": "Staff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Staff.png",
     "members": false,
-    "value": 107,
+    "value": 67,
     "tradeable": true,
     "stackable": false
   },
@@ -1858,7 +1858,7 @@
     "name": "Leather gloves",
     "iconUrl": "https://oldschool.runescape.wiki/images/Leather_gloves.png",
     "members": false,
-    "value": 4,
+    "value": 9,
     "tradeable": true,
     "stackable": false
   },
@@ -1876,7 +1876,7 @@
     "name": "Purple gloves",
     "iconUrl": "https://oldschool.runescape.wiki/images/Purple_gloves.png",
     "members": false,
-    "value": 1011,
+    "value": 994,
     "tradeable": true,
     "stackable": false
   },
@@ -1885,7 +1885,7 @@
     "name": "Yellow gloves",
     "iconUrl": "https://oldschool.runescape.wiki/images/Yellow_gloves.png",
     "members": false,
-    "value": 670,
+    "value": 844,
     "tradeable": true,
     "stackable": false
   },
@@ -1894,7 +1894,7 @@
     "name": "Red gloves",
     "iconUrl": "https://oldschool.runescape.wiki/images/Red_gloves.png",
     "members": false,
-    "value": 1200,
+    "value": 1134,
     "tradeable": true,
     "stackable": false
   },
@@ -1903,7 +1903,7 @@
     "name": "Teal gloves",
     "iconUrl": "https://oldschool.runescape.wiki/images/Teal_gloves.png",
     "members": false,
-    "value": 535,
+    "value": 578,
     "tradeable": true,
     "stackable": false
   },
@@ -1912,7 +1912,7 @@
     "name": "Gold ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Gold_ring.png",
     "members": false,
-    "value": 146,
+    "value": 144,
     "tradeable": true,
     "stackable": false
   },
@@ -1921,7 +1921,7 @@
     "name": "Sapphire ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Sapphire_ring.png",
     "members": false,
-    "value": 417,
+    "value": 420,
     "tradeable": true,
     "stackable": false
   },
@@ -1939,7 +1939,7 @@
     "name": "Silver bar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Silver_bar.png",
     "members": false,
-    "value": 98,
+    "value": 113,
     "tradeable": true,
     "stackable": false
   },
@@ -1948,7 +1948,7 @@
     "name": "Kebab",
     "iconUrl": "https://oldschool.runescape.wiki/images/Kebab.png",
     "members": false,
-    "value": 58,
+    "value": 55,
     "tradeable": true,
     "stackable": false
   },
@@ -1957,7 +1957,7 @@
     "name": "Waterskin(0)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Waterskin(0).png",
     "members": true,
-    "value": 12,
+    "value": 11,
     "tradeable": true,
     "stackable": false
   },
@@ -1975,7 +1975,7 @@
     "name": "Wyvern bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Wyvern_bones.png",
     "members": true,
-    "value": 3113,
+    "value": 3126,
     "tradeable": true,
     "stackable": false
   },
@@ -1984,7 +1984,7 @@
     "name": "Granite legs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Granite_legs.png",
     "members": true,
-    "value": 70813,
+    "value": 68925,
     "tradeable": true,
     "stackable": false
   },
@@ -1993,7 +1993,7 @@
     "name": "Prayer potion(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Prayer_potion(4).png",
     "members": true,
-    "value": 9203,
+    "value": 9190,
     "tradeable": true,
     "stackable": false
   },
@@ -2002,7 +2002,7 @@
     "name": "Unpowered orb",
     "iconUrl": "https://oldschool.runescape.wiki/images/Unpowered_orb.png",
     "members": true,
-    "value": 58,
+    "value": 59,
     "tradeable": true,
     "stackable": false
   },
@@ -2011,7 +2011,7 @@
     "name": "Runite crossbow (u)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Runite_crossbow_(u).png",
     "members": true,
-    "value": 9196,
+    "value": 9174,
     "tradeable": true,
     "stackable": false
   },
@@ -2020,7 +2020,7 @@
     "name": "Earth battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Earth_battlestaff.png",
     "members": true,
-    "value": 8789,
+    "value": 8755,
     "tradeable": true,
     "stackable": false
   },
@@ -2029,7 +2029,7 @@
     "name": "Rune warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_warhammer.png",
     "members": false,
-    "value": 24801,
+    "value": 24616,
     "tradeable": true,
     "stackable": false
   },
@@ -2047,7 +2047,7 @@
     "name": "Staff of air",
     "iconUrl": "https://oldschool.runescape.wiki/images/Staff_of_air.png",
     "members": false,
-    "value": 1476,
+    "value": 1281,
     "tradeable": true,
     "stackable": false
   },
@@ -2056,7 +2056,7 @@
     "name": "Fire orb",
     "iconUrl": "https://oldschool.runescape.wiki/images/Fire_orb.png",
     "members": true,
-    "value": 1769,
+    "value": 1792,
     "tradeable": true,
     "stackable": false
   },
@@ -2074,7 +2074,7 @@
     "name": "Fire battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Fire_battlestaff.png",
     "members": true,
-    "value": 8784,
+    "value": 8813,
     "tradeable": true,
     "stackable": false
   },
@@ -2083,7 +2083,7 @@
     "name": "Mithril full helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_full_helm.png",
     "members": false,
-    "value": 814,
+    "value": 676,
     "tradeable": true,
     "stackable": false
   },
@@ -2092,7 +2092,7 @@
     "name": "Lantern lens",
     "iconUrl": "https://oldschool.runescape.wiki/images/Lantern_lens.png",
     "members": true,
-    "value": 3,
+    "value": 2,
     "tradeable": true,
     "stackable": false
   },
@@ -2110,7 +2110,7 @@
     "name": "Bullseye lantern (unf)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bullseye_lantern_(unf).png",
     "members": true,
-    "value": 1222,
+    "value": 740,
     "tradeable": true,
     "stackable": false
   },
@@ -2119,7 +2119,7 @@
     "name": "Bronze full helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_full_helm.png",
     "members": false,
-    "value": 123,
+    "value": 79,
     "tradeable": true,
     "stackable": false
   },
@@ -2128,7 +2128,7 @@
     "name": "Mithril med helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_med_helm.png",
     "members": false,
-    "value": 485,
+    "value": 407,
     "tradeable": true,
     "stackable": false
   },
@@ -2137,7 +2137,7 @@
     "name": "Giant frog legs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Giant_frog_legs.png",
     "members": true,
-    "value": 6532,
+    "value": 7397,
     "tradeable": true,
     "stackable": false
   },
@@ -2182,7 +2182,7 @@
     "name": "Oil lantern frame",
     "iconUrl": "https://oldschool.runescape.wiki/images/Oil_lantern_frame.png",
     "members": true,
-    "value": 6,
+    "value": 20,
     "tradeable": true,
     "stackable": false
   },
@@ -2200,7 +2200,7 @@
     "name": "Empty candle lantern",
     "iconUrl": "https://oldschool.runescape.wiki/images/Empty_candle_lantern.png",
     "members": true,
-    "value": 5,
+    "value": 17,
     "tradeable": true,
     "stackable": false
   },
@@ -2209,7 +2209,7 @@
     "name": "Candle",
     "iconUrl": "https://oldschool.runescape.wiki/images/Candle.png",
     "members": true,
-    "value": 413,
+    "value": 884,
     "tradeable": true,
     "stackable": false
   },
@@ -2218,7 +2218,7 @@
     "name": "Meat pizza",
     "iconUrl": "https://oldschool.runescape.wiki/images/Meat_pizza.png",
     "members": false,
-    "value": 259,
+    "value": 252,
     "tradeable": true,
     "stackable": false
   },
@@ -2245,7 +2245,7 @@
     "name": "Staff of water",
     "iconUrl": "https://oldschool.runescape.wiki/images/Staff_of_water.png",
     "members": false,
-    "value": 825,
+    "value": 1214,
     "tradeable": true,
     "stackable": false
   },
@@ -2254,7 +2254,7 @@
     "name": "Adamant spear",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_spear.png",
     "members": true,
-    "value": 648,
+    "value": 823,
     "tradeable": true,
     "stackable": false
   },
@@ -2281,7 +2281,7 @@
     "name": "Water orb",
     "iconUrl": "https://oldschool.runescape.wiki/images/Water_orb.png",
     "members": true,
-    "value": 1445,
+    "value": 1432,
     "tradeable": true,
     "stackable": false
   },
@@ -2290,7 +2290,7 @@
     "name": "Kraken tentacle",
     "iconUrl": "https://oldschool.runescape.wiki/images/Kraken_tentacle.png",
     "members": true,
-    "value": 266457,
+    "value": 263078,
     "tradeable": true,
     "stackable": false
   },
@@ -2299,7 +2299,7 @@
     "name": "Water battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Water_battlestaff.png",
     "members": true,
-    "value": 8760,
+    "value": 8775,
     "tradeable": true,
     "stackable": false
   },
@@ -2317,7 +2317,7 @@
     "name": "Magic seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Magic_seed_5.png",
     "members": true,
-    "value": 70163,
+    "value": 71422,
     "tradeable": true,
     "stackable": true
   },
@@ -2326,7 +2326,7 @@
     "name": "Diamond",
     "iconUrl": "https://oldschool.runescape.wiki/images/Diamond.png",
     "members": false,
-    "value": 1670,
+    "value": 1681,
     "tradeable": true,
     "stackable": false
   },
@@ -2335,7 +2335,7 @@
     "name": "Oak plank",
     "iconUrl": "https://oldschool.runescape.wiki/images/Oak_plank.png",
     "members": true,
-    "value": 391,
+    "value": 400,
     "tradeable": true,
     "stackable": false
   },
@@ -2344,7 +2344,7 @@
     "name": "Raw monkfish",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_monkfish.png",
     "members": true,
-    "value": 127,
+    "value": 124,
     "tradeable": true,
     "stackable": false
   },
@@ -2353,7 +2353,7 @@
     "name": "Pirate boots",
     "iconUrl": "https://oldschool.runescape.wiki/images/Pirate_boots.png",
     "members": true,
-    "value": 812,
+    "value": 1162,
     "tradeable": true,
     "stackable": false
   },
@@ -2362,7 +2362,7 @@
     "name": "Sanfew serum(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Sanfew_serum(4).png",
     "members": true,
-    "value": 20821,
+    "value": 21189,
     "tradeable": true,
     "stackable": false
   },
@@ -2380,7 +2380,7 @@
     "name": "Dragonstone ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dragonstone_ring.png",
     "members": true,
-    "value": 11144,
+    "value": 10590,
     "tradeable": true,
     "stackable": false
   },
@@ -2389,7 +2389,7 @@
     "name": "Jar of Dirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Jar_of_Dirt.png",
     "members": true,
-    "value": 34630,
+    "value": 40099,
     "tradeable": true,
     "stackable": false
   },
@@ -2407,7 +2407,7 @@
     "name": "Mist rune",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mist_rune.png",
     "members": true,
-    "value": 83,
+    "value": 82,
     "tradeable": true,
     "stackable": true
   },
@@ -2416,7 +2416,7 @@
     "name": "Red d'hide body",
     "iconUrl": "https://oldschool.runescape.wiki/images/Red_d'hide_body.png",
     "members": true,
-    "value": 5855,
+    "value": 5898,
     "tradeable": true,
     "stackable": false
   },
@@ -2425,7 +2425,7 @@
     "name": "Occult necklace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Occult_necklace.png",
     "members": true,
-    "value": 335832,
+    "value": 349769,
     "tradeable": true,
     "stackable": false
   },
@@ -2434,7 +2434,7 @@
     "name": "Smoke rune",
     "iconUrl": "https://oldschool.runescape.wiki/images/Smoke_rune.png",
     "members": true,
-    "value": 62,
+    "value": 59,
     "tradeable": true,
     "stackable": true
   },
@@ -2443,7 +2443,7 @@
     "name": "Crossbow string",
     "iconUrl": "https://oldschool.runescape.wiki/images/Crossbow_string.png",
     "members": true,
-    "value": 320,
+    "value": 313,
     "tradeable": true,
     "stackable": false
   },
@@ -2452,7 +2452,7 @@
     "name": "Ugthanki kebab",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ugthanki_kebab.png",
     "members": true,
-    "value": 662,
+    "value": 653,
     "tradeable": true,
     "stackable": false
   },
@@ -2461,7 +2461,7 @@
     "name": "Black d'hide vambraces",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_d'hide_vambraces.png",
     "members": true,
-    "value": 2523,
+    "value": 1990,
     "tradeable": true,
     "stackable": false
   },
@@ -2470,7 +2470,7 @@
     "name": "Mithril plateskirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_plateskirt.png",
     "members": false,
-    "value": 1311,
+    "value": 1620,
     "tradeable": true,
     "stackable": false
   },
@@ -2479,7 +2479,7 @@
     "name": "Dragon scimitar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_scimitar.png",
     "members": true,
-    "value": 59410,
+    "value": 59661,
     "tradeable": true,
     "stackable": false
   },
@@ -2488,7 +2488,7 @@
     "name": "Ancient staff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ancient_staff.png",
     "members": true,
-    "value": 60949,
+    "value": 60316,
     "tradeable": true,
     "stackable": false
   },
@@ -2497,7 +2497,7 @@
     "name": "Smoke battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Smoke_battlestaff.png",
     "members": true,
-    "value": 1914087,
+    "value": 1910104,
     "tradeable": true,
     "stackable": false
   },
@@ -2506,7 +2506,7 @@
     "name": "Molten glass",
     "iconUrl": "https://oldschool.runescape.wiki/images/Molten_glass.png",
     "members": true,
-    "value": 91,
+    "value": 81,
     "tradeable": true,
     "stackable": false
   },
@@ -2515,7 +2515,7 @@
     "name": "Bullseye lantern",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bullseye_lantern.png",
     "members": true,
-    "value": 2041,
+    "value": 1843,
     "tradeable": true,
     "stackable": false
   },
@@ -2524,7 +2524,7 @@
     "name": "Onyx bolt tips",
     "iconUrl": "https://oldschool.runescape.wiki/images/Onyx_bolt_tips_5.png",
     "members": true,
-    "value": 8108,
+    "value": 8104,
     "tradeable": true,
     "stackable": true
   },
@@ -2533,7 +2533,7 @@
     "name": "Grapes",
     "iconUrl": "https://oldschool.runescape.wiki/images/Grapes.png",
     "members": false,
-    "value": 67,
+    "value": 66,
     "tradeable": true,
     "stackable": false
   },
@@ -2542,7 +2542,7 @@
     "name": "Jar of Smoke",
     "iconUrl": "https://oldschool.runescape.wiki/images/Jar_of_Smoke.png",
     "members": true,
-    "value": 84087,
+    "value": 78500,
     "tradeable": true,
     "stackable": false
   },
@@ -2560,7 +2560,7 @@
     "name": "Rune scimitar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_scimitar.png",
     "members": false,
-    "value": 15170,
+    "value": 15190,
     "tradeable": true,
     "stackable": false
   },
@@ -2569,7 +2569,7 @@
     "name": "Rune knife(p++)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_knife(p++).png",
     "members": true,
-    "value": 136,
+    "value": 135,
     "tradeable": true,
     "stackable": true
   },
@@ -2578,7 +2578,7 @@
     "name": "Wizard hat",
     "iconUrl": "https://oldschool.runescape.wiki/images/Wizard_hat.png",
     "members": false,
-    "value": 541,
+    "value": 461,
     "tradeable": true,
     "stackable": false
   },
@@ -2614,7 +2614,7 @@
     "name": "Pot of flour",
     "iconUrl": "https://oldschool.runescape.wiki/images/Pot_of_flour.png",
     "members": false,
-    "value": 93,
+    "value": 99,
     "tradeable": true,
     "stackable": false
   },
@@ -2623,7 +2623,7 @@
     "name": "Steel mace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_mace.png",
     "members": false,
-    "value": 44,
+    "value": 16,
     "tradeable": true,
     "stackable": false
   },
@@ -2641,7 +2641,7 @@
     "name": "Black cape",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_cape.png",
     "members": false,
-    "value": 248,
+    "value": 227,
     "tradeable": true,
     "stackable": false
   },
@@ -2668,7 +2668,7 @@
     "name": "Right eye patch",
     "iconUrl": "https://oldschool.runescape.wiki/images/Right_eye_patch.png",
     "members": true,
-    "value": 109,
+    "value": 80,
     "tradeable": true,
     "stackable": false
   },
@@ -2677,7 +2677,7 @@
     "name": "Chef's hat",
     "iconUrl": "https://oldschool.runescape.wiki/images/Chef's_hat.png",
     "members": false,
-    "value": 354,
+    "value": 330,
     "tradeable": true,
     "stackable": false
   },
@@ -2686,7 +2686,7 @@
     "name": "Bronze scimitar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_scimitar.png",
     "members": false,
-    "value": 73,
+    "value": 85,
     "tradeable": true,
     "stackable": false
   },
@@ -2704,7 +2704,7 @@
     "name": "Zamorak monk bottom",
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorak_monk_bottom.png",
     "members": false,
-    "value": 2875,
+    "value": 3194,
     "tradeable": true,
     "stackable": false
   },
@@ -2713,7 +2713,7 @@
     "name": "Zamorak monk top",
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorak_monk_top.png",
     "members": false,
-    "value": 894,
+    "value": 975,
     "tradeable": true,
     "stackable": false
   },
@@ -2740,7 +2740,7 @@
     "name": "Cleaning cloth",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cleaning_cloth.png",
     "members": true,
-    "value": 504,
+    "value": 503,
     "tradeable": true,
     "stackable": false
   },
@@ -2749,7 +2749,7 @@
     "name": "Superantipoison(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Superantipoison(2).png",
     "members": true,
-    "value": 450,
+    "value": 900,
     "tradeable": true,
     "stackable": false
   },
@@ -2767,7 +2767,7 @@
     "name": "Superantipoison(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Superantipoison(3).png",
     "members": true,
-    "value": 805,
+    "value": 779,
     "tradeable": true,
     "stackable": false
   },
@@ -2794,7 +2794,7 @@
     "name": "Sardine",
     "iconUrl": "https://oldschool.runescape.wiki/images/Sardine.png",
     "members": false,
-    "value": 10,
+    "value": 11,
     "tradeable": true,
     "stackable": false
   },
@@ -2821,7 +2821,7 @@
     "name": "Supercompost",
     "iconUrl": "https://oldschool.runescape.wiki/images/Supercompost.png",
     "members": true,
-    "value": 26,
+    "value": 28,
     "tradeable": true,
     "stackable": false
   },
@@ -2830,7 +2830,7 @@
     "name": "Mort myre fungus",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mort_myre_fungus.png",
     "members": true,
-    "value": 267,
+    "value": 263,
     "tradeable": true,
     "stackable": false
   },
@@ -2839,7 +2839,7 @@
     "name": "Clay",
     "iconUrl": "https://oldschool.runescape.wiki/images/Clay.png",
     "members": false,
-    "value": 77,
+    "value": 75,
     "tradeable": true,
     "stackable": false
   },
@@ -2857,7 +2857,7 @@
     "name": "Steel bolts",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_bolts_5.png",
     "members": true,
-    "value": 38,
+    "value": 20,
     "tradeable": true,
     "stackable": true
   },
@@ -2866,7 +2866,7 @@
     "name": "Mithril dagger",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_dagger.png",
     "members": false,
-    "value": 130,
+    "value": 123,
     "tradeable": true,
     "stackable": false
   },
@@ -2893,7 +2893,7 @@
     "name": "Bandana eyepatch (blue)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bandana_eyepatch_(blue).png",
     "members": true,
-    "value": 178,
+    "value": 100,
     "tradeable": true,
     "stackable": false
   },
@@ -2947,7 +2947,7 @@
     "name": "Mithril scimitar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_scimitar.png",
     "members": false,
-    "value": 422,
+    "value": 441,
     "tradeable": true,
     "stackable": false
   },
@@ -2974,7 +2974,7 @@
     "name": "Tuna",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tuna.png",
     "members": false,
-    "value": 48,
+    "value": 50,
     "tradeable": true,
     "stackable": false
   },
@@ -2983,7 +2983,7 @@
     "name": "Black warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_warhammer.png",
     "members": false,
-    "value": 1070,
+    "value": 748,
     "tradeable": true,
     "stackable": false
   },
@@ -2992,7 +2992,7 @@
     "name": "Steel warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_warhammer.png",
     "members": false,
-    "value": 257,
+    "value": 229,
     "tradeable": true,
     "stackable": false
   },
@@ -3001,7 +3001,7 @@
     "name": "Raw mackerel",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_mackerel.png",
     "members": true,
-    "value": 5,
+    "value": 3,
     "tradeable": true,
     "stackable": false
   },
@@ -3010,7 +3010,7 @@
     "name": "Adamant warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_warhammer.png",
     "members": false,
-    "value": 2872,
+    "value": 2551,
     "tradeable": true,
     "stackable": false
   },
@@ -3037,7 +3037,7 @@
     "name": "Black platebody",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_platebody.png",
     "members": false,
-    "value": 2514,
+    "value": 2394,
     "tradeable": true,
     "stackable": false
   },
@@ -3055,7 +3055,7 @@
     "name": "Iron scimitar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_scimitar.png",
     "members": false,
-    "value": 31,
+    "value": 21,
     "tradeable": true,
     "stackable": false
   },
@@ -3064,7 +3064,7 @@
     "name": "Steel sq shield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_sq_shield.png",
     "members": false,
-    "value": 203,
+    "value": 210,
     "tradeable": true,
     "stackable": false
   },
@@ -3073,7 +3073,7 @@
     "name": "Sapphire necklace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Sapphire_necklace.png",
     "members": false,
-    "value": 458,
+    "value": 460,
     "tradeable": true,
     "stackable": false
   },
@@ -3082,7 +3082,7 @@
     "name": "Emerald amulet (u)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Emerald_amulet_(u).png",
     "members": false,
-    "value": 633,
+    "value": 624,
     "tradeable": true,
     "stackable": false
   },
@@ -3109,7 +3109,7 @@
     "name": "Papyrus",
     "iconUrl": "https://oldschool.runescape.wiki/images/Papyrus.png",
     "members": true,
-    "value": 105,
+    "value": 111,
     "tradeable": true,
     "stackable": false
   },
@@ -3118,7 +3118,7 @@
     "name": "Rune sq shield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_sq_shield.png",
     "members": false,
-    "value": 22807,
+    "value": 22811,
     "tradeable": true,
     "stackable": false
   },
@@ -3127,7 +3127,7 @@
     "name": "Gold amulet (u)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Gold_amulet_(u).png",
     "members": false,
-    "value": 157,
+    "value": 151,
     "tradeable": true,
     "stackable": false
   },
@@ -3136,7 +3136,7 @@
     "name": "Gold necklace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Gold_necklace.png",
     "members": false,
-    "value": 148,
+    "value": 151,
     "tradeable": true,
     "stackable": false
   },
@@ -3145,7 +3145,7 @@
     "name": "Willow blackjack",
     "iconUrl": "https://oldschool.runescape.wiki/images/Willow_blackjack.png",
     "members": true,
-    "value": 254,
+    "value": 150,
     "tradeable": true,
     "stackable": false
   },
@@ -3154,7 +3154,7 @@
     "name": "Adamant scimitar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_scimitar.png",
     "members": false,
-    "value": 1910,
+    "value": 1900,
     "tradeable": true,
     "stackable": false
   },
@@ -3190,7 +3190,7 @@
     "name": "Lava rune",
     "iconUrl": "https://oldschool.runescape.wiki/images/Lava_rune.png",
     "members": true,
-    "value": 29,
+    "value": 28,
     "tradeable": true,
     "stackable": true
   },
@@ -3208,7 +3208,7 @@
     "name": "Marrentill tar",
     "iconUrl": "https://oldschool.runescape.wiki/images/Marrentill_tar.png",
     "members": true,
-    "value": 5,
+    "value": 4,
     "tradeable": true,
     "stackable": true
   },
@@ -3235,7 +3235,7 @@
     "name": "Ogre coffin key",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ogre_coffin_key.png",
     "members": true,
-    "value": 1890,
+    "value": 6970,
     "tradeable": true,
     "stackable": false
   },
@@ -3262,7 +3262,7 @@
     "name": "Ourg bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ourg_bones.png",
     "members": true,
-    "value": 49911,
+    "value": 47103,
     "tradeable": true,
     "stackable": false
   },
@@ -3289,7 +3289,7 @@
     "name": "Steel platebody",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_platebody.png",
     "members": false,
-    "value": 943,
+    "value": 997,
     "tradeable": true,
     "stackable": false
   },
@@ -3298,7 +3298,7 @@
     "name": "Granite shield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Granite_shield.png",
     "members": true,
-    "value": 37464,
+    "value": 34775,
     "tradeable": true,
     "stackable": false
   },
@@ -3316,7 +3316,7 @@
     "name": "Adamant dagger",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_dagger.png",
     "members": false,
-    "value": 285,
+    "value": 297,
     "tradeable": true,
     "stackable": false
   },
@@ -3343,7 +3343,7 @@
     "name": "Air talisman",
     "iconUrl": "https://oldschool.runescape.wiki/images/Air_talisman.png",
     "members": false,
-    "value": 165,
+    "value": 157,
     "tradeable": true,
     "stackable": false
   },
@@ -3361,7 +3361,7 @@
     "name": "Bat bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bat_bones.png",
     "members": true,
-    "value": 682,
+    "value": 586,
     "tradeable": true,
     "stackable": false
   },
@@ -3370,7 +3370,7 @@
     "name": "Iron warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_warhammer.png",
     "members": false,
-    "value": 20,
+    "value": 29,
     "tradeable": true,
     "stackable": false
   },
@@ -3379,7 +3379,7 @@
     "name": "Teak logs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Teak_logs.png",
     "members": true,
-    "value": 119,
+    "value": 117,
     "tradeable": true,
     "stackable": false
   },
@@ -3406,7 +3406,7 @@
     "name": "Black mask (10)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_mask_(10).png",
     "members": true,
-    "value": 743417,
+    "value": 737396,
     "tradeable": true,
     "stackable": false
   },
@@ -3424,7 +3424,7 @@
     "name": "Adamant dart tip",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_dart_tip.png",
     "members": true,
-    "value": 179,
+    "value": 186,
     "tradeable": true,
     "stackable": true
   },
@@ -3433,7 +3433,7 @@
     "name": "Pearl bolt tips",
     "iconUrl": "https://oldschool.runescape.wiki/images/Pearl_bolt_tips_5.png",
     "members": true,
-    "value": 6,
+    "value": 7,
     "tradeable": true,
     "stackable": true
   },
@@ -3460,7 +3460,7 @@
     "name": "Chocolate cake",
     "iconUrl": "https://oldschool.runescape.wiki/images/Chocolate_cake.png",
     "members": false,
-    "value": 165,
+    "value": 167,
     "tradeable": true,
     "stackable": false
   },
@@ -3469,7 +3469,7 @@
     "name": "Super restore(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_restore(4).png",
     "members": true,
-    "value": 9995,
+    "value": 10095,
     "tradeable": true,
     "stackable": false
   },
@@ -3514,7 +3514,7 @@
     "name": "Loar remains",
     "iconUrl": "https://oldschool.runescape.wiki/images/Loar_remains.png",
     "members": true,
-    "value": 106,
+    "value": 117,
     "tradeable": true,
     "stackable": false
   },
@@ -3523,7 +3523,7 @@
     "name": "Phrin remains",
     "iconUrl": "https://oldschool.runescape.wiki/images/Phrin_remains.png",
     "members": true,
-    "value": 3089,
+    "value": 2897,
     "tradeable": true,
     "stackable": false
   },
@@ -3532,7 +3532,7 @@
     "name": "Riyl remains",
     "iconUrl": "https://oldschool.runescape.wiki/images/Riyl_remains.png",
     "members": true,
-    "value": 751,
+    "value": 753,
     "tradeable": true,
     "stackable": false
   },
@@ -3541,7 +3541,7 @@
     "name": "Asyn remains",
     "iconUrl": "https://oldschool.runescape.wiki/images/Asyn_remains.png",
     "members": true,
-    "value": 2750,
+    "value": 2799,
     "tradeable": true,
     "stackable": false
   },
@@ -3550,7 +3550,7 @@
     "name": "Fiyr remains",
     "iconUrl": "https://oldschool.runescape.wiki/images/Fiyr_remains.png",
     "members": true,
-    "value": 8085,
+    "value": 8100,
     "tradeable": true,
     "stackable": false
   },
@@ -3577,7 +3577,7 @@
     "name": "Staff of earth",
     "iconUrl": "https://oldschool.runescape.wiki/images/Staff_of_earth.png",
     "members": false,
-    "value": 811,
+    "value": 739,
     "tradeable": true,
     "stackable": false
   },
@@ -3604,7 +3604,7 @@
     "name": "Raw chompy",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_chompy.png",
     "members": true,
-    "value": 1255,
+    "value": 1275,
     "tradeable": true,
     "stackable": false
   },
@@ -3631,7 +3631,7 @@
     "name": "Steel dart",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_dart.png",
     "members": true,
-    "value": 3,
+    "value": 4,
     "tradeable": true,
     "stackable": true
   },
@@ -3649,7 +3649,7 @@
     "name": "Iron plateskirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_plateskirt.png",
     "members": false,
-    "value": 15,
+    "value": 22,
     "tradeable": true,
     "stackable": false
   },
@@ -3685,7 +3685,7 @@
     "name": "Mith grapple",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mith_grapple.png",
     "members": true,
-    "value": 1583,
+    "value": 1823,
     "tradeable": true,
     "stackable": false
   },
@@ -3694,7 +3694,7 @@
     "name": "Yew shortbow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Yew_shortbow.png",
     "members": true,
-    "value": 331,
+    "value": 336,
     "tradeable": true,
     "stackable": false
   },
@@ -3703,7 +3703,7 @@
     "name": "Steel knife",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_knife.png",
     "members": true,
-    "value": 57,
+    "value": 80,
     "tradeable": true,
     "stackable": true
   },
@@ -3730,7 +3730,7 @@
     "name": "Apple pie",
     "iconUrl": "https://oldschool.runescape.wiki/images/Apple_pie.png",
     "members": false,
-    "value": 71,
+    "value": 68,
     "tradeable": true,
     "stackable": false
   },
@@ -3739,7 +3739,7 @@
     "name": "Iron longsword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_longsword.png",
     "members": false,
-    "value": 33,
+    "value": 30,
     "tradeable": true,
     "stackable": false
   },
@@ -3748,7 +3748,7 @@
     "name": "Iron halberd",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_halberd.png",
     "members": true,
-    "value": 24717,
+    "value": 18361,
     "tradeable": true,
     "stackable": false
   },
@@ -3766,7 +3766,7 @@
     "name": "Iron 2h sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_2h_sword.png",
     "members": false,
-    "value": 61,
+    "value": 80,
     "tradeable": true,
     "stackable": false
   },
@@ -3793,7 +3793,7 @@
     "name": "Steel plateskirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_plateskirt.png",
     "members": false,
-    "value": 438,
+    "value": 430,
     "tradeable": true,
     "stackable": false
   },
@@ -3820,7 +3820,7 @@
     "name": "Ring of life",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ring_of_life.png",
     "members": true,
-    "value": 1878,
+    "value": 1893,
     "tradeable": true,
     "stackable": false
   },
@@ -3847,7 +3847,7 @@
     "name": "Mithril warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_warhammer.png",
     "members": false,
-    "value": 918,
+    "value": 956,
     "tradeable": true,
     "stackable": false
   },
@@ -3865,7 +3865,7 @@
     "name": "Anchovy pizza",
     "iconUrl": "https://oldschool.runescape.wiki/images/Anchovy_pizza.png",
     "members": false,
-    "value": 553,
+    "value": 558,
     "tradeable": true,
     "stackable": false
   },
@@ -3874,7 +3874,7 @@
     "name": "Mithril dart",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_dart.png",
     "members": true,
-    "value": 8,
+    "value": 9,
     "tradeable": true,
     "stackable": true
   },
@@ -3883,7 +3883,7 @@
     "name": "Strange fruit",
     "iconUrl": "https://oldschool.runescape.wiki/images/Strange_fruit.png",
     "members": true,
-    "value": 663,
+    "value": 658,
     "tradeable": true,
     "stackable": false
   },
@@ -3910,7 +3910,7 @@
     "name": "Super attack(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_attack(4).png",
     "members": true,
-    "value": 2041,
+    "value": 2052,
     "tradeable": true,
     "stackable": false
   },
@@ -3919,7 +3919,7 @@
     "name": "Super defence(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_defence(4).png",
     "members": true,
-    "value": 3331,
+    "value": 3316,
     "tradeable": true,
     "stackable": false
   },
@@ -3928,7 +3928,7 @@
     "name": "Super strength(4)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_strength(4).png",
     "members": true,
-    "value": 3215,
+    "value": 3293,
     "tradeable": true,
     "stackable": false
   },
@@ -3982,7 +3982,7 @@
     "name": "Adamant sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_sword.png",
     "members": false,
-    "value": 1541,
+    "value": 1057,
     "tradeable": true,
     "stackable": false
   },
@@ -3991,7 +3991,7 @@
     "name": "Mithril platelegs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_platelegs.png",
     "members": false,
-    "value": 1381,
+    "value": 1406,
     "tradeable": true,
     "stackable": false
   },
@@ -4000,7 +4000,7 @@
     "name": "Adamant mace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_mace.png",
     "members": false,
-    "value": 653,
+    "value": 623,
     "tradeable": true,
     "stackable": false
   },
@@ -4009,7 +4009,7 @@
     "name": "Jogre bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Jogre_bones.png",
     "members": true,
-    "value": 2999,
+    "value": 1002,
     "tradeable": true,
     "stackable": false
   },
@@ -4036,7 +4036,7 @@
     "name": "Barley seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Barley_seed_5.png",
     "members": true,
-    "value": 3,
+    "value": 9,
     "tradeable": true,
     "stackable": true
   },
@@ -4054,7 +4054,7 @@
     "name": "Asgarnian seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Asgarnian_seed_5.png",
     "members": true,
-    "value": 6,
+    "value": 8,
     "tradeable": true,
     "stackable": true
   },
@@ -4081,7 +4081,7 @@
     "name": "Krandorian seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Krandorian_seed_5.png",
     "members": true,
-    "value": 5,
+    "value": 11,
     "tradeable": true,
     "stackable": true
   },
@@ -4090,7 +4090,7 @@
     "name": "Bronze warhammer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_warhammer.png",
     "members": false,
-    "value": 28,
+    "value": 22,
     "tradeable": true,
     "stackable": false
   },
@@ -4108,7 +4108,7 @@
     "name": "Keg of beer",
     "iconUrl": "https://oldschool.runescape.wiki/images/Keg_of_beer.png",
     "members": true,
-    "value": 773,
+    "value": 706,
     "tradeable": true,
     "stackable": false
   },
@@ -4171,7 +4171,7 @@
     "name": "Potato cactus",
     "iconUrl": "https://oldschool.runescape.wiki/images/Potato_cactus.png",
     "members": true,
-    "value": 64,
+    "value": 63,
     "tradeable": true,
     "stackable": false
   },
@@ -4180,7 +4180,7 @@
     "name": "Wine of Zamorak",
     "iconUrl": "https://oldschool.runescape.wiki/images/Wine_of_Zamorak.png",
     "members": false,
-    "value": 1015,
+    "value": 983,
     "tradeable": true,
     "stackable": false
   },
@@ -4189,7 +4189,7 @@
     "name": "Amulet of defence",
     "iconUrl": "https://oldschool.runescape.wiki/images/Amulet_of_defence.png",
     "members": false,
-    "value": 807,
+    "value": 811,
     "tradeable": true,
     "stackable": false
   },
@@ -4198,7 +4198,7 @@
     "name": "Amulet of magic",
     "iconUrl": "https://oldschool.runescape.wiki/images/Amulet_of_magic.png",
     "members": false,
-    "value": 514,
+    "value": 646,
     "tradeable": true,
     "stackable": false
   },
@@ -4207,7 +4207,7 @@
     "name": "Pot",
     "iconUrl": "https://oldschool.runescape.wiki/images/Pot.png",
     "members": false,
-    "value": 12,
+    "value": 14,
     "tradeable": true,
     "stackable": false
   },
@@ -4225,7 +4225,7 @@
     "name": "Chisel",
     "iconUrl": "https://oldschool.runescape.wiki/images/Chisel.png",
     "members": false,
-    "value": 82,
+    "value": 88,
     "tradeable": true,
     "stackable": false
   },
@@ -4243,7 +4243,7 @@
     "name": "Toktz-xil-ul",
     "iconUrl": "https://oldschool.runescape.wiki/images/Toktz-xil-ul.png",
     "members": true,
-    "value": 2909,
+    "value": 2911,
     "tradeable": true,
     "stackable": true
   },
@@ -4252,7 +4252,7 @@
     "name": "Toktz-xil-ak",
     "iconUrl": "https://oldschool.runescape.wiki/images/Toktz-xil-ak.png",
     "members": true,
-    "value": 531125,
+    "value": 529886,
     "tradeable": true,
     "stackable": false
   },
@@ -4261,7 +4261,7 @@
     "name": "Toktz-xil-ek",
     "iconUrl": "https://oldschool.runescape.wiki/images/Toktz-xil-ek.png",
     "members": true,
-    "value": 82922,
+    "value": 97978,
     "tradeable": true,
     "stackable": false
   },
@@ -4270,7 +4270,7 @@
     "name": "Obsidian cape",
     "iconUrl": "https://oldschool.runescape.wiki/images/Obsidian_cape.png",
     "members": true,
-    "value": 476372,
+    "value": 480532,
     "tradeable": true,
     "stackable": false
   },
@@ -4279,7 +4279,7 @@
     "name": "Tzhaar-ket-om",
     "iconUrl": "https://oldschool.runescape.wiki/images/Tzhaar-ket-om.png",
     "members": true,
-    "value": 162427,
+    "value": 165590,
     "tradeable": true,
     "stackable": false
   },
@@ -4297,7 +4297,7 @@
     "name": "Toktz-ket-xil",
     "iconUrl": "https://oldschool.runescape.wiki/images/Toktz-ket-xil.png",
     "members": true,
-    "value": 295724,
+    "value": 299988,
     "tradeable": true,
     "stackable": false
   },
@@ -4306,7 +4306,7 @@
     "name": "Rune dart",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_dart.png",
     "members": true,
-    "value": 219,
+    "value": 217,
     "tradeable": true,
     "stackable": true
   },
@@ -4315,7 +4315,7 @@
     "name": "Rune plateskirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_plateskirt.png",
     "members": false,
-    "value": 38403,
+    "value": 38147,
     "tradeable": true,
     "stackable": false
   },
@@ -4324,7 +4324,7 @@
     "name": "Saradomin brew(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin_brew(3).png",
     "members": true,
-    "value": 5035,
+    "value": 4798,
     "tradeable": true,
     "stackable": false
   },
@@ -4333,7 +4333,7 @@
     "name": "Super defence(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_defence(3).png",
     "members": true,
-    "value": 2296,
+    "value": 2257,
     "tradeable": true,
     "stackable": false
   },
@@ -4342,7 +4342,7 @@
     "name": "Magic potion(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Magic_potion(3).png",
     "members": true,
-    "value": 141,
+    "value": 85,
     "tradeable": true,
     "stackable": false
   },
@@ -4351,7 +4351,7 @@
     "name": "Saradomin sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin_sword.png",
     "members": true,
-    "value": 128201,
+    "value": 128110,
     "tradeable": true,
     "stackable": false
   },
@@ -4360,7 +4360,7 @@
     "name": "Rune sword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_sword.png",
     "members": false,
-    "value": 12295,
+    "value": 11949,
     "tradeable": true,
     "stackable": false
   },
@@ -4369,7 +4369,7 @@
     "name": "Saradomin's light",
     "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin's_light.png",
     "members": true,
-    "value": 50923,
+    "value": 54617,
     "tradeable": true,
     "stackable": false
   },
@@ -4378,7 +4378,7 @@
     "name": "Armadyl crossbow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Armadyl_crossbow.png",
     "members": true,
-    "value": 36951440,
+    "value": 36847619,
     "tradeable": true,
     "stackable": false
   },
@@ -4387,7 +4387,7 @@
     "name": "Saradomin hilt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin_hilt.png",
     "members": true,
-    "value": 24432000,
+    "value": 24388000,
     "tradeable": true,
     "stackable": false
   },
@@ -4405,7 +4405,7 @@
     "name": "Summer pie",
     "iconUrl": "https://oldschool.runescape.wiki/images/Summer_pie.png",
     "members": true,
-    "value": 679,
+    "value": 686,
     "tradeable": true,
     "stackable": false
   },
@@ -4414,7 +4414,7 @@
     "name": "Unicorn horn",
     "iconUrl": "https://oldschool.runescape.wiki/images/Unicorn_horn.png",
     "members": true,
-    "value": 510,
+    "value": 527,
     "tradeable": true,
     "stackable": false
   },
@@ -4423,7 +4423,7 @@
     "name": "Rune halberd",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_halberd.png",
     "members": true,
-    "value": 37318,
+    "value": 37818,
     "tradeable": true,
     "stackable": false
   },
@@ -4432,7 +4432,7 @@
     "name": "Steel chainbody",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_chainbody.png",
     "members": false,
-    "value": 365,
+    "value": 371,
     "tradeable": true,
     "stackable": false
   },
@@ -4441,7 +4441,7 @@
     "name": "Black kiteshield",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_kiteshield.png",
     "members": false,
-    "value": 1086,
+    "value": 999,
     "tradeable": true,
     "stackable": false
   },
@@ -4450,7 +4450,7 @@
     "name": "Mithril mace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_mace.png",
     "members": false,
-    "value": 128,
+    "value": 130,
     "tradeable": true,
     "stackable": false
   },
@@ -4468,7 +4468,7 @@
     "name": "Oak shortbow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Oak_shortbow.png",
     "members": false,
-    "value": 108,
+    "value": 138,
     "tradeable": true,
     "stackable": false
   },
@@ -4495,7 +4495,7 @@
     "name": "Headless arrow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Headless_arrow.png",
     "members": true,
-    "value": 10,
+    "value": 9,
     "tradeable": true,
     "stackable": true
   },
@@ -4504,7 +4504,7 @@
     "name": "Iron arrowtips",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_arrowtips.png",
     "members": true,
-    "value": 9,
+    "value": 8,
     "tradeable": true,
     "stackable": true
   },
@@ -4513,7 +4513,7 @@
     "name": "Adamant arrowtips",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_arrowtips.png",
     "members": true,
-    "value": 103,
+    "value": 94,
     "tradeable": true,
     "stackable": true
   },
@@ -4522,7 +4522,7 @@
     "name": "Bow string",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bow_string.png",
     "members": true,
-    "value": 157,
+    "value": 159,
     "tradeable": true,
     "stackable": false
   },
@@ -4549,7 +4549,7 @@
     "name": "Oak longbow (u)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Oak_longbow_(u).png",
     "members": true,
-    "value": 12,
+    "value": 11,
     "tradeable": true,
     "stackable": false
   },
@@ -4558,7 +4558,7 @@
     "name": "Maple longbow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Maple_longbow.png",
     "members": false,
-    "value": 269,
+    "value": 271,
     "tradeable": true,
     "stackable": false
   },
@@ -4567,7 +4567,7 @@
     "name": "Magic shortbow",
     "iconUrl": "https://oldschool.runescape.wiki/images/Magic_shortbow.png",
     "members": true,
-    "value": 783,
+    "value": 781,
     "tradeable": true,
     "stackable": false
   },
@@ -4594,7 +4594,7 @@
     "name": "Antipoison(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Antipoison(3).png",
     "members": false,
-    "value": 295,
+    "value": 299,
     "tradeable": true,
     "stackable": false
   },
@@ -4603,7 +4603,7 @@
     "name": "Chilli potato",
     "iconUrl": "https://oldschool.runescape.wiki/images/Chilli_potato.png",
     "members": true,
-    "value": 243,
+    "value": 379,
     "tradeable": true,
     "stackable": false
   },
@@ -4612,7 +4612,7 @@
     "name": "Combat potion(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Combat_potion(3).png",
     "members": true,
-    "value": 79,
+    "value": 78,
     "tradeable": true,
     "stackable": false
   },
@@ -4621,7 +4621,7 @@
     "name": "Super strength(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_strength(3).png",
     "members": true,
-    "value": 2321,
+    "value": 2328,
     "tradeable": true,
     "stackable": false
   },
@@ -4630,7 +4630,7 @@
     "name": "Bronze platelegs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_platelegs.png",
     "members": false,
-    "value": 227,
+    "value": 157,
     "tradeable": true,
     "stackable": false
   },
@@ -4648,7 +4648,7 @@
     "name": "Iron chainbody",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_chainbody.png",
     "members": false,
-    "value": 124,
+    "value": 232,
     "tradeable": true,
     "stackable": false
   },
@@ -4657,7 +4657,7 @@
     "name": "Bronze dart",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_dart.png",
     "members": true,
-    "value": 28,
+    "value": 20,
     "tradeable": true,
     "stackable": true
   },
@@ -4666,7 +4666,7 @@
     "name": "Bronze halberd",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_halberd.png",
     "members": true,
-    "value": 470,
+    "value": 1175,
     "tradeable": true,
     "stackable": false
   },
@@ -4693,7 +4693,7 @@
     "name": "Mind talisman",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mind_talisman.png",
     "members": false,
-    "value": 991,
+    "value": 925,
     "tradeable": true,
     "stackable": false
   },
@@ -4702,7 +4702,7 @@
     "name": "Cosmic talisman",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cosmic_talisman.png",
     "members": true,
-    "value": 211,
+    "value": 172,
     "tradeable": true,
     "stackable": false
   },
@@ -4720,7 +4720,7 @@
     "name": "Rock-shell chunk",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rock-shell_chunk.png",
     "members": true,
-    "value": 8300,
+    "value": 8978,
     "tradeable": true,
     "stackable": false
   },
@@ -4756,7 +4756,7 @@
     "name": "Dagannoth bones",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_bones.png",
     "members": true,
-    "value": 12426,
+    "value": 12307,
     "tradeable": true,
     "stackable": false
   },
@@ -4765,7 +4765,7 @@
     "name": "Seercull",
     "iconUrl": "https://oldschool.runescape.wiki/images/Seercull.png",
     "members": true,
-    "value": 26851,
+    "value": 34841,
     "tradeable": true,
     "stackable": false
   },
@@ -4774,7 +4774,7 @@
     "name": "Dragon axe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_axe.png",
     "members": true,
-    "value": 71495,
+    "value": 69543,
     "tradeable": true,
     "stackable": false
   },
@@ -4783,7 +4783,7 @@
     "name": "Archer helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Archer_helm.png",
     "members": true,
-    "value": 37070,
+    "value": 38611,
     "tradeable": true,
     "stackable": false
   },
@@ -4792,7 +4792,7 @@
     "name": "Spined body",
     "iconUrl": "https://oldschool.runescape.wiki/images/Spined_body.png",
     "members": true,
-    "value": 4313,
+    "value": 7157,
     "tradeable": true,
     "stackable": false
   },
@@ -4801,7 +4801,7 @@
     "name": "Spined chaps",
     "iconUrl": "https://oldschool.runescape.wiki/images/Spined_chaps.png",
     "members": true,
-    "value": 15150,
+    "value": 25973,
     "tradeable": true,
     "stackable": false
   },
@@ -4810,7 +4810,7 @@
     "name": "Archers ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Archers_ring.png",
     "members": true,
-    "value": 2379754,
+    "value": 2429024,
     "tradeable": true,
     "stackable": false
   },
@@ -4828,7 +4828,7 @@
     "name": "Mithril knife",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_knife.png",
     "members": true,
-    "value": 181,
+    "value": 199,
     "tradeable": true,
     "stackable": true
   },
@@ -4837,7 +4837,7 @@
     "name": "Rune thrownaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rune_thrownaxe.png",
     "members": true,
-    "value": 132,
+    "value": 133,
     "tradeable": true,
     "stackable": true
   },
@@ -4846,7 +4846,7 @@
     "name": "Maple logs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Maple_logs.png",
     "members": false,
-    "value": 12,
+    "value": 10,
     "tradeable": true,
     "stackable": false
   },
@@ -4864,7 +4864,7 @@
     "name": "Iron knife",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_knife.png",
     "members": true,
-    "value": 37,
+    "value": 44,
     "tradeable": true,
     "stackable": true
   },
@@ -4882,7 +4882,7 @@
     "name": "Mud battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mud_battlestaff.png",
     "members": true,
-    "value": 24788,
+    "value": 25611,
     "tradeable": true,
     "stackable": false
   },
@@ -4891,7 +4891,7 @@
     "name": "Farseer helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Farseer_helm.png",
     "members": true,
-    "value": 33526,
+    "value": 38556,
     "tradeable": true,
     "stackable": false
   },
@@ -4918,7 +4918,7 @@
     "name": "Seers ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Seers_ring.png",
     "members": true,
-    "value": 715376,
+    "value": 711333,
     "tradeable": true,
     "stackable": false
   },
@@ -4936,7 +4936,7 @@
     "name": "Rock-shell plate",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rock-shell_plate.png",
     "members": true,
-    "value": 42412,
+    "value": 40431,
     "tradeable": true,
     "stackable": false
   },
@@ -4945,7 +4945,7 @@
     "name": "Rock-shell legs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rock-shell_legs.png",
     "members": true,
-    "value": 37590,
+    "value": 38449,
     "tradeable": true,
     "stackable": false
   },
@@ -4954,7 +4954,7 @@
     "name": "Berserker ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Berserker_ring.png",
     "members": true,
-    "value": 3730854,
+    "value": 3729654,
     "tradeable": true,
     "stackable": false
   },
@@ -4963,7 +4963,7 @@
     "name": "Warrior ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Warrior_ring.png",
     "members": true,
-    "value": 50344,
+    "value": 62182,
     "tradeable": true,
     "stackable": false
   },
@@ -4972,7 +4972,7 @@
     "name": "Antifire potion(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Antifire_potion(2).png",
     "members": true,
-    "value": 370,
+    "value": 300,
     "tradeable": true,
     "stackable": false
   },
@@ -4999,7 +4999,7 @@
     "name": "Super attack(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_attack(2).png",
     "members": true,
-    "value": 972,
+    "value": 978,
     "tradeable": true,
     "stackable": false
   },
@@ -5008,7 +5008,7 @@
     "name": "Super strength(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_strength(2).png",
     "members": true,
-    "value": 1468,
+    "value": 1380,
     "tradeable": true,
     "stackable": false
   },
@@ -5017,7 +5017,7 @@
     "name": "Zamorak brew(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorak_brew(2).png",
     "members": true,
-    "value": 222,
+    "value": 270,
     "tradeable": true,
     "stackable": false
   },
@@ -5026,7 +5026,7 @@
     "name": "Mithril pickaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_pickaxe.png",
     "members": false,
-    "value": 541,
+    "value": 616,
     "tradeable": true,
     "stackable": false
   },
@@ -5053,7 +5053,7 @@
     "name": "Bronze platebody",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_platebody.png",
     "members": false,
-    "value": 76,
+    "value": 75,
     "tradeable": true,
     "stackable": false
   },
@@ -5062,7 +5062,7 @@
     "name": "Iron platelegs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Iron_platelegs.png",
     "members": false,
-    "value": 34,
+    "value": 48,
     "tradeable": true,
     "stackable": false
   },
@@ -5071,7 +5071,7 @@
     "name": "Black full helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_full_helm.png",
     "members": false,
-    "value": 487,
+    "value": 391,
     "tradeable": true,
     "stackable": false
   },
@@ -5080,7 +5080,7 @@
     "name": "Black platelegs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_platelegs.png",
     "members": false,
-    "value": 1106,
+    "value": 1011,
     "tradeable": true,
     "stackable": false
   },
@@ -5098,7 +5098,7 @@
     "name": "Trout",
     "iconUrl": "https://oldschool.runescape.wiki/images/Trout.png",
     "members": false,
-    "value": 20,
+    "value": 17,
     "tradeable": true,
     "stackable": false
   },
@@ -5152,7 +5152,7 @@
     "name": "Bronze dagger",
     "iconUrl": "https://oldschool.runescape.wiki/images/Bronze_dagger.png",
     "members": false,
-    "value": 102,
+    "value": 107,
     "tradeable": true,
     "stackable": false
   },
@@ -5179,7 +5179,7 @@
     "name": "Steel pickaxe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steel_pickaxe.png",
     "members": false,
-    "value": 134,
+    "value": 146,
     "tradeable": true,
     "stackable": false
   },
@@ -5188,7 +5188,7 @@
     "name": "Ham boots",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_boots.png",
     "members": true,
-    "value": 1488,
+    "value": 1959,
     "tradeable": true,
     "stackable": false
   },
@@ -5197,7 +5197,7 @@
     "name": "Ham shirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_shirt.png",
     "members": true,
-    "value": 154,
+    "value": 340,
     "tradeable": true,
     "stackable": false
   },
@@ -5206,7 +5206,7 @@
     "name": "Ham robe",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_robe.png",
     "members": true,
-    "value": 373,
+    "value": 1214,
     "tradeable": true,
     "stackable": false
   },
@@ -5215,7 +5215,7 @@
     "name": "Ham logo",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_logo.png",
     "members": true,
-    "value": 2354,
+    "value": 1750,
     "tradeable": true,
     "stackable": false
   },
@@ -5224,7 +5224,7 @@
     "name": "Ham hood",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_hood.png",
     "members": true,
-    "value": 829,
+    "value": 1119,
     "tradeable": true,
     "stackable": false
   },
@@ -5233,7 +5233,7 @@
     "name": "Ham cloak",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_cloak.png",
     "members": true,
-    "value": 2169,
+    "value": 2517,
     "tradeable": true,
     "stackable": false
   },
@@ -5242,7 +5242,7 @@
     "name": "Logs",
     "iconUrl": "https://oldschool.runescape.wiki/images/Logs.png",
     "members": false,
-    "value": 25,
+    "value": 24,
     "tradeable": true,
     "stackable": false
   },
@@ -5251,7 +5251,7 @@
     "name": "Uncut opal",
     "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_opal.png",
     "members": true,
-    "value": 86,
+    "value": 76,
     "tradeable": true,
     "stackable": false
   },
@@ -5260,7 +5260,7 @@
     "name": "Uncut jade",
     "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_jade.png",
     "members": true,
-    "value": 82,
+    "value": 96,
     "tradeable": true,
     "stackable": false
   },
@@ -5287,7 +5287,7 @@
     "name": "Needle",
     "iconUrl": "https://oldschool.runescape.wiki/images/Needle.png",
     "members": false,
-    "value": 43,
+    "value": 50,
     "tradeable": true,
     "stackable": true
   },
@@ -5296,7 +5296,7 @@
     "name": "Leather body",
     "iconUrl": "https://oldschool.runescape.wiki/images/Leather_body.png",
     "members": false,
-    "value": 23,
+    "value": 20,
     "tradeable": true,
     "stackable": false
   },
@@ -5305,7 +5305,7 @@
     "name": "Ham gloves",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ham_gloves.png",
     "members": true,
-    "value": 5077,
+    "value": 2521,
     "tradeable": true,
     "stackable": false
   },
@@ -5314,7 +5314,7 @@
     "name": "Elemental talisman",
     "iconUrl": "https://oldschool.runescape.wiki/images/Elemental_talisman.png",
     "members": true,
-    "value": 2336,
+    "value": 2125,
     "tradeable": true,
     "stackable": false
   },
@@ -5359,7 +5359,7 @@
     "name": "Binding necklace",
     "iconUrl": "https://oldschool.runescape.wiki/images/Binding_necklace.png",
     "members": true,
-    "value": 608,
+    "value": 604,
     "tradeable": true,
     "stackable": false
   },
@@ -5368,7 +5368,7 @@
     "name": "Raw swordfish",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_swordfish.png",
     "members": false,
-    "value": 195,
+    "value": 198,
     "tradeable": true,
     "stackable": false
   },
@@ -5377,7 +5377,7 @@
     "name": "Raw pike",
     "iconUrl": "https://oldschool.runescape.wiki/images/Raw_pike.png",
     "members": false,
-    "value": 79,
+    "value": 81,
     "tradeable": true,
     "stackable": false
   },
@@ -5494,7 +5494,7 @@
     "name": "Blamish myre shell (round)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Blamish_myre_shell_(round).png",
     "members": true,
-    "value": 254,
+    "value": 265,
     "tradeable": true,
     "stackable": false
   },
@@ -5512,7 +5512,7 @@
     "name": "Thin snail",
     "iconUrl": "https://oldschool.runescape.wiki/images/Thin_snail.png",
     "members": true,
-    "value": 1105,
+    "value": 1114,
     "tradeable": true,
     "stackable": false
   },
@@ -5521,7 +5521,7 @@
     "name": "Fat snail",
     "iconUrl": "https://oldschool.runescape.wiki/images/Fat_snail.png",
     "members": true,
-    "value": 1830,
+    "value": 1680,
     "tradeable": true,
     "stackable": false
   },
@@ -5557,7 +5557,7 @@
     "name": "Blamish blue shell (round)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Blamish_blue_shell_(round).png",
     "members": true,
-    "value": 2270,
+    "value": 3158,
     "tradeable": true,
     "stackable": false
   },
@@ -5566,7 +5566,7 @@
     "name": "Blamish bark shell",
     "iconUrl": "https://oldschool.runescape.wiki/images/Blamish_bark_shell.png",
     "members": true,
-    "value": 7509,
+    "value": 7534,
     "tradeable": true,
     "stackable": false
   },
@@ -5575,7 +5575,7 @@
     "name": "Lean snail",
     "iconUrl": "https://oldschool.runescape.wiki/images/Lean_snail.png",
     "members": true,
-    "value": 1422,
+    "value": 2544,
     "tradeable": true,
     "stackable": false
   },
@@ -5647,7 +5647,7 @@
     "name": "Ruby ring",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ruby_ring.png",
     "members": false,
-    "value": 1029,
+    "value": 1045,
     "tradeable": true,
     "stackable": false
   },
@@ -5656,7 +5656,7 @@
     "name": "Mackerel",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mackerel.png",
     "members": true,
-    "value": 6,
+    "value": 7,
     "tradeable": true,
     "stackable": false
   },
@@ -5674,7 +5674,7 @@
     "name": "Black longsword",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_longsword.png",
     "members": false,
-    "value": 706,
+    "value": 701,
     "tradeable": true,
     "stackable": false
   },
@@ -5683,7 +5683,7 @@
     "name": "Red chinchompa",
     "iconUrl": "https://oldschool.runescape.wiki/images/Red_chinchompa.png",
     "members": true,
-    "value": 1462,
+    "value": 1461,
     "tradeable": true,
     "stackable": false
   },
@@ -5692,7 +5692,7 @@
     "name": "Blue d'hide vambraces",
     "iconUrl": "https://oldschool.runescape.wiki/images/Blue_d'hide_vambraces.png",
     "members": true,
-    "value": 1361,
+    "value": 1382,
     "tradeable": true,
     "stackable": false
   },
@@ -5701,7 +5701,7 @@
     "name": "Sapphire bolts",
     "iconUrl": "https://oldschool.runescape.wiki/images/Sapphire_bolts_5.png",
     "members": true,
-    "value": 60,
+    "value": 33,
     "tradeable": true,
     "stackable": true
   },
@@ -5710,7 +5710,7 @@
     "name": "Mist battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mist_battlestaff.png",
     "members": true,
-    "value": 62922,
+    "value": 50727,
     "tradeable": true,
     "stackable": false
   },
@@ -5719,7 +5719,7 @@
     "name": "Adamant chainbody",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_chainbody.png",
     "members": false,
-    "value": 2691,
+    "value": 2770,
     "tradeable": true,
     "stackable": false
   },
@@ -5728,7 +5728,7 @@
     "name": "Mithril hasta",
     "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_hasta.png",
     "members": true,
-    "value": 50,
+    "value": 99,
     "tradeable": true,
     "stackable": false
   },
@@ -5737,7 +5737,7 @@
     "name": "Adamant knife",
     "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_knife.png",
     "members": true,
-    "value": 303,
+    "value": 339,
     "tradeable": true,
     "stackable": true
   },
@@ -5746,7 +5746,7 @@
     "name": "Dragon full helm",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_full_helm.png",
     "members": true,
-    "value": 47968168,
+    "value": 48152137,
     "tradeable": true,
     "stackable": false
   },
@@ -5755,7 +5755,7 @@
     "name": "Prayer mix(2)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Prayer_mix(2).png",
     "members": true,
-    "value": 3928,
+    "value": 3564,
     "tradeable": true,
     "stackable": false
   },
@@ -5809,7 +5809,7 @@
     "name": "Nail beast nails",
     "iconUrl": "https://oldschool.runescape.wiki/images/Nail_beast_nails.png",
     "members": true,
-    "value": 685,
+    "value": 666,
     "tradeable": true,
     "stackable": false
   },
@@ -5863,7 +5863,7 @@
     "name": "Spider carcass",
     "iconUrl": "https://oldschool.runescape.wiki/images/Spider_carcass.png",
     "members": true,
-    "value": 177,
+    "value": 195,
     "tradeable": true,
     "stackable": false
   },
@@ -5872,7 +5872,7 @@
     "name": "Rake",
     "iconUrl": "https://oldschool.runescape.wiki/images/Rake.png",
     "members": true,
-    "value": 103,
+    "value": 229,
     "tradeable": true,
     "stackable": false
   },
@@ -5890,7 +5890,7 @@
     "name": "Seed dibber",
     "iconUrl": "https://oldschool.runescape.wiki/images/Seed_dibber.png",
     "members": true,
-    "value": 142,
+    "value": 145,
     "tradeable": true,
     "stackable": false
   },
@@ -5926,7 +5926,7 @@
     "name": "Infernal ashes",
     "iconUrl": "https://oldschool.runescape.wiki/images/Infernal_ashes.png",
     "members": true,
-    "value": 3891,
+    "value": 3967,
     "tradeable": true,
     "stackable": false
   },
@@ -5935,7 +5935,7 @@
     "name": "Dragon dagger(p++)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_dagger(p++).png",
     "members": true,
-    "value": 17314,
+    "value": 17499,
     "tradeable": true,
     "stackable": false
   },
@@ -5944,7 +5944,7 @@
     "name": "Super restore(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Super_restore(3).png",
     "members": true,
-    "value": 7377,
+    "value": 7343,
     "tradeable": true,
     "stackable": false
   },
@@ -5953,7 +5953,7 @@
     "name": "Zamorak brew(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorak_brew(3).png",
     "members": true,
-    "value": 401,
+    "value": 400,
     "tradeable": true,
     "stackable": false
   },
@@ -5962,7 +5962,7 @@
     "name": "Steam battlestaff",
     "iconUrl": "https://oldschool.runescape.wiki/images/Steam_battlestaff.png",
     "members": true,
-    "value": 34071,
+    "value": 118239,
     "tradeable": true,
     "stackable": false
   },
@@ -5971,7 +5971,7 @@
     "name": "Zamorakian spear",
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorakian_spear.png",
     "members": true,
-    "value": 1289565,
+    "value": 1277916,
     "tradeable": true,
     "stackable": false
   },
@@ -5980,7 +5980,7 @@
     "name": "Staff of the Dead",
     "iconUrl": "https://oldschool.runescape.wiki/images/Staff_of_the_Dead.png",
     "members": true,
-    "value": 5906631,
+    "value": 5940117,
     "tradeable": true,
     "stackable": false
   },
@@ -5989,7 +5989,7 @@
     "name": "Zamorak hilt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Zamorak_hilt.png",
     "members": true,
-    "value": 18950283,
+    "value": 18886500,
     "tradeable": true,
     "stackable": false
   },
@@ -6034,7 +6034,7 @@
     "name": "Shears",
     "iconUrl": "https://oldschool.runescape.wiki/images/Shears.png",
     "members": false,
-    "value": 99,
+    "value": 52,
     "tradeable": true,
     "stackable": false
   },
@@ -6043,7 +6043,7 @@
     "name": "Black bead",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_bead.png",
     "members": false,
-    "value": 1268,
+    "value": 1084,
     "tradeable": true,
     "stackable": false
   },
@@ -6061,7 +6061,7 @@
     "name": "Cadava berries",
     "iconUrl": "https://oldschool.runescape.wiki/images/Cadava_berries.png",
     "members": false,
-    "value": 82,
+    "value": 96,
     "tradeable": true,
     "stackable": false
   },
@@ -6070,7 +6070,7 @@
     "name": "Red bead",
     "iconUrl": "https://oldschool.runescape.wiki/images/Red_bead.png",
     "members": false,
-    "value": 1992,
+    "value": 2897,
     "tradeable": true,
     "stackable": false
   },
@@ -6106,7 +6106,7 @@
     "name": "White bead",
     "iconUrl": "https://oldschool.runescape.wiki/images/White_bead.png",
     "members": false,
-    "value": 1281,
+    "value": 1362,
     "tradeable": true,
     "stackable": false
   },
@@ -6124,7 +6124,7 @@
     "name": "Blue wizard hat",
     "iconUrl": "https://oldschool.runescape.wiki/images/Blue_wizard_hat.png",
     "members": false,
-    "value": 370,
+    "value": 291,
     "tradeable": true,
     "stackable": false
   },
@@ -6133,7 +6133,7 @@
     "name": "Egg",
     "iconUrl": "https://oldschool.runescape.wiki/images/Egg.png",
     "members": false,
-    "value": 37,
+    "value": 30,
     "tradeable": true,
     "stackable": false
   },
@@ -6142,7 +6142,7 @@
     "name": "Black d'hide body",
     "iconUrl": "https://oldschool.runescape.wiki/images/Black_d'hide_body.png",
     "members": true,
-    "value": 7101,
+    "value": 7342,
     "tradeable": true,
     "stackable": false
   },
@@ -6151,7 +6151,7 @@
     "name": "Dragonstone bolts (e)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Dragonstone_bolts_(e)_5.png",
     "members": true,
-    "value": 359,
+    "value": 357,
     "tradeable": true,
     "stackable": true
   },
@@ -6160,7 +6160,7 @@
     "name": "Ranging potion(3)",
     "iconUrl": "https://oldschool.runescape.wiki/images/Ranging_potion(3).png",
     "members": true,
-    "value": 1430,
+    "value": 1539,
     "tradeable": true,
     "stackable": false
   },
@@ -6169,7 +6169,7 @@
     "name": "Yew seed",
     "iconUrl": "https://oldschool.runescape.wiki/images/Yew_seed_5.png",
     "members": true,
-    "value": 19498,
+    "value": 18294,
     "tradeable": true,
     "stackable": true
   },
@@ -6178,7 +6178,7 @@
     "name": "Armadyl helmet",
     "iconUrl": "https://oldschool.runescape.wiki/images/Armadyl_helmet.png",
     "members": true,
-    "value": 8301920,
+    "value": 8238259,
     "tradeable": true,
     "stackable": false
   },
@@ -6187,7 +6187,7 @@
     "name": "Armadyl chestplate",
     "iconUrl": "https://oldschool.runescape.wiki/images/Armadyl_chestplate.png",
     "members": true,
-    "value": 32761000,
+    "value": 33026720,
     "tradeable": true,
     "stackable": false
   },
@@ -6196,7 +6196,7 @@
     "name": "Armadyl chainskirt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Armadyl_chainskirt.png",
     "members": true,
-    "value": 24744234,
+    "value": 24722345,
     "tradeable": true,
     "stackable": false
   },
@@ -6214,7 +6214,7 @@
     "name": "Armadyl hilt",
     "iconUrl": "https://oldschool.runescape.wiki/images/Armadyl_hilt.png",
     "members": true,
-    "value": 6615500,
+    "value": 6614502,
     "tradeable": true,
     "stackable": false
   }

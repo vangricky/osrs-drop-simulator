@@ -67,10 +67,10 @@ function existingHandcraftedIds() {
 }
 
 function unlockCostFor(combatLevel, isBoss) {
-  // Monsters under combat level 10 are the free starter tier; everything
-  // from 10 up must be unlocked. Steep on purpose — this is meant to be a
+  // Monsters under combat level 6 are the free starter tier; everything
+  // from 6 up must be unlocked. Steep on purpose — this is meant to be a
   // long grind, not a quick unlock-everything session.
-  if (combatLevel < 10) return 0;
+  if (combatLevel < 6) return 0;
   let raw = 400 * combatLevel ** 2.5 * (isBoss ? 40 : 1);
   // Round to ~2 significant figures for a "chunky" number.
   const magnitude = 10 ** Math.floor(Math.log10(raw) - 1);

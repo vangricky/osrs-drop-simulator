@@ -10787,7 +10787,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Crawling_Hand.png",
     "examine": "Gimmie five.  Actually, don't.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 72000,
     "always": [
       {
         "itemId": "bones",
@@ -13488,7 +13488,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Cave_bug_(level_6).png",
     "examine": "A nasty crawling critter.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 35000,
     "always": [],
     "mainTable": [],
     "tertiary": [
@@ -15986,7 +15986,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mugger.png",
     "examine": "He jumps out and attacks people.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 35000,
     "always": [
       {
         "itemId": "bones",
@@ -18058,7 +18058,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dark_warrior.png",
     "examine": "A warrior touched by chaos.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 72000,
     "always": [
       {
         "itemId": "bones",
@@ -31458,7 +31458,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chompy_bird.png",
     "examine": "A large boisterous bird, a delicacy for ogres.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 35000,
     "always": [
       {
         "itemId": "bones",
@@ -54159,7 +54159,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Myre_blamish_snail_(rounded).png",
     "examine": "A marsh coloured blamish snail, these types are said to spit acid.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 97000,
     "always": [
       {
         "itemId": "blamish-myre-shell-round",
@@ -54350,7 +54350,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bat.png",
     "examine": "An annoying flappy thing.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 35000,
     "always": [
       {
         "itemId": "bat-bones",
@@ -59049,7 +59049,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Farmer_(straw_hat,_brown_hair).png",
     "examine": "He grows the crops in this area.",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 52000,
     "always": [
       {
         "itemId": "bones",
@@ -60025,7 +60025,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Imp.png",
     "examine": "Have you checked your pockets lately?",
     "category": "low",
-    "unlockCost": 0,
+    "unlockCost": 52000,
     "always": [
       {
         "itemId": "fiendish-ashes",
