@@ -41,11 +41,18 @@ export function useAuth() {
     return () => sub.subscription.unsubscribe();
   }, [loadProfile]);
 
+  // Without an explicit redirect, Supabase sends users wherever the
+  // project's dashboard "Site URL" is set to (defaults to localhost on a
+  // fresh project) instead of back to whatever origin they actually signed
+  // up from. This must still be added to the project's Redirect URLs
+  // allow-list in the dashboard, or Supabase silently falls back anyway.
+  const redirectTo = `${window.location.origin}${import.meta.env.BASE_URL}`;
+
   const signUp = useCallback(async (email: string, password: string) => {
     if (!supabase) throw new Error("accounts are not configured");
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: redirectTo } });
     if (error) throw error;
-  }, []);
+  }, [redirectTo]);
 
   const signIn = useCallback(async (email: string, password: string) => {
     if (!supabase) throw new Error("accounts are not configured");
@@ -55,9 +62,9 @@ export function useAuth() {
 
   const signInWithProvider = useCallback(async (provider: "google" | "discord") => {
     if (!supabase) throw new Error("accounts are not configured");
-    const { error } = await supabase.auth.signInWithOAuth({ provider });
+    const { error } = await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
     if (error) throw error;
-  }, []);
+  }, [redirectTo]);
 
   const signOut = useCallback(async () => {
     if (!supabase) return;

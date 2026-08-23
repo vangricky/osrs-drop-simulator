@@ -15,6 +15,7 @@ import { useGameState } from "./hooks/useGameState";
 const AuthModal = lazy(() => import("./components/AuthModal"));
 const ConfirmModal = lazy(() => import("./components/ConfirmModal"));
 const ContainerModal = lazy(() => import("./components/ContainerModal"));
+const HowToPlayModal = lazy(() => import("./components/HowToPlayModal"));
 const Leaderboard = lazy(() => import("./components/Leaderboard"));
 const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 
@@ -25,6 +26,7 @@ function App() {
   const [celebratingNpc, setCelebratingNpc] = useState<Npc | null>(null);
   const [showAuth, setShowAuth] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
   const auth = useAuth();
   const game = useGameState(auth.userId);
   const isSelectedUnlocked = selectedNpc ? game.unlockedNpcIds.has(selectedNpc.id) : false;
@@ -51,6 +53,7 @@ function App() {
         onOpenAuth={() => setShowAuth(true)}
         onSignOut={auth.signOut}
         onOpenLeaderboard={() => setShowLeaderboard(true)}
+        onOpenHowToPlay={() => setShowHowToPlay(true)}
       />
 
       <div className="mx-auto flex w-full max-w-[1600px] flex-1 items-start justify-center gap-4 px-4 py-4">
@@ -143,6 +146,8 @@ function App() {
         {showLeaderboard && (
           <Leaderboard currentUsername={auth.username} onClose={() => setShowLeaderboard(false)} />
         )}
+
+        {showHowToPlay && <HowToPlayModal onClose={() => setShowHowToPlay(false)} />}
       </Suspense>
     </div>
   );

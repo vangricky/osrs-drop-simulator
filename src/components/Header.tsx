@@ -11,6 +11,7 @@ interface HeaderProps {
   onOpenAuth: () => void;
   onSignOut: () => void;
   onOpenLeaderboard: () => void;
+  onOpenHowToPlay: () => void;
 }
 
 export default function Header({
@@ -23,6 +24,7 @@ export default function Header({
   onOpenAuth,
   onSignOut,
   onOpenLeaderboard,
+  onOpenHowToPlay,
 }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -82,6 +84,12 @@ export default function Header({
 
           {/* sm+ (tablet/desktop): every control shown inline, same as before. */}
           <div className="hidden items-center gap-2 sm:flex">
+            <button
+              onClick={onOpenHowToPlay}
+              className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+            >
+              How to play
+            </button>
             {authEnabled && (
               <button
                 onClick={onOpenLeaderboard}
@@ -141,6 +149,15 @@ export default function Header({
             {menuOpen && (
               <div className="osrs-bevel osrs-panel absolute right-0 top-[calc(100%+8px)] z-30 w-56 origin-top-right shadow-xl">
                 <div className="flex flex-col gap-1.5 p-2 text-xs">
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      onOpenHowToPlay();
+                    }}
+                    className="osrs-bevel bg-osrs-gold/15 px-3 py-2 text-left font-semibold text-osrs-gold transition active:osrs-bevel-inset"
+                  >
+                    How to play
+                  </button>
                   {username && (
                     <div className="px-1 pb-0.5 pt-1 text-osrs-parchment-dark/70">
                       Signed in as <span className="font-semibold text-osrs-gold">{username}</span>

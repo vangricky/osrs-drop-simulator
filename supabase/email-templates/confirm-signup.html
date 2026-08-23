@@ -1,0 +1,58 @@
+<!--
+  Paste this into: Supabase Dashboard -> Authentication -> Emails -> Templates -> "Confirm signup" (Message body).
+  Suggested subject line: Confirm your OSRS Drop Simulator account
+
+  Uses Supabase's built-in template variables:
+    {{ .ConfirmationURL }} - the confirm link (respects the emailRedirectTo
+      the app now passes in useAuth.ts, as long as that URL is also added
+      to Authentication -> URL Configuration -> Redirect URLs)
+-->
+<div style="background-color:#3e3529;padding:32px 16px;font-family:Verdana,Geneva,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;margin:0 auto;background-color:#4a4136;border:2px solid #1a140b;">
+    <tr>
+      <td style="padding:28px 28px 8px;text-align:center;">
+        <img src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png" width="48" height="48" alt="" style="display:block;margin:0 auto 12px;" />
+        <h1 style="margin:0;color:#ffb700;font-size:22px;letter-spacing:0.5px;">OSRS Drop Simulator</h1>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:8px 28px 0;text-align:center;">
+        <img src="https://oldschool.runescape.wiki/images/Twisted_bow.png" width="72" height="72" alt="" style="display:block;margin:8px auto;" />
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:8px 28px 0;text-align:center;color:#d9c8a0;font-size:15px;line-height:1.6;">
+        <p style="margin:0 0 8px;">Welcome, adventurer!</p>
+        <p style="margin:0 0 20px;">
+          One click and your account is ready &mdash; simulate kills, roll authentic
+          OSRS drop tables, and put your GP on the leaderboard.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:0 28px;text-align:center;">
+        <a href="{{ .ConfirmationURL }}"
+           style="display:inline-block;padding:14px 32px;background-color:#ffb700;color:#1a140b;
+                  font-weight:bold;font-size:15px;text-decoration:none;border:2px solid #1a140b;
+                  letter-spacing:0.5px;">
+          CONFIRM MY ACCOUNT
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:22px 28px 28px;text-align:center;color:#c3ac7e;font-size:12px;line-height:1.6;">
+        <p style="margin:0 0 6px;">If the button doesn't work, copy and paste this link:</p>
+        <p style="margin:0 0 16px;word-break:break-all;"><a href="{{ .ConfirmationURL }}" style="color:#ffb700;">{{ .ConfirmationURL }}</a></p>
+        <p style="margin:0;opacity:0.7;">
+          Didn't create this account? You can safely ignore this email.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:14px 28px;border-top:1px solid #1a140b;text-align:center;color:#c3ac7e;font-size:10px;opacity:0.6;">
+        Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy.
+        This content is not endorsed by or affiliated with Jagex.
+      </td>
+    </tr>
+  </table>
+</div>
