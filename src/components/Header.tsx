@@ -5,9 +5,24 @@ interface HeaderProps {
   totalKills: number;
   uniqueItemsObtained: number;
   onReset: () => void;
+  authEnabled: boolean;
+  username: string | null;
+  onOpenAuth: () => void;
+  onSignOut: () => void;
+  onOpenLeaderboard: () => void;
 }
 
-export default function Header({ gp, totalKills, uniqueItemsObtained, onReset }: HeaderProps) {
+export default function Header({
+  gp,
+  totalKills,
+  uniqueItemsObtained,
+  onReset,
+  authEnabled,
+  username,
+  onOpenAuth,
+  onSignOut,
+  onOpenLeaderboard,
+}: HeaderProps) {
   return (
     <header className="osrs-bevel osrs-panel sticky top-0 z-20 flex flex-wrap items-center justify-between gap-3 px-4 py-3 shadow-lg">
       <div className="flex items-center gap-3">
@@ -41,12 +56,44 @@ export default function Header({ gp, totalKills, uniqueItemsObtained, onReset }:
           <span className="text-osrs-parchment-dark/70">Unique drops:</span>
           <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
         </div>
-        <button
-          onClick={onReset}
-          className="osrs-bevel bg-osrs-red/20 px-3 py-1.5 text-xs font-semibold text-osrs-red transition hover:bg-osrs-red/30 active:osrs-bevel-inset"
-        >
-          Reset
-        </button>
+        {authEnabled && (
+          <button
+            onClick={onOpenLeaderboard}
+            className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+          >
+            Leaderboard
+          </button>
+        )}
+        {authEnabled && username ? (
+          <>
+            <span className="hidden text-xs text-osrs-parchment-dark/70 sm:inline">
+              Signed in as <span className="font-semibold text-osrs-gold">{username}</span>
+            </span>
+            <button
+              onClick={onSignOut}
+              className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+            >
+              Sign out
+            </button>
+          </>
+        ) : (
+          authEnabled && (
+            <button
+              onClick={onOpenAuth}
+              className="osrs-bevel bg-osrs-gold/20 px-3 py-1.5 text-xs font-semibold text-osrs-gold transition hover:bg-osrs-gold/30 active:osrs-bevel-inset"
+            >
+              Sign in
+            </button>
+          )
+        )}
+        {!username && (
+          <button
+            onClick={onReset}
+            className="osrs-bevel bg-osrs-red/20 px-3 py-1.5 text-xs font-semibold text-osrs-red transition hover:bg-osrs-red/30 active:osrs-bevel-inset"
+          >
+            Reset
+          </button>
+        )}
       </div>
     </header>
   );

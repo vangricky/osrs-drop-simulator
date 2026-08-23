@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { containers, items as allItems, npcs, type Npc } from "../data/npcData";
+import { supabase } from "../lib/supabase";
 import { isStackable, rollDrop, type RolledDrop } from "../utils/dropLogic";
 
 export const INVENTORY_SIZE = 28;
@@ -66,6 +67,54 @@ function loadState(): PersistedState {
   }
 }
 
+/** Arranges a server item-quantity ledger into a display-only 28-slot grid (stackables get one slot, non-stackables one-per-unit, extras beyond 28 slots are simply not shown). */
+function inventoryFromLedger(ledger: Record<string, number>): (InventorySlot | null)[] {
+  const next = emptyInventory();
+  const firstEmptySlot = () => next.findIndex((slot) => slot === null);
+
+  for (const [itemId, quantity] of Object.entries(ledger)) {
+    if (quantity <= 0) continue;
+    const item = allItems[itemId];
+    if (!item) continue;
+    if (isStackable(item)) {
+      const slotIndex = firstEmptySlot();
+      if (slotIndex !== -1) next[slotIndex] = { itemId, quantity };
+    } else {
+      for (let i = 0; i < quantity; i++) {
+        const slotIndex = firstEmptySlot();
+        if (slotIndex === -1) break;
+        next[slotIndex] = { itemId, quantity: 1 };
+      }
+    }
+  }
+  return next;
+}
+
+async function loadCloudState(userId: string): Promise<PersistedState | null> {
+  if (!supabase) return null;
+  const [{ data: gs }, { data: items }] = await Promise.all([
+    supabase.from("game_state").select("*").eq("user_id", userId).maybeSingle(),
+    supabase.from("user_items").select("item_id, quantity").eq("user_id", userId),
+  ]);
+  if (!gs) return null;
+
+  const ledger: Record<string, number> = {};
+  for (const row of items ?? []) ledger[row.item_id] = row.quantity;
+
+  const cachedInventory = Array.isArray(gs.inventory_cache) ? (gs.inventory_cache as (InventorySlot | null)[]) : [];
+  const inventory =
+    cachedInventory.length === INVENTORY_SIZE ? cachedInventory : inventoryFromLedger(ledger);
+
+  return {
+    inventory,
+    log: [],
+    killCounts: (gs.kill_counts as Record<string, number>) ?? {},
+    collectionLog: (gs.collection_log as Record<string, number>) ?? {},
+    gp: Number(gs.gp),
+    unlockedNpcIds: (gs.unlocked_npc_ids as string[]) ?? starterUnlockedIds(),
+  };
+}
+
 function addDropsToInventory(
   inventory: (InventorySlot | null)[],
   drops: RolledDrop[],
@@ -121,8 +170,11 @@ export interface ContainerOpenResult extends KillResult {
   containerName: string;
 }
 
-export function useGameState() {
+export function useGameState(userId: string | null = null) {
   const [state, setState] = useState<PersistedState>(loadState);
+  // Not rendered anywhere — only read inside the sync effect below, so a
+  // ref avoids an extra render pass instead of using React state for it.
+  const cloudLoadedRef = useRef(false);
   const [lastKill, setLastKill] = useState<KillResult | null>(null);
   const [lastContainerOpen, setLastContainerOpen] = useState<ContainerOpenResult | null>(null);
   const stateRef = useRef(state);
@@ -130,9 +182,48 @@ export function useGameState() {
     stateRef.current = state;
   });
 
+  // Guest progress lives in localStorage (already the initial state). Signed-in
+  // progress lives in Supabase; switching accounts (or signing out) swaps
+  // which one `state` reflects. `state` already starts as guest data from
+  // useState's initializer, so this only needs to act on actual transitions.
+  const prevUserIdRef = useRef(userId);
   useEffect(() => {
+    const isInitialMount = prevUserIdRef.current === userId && !userId;
+    prevUserIdRef.current = userId;
+    if (!userId) {
+      // No need to reset cloudLoaded here: the inventory-sync effect below
+      // already bails out on `!userId` regardless of cloudLoaded's value.
+      if (!isInitialMount) setState(loadState());
+      return;
+    }
+    cloudLoadedRef.current = false;
+    let cancelled = false;
+    loadCloudState(userId).then((cloud) => {
+      if (cancelled || !cloud) return;
+      cloudLoadedRef.current = true;
+      setState(cloud);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId]);
+
+  useEffect(() => {
+    if (userId) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }, [state]);
+  }, [state, userId]);
+
+  // Debounced cloud save of the inventory grid's visual arrangement (display
+  // only — gp/items/unlocks are already authoritative via the RPCs below).
+  useEffect(() => {
+    if (!userId || !cloudLoadedRef.current || !supabase) return;
+    const timer = setTimeout(() => {
+      supabase!.rpc("sync_inventory_cache", { p_inventory: state.inventory }).then(({ error }) => {
+        if (error) console.error("inventory sync failed", error);
+      });
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [state.inventory, userId]);
 
   const simulateKill = useCallback((npc: Npc): KillResult => {
     const drops = rollDrop(npc, allItems);
@@ -169,10 +260,22 @@ export function useGameState() {
       };
     });
 
+    if (userId && supabase) {
+      supabase
+        .rpc("record_kill", {
+          p_npc_id: npc.id,
+          p_gp_gained: coinsGained,
+          p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
+        })
+        .then(({ error }) => {
+          if (error) console.error("record_kill failed", error);
+        });
+    }
+
     const result: KillResult = { drops, overflow };
     setLastKill(result);
     return result;
-  }, []);
+  }, [userId]);
 
   const openContainer = useCallback((index: number): ContainerOpenResult | null => {
     const slot0 = stateRef.current.inventory[index];
@@ -218,10 +321,22 @@ export function useGameState() {
       };
     });
 
+    if (userId && supabase) {
+      supabase
+        .rpc("open_container", {
+          p_container_item_id: container.itemId,
+          p_gp_gained: coinsGained,
+          p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
+        })
+        .then(({ error }) => {
+          if (error) console.error("open_container failed", error);
+        });
+    }
+
     const result: ContainerOpenResult = { drops, overflow, containerName: container.name };
     setLastContainerOpen(result);
     return result;
-  }, []);
+  }, [userId]);
 
   const moveItem = useCallback((from: number, to: number) => {
     setState((prev) => {
@@ -254,7 +369,15 @@ export function useGameState() {
       next[index] = null;
       return { ...prev, inventory: next, gp: prev.gp + item.value * slot.quantity };
     });
-  }, []);
+    if (userId && supabase) {
+      const slot = stateRef.current.inventory[index];
+      if (slot) {
+        supabase.rpc("sell_item", { p_item_id: slot.itemId, p_quantity: slot.quantity }).then(({ error }) => {
+          if (error) console.error("sell_item failed", error);
+        });
+      }
+    }
+  }, [userId]);
 
   const sellAll = useCallback(() => {
     setState((prev) => {
@@ -269,7 +392,12 @@ export function useGameState() {
       if (gained === 0) return prev;
       return { ...prev, inventory: next, gp: prev.gp + gained };
     });
-  }, []);
+    if (userId && supabase) {
+      supabase.rpc("sell_all_items").then(({ error }) => {
+        if (error) console.error("sell_all_items failed", error);
+      });
+    }
+  }, [userId]);
 
   const unlockNpc = useCallback((npc: Npc): boolean => {
     let success = false;
@@ -279,14 +407,23 @@ export function useGameState() {
       success = true;
       return { ...prev, gp: prev.gp - npc.unlockCost, unlockedNpcIds: [...prev.unlockedNpcIds, npc.id] };
     });
+    if (success && userId && supabase) {
+      supabase.rpc("unlock_npc", { p_npc_id: npc.id }).then(({ error }) => {
+        if (error) console.error("unlock_npc failed", error);
+      });
+    }
     return success;
-  }, []);
+  }, [userId]);
 
   const resetAll = useCallback(() => {
+    // Signed-in progress isn't resettable from here — there's no "wipe my
+    // cloud save" RPC (deliberately out of scope), so this only applies to
+    // guest/local play. The UI hides/disables reset while signed in.
+    if (userId) return;
     setState(freshState());
     setLastKill(null);
     setLastContainerOpen(null);
-  }, []);
+  }, [userId]);
 
   const closeContainerModal = useCallback(() => setLastContainerOpen(null), []);
 
@@ -300,6 +437,7 @@ export function useGameState() {
   const unlockedNpcIds = useMemo(() => new Set(state.unlockedNpcIds), [state.unlockedNpcIds]);
 
   return {
+    isCloudSynced: Boolean(userId),
     inventory: state.inventory,
     log: state.log,
     killCounts: state.killCounts,

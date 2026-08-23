@@ -1,22 +1,29 @@
 import { useState } from "react";
 import AdBanner from "./components/AdBanner";
+import AuthModal from "./components/AuthModal";
 import ConfirmModal from "./components/ConfirmModal";
 import ContainerModal from "./components/ContainerModal";
 import DropLogPanel from "./components/DropLogPanel";
 import Header from "./components/Header";
 import InventoryGrid from "./components/InventoryGrid";
+import Leaderboard from "./components/Leaderboard";
 import NpcBrowser from "./components/NpcBrowser";
 import NpcDetailPanel from "./components/NpcDetailPanel";
 import UnlockCelebration from "./components/UnlockCelebration";
 import { npcs, type Npc } from "./data/npcData";
+import { useAuth } from "./hooks/useAuth";
 import { useGameState } from "./hooks/useGameState";
 
 function App() {
   const [selectedNpc, setSelectedNpc] = useState<Npc | null>(npcs[0] ?? null);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [celebratingNpc, setCelebratingNpc] = useState<Npc | null>(null);
-  const game = useGameState();
+  const [showAuth, setShowAuth] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const auth = useAuth();
+  const game = useGameState(auth.userId);
   const isSelectedUnlocked = selectedNpc ? game.unlockedNpcIds.has(selectedNpc.id) : false;
+  const authModalOpen = showAuth || auth.needsUsername;
 
   const handleUnlock = (npc: Npc) => {
     if (game.unlockNpc(npc)) {
@@ -32,6 +39,11 @@ function App() {
           totalKills={game.totalKills}
           uniqueItemsObtained={game.uniqueItemsObtained}
           onReset={() => setShowResetConfirm(true)}
+          authEnabled={auth.enabled}
+          username={auth.username}
+          onOpenAuth={() => setShowAuth(true)}
+          onSignOut={auth.signOut}
+          onOpenLeaderboard={() => setShowLeaderboard(true)}
         />
       </div>
 
@@ -111,6 +123,17 @@ function App() {
 
       {celebratingNpc && (
         <UnlockCelebration npc={celebratingNpc} onDismiss={() => setCelebratingNpc(null)} />
+      )}
+
+      {authModalOpen && (
+        <AuthModal
+          auth={auth}
+          onClose={() => setShowAuth(false)}
+        />
+      )}
+
+      {showLeaderboard && (
+        <Leaderboard currentUsername={auth.username} onClose={() => setShowLeaderboard(false)} />
       )}
     </div>
   );

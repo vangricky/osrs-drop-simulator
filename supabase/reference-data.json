@@ -1,0 +1,5499 @@
+{
+  "npcs": [
+    {
+      "id": "chicken",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "cow",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "giant-rat",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "goblin",
+      "unlockCost": 0,
+      "maxGpPerKill": 1030
+    },
+    {
+      "id": "man",
+      "unlockCost": 0,
+      "maxGpPerKill": 1050
+    },
+    {
+      "id": "guard",
+      "unlockCost": 2000,
+      "maxGpPerKill": 1060
+    },
+    {
+      "id": "al-kharid-warrior",
+      "unlockCost": 5000,
+      "maxGpPerKill": 1050
+    },
+    {
+      "id": "hill-giant",
+      "unlockCost": 25000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "moss-giant",
+      "unlockCost": 75000,
+      "maxGpPerKill": 1600
+    },
+    {
+      "id": "lesser-demon",
+      "unlockCost": 200000,
+      "maxGpPerKill": 1400
+    },
+    {
+      "id": "greater-demon",
+      "unlockCost": 500000,
+      "maxGpPerKill": 1440
+    },
+    {
+      "id": "hellhound",
+      "unlockCost": 1000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ankou",
+      "unlockCost": 2000000,
+      "maxGpPerKill": 1408
+    },
+    {
+      "id": "aberrant-spectre",
+      "unlockCost": 3500000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "abyssal-demon",
+      "unlockCost": 5000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "nechryael",
+      "unlockCost": 7500000,
+      "maxGpPerKill": 8000
+    },
+    {
+      "id": "dust-devil",
+      "unlockCost": 10000000,
+      "maxGpPerKill": 9000
+    },
+    {
+      "id": "dark-beast",
+      "unlockCost": 20000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "blue-dragon",
+      "unlockCost": 30000000,
+      "maxGpPerKill": 1880
+    },
+    {
+      "id": "red-dragon",
+      "unlockCost": 50000000,
+      "maxGpPerKill": 1392
+    },
+    {
+      "id": "black-dragon",
+      "unlockCost": 80000000,
+      "maxGpPerKill": 1660
+    },
+    {
+      "id": "brutal-black-dragon",
+      "unlockCost": 120000000,
+      "maxGpPerKill": 2858
+    },
+    {
+      "id": "king-black-dragon",
+      "unlockCost": 250000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "giant-mole",
+      "unlockCost": 350000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "kalphite-queen",
+      "unlockCost": 600000000,
+      "maxGpPerKill": 11000
+    },
+    {
+      "id": "general-graardor",
+      "unlockCost": 1000000000,
+      "maxGpPerKill": 41000
+    },
+    {
+      "id": "vorkath",
+      "unlockCost": 2500000000,
+      "maxGpPerKill": 321000
+    },
+    {
+      "id": "zulrah",
+      "unlockCost": 4000000000,
+      "maxGpPerKill": 33000
+    },
+    {
+      "id": "molanisk",
+      "unlockCost": 77000,
+      "maxGpPerKill": 1150
+    },
+    {
+      "id": "death-spawn",
+      "unlockCost": 62000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "zombie",
+      "unlockCost": 0,
+      "maxGpPerKill": 1694
+    },
+    {
+      "id": "summoned-zombie",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "skeleton",
+      "unlockCost": 13000,
+      "maxGpPerKill": 1300
+    },
+    {
+      "id": "skeleton-mage",
+      "unlockCost": 6800,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ghost",
+      "unlockCost": 9700,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "rock-crab",
+      "unlockCost": 0,
+      "maxGpPerKill": 1096
+    },
+    {
+      "id": "wolf",
+      "unlockCost": 120000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "white-wolf",
+      "unlockCost": 17000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "big-wolf",
+      "unlockCost": 160000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "wild-dog",
+      "unlockCost": 120000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "guard-dog",
+      "unlockCost": 57000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "hobgoblin",
+      "unlockCost": 87000,
+      "maxGpPerKill": 1664
+    },
+    {
+      "id": "ogre",
+      "unlockCost": 84000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "baby-red-dragon",
+      "unlockCost": 130000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "kalphite-soldier",
+      "unlockCost": 230000,
+      "maxGpPerKill": 2640
+    },
+    {
+      "id": "steel-dragon",
+      "unlockCost": 2100000,
+      "maxGpPerKill": 3240
+    },
+    {
+      "id": "dagannoth",
+      "unlockCost": 600000,
+      "maxGpPerKill": 1332
+    },
+    {
+      "id": "jungle-wolf",
+      "unlockCost": 120000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "black-demon",
+      "unlockCost": 990000,
+      "maxGpPerKill": 2772
+    },
+    {
+      "id": "baby-blue-dragon",
+      "unlockCost": 68000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "green-dragon",
+      "unlockCost": 190000,
+      "maxGpPerKill": 2654
+    },
+    {
+      "id": "bronze-dragon",
+      "unlockCost": 560000,
+      "maxGpPerKill": 3432
+    },
+    {
+      "id": "iron-dragon",
+      "unlockCost": 1200000,
+      "maxGpPerKill": 4620
+    },
+    {
+      "id": "ghoul",
+      "unlockCost": 51000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dwarf",
+      "unlockCost": 0,
+      "maxGpPerKill": 1176
+    },
+    {
+      "id": "chaos-dwarf",
+      "unlockCost": 68000,
+      "maxGpPerKill": 2358
+    },
+    {
+      "id": "gunthor-the-brave",
+      "unlockCost": 24000,
+      "maxGpPerKill": 1154
+    },
+    {
+      "id": "jailer",
+      "unlockCost": 65000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "black-heather",
+      "unlockCost": 33000,
+      "maxGpPerKill": 1612
+    },
+    {
+      "id": "donny-the-lad",
+      "unlockCost": 33000,
+      "maxGpPerKill": 1612
+    },
+    {
+      "id": "speedy-keith",
+      "unlockCost": 33000,
+      "maxGpPerKill": 1612
+    },
+    {
+      "id": "salarin-the-twisted",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1074
+    },
+    {
+      "id": "corporeal-beast",
+      "unlockCost": 24000000,
+      "maxGpPerKill": 101000
+    },
+    {
+      "id": "dark-energy-core",
+      "unlockCost": 170000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "cave-crawler",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1100
+    },
+    {
+      "id": "kurask",
+      "unlockCost": 360000,
+      "maxGpPerKill": 27000
+    },
+    {
+      "id": "gargoyle",
+      "unlockCost": 390000,
+      "maxGpPerKill": 24600
+    },
+    {
+      "id": "banshee",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1148
+    },
+    {
+      "id": "basilisk",
+      "unlockCost": 110000,
+      "maxGpPerKill": 2654
+    },
+    {
+      "id": "cockatrice",
+      "unlockCost": 39000,
+      "maxGpPerKill": 1306
+    },
+    {
+      "id": "rockslug",
+      "unlockCost": 24000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "turoth",
+      "unlockCost": 230000,
+      "maxGpPerKill": 2232
+    },
+    {
+      "id": "pyrefiend",
+      "unlockCost": 54000,
+      "maxGpPerKill": 2640
+    },
+    {
+      "id": "jelly",
+      "unlockCost": 190000,
+      "maxGpPerKill": 2674
+    },
+    {
+      "id": "infernal-mage",
+      "unlockCost": 130000,
+      "maxGpPerKill": 1072
+    },
+    {
+      "id": "crawling-hand",
+      "unlockCost": 0,
+      "maxGpPerKill": 1026
+    },
+    {
+      "id": "lizard",
+      "unlockCost": 51000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "desert-lizard",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "small-lizard",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "harpie-bug-swarm",
+      "unlockCost": 62000,
+      "maxGpPerKill": 2900
+    },
+    {
+      "id": "skeletal-wyvern",
+      "unlockCost": 640000,
+      "maxGpPerKill": 1600
+    },
+    {
+      "id": "killerwatt",
+      "unlockCost": 90000,
+      "maxGpPerKill": 1916
+    },
+    {
+      "id": "wall-beast",
+      "unlockCost": 71000,
+      "maxGpPerKill": 1030
+    },
+    {
+      "id": "giant-frog",
+      "unlockCost": 310000,
+      "maxGpPerKill": 1138
+    },
+    {
+      "id": "big-frog",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1040
+    },
+    {
+      "id": "cave-slime",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1166
+    },
+    {
+      "id": "cave-bug",
+      "unlockCost": 0,
+      "maxGpPerKill": 1022
+    },
+    {
+      "id": "bloodveld",
+      "unlockCost": 180000,
+      "maxGpPerKill": 2640
+    },
+    {
+      "id": "cave-kraken",
+      "unlockCost": 520000,
+      "maxGpPerKill": 1600
+    },
+    {
+      "id": "kraken",
+      "unlockCost": 24000000,
+      "maxGpPerKill": 40998
+    },
+    {
+      "id": "smoke-devil",
+      "unlockCost": 850000,
+      "maxGpPerKill": 3260
+    },
+    {
+      "id": "thermonuclear-smoke-devil",
+      "unlockCost": 26000000,
+      "maxGpPerKill": 41000
+    },
+    {
+      "id": "soulless",
+      "unlockCost": 8700,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "death-wing",
+      "unlockCost": 210000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dark-wizard",
+      "unlockCost": 11000,
+      "maxGpPerKill": 1132
+    },
+    {
+      "id": "invrigar-the-necromancer",
+      "unlockCost": 11000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "mugger",
+      "unlockCost": 0,
+      "maxGpPerKill": 1110
+    },
+    {
+      "id": "black-knight",
+      "unlockCost": 31000,
+      "maxGpPerKill": 1440
+    },
+    {
+      "id": "highwayman",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "chaos-druid",
+      "unlockCost": 0,
+      "maxGpPerKill": 1150
+    },
+    {
+      "id": "pirate",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1276
+    },
+    {
+      "id": "thug",
+      "unlockCost": 0,
+      "maxGpPerKill": 1146
+    },
+    {
+      "id": "rogue",
+      "unlockCost": 0,
+      "maxGpPerKill": 1096
+    },
+    {
+      "id": "monk-of-zamorak",
+      "unlockCost": 13000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "tribesman",
+      "unlockCost": 29000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dark-warrior",
+      "unlockCost": 0,
+      "maxGpPerKill": 1164
+    },
+    {
+      "id": "chaos-druid-warrior",
+      "unlockCost": 39000,
+      "maxGpPerKill": 1084
+    },
+    {
+      "id": "zygomite",
+      "unlockCost": 170000,
+      "maxGpPerKill": 3568
+    },
+    {
+      "id": "sorebones",
+      "unlockCost": 97000,
+      "maxGpPerKill": 1458
+    },
+    {
+      "id": "zombie-pirate",
+      "unlockCost": 97000,
+      "maxGpPerKill": 1716
+    },
+    {
+      "id": "zombie-swab",
+      "unlockCost": 90000,
+      "maxGpPerKill": 1258
+    },
+    {
+      "id": "evil-spirit",
+      "unlockCost": 740000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "fever-spider",
+      "unlockCost": 71000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "tyras-guard",
+      "unlockCost": 390000,
+      "maxGpPerKill": 2734
+    },
+    {
+      "id": "arrg",
+      "unlockCost": 410000,
+      "maxGpPerKill": 1886
+    },
+    {
+      "id": "ice-wolf",
+      "unlockCost": 290000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ice-troll",
+      "unlockCost": 500000,
+      "maxGpPerKill": 1772
+    },
+    {
+      "id": "damis",
+      "unlockCost": 340000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "bandit",
+      "unlockCost": 13000,
+      "maxGpPerKill": 1382
+    },
+    {
+      "id": "mummy",
+      "unlockCost": 290000,
+      "maxGpPerKill": 3320
+    },
+    {
+      "id": "bandit-champion",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "baby-roc",
+      "unlockCost": 170000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "giant-roc",
+      "unlockCost": 990000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "me",
+      "unlockCost": 190000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "suqah",
+      "unlockCost": 390000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "scarab-mage",
+      "unlockCost": 270000,
+      "maxGpPerKill": 7000
+    },
+    {
+      "id": "locust-rider",
+      "unlockCost": 360000,
+      "maxGpPerKill": 7000
+    },
+    {
+      "id": "giant-scarab",
+      "unlockCost": 1200000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "wormbrain",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "icelord",
+      "unlockCost": 77000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "zogre",
+      "unlockCost": 57000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "skogre",
+      "unlockCost": 57000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "slash-bash",
+      "unlockCost": 390000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "moss-guardian",
+      "unlockCost": 220000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "agrith-naar",
+      "unlockCost": 320000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "stick",
+      "unlockCost": 340000,
+      "maxGpPerKill": 2610
+    },
+    {
+      "id": "pee-hat",
+      "unlockCost": 260000,
+      "maxGpPerKill": 2610
+    },
+    {
+      "id": "kraka",
+      "unlockCost": 260000,
+      "maxGpPerKill": 2610
+    },
+    {
+      "id": "thrower-troll",
+      "unlockCost": 140000,
+      "maxGpPerKill": 1886
+    },
+    {
+      "id": "mountain-troll",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1886
+    },
+    {
+      "id": "ghast",
+      "unlockCost": 25000,
+      "maxGpPerKill": 1180
+    },
+    {
+      "id": "kalphite-worker",
+      "unlockCost": 22000,
+      "maxGpPerKill": 1306
+    },
+    {
+      "id": "kalphite-guardian",
+      "unlockCost": 650000,
+      "maxGpPerKill": 2772
+    },
+    {
+      "id": "dagannoth-mother",
+      "unlockCost": 320000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "sigmund",
+      "unlockCost": 74000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "necromancer",
+      "unlockCost": 19000,
+      "maxGpPerKill": 1100
+    },
+    {
+      "id": "guard-bandit",
+      "unlockCost": 13000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "snake",
+      "unlockCost": 35000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "albino-bat",
+      "unlockCost": 80000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "jungle-horror",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "cave-horror",
+      "unlockCost": 200000,
+      "maxGpPerKill": 2232
+    },
+    {
+      "id": "angry-giant-rat",
+      "unlockCost": 59000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "sea-snake-young",
+      "unlockCost": 250000,
+      "maxGpPerKill": 1246
+    },
+    {
+      "id": "sea-snake-hatchling",
+      "unlockCost": 120000,
+      "maxGpPerKill": 1246
+    },
+    {
+      "id": "giant-sea-snake",
+      "unlockCost": 730000,
+      "maxGpPerKill": 1246
+    },
+    {
+      "id": "giant-scarab-hard",
+      "unlockCost": 3600000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dessous-hard",
+      "unlockCost": 1600000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "kamil-hard",
+      "unlockCost": 2600000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "damis-hard",
+      "unlockCost": 1400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "paladin",
+      "unlockCost": 100000,
+      "maxGpPerKill": 1546
+    },
+    {
+      "id": "tree-spirit",
+      "unlockCost": 320000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "rooster",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "khazard-guard",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "bouncer",
+      "unlockCost": 610000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ram",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "vulture",
+      "unlockCost": 27000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "experiment",
+      "unlockCost": 77000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "loar-shade",
+      "unlockCost": 46000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "phrin-shadow",
+      "unlockCost": 110000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "phrin-shade",
+      "unlockCost": 110000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "riyl-shadow",
+      "unlockCost": 200000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "riyl-shade",
+      "unlockCost": 200000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "asyn-shade",
+      "unlockCost": 320000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "fiyr-shadow",
+      "unlockCost": 460000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "fiyr-shade",
+      "unlockCost": 460000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "afflicted",
+      "unlockCost": 39000,
+      "maxGpPerKill": 1096
+    },
+    {
+      "id": "seagull",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dwarf-gang-member",
+      "unlockCost": 57000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "slagilith",
+      "unlockCost": 270000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "fire-elemental",
+      "unlockCost": 35000,
+      "maxGpPerKill": 1108
+    },
+    {
+      "id": "earth-elemental",
+      "unlockCost": 35000,
+      "maxGpPerKill": 1108
+    },
+    {
+      "id": "air-elemental",
+      "unlockCost": 33000,
+      "maxGpPerKill": 1108
+    },
+    {
+      "id": "water-elemental",
+      "unlockCost": 33000,
+      "maxGpPerKill": 1108
+    },
+    {
+      "id": "the-kendal",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "camp-dweller",
+      "unlockCost": 27000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "black-guard",
+      "unlockCost": 17000,
+      "maxGpPerKill": 1088
+    },
+    {
+      "id": "foreman",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "jungle-demon",
+      "unlockCost": 1300000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "thief",
+      "unlockCost": 6800,
+      "maxGpPerKill": 1116
+    },
+    {
+      "id": "chompy-bird",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "kebbit",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "skeleton-hero",
+      "unlockCost": 730000,
+      "maxGpPerKill": 2354
+    },
+    {
+      "id": "skeleton-brute",
+      "unlockCost": 570000,
+      "maxGpPerKill": 2354
+    },
+    {
+      "id": "skeleton-warlord",
+      "unlockCost": 570000,
+      "maxGpPerKill": 2354
+    },
+    {
+      "id": "skeleton-heavy",
+      "unlockCost": 570000,
+      "maxGpPerKill": 2354
+    },
+    {
+      "id": "skeleton-thug",
+      "unlockCost": 570000,
+      "maxGpPerKill": 2354
+    },
+    {
+      "id": "fire-wizard",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "water-wizard",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "earth-wizard",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "air-wizard",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "battle-mage",
+      "unlockCost": 87000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ahrim-the-blighted",
+      "unlockCost": 2400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dharok-the-wretched",
+      "unlockCost": 3400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "guthan-the-infested",
+      "unlockCost": 3400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "karil-the-tainted",
+      "unlockCost": 2400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "torag-the-corrupted",
+      "unlockCost": 3400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "verac-the-defiled",
+      "unlockCost": 3400000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "crypt-rat",
+      "unlockCost": 54000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "giant-crypt-rat",
+      "unlockCost": 180000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "double-agent",
+      "unlockCost": 130000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "scarab-swarm",
+      "unlockCost": 300000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "goat",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "billy-goat",
+      "unlockCost": 31000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "white-knight",
+      "unlockCost": 37000,
+      "maxGpPerKill": 3402
+    },
+    {
+      "id": "gorak",
+      "unlockCost": 730000,
+      "maxGpPerKill": 3242
+    },
+    {
+      "id": "duck",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "stag",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "rabbit",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "evil-chicken",
+      "unlockCost": 840000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "baby-black-dragon",
+      "unlockCost": 210000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ice-troll-grunt",
+      "unlockCost": 320000,
+      "maxGpPerKill": 1400
+    },
+    {
+      "id": "chaos-elemental",
+      "unlockCost": 26000000,
+      "maxGpPerKill": 16000
+    },
+    {
+      "id": "oomlie-bird",
+      "unlockCost": 62000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "terrorbird",
+      "unlockCost": 22000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "mounted-terrorbird-gnome",
+      "unlockCost": 27000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "fire-giant",
+      "unlockCost": 230000,
+      "maxGpPerKill": 1900
+    },
+    {
+      "id": "ice-giant",
+      "unlockCost": 84000,
+      "maxGpPerKill": 4694
+    },
+    {
+      "id": "jogre",
+      "unlockCost": 84000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "cyclops",
+      "unlockCost": 94000,
+      "maxGpPerKill": 1402
+    },
+    {
+      "id": "market-guard",
+      "unlockCost": 11000,
+      "maxGpPerKill": 1162
+    },
+    {
+      "id": "undead-druid",
+      "unlockCost": 350000,
+      "maxGpPerKill": 11000
+    },
+    {
+      "id": "tzhaar-hur",
+      "unlockCost": 170000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "tzhaar-xil",
+      "unlockCost": 580000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "tzhaar-ket",
+      "unlockCost": 730000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "commander-zilyana",
+      "unlockCost": 110000000,
+      "maxGpPerKill": 41000
+    },
+    {
+      "id": "starlight",
+      "unlockCost": 730000,
+      "maxGpPerKill": 9600
+    },
+    {
+      "id": "growler",
+      "unlockCost": 630000,
+      "maxGpPerKill": 9600
+    },
+    {
+      "id": "bree",
+      "unlockCost": 700000,
+      "maxGpPerKill": 9600
+    },
+    {
+      "id": "saradomin-priest",
+      "unlockCost": 410000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "spiritual-warrior",
+      "unlockCost": 510000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "spiritual-ranger",
+      "unlockCost": 480000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "spiritual-mage",
+      "unlockCost": 460000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "knight-of-saradomin",
+      "unlockCost": 340000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "sergeant-strongstack",
+      "unlockCost": 650000,
+      "maxGpPerKill": 10000
+    },
+    {
+      "id": "sergeant-steelwill",
+      "unlockCost": 660000,
+      "maxGpPerKill": 10000
+    },
+    {
+      "id": "sergeant-grimspike",
+      "unlockCost": 660000,
+      "maxGpPerKill": 10000
+    },
+    {
+      "id": "ork",
+      "unlockCost": 370000,
+      "maxGpPerKill": 1116
+    },
+    {
+      "id": "giant-rock-crab",
+      "unlockCost": 610000,
+      "maxGpPerKill": 1280
+    },
+    {
+      "id": "dagannoth-fledgeling",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "dagannoth-supreme",
+      "unlockCost": 26000000,
+      "maxGpPerKill": 3218
+    },
+    {
+      "id": "dagannoth-prime",
+      "unlockCost": 26000000,
+      "maxGpPerKill": 3218
+    },
+    {
+      "id": "dagannoth-rex",
+      "unlockCost": 26000000,
+      "maxGpPerKill": 3418
+    },
+    {
+      "id": "animated-bronze-armour",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "animated-iron-armour",
+      "unlockCost": 14000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "animated-steel-armour",
+      "unlockCost": 62000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "animated-black-armour",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "animated-mithril-armour",
+      "unlockCost": 270000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "animated-adamant-armour",
+      "unlockCost": 410000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "animated-rune-armour",
+      "unlockCost": 620000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "catablepon",
+      "unlockCost": 71000,
+      "maxGpPerKill": 1346
+    },
+    {
+      "id": "giant-spider",
+      "unlockCost": 74000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "spider",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "scorpion",
+      "unlockCost": 100000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "minotaur",
+      "unlockCost": 0,
+      "maxGpPerKill": 1186
+    },
+    {
+      "id": "rat",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "flesh-crawler",
+      "unlockCost": 22000,
+      "maxGpPerKill": 1188
+    },
+    {
+      "id": "h-a-m-guard",
+      "unlockCost": 0,
+      "maxGpPerKill": 1040
+    },
+    {
+      "id": "monk",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "abyssal-leech",
+      "unlockCost": 49000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "abyssal-guardian",
+      "unlockCost": 100000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "abyssal-walker",
+      "unlockCost": 200000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "mogre",
+      "unlockCost": 110000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "werewolf",
+      "unlockCost": 240000,
+      "maxGpPerKill": 2612
+    },
+    {
+      "id": "boris",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "imre",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "yuri",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "joseph",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "nikolai",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "eduard",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "lev",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "georgy",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "svetlana",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "irina",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "alexis",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "milla",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "galina",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "sofiya",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "ksenia",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "yadviga",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "nikita",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "vera",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "zoja",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "liliya",
+      "unlockCost": 16000,
+      "maxGpPerKill": 1722
+    },
+    {
+      "id": "myre-blamish-snail",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "blood-blamish-snail",
+      "unlockCost": 11000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ochre-blamish-snail",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "bruise-blamish-snail",
+      "unlockCost": 11000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "bark-blamish-snail",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "cow-calf",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "bat",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "giant-bat",
+      "unlockCost": 20000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "golem",
+      "unlockCost": 90000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "unicorn",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "grizzly-bear",
+      "unlockCost": 12000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "black-bear",
+      "unlockCost": 9700,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "earth-warrior",
+      "unlockCost": 77000,
+      "maxGpPerKill": 1024
+    },
+    {
+      "id": "ice-warrior",
+      "unlockCost": 97000,
+      "maxGpPerKill": 1060
+    },
+    {
+      "id": "otherworldly-being",
+      "unlockCost": 120000,
+      "maxGpPerKill": 1030
+    },
+    {
+      "id": "magic-axe",
+      "unlockCost": 51000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "black-unicorn",
+      "unlockCost": 20000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "shadow-warrior",
+      "unlockCost": 68000,
+      "maxGpPerKill": 1016
+    },
+    {
+      "id": "dungeon-rat",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "carnivorous-chinchompa",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "waterfiend",
+      "unlockCost": 430000,
+      "maxGpPerKill": 7000
+    },
+    {
+      "id": "brutal-green-dragon",
+      "unlockCost": 1800000,
+      "maxGpPerKill": 2726
+    },
+    {
+      "id": "mithril-dragon",
+      "unlockCost": 3300000,
+      "maxGpPerKill": 3952
+    },
+    {
+      "id": "confused-barbarian",
+      "unlockCost": 570000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "lost-barbarian",
+      "unlockCost": 570000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "nail-beast",
+      "unlockCost": 150000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "zamorak-wizard",
+      "unlockCost": 130000,
+      "maxGpPerKill": 1812
+    },
+    {
+      "id": "saradomin-wizard",
+      "unlockCost": 370000,
+      "maxGpPerKill": 1812
+    },
+    {
+      "id": "big-snake",
+      "unlockCost": 220000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "undead-cow",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "undead-chicken",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "giant-lobster",
+      "unlockCost": 29000,
+      "maxGpPerKill": 1096
+    },
+    {
+      "id": "tortured-soul",
+      "unlockCost": 100000,
+      "maxGpPerKill": 1060
+    },
+    {
+      "id": "woman",
+      "unlockCost": 0,
+      "maxGpPerKill": 1116
+    },
+    {
+      "id": "shadow-spider",
+      "unlockCost": 80000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "jungle-spider",
+      "unlockCost": 57000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "deadly-red-spider",
+      "unlockCost": 33000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "ice-spider",
+      "unlockCost": 110000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "poison-spider",
+      "unlockCost": 120000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "poison-scorpion",
+      "unlockCost": 11000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "pit-scorpion",
+      "unlockCost": 22000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "king-scorpion",
+      "unlockCost": 29000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "barbarian",
+      "unlockCost": 7700,
+      "maxGpPerKill": 1154
+    },
+    {
+      "id": "farmer",
+      "unlockCost": 0,
+      "maxGpPerKill": 1190
+    },
+    {
+      "id": "tztok-jad",
+      "unlockCost": 19000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "kril-tsutsaroth",
+      "unlockCost": 130000000,
+      "maxGpPerKill": 41000
+    },
+    {
+      "id": "tstanon-karlak",
+      "unlockCost": 690000,
+      "maxGpPerKill": 9400
+    },
+    {
+      "id": "zakln-gritch",
+      "unlockCost": 660000,
+      "maxGpPerKill": 9400
+    },
+    {
+      "id": "balfrug-kreeyath",
+      "unlockCost": 750000,
+      "maxGpPerKill": 9400
+    },
+    {
+      "id": "imp",
+      "unlockCost": 0,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "feral-vampyre",
+      "unlockCost": 180000,
+      "maxGpPerKill": 1030
+    },
+    {
+      "id": "icefiend",
+      "unlockCost": 8700,
+      "maxGpPerKill": 1100
+    },
+    {
+      "id": "kreearra",
+      "unlockCost": 100000000,
+      "maxGpPerKill": 83000
+    }
+  ],
+  "items": {
+    "bones": {
+      "value": 2,
+      "tradeable": true
+    },
+    "raw-chicken": {
+      "value": 5,
+      "tradeable": true
+    },
+    "feather": {
+      "value": 2,
+      "tradeable": true
+    },
+    "clue-scroll-beginner": {
+      "value": 0,
+      "tradeable": false
+    },
+    "cowhide": {
+      "value": 90,
+      "tradeable": true
+    },
+    "raw-beef": {
+      "value": 4,
+      "tradeable": true
+    },
+    "raw-rat-meat": {
+      "value": 3,
+      "tradeable": true
+    },
+    "looting-bag": {
+      "value": 0,
+      "tradeable": false
+    },
+    "coins": {
+      "value": 1,
+      "tradeable": false
+    },
+    "hammer": {
+      "value": 1,
+      "tradeable": true
+    },
+    "bronze-sq-shield": {
+      "value": 25,
+      "tradeable": true
+    },
+    "bronze-spear": {
+      "value": 35,
+      "tradeable": true
+    },
+    "body-rune": {
+      "value": 3,
+      "tradeable": true
+    },
+    "water-rune": {
+      "value": 3,
+      "tradeable": true
+    },
+    "goblin-mail": {
+      "value": 3,
+      "tradeable": true
+    },
+    "ensouled-goblin-head": {
+      "value": 200,
+      "tradeable": true
+    },
+    "clue-scroll-easy": {
+      "value": 0,
+      "tradeable": false
+    },
+    "goblin-champion-scroll": {
+      "value": 50000,
+      "tradeable": true
+    },
+    "bronze-bolts": {
+      "value": 4,
+      "tradeable": true
+    },
+    "bronze-arrows": {
+      "value": 3,
+      "tradeable": true
+    },
+    "earth-rune": {
+      "value": 3,
+      "tradeable": true
+    },
+    "fire-rune": {
+      "value": 4,
+      "tradeable": true
+    },
+    "mind-rune": {
+      "value": 2,
+      "tradeable": true
+    },
+    "chaos-rune": {
+      "value": 85,
+      "tradeable": true
+    },
+    "bronze-med-helm": {
+      "value": 15,
+      "tradeable": true
+    },
+    "iron-dagger": {
+      "value": 30,
+      "tradeable": true
+    },
+    "clue-scroll-medium": {
+      "value": 0,
+      "tradeable": false
+    },
+    "iron-bolts": {
+      "value": 15,
+      "tradeable": true
+    },
+    "steel-arrow": {
+      "value": 7,
+      "tradeable": true
+    },
+    "steel-platelegs": {
+      "value": 350,
+      "tradeable": true
+    },
+    "air-rune": {
+      "value": 2,
+      "tradeable": true
+    },
+    "blood-rune": {
+      "value": 340,
+      "tradeable": true
+    },
+    "nature-rune": {
+      "value": 195,
+      "tradeable": true
+    },
+    "body-talisman": {
+      "value": 350,
+      "tradeable": true
+    },
+    "big-bones": {
+      "value": 100,
+      "tradeable": true
+    },
+    "limpwurt-root": {
+      "value": 60,
+      "tradeable": true
+    },
+    "iron-med-helm": {
+      "value": 40,
+      "tradeable": true
+    },
+    "iron-full-helm": {
+      "value": 250,
+      "tradeable": true
+    },
+    "iron-kiteshield": {
+      "value": 300,
+      "tradeable": true
+    },
+    "steel-scimitar": {
+      "value": 700,
+      "tradeable": true
+    },
+    "steel-longsword": {
+      "value": 170,
+      "tradeable": true
+    },
+    "iron-arrow": {
+      "value": 8,
+      "tradeable": true
+    },
+    "law-rune": {
+      "value": 135,
+      "tradeable": true
+    },
+    "giant-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-giant-head": {
+      "value": 300,
+      "tradeable": true
+    },
+    "long-bone": {
+      "value": 15000,
+      "tradeable": true
+    },
+    "giant-champion-scroll": {
+      "value": 50000,
+      "tradeable": true
+    },
+    "curved-bone": {
+      "value": 25000,
+      "tradeable": true
+    },
+    "black-sq-shield": {
+      "value": 500,
+      "tradeable": true
+    },
+    "magic-staff": {
+      "value": 6000,
+      "tradeable": true
+    },
+    "steel-med-helm": {
+      "value": 60,
+      "tradeable": true
+    },
+    "mithril-sword": {
+      "value": 300,
+      "tradeable": true
+    },
+    "mithril-spear": {
+      "value": 350,
+      "tradeable": true
+    },
+    "steel-kiteshield": {
+      "value": 550,
+      "tradeable": true
+    },
+    "steel-bar": {
+      "value": 180,
+      "tradeable": true
+    },
+    "mossy-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "vile-ashes": {
+      "value": 40,
+      "tradeable": true
+    },
+    "steel-full-helm": {
+      "value": 500,
+      "tradeable": true
+    },
+    "steel-axe": {
+      "value": 150,
+      "tradeable": true
+    },
+    "mithril-sq-shield": {
+      "value": 500,
+      "tradeable": true
+    },
+    "mithril-chainbody": {
+      "value": 1400,
+      "tradeable": true
+    },
+    "rune-med-helm": {
+      "value": 38000,
+      "tradeable": true
+    },
+    "death-rune": {
+      "value": 180,
+      "tradeable": true
+    },
+    "ensouled-demon-head": {
+      "value": 600,
+      "tradeable": true
+    },
+    "lesser-demon-champion-scroll": {
+      "value": 50000,
+      "tradeable": true
+    },
+    "rune-full-helm": {
+      "value": 30000,
+      "tradeable": true
+    },
+    "adamant-platelegs": {
+      "value": 4000,
+      "tradeable": true
+    },
+    "steel-2h-sword": {
+      "value": 400,
+      "tradeable": true
+    },
+    "clue-scroll-hard": {
+      "value": 0,
+      "tradeable": false
+    },
+    "brimstone-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "black-knife": {
+      "value": 25,
+      "tradeable": true
+    },
+    "black-robe": {
+      "value": 400,
+      "tradeable": true
+    },
+    "pure-essence": {
+      "value": 4,
+      "tradeable": true
+    },
+    "mithril-ore": {
+      "value": 100,
+      "tradeable": true
+    },
+    "grimy-ranarr-weed": {
+      "value": 7000,
+      "tradeable": true
+    },
+    "torstol-seed": {
+      "value": 6000,
+      "tradeable": true
+    },
+    "lava-battlestaff": {
+      "value": 90000,
+      "tradeable": true
+    },
+    "mystic-robe-bottom-dark": {
+      "value": 15000,
+      "tradeable": true
+    },
+    "abyssal-ashes": {
+      "value": 150,
+      "tradeable": true
+    },
+    "abyssal-whip": {
+      "value": 796798,
+      "tradeable": true
+    },
+    "abyssal-dagger": {
+      "value": 95000,
+      "tradeable": true
+    },
+    "black-sword": {
+      "value": 700,
+      "tradeable": true
+    },
+    "steel-battleaxe": {
+      "value": 500,
+      "tradeable": true
+    },
+    "black-axe": {
+      "value": 3000,
+      "tradeable": true
+    },
+    "rune-chainbody": {
+      "value": 55000,
+      "tradeable": true
+    },
+    "ensouled-abyssal-head": {
+      "value": 900,
+      "tradeable": true
+    },
+    "clue-scroll-elite": {
+      "value": 0,
+      "tradeable": false
+    },
+    "abyssal-head": {
+      "value": 1500000,
+      "tradeable": true
+    },
+    "malicious-ashes": {
+      "value": 500,
+      "tradeable": true
+    },
+    "rune-boots": {
+      "value": 22000,
+      "tradeable": true
+    },
+    "adamant-kiteshield": {
+      "value": 3200,
+      "tradeable": true
+    },
+    "rune-2h-sword": {
+      "value": 47000,
+      "tradeable": true
+    },
+    "limpwurt-seed": {
+      "value": 500,
+      "tradeable": true
+    },
+    "soft-clay": {
+      "value": 3,
+      "tradeable": true
+    },
+    "adamant-axe": {
+      "value": 1300,
+      "tradeable": true
+    },
+    "rune-dagger": {
+      "value": 7000,
+      "tradeable": true
+    },
+    "red-dhide-vambraces": {
+      "value": 3500,
+      "tradeable": true
+    },
+    "air-battlestaff": {
+      "value": 8000,
+      "tradeable": true
+    },
+    "dust-battlestaff": {
+      "value": 250000,
+      "tradeable": true
+    },
+    "dragon-chainbody": {
+      "value": 200000,
+      "tradeable": true
+    },
+    "dust-rune": {
+      "value": 6,
+      "tradeable": true
+    },
+    "soul-rune": {
+      "value": 200,
+      "tradeable": true
+    },
+    "ancient-shard": {
+      "value": 4000,
+      "tradeable": true
+    },
+    "dark-totem-piece": {
+      "value": 5000,
+      "tradeable": true
+    },
+    "larrans-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-bow": {
+      "value": 1800000,
+      "tradeable": true
+    },
+    "black-battleaxe": {
+      "value": 800,
+      "tradeable": true
+    },
+    "adamant-sq-shield": {
+      "value": 1400,
+      "tradeable": true
+    },
+    "rune-battleaxe": {
+      "value": 15000,
+      "tradeable": true
+    },
+    "death-talisman": {
+      "value": 12000,
+      "tradeable": true
+    },
+    "crystal-shard": {
+      "value": 1500,
+      "tradeable": true
+    },
+    "blue-dragonhide": {
+      "value": 1400,
+      "tradeable": true
+    },
+    "dragon-bones": {
+      "value": 2600,
+      "tradeable": true
+    },
+    "uncut-sapphire": {
+      "value": 300,
+      "tradeable": true
+    },
+    "uncut-emerald": {
+      "value": 550,
+      "tradeable": true
+    },
+    "uncut-ruby": {
+      "value": 1300,
+      "tradeable": true
+    },
+    "uncut-diamond": {
+      "value": 3300,
+      "tradeable": true
+    },
+    "ensouled-dragon-head": {
+      "value": 15000,
+      "tradeable": true
+    },
+    "scaly-blue-dragonhide": {
+      "value": 2800,
+      "tradeable": true
+    },
+    "red-dragonhide": {
+      "value": 2600,
+      "tradeable": true
+    },
+    "rune-longsword": {
+      "value": 14000,
+      "tradeable": true
+    },
+    "adamant-platebody": {
+      "value": 4200,
+      "tradeable": true
+    },
+    "mithril-2h-sword": {
+      "value": 800,
+      "tradeable": true
+    },
+    "rune-arrow": {
+      "value": 130,
+      "tradeable": true
+    },
+    "black-dragonhide": {
+      "value": 4000,
+      "tradeable": true
+    },
+    "adamant-javelin": {
+      "value": 220,
+      "tradeable": true
+    },
+    "draconic-visage": {
+      "value": 1900000,
+      "tradeable": true
+    },
+    "rune-hasta": {
+      "value": 12000,
+      "tradeable": true
+    },
+    "rune-platelegs": {
+      "value": 30000,
+      "tradeable": true
+    },
+    "rune-javelin": {
+      "value": 400,
+      "tradeable": true
+    },
+    "anglerfish": {
+      "value": 1400,
+      "tradeable": true
+    },
+    "dragon-platelegs": {
+      "value": 45000,
+      "tradeable": true
+    },
+    "dragon-spear": {
+      "value": 40000,
+      "tradeable": true
+    },
+    "uncut-dragonstone": {
+      "value": 16000,
+      "tradeable": true
+    },
+    "shark": {
+      "value": 900,
+      "tradeable": true
+    },
+    "adamant-bar": {
+      "value": 2000,
+      "tradeable": true
+    },
+    "smouldering-stone": {
+      "value": 12000,
+      "tradeable": true
+    },
+    "ensouled-hellhound-head": {
+      "value": 1000,
+      "tradeable": true
+    },
+    "slayers-enchantment": {
+      "value": 2000000,
+      "tradeable": true
+    },
+    "hellpuppy": {
+      "value": 0,
+      "tradeable": false
+    },
+    "adamant-arrow": {
+      "value": 60,
+      "tradeable": true
+    },
+    "mole-claw": {
+      "value": 300,
+      "tradeable": true
+    },
+    "mole-skin": {
+      "value": 250,
+      "tradeable": true
+    },
+    "immaculate-mole-skin": {
+      "value": 400,
+      "tradeable": true
+    },
+    "baby-mole": {
+      "value": 0,
+      "tradeable": false
+    },
+    "adamant-longsword": {
+      "value": 1400,
+      "tradeable": true
+    },
+    "mithril-platebody": {
+      "value": 700,
+      "tradeable": true
+    },
+    "amulet-of-strength": {
+      "value": 700,
+      "tradeable": true
+    },
+    "mithril-axe": {
+      "value": 300,
+      "tradeable": true
+    },
+    "mithril-battleaxe": {
+      "value": 500,
+      "tradeable": true
+    },
+    "mithril-bar": {
+      "value": 300,
+      "tradeable": true
+    },
+    "ranarr-seed": {
+      "value": 6000,
+      "tradeable": true
+    },
+    "iron-ore": {
+      "value": 60,
+      "tradeable": true
+    },
+    "oyster-pearls": {
+      "value": 200,
+      "tradeable": true
+    },
+    "monkfish": {
+      "value": 220,
+      "tradeable": true
+    },
+    "dark-crab": {
+      "value": 200,
+      "tradeable": true
+    },
+    "prayer-potion4": {
+      "value": 130,
+      "tradeable": true
+    },
+    "super-restore4": {
+      "value": 550,
+      "tradeable": true
+    },
+    "battlestaff": {
+      "value": 8000,
+      "tradeable": true
+    },
+    "runite-bar": {
+      "value": 12000,
+      "tradeable": true
+    },
+    "grimy-toadflax": {
+      "value": 130,
+      "tradeable": true
+    },
+    "coal": {
+      "value": 130,
+      "tradeable": true
+    },
+    "rune-kiteshield": {
+      "value": 60000,
+      "tradeable": true
+    },
+    "dragon-med-helm": {
+      "value": 60000,
+      "tradeable": true
+    },
+    "ensouled-kalphite-head": {
+      "value": 500,
+      "tradeable": true
+    },
+    "kq-head": {
+      "value": 4000000,
+      "tradeable": true
+    },
+    "dragon-2h-sword": {
+      "value": 65000,
+      "tradeable": true
+    },
+    "dragon-pickaxe": {
+      "value": 850000,
+      "tradeable": true
+    },
+    "jar-of-sand": {
+      "value": 0,
+      "tradeable": false
+    },
+    "kalphite-princess": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bandos-chestplate": {
+      "value": 22898201,
+      "tradeable": true
+    },
+    "bandos-tassets": {
+      "value": 19000000,
+      "tradeable": true
+    },
+    "bandos-boots": {
+      "value": 2600000,
+      "tradeable": true
+    },
+    "bandos-hilt": {
+      "value": 15000000,
+      "tradeable": true
+    },
+    "godsword-shard-1": {
+      "value": 8000000,
+      "tradeable": true
+    },
+    "godsword-shard-2": {
+      "value": 8000000,
+      "tradeable": true
+    },
+    "godsword-shard-3": {
+      "value": 8000000,
+      "tradeable": true
+    },
+    "rune-platebody": {
+      "value": 40000,
+      "tradeable": true
+    },
+    "rune-pickaxe": {
+      "value": 20000,
+      "tradeable": true
+    },
+    "grimy-snapdragon": {
+      "value": 12000,
+      "tradeable": true
+    },
+    "snapdragon-seed": {
+      "value": 40000,
+      "tradeable": true
+    },
+    "adamant-ore": {
+      "value": 200,
+      "tradeable": true
+    },
+    "magic-logs": {
+      "value": 1200,
+      "tradeable": true
+    },
+    "pet-general-graardor": {
+      "value": 0,
+      "tradeable": false
+    },
+    "superior-dragon-bones": {
+      "value": 5000,
+      "tradeable": true
+    },
+    "dragon-battleaxe": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dragon-longsword": {
+      "value": 60000,
+      "tradeable": true
+    },
+    "dragon-plateskirt": {
+      "value": 45000,
+      "tradeable": true
+    },
+    "wrath-rune": {
+      "value": 450,
+      "tradeable": true
+    },
+    "green-dragonhide": {
+      "value": 2200,
+      "tradeable": true
+    },
+    "vorkaths-head": {
+      "value": 1500000,
+      "tradeable": true
+    },
+    "dragonbone-necklace": {
+      "value": 0,
+      "tradeable": false
+    },
+    "skeletal-visage": {
+      "value": 0,
+      "tradeable": false
+    },
+    "vorki": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jar-of-decay": {
+      "value": 0,
+      "tradeable": false
+    },
+    "zulrahs-scales": {
+      "value": 18,
+      "tradeable": true
+    },
+    "tanzanite-fang": {
+      "value": 12000000,
+      "tradeable": true
+    },
+    "magic-fang": {
+      "value": 11000000,
+      "tradeable": true
+    },
+    "serpentine-visage": {
+      "value": 0,
+      "tradeable": false
+    },
+    "uncut-onyx": {
+      "value": 3000000,
+      "tradeable": true
+    },
+    "dragon-halberd": {
+      "value": 130000,
+      "tradeable": true
+    },
+    "jar-of-swamp": {
+      "value": 0,
+      "tradeable": false
+    },
+    "pet-snakeling": {
+      "value": 0,
+      "tradeable": false
+    },
+    "runite-bolts": {
+      "value": 250,
+      "tradeable": true
+    },
+    "yew-logs": {
+      "value": 300,
+      "tradeable": true
+    },
+    "gold-ore": {
+      "value": 130,
+      "tradeable": true
+    },
+    "amulet-of-power": {
+      "value": 25000,
+      "tradeable": true
+    },
+    "dragon-arrowtips": {
+      "value": 90,
+      "tradeable": true
+    },
+    "dragon-dart-tips": {
+      "value": 90,
+      "tradeable": true
+    },
+    "dragon-javelin-tips": {
+      "value": 500,
+      "tradeable": true
+    },
+    "runite-limbs": {
+      "value": 15000,
+      "tradeable": true
+    },
+    "prince-black-dragon": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mole-slippers": {
+      "value": 150000,
+      "tradeable": true
+    },
+    "jester-cape": {
+      "value": 5000,
+      "tradeable": true
+    },
+    "broodoo-shield-blue": {
+      "value": 8000,
+      "tradeable": true
+    },
+    "wizard-boots": {
+      "value": 1300000,
+      "tradeable": true
+    },
+    "iron-gloves": {
+      "value": 50,
+      "tradeable": true
+    },
+    "ranger-boots": {
+      "value": 20000000,
+      "tradeable": true
+    },
+    "rune-helm-t": {
+      "value": 150000,
+      "tradeable": true
+    },
+    "adamant-helm-t": {
+      "value": 30000,
+      "tradeable": true
+    },
+    "amulet-of-fury": {
+      "value": 6000000,
+      "tradeable": true
+    },
+    "dragon-boots": {
+      "value": 200000,
+      "tradeable": true
+    },
+    "berserker-ring-i": {
+      "value": 6000000,
+      "tradeable": true
+    },
+    "broken-dragon-hasta": {
+      "value": 250000,
+      "tradeable": true
+    },
+    "runite-ore": {
+      "value": 15000,
+      "tradeable": true
+    },
+    "mystic-hat-dusk": {
+      "value": 200000,
+      "tradeable": true
+    },
+    "mystic-robe-top-dusk": {
+      "value": 350000,
+      "tradeable": true
+    },
+    "mystic-robe-bottom-dusk": {
+      "value": 300000,
+      "tradeable": true
+    },
+    "mystic-gloves-dusk": {
+      "value": 150000,
+      "tradeable": true
+    },
+    "mystic-boots-dusk": {
+      "value": 150000,
+      "tradeable": true
+    },
+    "dagonhai-hat": {
+      "value": 1200000,
+      "tradeable": true
+    },
+    "dagonhai-robe-top": {
+      "value": 1800000,
+      "tradeable": true
+    },
+    "dagonhai-robe-bottom": {
+      "value": 1500000,
+      "tradeable": true
+    },
+    "dragon-dagger": {
+      "value": 20000,
+      "tradeable": true
+    },
+    "rune-crossbow": {
+      "value": 10000,
+      "tradeable": true
+    },
+    "dragon-scimitar-ornament-kit": {
+      "value": 100000,
+      "tradeable": true
+    },
+    "fury-ornament-kit": {
+      "value": 190000,
+      "tradeable": true
+    },
+    "lava-dragon-mask": {
+      "value": 900000,
+      "tradeable": true
+    },
+    "crystal-key": {
+      "value": 20000,
+      "tradeable": true
+    },
+    "rangers-tunic": {
+      "value": 1736225,
+      "tradeable": true
+    },
+    "holy-wraps": {
+      "value": 507778,
+      "tradeable": true
+    },
+    "ring-of-nature": {
+      "value": 6729818,
+      "tradeable": true
+    },
+    "3rd-age-longsword": {
+      "value": 1194128468,
+      "tradeable": true
+    },
+    "chaos-talisman": {
+      "value": 353,
+      "tradeable": true
+    },
+    "nature-talisman": {
+      "value": 152,
+      "tradeable": true
+    },
+    "loop-half-of-key": {
+      "value": 9442,
+      "tradeable": true
+    },
+    "tooth-half-of-key": {
+      "value": 9169,
+      "tradeable": true
+    },
+    "rune-spear": {
+      "value": 11691,
+      "tradeable": true
+    },
+    "shield-left-half": {
+      "value": 65338,
+      "tradeable": true
+    },
+    "grimy-harralander": {
+      "value": 308,
+      "tradeable": true
+    },
+    "grimy-irit-leaf": {
+      "value": 1342,
+      "tradeable": true
+    },
+    "grimy-avantoe": {
+      "value": 1555,
+      "tradeable": true
+    },
+    "grimy-kwuarm": {
+      "value": 2053,
+      "tradeable": true
+    },
+    "grimy-cadantine": {
+      "value": 2140,
+      "tradeable": true
+    },
+    "grimy-lantadyme": {
+      "value": 1200,
+      "tradeable": true
+    },
+    "grimy-dwarf-weed": {
+      "value": 1271,
+      "tradeable": true
+    },
+    "swamp-weed": {
+      "value": 1654,
+      "tradeable": true
+    },
+    "cosmic-rune": {
+      "value": 119,
+      "tradeable": true
+    },
+    "mud-rune": {
+      "value": 98,
+      "tradeable": true
+    },
+    "grimy-guam-leaf": {
+      "value": 219,
+      "tradeable": true
+    },
+    "grimy-marrentill": {
+      "value": 205,
+      "tradeable": true
+    },
+    "grimy-tarromin": {
+      "value": 195,
+      "tradeable": true
+    },
+    "fiendish-ashes": {
+      "value": 44,
+      "tradeable": true
+    },
+    "fishing-bait": {
+      "value": 5,
+      "tradeable": true
+    },
+    "dark-fishing-bait": {
+      "value": 6,
+      "tradeable": true
+    },
+    "eye-of-newt": {
+      "value": 5,
+      "tradeable": true
+    },
+    "tinderbox": {
+      "value": 100,
+      "tradeable": true
+    },
+    "zombie-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "zombie-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "beer": {
+      "value": 71,
+      "tradeable": true
+    },
+    "ashes": {
+      "value": 40,
+      "tradeable": true
+    },
+    "copper-ore": {
+      "value": 11,
+      "tradeable": true
+    },
+    "iron-mace": {
+      "value": 2523,
+      "tradeable": true
+    },
+    "bronze-kiteshield": {
+      "value": 126,
+      "tradeable": true
+    },
+    "mithril-arrow": {
+      "value": 6,
+      "tradeable": true
+    },
+    "tin-ore": {
+      "value": 12,
+      "tradeable": true
+    },
+    "bronze-longsword": {
+      "value": 61,
+      "tradeable": true
+    },
+    "iron-axe": {
+      "value": 59,
+      "tradeable": true
+    },
+    "fire-talisman": {
+      "value": 2370,
+      "tradeable": true
+    },
+    "grain": {
+      "value": 9,
+      "tradeable": true
+    },
+    "skeleton-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem-base": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem-middle": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem-top": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bronze-arrow": {
+      "value": 5,
+      "tradeable": true
+    },
+    "bronze-pickaxe": {
+      "value": 88,
+      "tradeable": true
+    },
+    "oyster": {
+      "value": 75,
+      "tradeable": true
+    },
+    "empty-oyster": {
+      "value": 0,
+      "tradeable": false
+    },
+    "oyster-pearl": {
+      "value": 30,
+      "tradeable": true
+    },
+    "iron-pickaxe": {
+      "value": 39,
+      "tradeable": true
+    },
+    "opal-bolt-tips": {
+      "value": 37,
+      "tradeable": true
+    },
+    "spinach-roll": {
+      "value": 444,
+      "tradeable": true
+    },
+    "casket": {
+      "value": 753,
+      "tradeable": true
+    },
+    "seaweed": {
+      "value": 3,
+      "tradeable": true
+    },
+    "reward-casket-elite": {
+      "value": 0,
+      "tradeable": false
+    },
+    "edible-seaweed": {
+      "value": 191,
+      "tradeable": true
+    },
+    "wolf-bones": {
+      "value": 671,
+      "tradeable": true
+    },
+    "wolf-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-dog-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mushroom-spore": {
+      "value": 83,
+      "tradeable": true
+    },
+    "toadflax-seed": {
+      "value": 988,
+      "tradeable": true
+    },
+    "belladonna-seed": {
+      "value": 118,
+      "tradeable": true
+    },
+    "irit-seed": {
+      "value": 69,
+      "tradeable": true
+    },
+    "poison-ivy-seed": {
+      "value": 38,
+      "tradeable": true
+    },
+    "avantoe-seed": {
+      "value": 279,
+      "tradeable": true
+    },
+    "cactus-seed": {
+      "value": 203,
+      "tradeable": true
+    },
+    "kwuarm-seed": {
+      "value": 1637,
+      "tradeable": true
+    },
+    "potato-cactus-seed": {
+      "value": 10,
+      "tradeable": true
+    },
+    "cadantine-seed": {
+      "value": 2922,
+      "tradeable": true
+    },
+    "lantadyme-seed": {
+      "value": 156,
+      "tradeable": true
+    },
+    "dwarf-weed-seed": {
+      "value": 630,
+      "tradeable": true
+    },
+    "ecumenical-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "hobgoblin-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "potato-seed": {
+      "value": 4,
+      "tradeable": true
+    },
+    "onion-seed": {
+      "value": 8,
+      "tradeable": true
+    },
+    "cabbage-seed": {
+      "value": 8,
+      "tradeable": true
+    },
+    "tomato-seed": {
+      "value": 3,
+      "tradeable": true
+    },
+    "iron-sword": {
+      "value": 39,
+      "tradeable": true
+    },
+    "sweetcorn-seed": {
+      "value": 6,
+      "tradeable": true
+    },
+    "strawberry-seed": {
+      "value": 13,
+      "tradeable": true
+    },
+    "watermelon-seed": {
+      "value": 130,
+      "tradeable": true
+    },
+    "snape-grass-seed": {
+      "value": 11212,
+      "tradeable": true
+    },
+    "steel-dagger": {
+      "value": 33,
+      "tradeable": true
+    },
+    "trading-sticks": {
+      "value": 7,
+      "tradeable": true
+    },
+    "iron-spear": {
+      "value": 1388,
+      "tradeable": true
+    },
+    "steel-spear": {
+      "value": 526,
+      "tradeable": true
+    },
+    "iron-javelin": {
+      "value": 3,
+      "tradeable": true
+    },
+    "marrentill-seed": {
+      "value": 16,
+      "tradeable": true
+    },
+    "jangerberry-seed": {
+      "value": 4,
+      "tradeable": true
+    },
+    "tarromin-seed": {
+      "value": 11,
+      "tradeable": true
+    },
+    "wildblood-seed": {
+      "value": 67,
+      "tradeable": true
+    },
+    "harralander-seed": {
+      "value": 33,
+      "tradeable": true
+    },
+    "whiteberry-seed": {
+      "value": 19,
+      "tradeable": true
+    },
+    "ogre-ribs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-ogre-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "babydragon-bones": {
+      "value": 877,
+      "tradeable": true
+    },
+    "tattered-moon-page": {
+      "value": 0,
+      "tradeable": false
+    },
+    "tattered-sun-page": {
+      "value": 0,
+      "tradeable": false
+    },
+    "tattered-temple-page": {
+      "value": 0,
+      "tradeable": false
+    },
+    "grubby-key": {
+      "value": 34999,
+      "tradeable": true
+    },
+    "waterskin-4": {
+      "value": 84,
+      "tradeable": true
+    },
+    "adamant-med-helm": {
+      "value": 985,
+      "tradeable": true
+    },
+    "super-attack-3": {
+      "value": 1483,
+      "tradeable": true
+    },
+    "super-defence-2": {
+      "value": 1357,
+      "tradeable": true
+    },
+    "curry": {
+      "value": 446,
+      "tradeable": true
+    },
+    "rune-dart-p": {
+      "value": 201,
+      "tradeable": true
+    },
+    "rune-mace": {
+      "value": 8479,
+      "tradeable": true
+    },
+    "rune-knife": {
+      "value": 124,
+      "tradeable": true
+    },
+    "rune-axe": {
+      "value": 7580,
+      "tradeable": true
+    },
+    "lobster-pot": {
+      "value": 114,
+      "tradeable": true
+    },
+    "raw-herring": {
+      "value": 60,
+      "tradeable": true
+    },
+    "raw-sardine": {
+      "value": 17,
+      "tradeable": true
+    },
+    "harpoon": {
+      "value": 74,
+      "tradeable": true
+    },
+    "raw-lobster": {
+      "value": 121,
+      "tradeable": true
+    },
+    "raw-tuna": {
+      "value": 44,
+      "tradeable": true
+    },
+    "dagannoth-ribs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-dagannoth-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mithril-javelin": {
+      "value": 2,
+      "tradeable": true
+    },
+    "lobster": {
+      "value": 96,
+      "tradeable": true
+    },
+    "adamantite-bar": {
+      "value": 1880,
+      "tradeable": true
+    },
+    "defence-potion-3": {
+      "value": 312,
+      "tradeable": true
+    },
+    "mithril-kiteshield": {
+      "value": 1185,
+      "tradeable": true
+    },
+    "baby-dragon-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bass": {
+      "value": 41,
+      "tradeable": true
+    },
+    "adamantite-ore": {
+      "value": 550,
+      "tradeable": true
+    },
+    "adamant-full-helm": {
+      "value": 1969,
+      "tradeable": true
+    },
+    "mithril-bolts": {
+      "value": 27,
+      "tradeable": true
+    },
+    "bronze-bar": {
+      "value": 64,
+      "tradeable": true
+    },
+    "swordfish": {
+      "value": 196,
+      "tradeable": true
+    },
+    "adamant-dart-p": {
+      "value": 25,
+      "tradeable": true
+    },
+    "adamant-bolts": {
+      "value": 172,
+      "tradeable": true
+    },
+    "iron-bar": {
+      "value": 157,
+      "tradeable": true
+    },
+    "super-strength-1": {
+      "value": 805,
+      "tradeable": true
+    },
+    "adamant-2h-sword": {
+      "value": 3714,
+      "tradeable": true
+    },
+    "adamant-battleaxe": {
+      "value": 2340,
+      "tradeable": true
+    },
+    "ghoul-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ghoul-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bronze-battleaxe": {
+      "value": 70,
+      "tradeable": true
+    },
+    "iron-battleaxe": {
+      "value": 40,
+      "tradeable": true
+    },
+    "muddy-key": {
+      "value": 5668,
+      "tradeable": true
+    },
+    "cheese": {
+      "value": 53,
+      "tradeable": true
+    },
+    "tomato": {
+      "value": 19,
+      "tradeable": true
+    },
+    "mithril-longsword": {
+      "value": 579,
+      "tradeable": true
+    },
+    "cooked-meat": {
+      "value": 73,
+      "tradeable": true
+    },
+    "amulet-mould": {
+      "value": 200,
+      "tradeable": true
+    },
+    "bear-fur": {
+      "value": 23,
+      "tradeable": true
+    },
+    "flyer": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jail-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "silver-ore": {
+      "value": 69,
+      "tradeable": true
+    },
+    "white-berries": {
+      "value": 667,
+      "tradeable": true
+    },
+    "snape-grass": {
+      "value": 617,
+      "tradeable": true
+    },
+    "black-dagger": {
+      "value": 345,
+      "tradeable": true
+    },
+    "vial-of-water": {
+      "value": 5,
+      "tradeable": true
+    },
+    "super-defence-1": {
+      "value": 906,
+      "tradeable": true
+    },
+    "sinister-key": {
+      "value": 21379,
+      "tradeable": true
+    },
+    "spectral-sigil": {
+      "value": 24493827,
+      "tradeable": true
+    },
+    "onyx-bolts-e": {
+      "value": 8536,
+      "tradeable": true
+    },
+    "steel-cannonball": {
+      "value": 249,
+      "tradeable": true
+    },
+    "raw-shark": {
+      "value": 689,
+      "tradeable": true
+    },
+    "arcane-sigil": {
+      "value": 121998764,
+      "tradeable": true
+    },
+    "teak-plank": {
+      "value": 731,
+      "tradeable": true
+    },
+    "mahogany-logs": {
+      "value": 164,
+      "tradeable": true
+    },
+    "tuna-potato": {
+      "value": 1405,
+      "tradeable": true
+    },
+    "goat-horn": {
+      "value": 29,
+      "tradeable": true
+    },
+    "elysian-sigil": {
+      "value": 549215256,
+      "tradeable": true
+    },
+    "antidote-4": {
+      "value": 8991,
+      "tradeable": true
+    },
+    "spirit-shield": {
+      "value": 87178,
+      "tradeable": true
+    },
+    "holy-elixir": {
+      "value": 883275,
+      "tradeable": true
+    },
+    "mystic-robe-top": {
+      "value": 71215,
+      "tradeable": true
+    },
+    "jar-of-spirits": {
+      "value": 95000,
+      "tradeable": true
+    },
+    "pet-dark-core": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mystic-robe-bottom": {
+      "value": 48228,
+      "tradeable": true
+    },
+    "mystic-air-staff": {
+      "value": 25091,
+      "tradeable": true
+    },
+    "mystic-water-staff": {
+      "value": 25068,
+      "tradeable": true
+    },
+    "mystic-earth-staff": {
+      "value": 24825,
+      "tradeable": true
+    },
+    "mystic-fire-staff": {
+      "value": 25274,
+      "tradeable": true
+    },
+    "bronze-boots": {
+      "value": 280,
+      "tradeable": true
+    },
+    "unicorn-horn-dust": {
+      "value": 610,
+      "tradeable": true
+    },
+    "red-spiders-eggs": {
+      "value": 172,
+      "tradeable": true
+    },
+    "flax": {
+      "value": 2,
+      "tradeable": true
+    },
+    "papaya-fruit": {
+      "value": 1532,
+      "tradeable": true
+    },
+    "coconut": {
+      "value": 1338,
+      "tradeable": true
+    },
+    "leaf-bladed-sword": {
+      "value": 39991,
+      "tradeable": true
+    },
+    "kurask-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mystic-robe-top-light": {
+      "value": 71282,
+      "tradeable": true
+    },
+    "leaf-bladed-battleaxe": {
+      "value": 60896,
+      "tradeable": true
+    },
+    "granite-maul": {
+      "value": 97000,
+      "tradeable": true
+    },
+    "gold-bar": {
+      "value": 88,
+      "tradeable": true
+    },
+    "mystic-robe-top-dark": {
+      "value": 71586,
+      "tradeable": true
+    },
+    "brittle-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "adamant-boots": {
+      "value": 707,
+      "tradeable": true
+    },
+    "mystic-gloves-dark": {
+      "value": 5729,
+      "tradeable": true
+    },
+    "basilisk-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "basilisk-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mystic-hat-light": {
+      "value": 8997,
+      "tradeable": true
+    },
+    "iron-boots": {
+      "value": 8696,
+      "tradeable": true
+    },
+    "cockatrice-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mystic-boots-light": {
+      "value": 9822,
+      "tradeable": true
+    },
+    "mystic-gloves-light": {
+      "value": 4965,
+      "tradeable": true
+    },
+    "dwarven-stout": {
+      "value": 118,
+      "tradeable": true
+    },
+    "mystic-robe-bottom-light": {
+      "value": 47157,
+      "tradeable": true
+    },
+    "jug-of-wine": {
+      "value": 4,
+      "tradeable": true
+    },
+    "staff-of-fire": {
+      "value": 898,
+      "tradeable": true
+    },
+    "steel-boots": {
+      "value": 1208,
+      "tradeable": true
+    },
+    "thread": {
+      "value": 7,
+      "tradeable": true
+    },
+    "mithril-boots": {
+      "value": 755,
+      "tradeable": true
+    },
+    "mystic-boots-dark": {
+      "value": 62653,
+      "tradeable": true
+    },
+    "mystic-hat-dark": {
+      "value": 78839,
+      "tradeable": true
+    },
+    "staff": {
+      "value": 86,
+      "tradeable": true
+    },
+    "leather-gloves": {
+      "value": 10,
+      "tradeable": true
+    },
+    "crawling-hand-item": {
+      "value": 0,
+      "tradeable": false
+    },
+    "purple-gloves": {
+      "value": 1011,
+      "tradeable": true
+    },
+    "yellow-gloves": {
+      "value": 712,
+      "tradeable": true
+    },
+    "red-gloves": {
+      "value": 1022,
+      "tradeable": true
+    },
+    "teal-gloves": {
+      "value": 612,
+      "tradeable": true
+    },
+    "gold-ring": {
+      "value": 144,
+      "tradeable": true
+    },
+    "sapphire-ring": {
+      "value": 414,
+      "tradeable": true
+    },
+    "emerald-ring": {
+      "value": 630,
+      "tradeable": true
+    },
+    "silver-bar": {
+      "value": 104,
+      "tradeable": true
+    },
+    "kebab": {
+      "value": 55,
+      "tradeable": true
+    },
+    "waterskin-0": {
+      "value": 12,
+      "tradeable": true
+    },
+    "desert-lizard-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "wyvern-bones": {
+      "value": 3161,
+      "tradeable": true
+    },
+    "granite-legs": {
+      "value": 93577,
+      "tradeable": true
+    },
+    "prayer-potion-4": {
+      "value": 9206,
+      "tradeable": true
+    },
+    "unpowered-orb": {
+      "value": 65,
+      "tradeable": true
+    },
+    "runite-crossbow-u": {
+      "value": 9196,
+      "tradeable": true
+    },
+    "earth-battlestaff": {
+      "value": 8875,
+      "tradeable": true
+    },
+    "rune-warhammer": {
+      "value": 24831,
+      "tradeable": true
+    },
+    "steam-rune": {
+      "value": 82,
+      "tradeable": true
+    },
+    "staff-of-air": {
+      "value": 1542,
+      "tradeable": true
+    },
+    "fire-orb": {
+      "value": 1702,
+      "tradeable": true
+    },
+    "soda-ash": {
+      "value": 12,
+      "tradeable": true
+    },
+    "fire-battlestaff": {
+      "value": 9059,
+      "tradeable": true
+    },
+    "mithril-full-helm": {
+      "value": 825,
+      "tradeable": true
+    },
+    "lantern-lens": {
+      "value": 6,
+      "tradeable": true
+    },
+    "torch": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bullseye-lantern-unf": {
+      "value": 1237,
+      "tradeable": true
+    },
+    "bronze-full-helm": {
+      "value": 123,
+      "tradeable": true
+    },
+    "mithril-med-helm": {
+      "value": 494,
+      "tradeable": true
+    },
+    "giant-frog-legs": {
+      "value": 6810,
+      "tradeable": true
+    },
+    "earth-talisman": {
+      "value": 601,
+      "tradeable": true
+    },
+    "big-frog-leg": {
+      "value": 0,
+      "tradeable": false
+    },
+    "water-talisman": {
+      "value": 262,
+      "tradeable": true
+    },
+    "swamp-tar": {
+      "value": 4,
+      "tradeable": true
+    },
+    "oil-lantern-frame": {
+      "value": 10,
+      "tradeable": true
+    },
+    "bronze-axe": {
+      "value": 91,
+      "tradeable": true
+    },
+    "empty-candle-lantern": {
+      "value": 17,
+      "tradeable": true
+    },
+    "candle": {
+      "value": 911,
+      "tradeable": true
+    },
+    "meat-pizza": {
+      "value": 259,
+      "tradeable": true
+    },
+    "ensouled-bloodveld-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "black-boots": {
+      "value": 308,
+      "tradeable": true
+    },
+    "staff-of-water": {
+      "value": 676,
+      "tradeable": true
+    },
+    "adamant-spear": {
+      "value": 788,
+      "tradeable": true
+    },
+    "old-boot": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bucket": {
+      "value": 9,
+      "tradeable": true
+    },
+    "water-orb": {
+      "value": 1522,
+      "tradeable": true
+    },
+    "kraken-tentacle": {
+      "value": 263686,
+      "tradeable": true
+    },
+    "water-battlestaff": {
+      "value": 8793,
+      "tradeable": true
+    },
+    "trident-of-the-seas": {
+      "value": 0,
+      "tradeable": false
+    },
+    "magic-seed": {
+      "value": 71200,
+      "tradeable": true
+    },
+    "diamond": {
+      "value": 1675,
+      "tradeable": true
+    },
+    "oak-plank": {
+      "value": 382,
+      "tradeable": true
+    },
+    "raw-monkfish": {
+      "value": 126,
+      "tradeable": true
+    },
+    "pirate-boots": {
+      "value": 1750,
+      "tradeable": true
+    },
+    "sanfew-serum-4": {
+      "value": 20504,
+      "tradeable": true
+    },
+    "rusty-sword": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dragonstone-ring": {
+      "value": 10932,
+      "tradeable": true
+    },
+    "jar-of-dirt": {
+      "value": 41142,
+      "tradeable": true
+    },
+    "pet-kraken": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mist-rune": {
+      "value": 78,
+      "tradeable": true
+    },
+    "red-dhide-body": {
+      "value": 5769,
+      "tradeable": true
+    },
+    "occult-necklace": {
+      "value": 340868,
+      "tradeable": true
+    },
+    "smoke-rune": {
+      "value": 62,
+      "tradeable": true
+    },
+    "crossbow-string": {
+      "value": 234,
+      "tradeable": true
+    },
+    "ugthanki-kebab": {
+      "value": 643,
+      "tradeable": true
+    },
+    "black-dhide-vambraces": {
+      "value": 2221,
+      "tradeable": true
+    },
+    "mithril-plateskirt": {
+      "value": 1809,
+      "tradeable": true
+    },
+    "dragon-scimitar": {
+      "value": 59408,
+      "tradeable": true
+    },
+    "ancient-staff": {
+      "value": 60165,
+      "tradeable": true
+    },
+    "smoke-battlestaff": {
+      "value": 1920265,
+      "tradeable": true
+    },
+    "molten-glass": {
+      "value": 89,
+      "tradeable": true
+    },
+    "bullseye-lantern": {
+      "value": 2086,
+      "tradeable": true
+    },
+    "onyx-bolt-tips": {
+      "value": 8098,
+      "tradeable": true
+    },
+    "grapes": {
+      "value": 66,
+      "tradeable": true
+    },
+    "jar-of-smoke": {
+      "value": 80404,
+      "tradeable": true
+    },
+    "pet-smoke-devil": {
+      "value": 0,
+      "tradeable": false
+    },
+    "rune-scimitar": {
+      "value": 15218,
+      "tradeable": true
+    },
+    "rune-knife-p": {
+      "value": 169,
+      "tradeable": true
+    },
+    "wizard-hat": {
+      "value": 439,
+      "tradeable": true
+    },
+    "rope": {
+      "value": 46,
+      "tradeable": true
+    },
+    "knife": {
+      "value": 97,
+      "tradeable": true
+    },
+    "cabbage": {
+      "value": 25,
+      "tradeable": true
+    },
+    "pot-of-flour": {
+      "value": 71,
+      "tradeable": true
+    },
+    "steel-mace": {
+      "value": 37,
+      "tradeable": true
+    },
+    "bread": {
+      "value": 68,
+      "tradeable": true
+    },
+    "black-cape": {
+      "value": 232,
+      "tradeable": true
+    },
+    "unholy-mould": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-chaos-druid-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "right-eye-patch": {
+      "value": 170,
+      "tradeable": true
+    },
+    "chefs-hat": {
+      "value": 356,
+      "tradeable": true
+    },
+    "bronze-scimitar": {
+      "value": 83,
+      "tradeable": true
+    },
+    "iron-platebody": {
+      "value": 107,
+      "tradeable": true
+    },
+    "zamorak-monk-bottom": {
+      "value": 3193,
+      "tradeable": true
+    },
+    "zamorak-monk-top": {
+      "value": 916,
+      "tradeable": true
+    },
+    "golden-key": {
+      "value": 0,
+      "tradeable": false
+    },
+    "grimy-snake-weed": {
+      "value": 0,
+      "tradeable": false
+    },
+    "cleaning-cloth": {
+      "value": 505,
+      "tradeable": true
+    },
+    "superantipoison-2": {
+      "value": 556,
+      "tradeable": true
+    },
+    "steel-javelin": {
+      "value": 4,
+      "tradeable": true
+    },
+    "superantipoison-3": {
+      "value": 841,
+      "tradeable": true
+    },
+    "steel-arrow-p": {
+      "value": 77,
+      "tradeable": true
+    },
+    "grimy-rogues-purse": {
+      "value": 0,
+      "tradeable": false
+    },
+    "sardine": {
+      "value": 12,
+      "tradeable": true
+    },
+    "black-med-helm": {
+      "value": 2155,
+      "tradeable": true
+    },
+    "black-mace": {
+      "value": 801,
+      "tradeable": true
+    },
+    "supercompost": {
+      "value": 30,
+      "tradeable": true
+    },
+    "mort-myre-fungus": {
+      "value": 284,
+      "tradeable": true
+    },
+    "clay": {
+      "value": 77,
+      "tradeable": true
+    },
+    "fungicide": {
+      "value": 0,
+      "tradeable": false
+    },
+    "steel-bolts": {
+      "value": 38,
+      "tradeable": true
+    },
+    "mithril-dagger": {
+      "value": 129,
+      "tradeable": true
+    },
+    "rusty-scimitar": {
+      "value": 0,
+      "tradeable": false
+    },
+    "braindeath-rum": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bandana-eyepatch-blue": {
+      "value": 178,
+      "tradeable": true
+    },
+    "brain-tongs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "cranial-clamp": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bell-jar": {
+      "value": 0,
+      "tradeable": false
+    },
+    "skull-staple": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bandana-eyepatch-red": {
+      "value": 10500,
+      "tradeable": true
+    },
+    "mithril-scimitar": {
+      "value": 580,
+      "tradeable": true
+    },
+    "karamthulhu": {
+      "value": 0,
+      "tradeable": false
+    },
+    "fever-spider-body": {
+      "value": 0,
+      "tradeable": false
+    },
+    "tuna": {
+      "value": 50,
+      "tradeable": true
+    },
+    "black-warhammer": {
+      "value": 681,
+      "tradeable": true
+    },
+    "steel-warhammer": {
+      "value": 221,
+      "tradeable": true
+    },
+    "raw-mackerel": {
+      "value": 40,
+      "tradeable": true
+    },
+    "adamant-warhammer": {
+      "value": 2744,
+      "tradeable": true
+    },
+    "troll-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-troll-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "black-platebody": {
+      "value": 2681,
+      "tradeable": true
+    },
+    "shadow-diamond": {
+      "value": 0,
+      "tradeable": false
+    },
+    "iron-scimitar": {
+      "value": 25,
+      "tradeable": true
+    },
+    "steel-sq-shield": {
+      "value": 196,
+      "tradeable": true
+    },
+    "sapphire-necklace": {
+      "value": 466,
+      "tradeable": true
+    },
+    "emerald-amulet-u": {
+      "value": 619,
+      "tradeable": true
+    },
+    "ring-of-dueling-1": {
+      "value": 0,
+      "tradeable": false
+    },
+    "silk": {
+      "value": 17,
+      "tradeable": true
+    },
+    "papyrus": {
+      "value": 79,
+      "tradeable": true
+    },
+    "rune-sq-shield": {
+      "value": 22762,
+      "tradeable": true
+    },
+    "gold-amulet-u": {
+      "value": 159,
+      "tradeable": true
+    },
+    "gold-necklace": {
+      "value": 146,
+      "tradeable": true
+    },
+    "willow-blackjack": {
+      "value": 142,
+      "tradeable": true
+    },
+    "adamant-scimitar": {
+      "value": 1663,
+      "tradeable": true
+    },
+    "suqah-hide": {
+      "value": 0,
+      "tradeable": false
+    },
+    "a-special-tiara": {
+      "value": 0,
+      "tradeable": false
+    },
+    "suqah-tooth": {
+      "value": 0,
+      "tradeable": false
+    },
+    "lava-rune": {
+      "value": 29,
+      "tradeable": true
+    },
+    "raw-bass": {
+      "value": 10,
+      "tradeable": true
+    },
+    "marrentill-tar": {
+      "value": 3,
+      "tradeable": true
+    },
+    "keris": {
+      "value": 0,
+      "tradeable": false
+    },
+    "map-part": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ogre-coffin-key": {
+      "value": 1154,
+      "tradeable": true
+    },
+    "zogre-bones": {
+      "value": 1593,
+      "tradeable": true
+    },
+    "zogre-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ourg-bones": {
+      "value": 47200,
+      "tradeable": true
+    },
+    "ogre-artefact": {
+      "value": 0,
+      "tradeable": false
+    },
+    "consecration-seed": {
+      "value": 0,
+      "tradeable": false
+    },
+    "steel-platebody": {
+      "value": 985,
+      "tradeable": true
+    },
+    "granite-shield": {
+      "value": 35988,
+      "tradeable": true
+    },
+    "hardleather-body": {
+      "value": 20,
+      "tradeable": true
+    },
+    "adamant-dagger": {
+      "value": 324,
+      "tradeable": true
+    },
+    "rusty-casket": {
+      "value": 0,
+      "tradeable": false
+    },
+    "key-the-lost-tribe": {
+      "value": 0,
+      "tradeable": false
+    },
+    "air-talisman": {
+      "value": 169,
+      "tradeable": true
+    },
+    "snake-spine": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bat-bones": {
+      "value": 682,
+      "tradeable": true
+    },
+    "iron-warhammer": {
+      "value": 20,
+      "tradeable": true
+    },
+    "teak-logs": {
+      "value": 123,
+      "tradeable": true
+    },
+    "pineapple": {
+      "value": 225,
+      "tradeable": true
+    },
+    "ensouled-horror-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "black-mask-10": {
+      "value": 741505,
+      "tradeable": true
+    },
+    "broad-arrows": {
+      "value": 0,
+      "tradeable": false
+    },
+    "adamant-dart-tip": {
+      "value": 186,
+      "tradeable": true
+    },
+    "pearl-bolt-tips": {
+      "value": 6,
+      "tradeable": true
+    },
+    "heavy-box": {
+      "value": 0,
+      "tradeable": false
+    },
+    "vampyre-dust": {
+      "value": 1012,
+      "tradeable": true
+    },
+    "chocolate-cake": {
+      "value": 171,
+      "tradeable": true
+    },
+    "super-restore-4": {
+      "value": 9988,
+      "tradeable": true
+    },
+    "steel-sword": {
+      "value": 36,
+      "tradeable": true
+    },
+    "ram-skull": {
+      "value": 0,
+      "tradeable": false
+    },
+    "vulture-wing": {
+      "value": 0,
+      "tradeable": false
+    },
+    "experiment-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "loar-remains": {
+      "value": 290,
+      "tradeable": true
+    },
+    "phrin-remains": {
+      "value": 3142,
+      "tradeable": true
+    },
+    "riyl-remains": {
+      "value": 753,
+      "tradeable": true
+    },
+    "asyn-remains": {
+      "value": 12000,
+      "tradeable": true
+    },
+    "fiyr-remains": {
+      "value": 6849,
+      "tradeable": true
+    },
+    "seagull-wing": {
+      "value": 0,
+      "tradeable": false
+    },
+    "rock-elemental": {
+      "value": 0,
+      "tradeable": false
+    },
+    "staff-of-earth": {
+      "value": 762,
+      "tradeable": true
+    },
+    "elemental-ore": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bearhead": {
+      "value": 0,
+      "tradeable": false
+    },
+    "raw-chompy": {
+      "value": 1269,
+      "tradeable": true
+    },
+    "chompy-chick": {
+      "value": 0,
+      "tradeable": false
+    },
+    "silver-feather": {
+      "value": 0,
+      "tradeable": false
+    },
+    "steel-dart": {
+      "value": 5,
+      "tradeable": true
+    },
+    "silver-bolts": {
+      "value": 10,
+      "tradeable": true
+    },
+    "iron-plateskirt": {
+      "value": 21,
+      "tradeable": true
+    },
+    "steel-hasta": {
+      "value": 28,
+      "tradeable": true
+    },
+    "ancient-page": {
+      "value": 0,
+      "tradeable": false
+    },
+    "strength-mix-2": {
+      "value": 27,
+      "tradeable": true
+    },
+    "mith-grapple": {
+      "value": 1447,
+      "tradeable": true
+    },
+    "yew-shortbow": {
+      "value": 338,
+      "tradeable": true
+    },
+    "steel-knife": {
+      "value": 59,
+      "tradeable": true
+    },
+    "rat-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "giant-rat-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "apple-pie": {
+      "value": 80,
+      "tradeable": true
+    },
+    "iron-longsword": {
+      "value": 14,
+      "tradeable": true
+    },
+    "iron-halberd": {
+      "value": 20278,
+      "tradeable": true
+    },
+    "bronze-dagger-p": {
+      "value": 229,
+      "tradeable": true
+    },
+    "iron-2h-sword": {
+      "value": 61,
+      "tradeable": true
+    },
+    "steel-thrownaxe": {
+      "value": 23,
+      "tradeable": true
+    },
+    "mithril-thrownaxe": {
+      "value": 59,
+      "tradeable": true
+    },
+    "steel-plateskirt": {
+      "value": 435,
+      "tradeable": true
+    },
+    "gorak-claws": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mithril-arrow-p": {
+      "value": 2650,
+      "tradeable": true
+    },
+    "ring-of-life": {
+      "value": 1808,
+      "tradeable": true
+    },
+    "raw-rabbit": {
+      "value": 315,
+      "tradeable": true
+    },
+    "rabbit-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mithril-warhammer": {
+      "value": 806,
+      "tradeable": true
+    },
+    "ball-of-wool": {
+      "value": 54,
+      "tradeable": true
+    },
+    "anchovy-pizza": {
+      "value": 494,
+      "tradeable": true
+    },
+    "mithril-dart": {
+      "value": 7,
+      "tradeable": true
+    },
+    "strange-fruit": {
+      "value": 668,
+      "tradeable": true
+    },
+    "weapon-poison": {
+      "value": 2438,
+      "tradeable": true
+    },
+    "pet-chaos-elemental": {
+      "value": 0,
+      "tradeable": false
+    },
+    "super-attack-4": {
+      "value": 2131,
+      "tradeable": true
+    },
+    "super-defence-4": {
+      "value": 3446,
+      "tradeable": true
+    },
+    "super-strength-4": {
+      "value": 3209,
+      "tradeable": true
+    },
+    "raw-oomlie": {
+      "value": 3779,
+      "tradeable": true
+    },
+    "terrorbird-wing": {
+      "value": 0,
+      "tradeable": false
+    },
+    "strength-potion-2": {
+      "value": 42,
+      "tradeable": true
+    },
+    "fire-giant-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ice-giant-ribs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "adamant-sword": {
+      "value": 1287,
+      "tradeable": true
+    },
+    "mithril-platelegs": {
+      "value": 1394,
+      "tradeable": true
+    },
+    "adamant-mace": {
+      "value": 673,
+      "tradeable": true
+    },
+    "jogre-bones": {
+      "value": 727,
+      "tradeable": true
+    },
+    "jogre-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jogre-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "barley-seed": {
+      "value": 11,
+      "tradeable": true
+    },
+    "hammerstone-seed": {
+      "value": 6,
+      "tradeable": true
+    },
+    "asgarnian-seed": {
+      "value": 5,
+      "tradeable": true
+    },
+    "jute-seed": {
+      "value": 8,
+      "tradeable": true
+    },
+    "yanillian-seed": {
+      "value": 2,
+      "tradeable": true
+    },
+    "krandorian-seed": {
+      "value": 12,
+      "tradeable": true
+    },
+    "bronze-warhammer": {
+      "value": 30,
+      "tradeable": true
+    },
+    "bucket-of-water": {
+      "value": 27,
+      "tradeable": true
+    },
+    "keg-of-beer": {
+      "value": 768,
+      "tradeable": true
+    },
+    "cake": {
+      "value": 164,
+      "tradeable": true
+    },
+    "ring-mould": {
+      "value": 109,
+      "tradeable": true
+    },
+    "fremennik-helm": {
+      "value": 0,
+      "tradeable": false
+    },
+    "fremennik-blade": {
+      "value": 0,
+      "tradeable": false
+    },
+    "fremennik-shield": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mask-of-ranul": {
+      "value": 11674,
+      "tradeable": true
+    },
+    "potato-cactus": {
+      "value": 64,
+      "tradeable": true
+    },
+    "wine-of-zamorak": {
+      "value": 955,
+      "tradeable": true
+    },
+    "amulet-of-defence": {
+      "value": 1034,
+      "tradeable": true
+    },
+    "amulet-of-magic": {
+      "value": 655,
+      "tradeable": true
+    },
+    "pot": {
+      "value": 12,
+      "tradeable": true
+    },
+    "tokkul": {
+      "value": 0,
+      "tradeable": false
+    },
+    "chisel": {
+      "value": 76,
+      "tradeable": true
+    },
+    "jug": {
+      "value": 3,
+      "tradeable": true
+    },
+    "toktz-xil-ul": {
+      "value": 2351,
+      "tradeable": true
+    },
+    "toktz-xil-ak": {
+      "value": 536020,
+      "tradeable": true
+    },
+    "toktz-xil-ek": {
+      "value": 60546,
+      "tradeable": true
+    },
+    "obsidian-cape": {
+      "value": 487505,
+      "tradeable": true
+    },
+    "tzhaar-ket-om": {
+      "value": 145135,
+      "tradeable": true
+    },
+    "ensouled-tzhaar-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "toktz-ket-xil": {
+      "value": 293417,
+      "tradeable": true
+    },
+    "rune-dart": {
+      "value": 225,
+      "tradeable": true
+    },
+    "rune-plateskirt": {
+      "value": 38370,
+      "tradeable": true
+    },
+    "saradomin-brew-3": {
+      "value": 4919,
+      "tradeable": true
+    },
+    "super-defence-3": {
+      "value": 2450,
+      "tradeable": true
+    },
+    "magic-potion-3": {
+      "value": 79,
+      "tradeable": true
+    },
+    "saradomin-sword": {
+      "value": 123325,
+      "tradeable": true
+    },
+    "rune-sword": {
+      "value": 12236,
+      "tradeable": true
+    },
+    "saradomins-light": {
+      "value": 57810,
+      "tradeable": true
+    },
+    "armadyl-crossbow": {
+      "value": 36734870,
+      "tradeable": true
+    },
+    "saradomin-hilt": {
+      "value": 24299500,
+      "tradeable": true
+    },
+    "pet-zilyana": {
+      "value": 0,
+      "tradeable": false
+    },
+    "summer-pie": {
+      "value": 682,
+      "tradeable": true
+    },
+    "unicorn-horn": {
+      "value": 520,
+      "tradeable": true
+    },
+    "rune-halberd": {
+      "value": 37587,
+      "tradeable": true
+    },
+    "steel-chainbody": {
+      "value": 426,
+      "tradeable": true
+    },
+    "black-kiteshield": {
+      "value": 863,
+      "tradeable": true
+    },
+    "mithril-mace": {
+      "value": 132,
+      "tradeable": true
+    },
+    "mithril-spear-p": {
+      "value": 107,
+      "tradeable": true
+    },
+    "oak-shortbow": {
+      "value": 118,
+      "tradeable": true
+    },
+    "adamant-arrow-p": {
+      "value": 25,
+      "tradeable": true
+    },
+    "adamant-fire-arrow": {
+      "value": 0,
+      "tradeable": false
+    },
+    "headless-arrow": {
+      "value": 11,
+      "tradeable": true
+    },
+    "iron-arrowtips": {
+      "value": 12,
+      "tradeable": true
+    },
+    "adamant-arrowtips": {
+      "value": 99,
+      "tradeable": true
+    },
+    "bow-string": {
+      "value": 153,
+      "tradeable": true
+    },
+    "broken-arrow": {
+      "value": 0,
+      "tradeable": false
+    },
+    "steel-crossbow": {
+      "value": 1,
+      "tradeable": true
+    },
+    "oak-longbow-u": {
+      "value": 11,
+      "tradeable": true
+    },
+    "maple-longbow": {
+      "value": 269,
+      "tradeable": true
+    },
+    "magic-shortbow": {
+      "value": 800,
+      "tradeable": true
+    },
+    "bronze-arrow-p": {
+      "value": 75,
+      "tradeable": true
+    },
+    "astral-rune": {
+      "value": 114,
+      "tradeable": true
+    },
+    "antipoison-3": {
+      "value": 289,
+      "tradeable": true
+    },
+    "chilli-potato": {
+      "value": 225,
+      "tradeable": true
+    },
+    "combat-potion-3": {
+      "value": 81,
+      "tradeable": true
+    },
+    "super-strength-3": {
+      "value": 2275,
+      "tradeable": true
+    },
+    "bronze-platelegs": {
+      "value": 154,
+      "tradeable": true
+    },
+    "bronze-2h-sword": {
+      "value": 132,
+      "tradeable": true
+    },
+    "iron-chainbody": {
+      "value": 69,
+      "tradeable": true
+    },
+    "bronze-dart": {
+      "value": 26,
+      "tradeable": true
+    },
+    "bronze-halberd": {
+      "value": 653,
+      "tradeable": true
+    },
+    "iron-dart": {
+      "value": 7,
+      "tradeable": true
+    },
+    "black-claws": {
+      "value": 5137,
+      "tradeable": true
+    },
+    "mind-talisman": {
+      "value": 1042,
+      "tradeable": true
+    },
+    "cosmic-talisman": {
+      "value": 173,
+      "tradeable": true
+    },
+    "rock-shell-splinter": {
+      "value": 17837,
+      "tradeable": true
+    },
+    "rock-shell-chunk": {
+      "value": 8515,
+      "tradeable": true
+    },
+    "rock-shell-shard": {
+      "value": 16808,
+      "tradeable": true
+    },
+    "rock-shell-gloves": {
+      "value": 581,
+      "tradeable": true
+    },
+    "rock-shell-boots": {
+      "value": 574,
+      "tradeable": true
+    },
+    "dagannoth-bones": {
+      "value": 12519,
+      "tradeable": true
+    },
+    "seercull": {
+      "value": 42939,
+      "tradeable": true
+    },
+    "dragon-axe": {
+      "value": 72084,
+      "tradeable": true
+    },
+    "archer-helm": {
+      "value": 35305,
+      "tradeable": true
+    },
+    "spined-body": {
+      "value": 7157,
+      "tradeable": true
+    },
+    "spined-chaps": {
+      "value": 24500,
+      "tradeable": true
+    },
+    "archers-ring": {
+      "value": 2415673,
+      "tradeable": true
+    },
+    "dagannoth-hide": {
+      "value": 408,
+      "tradeable": true
+    },
+    "mithril-knife": {
+      "value": 195,
+      "tradeable": true
+    },
+    "rune-thrownaxe": {
+      "value": 142,
+      "tradeable": true
+    },
+    "maple-logs": {
+      "value": 12,
+      "tradeable": true
+    },
+    "adamant-dart": {
+      "value": 31,
+      "tradeable": true
+    },
+    "iron-knife": {
+      "value": 39,
+      "tradeable": true
+    },
+    "pet-dagannoth-supreme": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mud-battlestaff": {
+      "value": 26976,
+      "tradeable": true
+    },
+    "farseer-helm": {
+      "value": 38601,
+      "tradeable": true
+    },
+    "skeletal-top": {
+      "value": 27939,
+      "tradeable": true
+    },
+    "skeletal-bottoms": {
+      "value": 26729,
+      "tradeable": true
+    },
+    "seers-ring": {
+      "value": 715591,
+      "tradeable": true
+    },
+    "pet-dagannoth-prime": {
+      "value": 0,
+      "tradeable": false
+    },
+    "rock-shell-plate": {
+      "value": 44046,
+      "tradeable": true
+    },
+    "rock-shell-legs": {
+      "value": 37669,
+      "tradeable": true
+    },
+    "berserker-ring": {
+      "value": 3755477,
+      "tradeable": true
+    },
+    "warrior-ring": {
+      "value": 50343,
+      "tradeable": true
+    },
+    "antifire-potion-2": {
+      "value": 98,
+      "tradeable": true
+    },
+    "prayer-potion-2": {
+      "value": 4481,
+      "tradeable": true
+    },
+    "restore-potion-2": {
+      "value": 28,
+      "tradeable": true
+    },
+    "super-attack-2": {
+      "value": 974,
+      "tradeable": true
+    },
+    "super-strength-2": {
+      "value": 1473,
+      "tradeable": true
+    },
+    "zamorak-brew-2": {
+      "value": 264,
+      "tradeable": true
+    },
+    "mithril-pickaxe": {
+      "value": 534,
+      "tradeable": true
+    },
+    "pet-dagannoth-rex": {
+      "value": 0,
+      "tradeable": false
+    },
+    "warrior-guild-token": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bronze-platebody": {
+      "value": 75,
+      "tradeable": true
+    },
+    "iron-platelegs": {
+      "value": 32,
+      "tradeable": true
+    },
+    "black-full-helm": {
+      "value": 591,
+      "tradeable": true
+    },
+    "black-platelegs": {
+      "value": 1081,
+      "tradeable": true
+    },
+    "rune-essence": {
+      "value": 12,
+      "tradeable": true
+    },
+    "trout": {
+      "value": 20,
+      "tradeable": true
+    },
+    "top-of-sceptre": {
+      "value": 0,
+      "tradeable": false
+    },
+    "book-page-1": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-scorpion-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "right-skull-half": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-minotaur-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bronze-dagger": {
+      "value": 101,
+      "tradeable": true
+    },
+    "rats-tail": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bottom-of-sceptre": {
+      "value": 0,
+      "tradeable": false
+    },
+    "steel-pickaxe": {
+      "value": 134,
+      "tradeable": true
+    },
+    "ham-boots": {
+      "value": 1518,
+      "tradeable": true
+    },
+    "ham-shirt": {
+      "value": 86,
+      "tradeable": true
+    },
+    "ham-robe": {
+      "value": 387,
+      "tradeable": true
+    },
+    "ham-logo": {
+      "value": 2300,
+      "tradeable": true
+    },
+    "ham-hood": {
+      "value": 245,
+      "tradeable": true
+    },
+    "ham-cloak": {
+      "value": 2222,
+      "tradeable": true
+    },
+    "logs": {
+      "value": 24,
+      "tradeable": true
+    },
+    "uncut-opal": {
+      "value": 73,
+      "tradeable": true
+    },
+    "uncut-jade": {
+      "value": 76,
+      "tradeable": true
+    },
+    "raw-anchovies": {
+      "value": 18,
+      "tradeable": true
+    },
+    "damaged-armour": {
+      "value": 0,
+      "tradeable": false
+    },
+    "needle": {
+      "value": 48,
+      "tradeable": true
+    },
+    "leather-body": {
+      "value": 6,
+      "tradeable": true
+    },
+    "ham-gloves": {
+      "value": 5373,
+      "tradeable": true
+    },
+    "elemental-talisman": {
+      "value": 2396,
+      "tradeable": true
+    },
+    "small-pouch": {
+      "value": 0,
+      "tradeable": false
+    },
+    "medium-pouch": {
+      "value": 0,
+      "tradeable": false
+    },
+    "large-pouch": {
+      "value": 0,
+      "tradeable": false
+    },
+    "giant-pouch": {
+      "value": 0,
+      "tradeable": false
+    },
+    "binding-necklace": {
+      "value": 608,
+      "tradeable": true
+    },
+    "raw-swordfish": {
+      "value": 194,
+      "tradeable": true
+    },
+    "raw-pike": {
+      "value": 84,
+      "tradeable": true
+    },
+    "raw-salmon": {
+      "value": 29,
+      "tradeable": true
+    },
+    "mudskipper-hat": {
+      "value": 0,
+      "tradeable": false
+    },
+    "flippers": {
+      "value": 0,
+      "tradeable": false
+    },
+    "fishbowl": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mogre-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "raw-bear-meat": {
+      "value": 165,
+      "tradeable": true
+    },
+    "grey-wolf-fur": {
+      "value": 10,
+      "tradeable": true
+    },
+    "fur": {
+      "value": 294,
+      "tradeable": true
+    },
+    "werewolf-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jangerberries": {
+      "value": 343,
+      "tradeable": true
+    },
+    "vial": {
+      "value": 3,
+      "tradeable": true
+    },
+    "blamish-oil": {
+      "value": 0,
+      "tradeable": false
+    },
+    "blamish-myre-shell-round": {
+      "value": 260,
+      "tradeable": true
+    },
+    "blamish-myre-shell-pointed": {
+      "value": 193,
+      "tradeable": true
+    },
+    "thin-snail": {
+      "value": 1010,
+      "tradeable": true
+    },
+    "fat-snail": {
+      "value": 792,
+      "tradeable": true
+    },
+    "blamish-red-shell-round": {
+      "value": 7636,
+      "tradeable": true
+    },
+    "blamish-ochre-shell-round": {
+      "value": 4950,
+      "tradeable": true
+    },
+    "blamish-ochre-shell-pointed": {
+      "value": 242,
+      "tradeable": true
+    },
+    "blamish-blue-shell-round": {
+      "value": 2893,
+      "tradeable": true
+    },
+    "blamish-bark-shell": {
+      "value": 7509,
+      "tradeable": true
+    },
+    "lean-snail": {
+      "value": 309,
+      "tradeable": true
+    },
+    "bat-wing": {
+      "value": 0,
+      "tradeable": false
+    },
+    "giant-bat-wing": {
+      "value": 0,
+      "tradeable": false
+    },
+    "imbued-tephra": {
+      "value": 0,
+      "tradeable": false
+    },
+    "unicorn-bone": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-unicorn-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bear-ribs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-bear-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "earth-warrior-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ruby-ring": {
+      "value": 1057,
+      "tradeable": true
+    },
+    "mackerel": {
+      "value": 3,
+      "tradeable": true
+    },
+    "black-dagger-p": {
+      "value": 30,
+      "tradeable": true
+    },
+    "black-longsword": {
+      "value": 713,
+      "tradeable": true
+    },
+    "red-chinchompa": {
+      "value": 1407,
+      "tradeable": true
+    },
+    "blue-dhide-vambraces": {
+      "value": 1762,
+      "tradeable": true
+    },
+    "sapphire-bolts": {
+      "value": 33,
+      "tradeable": true
+    },
+    "mist-battlestaff": {
+      "value": 65002,
+      "tradeable": true
+    },
+    "adamant-chainbody": {
+      "value": 2836,
+      "tradeable": true
+    },
+    "mithril-hasta": {
+      "value": 99,
+      "tradeable": true
+    },
+    "adamant-knife": {
+      "value": 310,
+      "tradeable": true
+    },
+    "dragon-full-helm": {
+      "value": 48324601,
+      "tradeable": true
+    },
+    "prayer-mix-2": {
+      "value": 3914,
+      "tradeable": true
+    },
+    "superattack-mix-2": {
+      "value": 161,
+      "tradeable": true
+    },
+    "super-def-mix-2": {
+      "value": 784,
+      "tradeable": true
+    },
+    "super-str-mix-2": {
+      "value": 1299,
+      "tradeable": true
+    },
+    "chewed-bones": {
+      "value": 0,
+      "tradeable": false
+    },
+    "mangled-bones": {
+      "value": 0,
+      "tradeable": false
+    },
+    "nail-beast-nails": {
+      "value": 666,
+      "tradeable": true
+    },
+    "snake-corpse": {
+      "value": 0,
+      "tradeable": false
+    },
+    "raw-beef-undead": {
+      "value": 0,
+      "tradeable": false
+    },
+    "undead-cow-ribs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "raw-chicken-undead": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dead-sea-slug": {
+      "value": 0,
+      "tradeable": false
+    },
+    "spider-carcass": {
+      "value": 161,
+      "tradeable": true
+    },
+    "rake": {
+      "value": 111,
+      "tradeable": true
+    },
+    "gardening-boots": {
+      "value": 54495,
+      "tradeable": true
+    },
+    "seed-dibber": {
+      "value": 145,
+      "tradeable": true
+    },
+    "secateurs": {
+      "value": 120,
+      "tradeable": true
+    },
+    "watering-can-8": {
+      "value": 0,
+      "tradeable": false
+    },
+    "tzrek-jad": {
+      "value": 0,
+      "tradeable": false
+    },
+    "infernal-ashes": {
+      "value": 3650,
+      "tradeable": true
+    },
+    "dragon-dagger-p": {
+      "value": 17513,
+      "tradeable": true
+    },
+    "super-restore-3": {
+      "value": 7413,
+      "tradeable": true
+    },
+    "zamorak-brew-3": {
+      "value": 456,
+      "tradeable": true
+    },
+    "steam-battlestaff": {
+      "value": 46825,
+      "tradeable": true
+    },
+    "zamorakian-spear": {
+      "value": 1259653,
+      "tradeable": true
+    },
+    "staff-of-the-dead": {
+      "value": 5857328,
+      "tradeable": true
+    },
+    "zamorak-hilt": {
+      "value": 18936358,
+      "tradeable": true
+    },
+    "pet-kril-tsutsaroth": {
+      "value": 0,
+      "tradeable": false
+    },
+    "burnt-bread": {
+      "value": 0,
+      "tradeable": false
+    },
+    "burnt-meat": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bread-dough": {
+      "value": 134,
+      "tradeable": true
+    },
+    "shears": {
+      "value": 95,
+      "tradeable": true
+    },
+    "black-bead": {
+      "value": 1098,
+      "tradeable": true
+    },
+    "jug-of-water": {
+      "value": 15,
+      "tradeable": true
+    },
+    "cadava-berries": {
+      "value": 99,
+      "tradeable": true
+    },
+    "red-bead": {
+      "value": 2593,
+      "tradeable": true
+    },
+    "potion": {
+      "value": 0,
+      "tradeable": false
+    },
+    "ensouled-imp-head": {
+      "value": 0,
+      "tradeable": false
+    },
+    "imp-champion-scroll": {
+      "value": 0,
+      "tradeable": false
+    },
+    "white-bead": {
+      "value": 1088,
+      "tradeable": true
+    },
+    "yellow-bead": {
+      "value": 931,
+      "tradeable": true
+    },
+    "blue-wizard-hat": {
+      "value": 462,
+      "tradeable": true
+    },
+    "egg": {
+      "value": 33,
+      "tradeable": true
+    },
+    "black-dhide-body": {
+      "value": 7325,
+      "tradeable": true
+    },
+    "dragonstone-bolts-e": {
+      "value": 363,
+      "tradeable": true
+    },
+    "ranging-potion-3": {
+      "value": 1425,
+      "tradeable": true
+    },
+    "yew-seed": {
+      "value": 19523,
+      "tradeable": true
+    },
+    "armadyl-helmet": {
+      "value": 8370742,
+      "tradeable": true
+    },
+    "armadyl-chestplate": {
+      "value": 33054837,
+      "tradeable": true
+    },
+    "armadyl-chainskirt": {
+      "value": 24841994,
+      "tradeable": true
+    },
+    "pet-kreearra": {
+      "value": 0,
+      "tradeable": false
+    },
+    "armadyl-hilt": {
+      "value": 6605000,
+      "tradeable": true
+    }
+  },
+  "containers": {
+    "clue-scroll-beginner": {
+      "maxGpPerOpen": 2000
+    },
+    "clue-scroll-easy": {
+      "maxGpPerOpen": 3000
+    },
+    "clue-scroll-medium": {
+      "maxGpPerOpen": 7000
+    },
+    "clue-scroll-hard": {
+      "maxGpPerOpen": 17000
+    },
+    "clue-scroll-elite": {
+      "maxGpPerOpen": 41000
+    },
+    "brimstone-key": {
+      "maxGpPerOpen": 301000
+    },
+    "larrans-key": {
+      "maxGpPerOpen": 351000
+    }
+  }
+}
