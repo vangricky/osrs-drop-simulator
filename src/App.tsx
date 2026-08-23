@@ -38,19 +38,20 @@ function App() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="px-4 pt-4">
-        <Header
-          gp={game.gp}
-          totalKills={game.totalKills}
-          uniqueItemsObtained={game.uniqueItemsObtained}
-          onReset={() => setShowResetConfirm(true)}
-          authEnabled={auth.enabled}
-          username={auth.username}
-          onOpenAuth={() => setShowAuth(true)}
-          onSignOut={auth.signOut}
-          onOpenLeaderboard={() => setShowLeaderboard(true)}
-        />
-      </div>
+      {/* No wrapper div around Header: a `sticky` element can't stick past
+          its immediate parent's bottom edge, so that parent must span the
+          full scrollable page, not just wrap tightly around the header. */}
+      <Header
+        gp={game.gp}
+        totalKills={game.totalKills}
+        uniqueItemsObtained={game.uniqueItemsObtained}
+        onReset={() => setShowResetConfirm(true)}
+        authEnabled={auth.enabled}
+        username={auth.username}
+        onOpenAuth={() => setShowAuth(true)}
+        onSignOut={auth.signOut}
+        onOpenLeaderboard={() => setShowLeaderboard(true)}
+      />
 
       <div className="mx-auto flex w-full max-w-[1600px] flex-1 items-start justify-center gap-4 px-4 py-4">
         <AdBanner variant="skyscraper-left" />
