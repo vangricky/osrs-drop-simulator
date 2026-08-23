@@ -933,7 +933,7 @@ const handcraftedItems: Record<string, DropItem> = makeItems([
   ["clue-scroll-easy", "Clue scroll (easy)", true, 0, false],
   ["goblin-champion-scroll", "Goblin champion scroll", true, 50000, true],
   ["bronze-bolts", "Bronze bolts", true, 4, true, "Bronze bolts 5"],
-  ["bronze-arrows", "Bronze arrow", false, 3, true, "Bronze arrow 5"],
+  ["bronze-arrows", "Bronze arrow", false, 3, true, "Bronze arrow detail"],
   ["earth-rune", "Earth rune", false, 3, true],
   ["fire-rune", "Fire rune", false, 4, true],
   ["mind-rune", "Mind rune", false, 2, true],
