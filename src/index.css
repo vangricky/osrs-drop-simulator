@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cinzel", serif;
+  --font-body: "Cabin", ui-sans-serif, system-ui, sans-serif;
+
+  --color-osrs-bg: #3e3529;
+  --color-osrs-panel: #4a4136;
+  --color-osrs-panel-dark: #34291b;
+  --color-osrs-parchment: #d9c8a0;
+  --color-osrs-parchment-dark: #c3ac7e;
+  --color-osrs-border-light: #9c8a63;
+  --color-osrs-border-dark: #1a140b;
+  --color-osrs-gold: #ffb700;
+  --color-osrs-orange: #ff981f;
+  --color-osrs-red: #ff3f3f;
+  --color-osrs-green: #3fff3f;
+  --color-osrs-blue: #4f8fff;
+  --color-osrs-text: #ffe4a3;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-osrs-bg);
+  color: var(--color-osrs-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Classic RuneScape beveled panel border */
+.osrs-bevel {
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--color-osrs-border-light);
+  border-left-color: var(--color-osrs-border-light);
+  border-bottom-color: var(--color-osrs-border-dark);
+  border-right-color: var(--color-osrs-border-dark);
+}
+
+.osrs-bevel-inset {
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--color-osrs-border-dark);
+  border-left-color: var(--color-osrs-border-dark);
+  border-bottom-color: var(--color-osrs-border-light);
+  border-right-color: var(--color-osrs-border-light);
+}
+
+.osrs-panel {
+  background-color: var(--color-osrs-panel);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
+}
+
+.osrs-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+.osrs-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-osrs-panel-dark);
+}
+.osrs-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-osrs-border-light);
+  border: 1px solid var(--color-osrs-border-dark);
+}
+
+@keyframes drop-pop {
+  0% {
+    transform: scale(0.4) translateY(6px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08) translateY(-2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-drop-pop {
+  animation: drop-pop 260ms ease-out;
+}
+
+@keyframes flash-gold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 183, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 14px 3px rgba(255, 183, 0, 0.85);
+  }
+}
+
+.animate-flash-gold {
+  animation: flash-gold 900ms ease-in-out 2;
+}
+
+@keyframes unlock-ray-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.unlock-ray-spin {
+  background: repeating-conic-gradient(
+    rgba(255, 183, 0, 0.35) 0deg 8deg,
+    transparent 8deg 20deg
+  );
+  animation: unlock-ray-spin 6s linear infinite;
+}
+
+@keyframes unlock-particle-fly {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(190px) scale(0);
+    opacity: 0;
+  }
+}
+
+.unlock-particle {
+  animation: unlock-particle-fly 1.4s ease-out infinite;
+}
+
+@keyframes unlock-icon-pop {
+  0% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.unlock-icon-pop {
+  animation: unlock-icon-pop 550ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes unlock-text-pop {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.unlock-text-pop {
+  animation: unlock-text-pop 400ms ease-out 300ms both;
+}
