@@ -19,11 +19,24 @@ export interface LogEntry {
   drops: { itemId: string; quantity: number; source: RolledDrop["source"] }[];
 }
 
+/** Records the first time an item was obtained: what dropped it, and which
+ * numbered kill/open of that source produced it (e.g. "kill #47 of Zulrah"). */
+export interface CollectionLogFirst {
+  itemId: string;
+  sourceType: "kill" | "container";
+  sourceId: string;
+  sourceName: string;
+  sourceCount: number;
+  timestamp: number;
+}
+
 interface PersistedState {
   inventory: (InventorySlot | null)[];
   log: LogEntry[];
   killCounts: Record<string, number>;
+  containerOpenCounts: Record<string, number>;
   collectionLog: Record<string, number>;
+  collectionLogFirsts: Record<string, CollectionLogFirst>;
   gp: number;
   unlockedNpcIds: string[];
   prestigeCount: number;
@@ -47,7 +60,9 @@ function freshState(npcs: Npc[], prestigeCount = 0): PersistedState {
     inventory: emptyInventory(),
     log: [],
     killCounts: {},
+    containerOpenCounts: {},
     collectionLog: {},
+    collectionLogFirsts: {},
     gp: 0,
     unlockedNpcIds: starterUnlockedIds(npcs),
     prestigeCount,
@@ -67,6 +82,8 @@ function loadState(npcs: Npc[]): PersistedState {
       ...parsed,
       unlockedNpcIds: Array.from(new Set([...starterUnlockedIds(npcs), ...(parsed.unlockedNpcIds ?? [])])),
       prestigeCount: parsed.prestigeCount ?? 0,
+      containerOpenCounts: parsed.containerOpenCounts ?? {},
+      collectionLogFirsts: parsed.collectionLogFirsts ?? {},
     };
   } catch {
     return freshState(npcs);
@@ -115,7 +132,9 @@ async function loadCloudState(userId: string, npcs: Npc[], items: Record<string,
     inventory,
     log: [],
     killCounts: (gs.kill_counts as Record<string, number>) ?? {},
+    containerOpenCounts: (gs.container_open_counts as Record<string, number>) ?? {},
     collectionLog: (gs.collection_log as Record<string, number>) ?? {},
+    collectionLogFirsts: (gs.collection_log_firsts as Record<string, CollectionLogFirst>) ?? {},
     gp: Number(gs.gp),
     unlockedNpcIds: (gs.unlocked_npc_ids as string[]) ?? starterUnlockedIds(npcs),
     prestigeCount: Number(gs.prestige_count ?? 0),
@@ -233,6 +252,18 @@ export function useGameState(userId: string | null = null) {
     return () => clearTimeout(timer);
   }, [state.inventory, userId]);
 
+  // Debounced cloud save of the collection log's "first obtained" records —
+  // informational only, same trust model as the inventory cache above.
+  useEffect(() => {
+    if (!userId || !cloudLoadedRef.current || !supabase) return;
+    const timer = setTimeout(() => {
+      supabase!.rpc("sync_collection_log_firsts", { p_data: state.collectionLogFirsts }).then(({ error }) => {
+        if (error) console.error("collection log sync failed", error);
+      });
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [state.collectionLogFirsts, userId]);
+
   const simulateKill = useCallback((npc: Npc): KillResult => {
     const drops = rollDrop(npc, allItems);
     // Coin drops go straight to the GP balance rather than taking an inventory slot.
@@ -253,9 +284,24 @@ export function useGameState(userId: string | null = null) {
         drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
       };
 
+      const killNumber = (prev.killCounts[npc.id] ?? 0) + 1;
       const collectionLog = { ...prev.collectionLog };
+      const collectionLogFirsts = { ...prev.collectionLogFirsts };
       for (const d of drops) {
+        const isFirst = !(d.item.id in collectionLog);
         collectionLog[d.item.id] = (collectionLog[d.item.id] ?? 0) + d.quantity;
+        // Coins aren't a collectible (they go straight to gp, same as the
+        // real game's collection log not listing plain coin drops).
+        if (isFirst && d.item.id !== "coins") {
+          collectionLogFirsts[d.item.id] = {
+            itemId: d.item.id,
+            sourceType: "kill",
+            sourceId: npc.id,
+            sourceName: npc.name,
+            sourceCount: killNumber,
+            timestamp: Date.now(),
+          };
+        }
       }
 
       return {
@@ -263,8 +309,9 @@ export function useGameState(userId: string | null = null) {
         inventory,
         gp: prev.gp + coinsGained,
         log: [logEntry, ...prev.log].slice(0, MAX_LOG_ENTRIES),
-        killCounts: { ...prev.killCounts, [npc.id]: (prev.killCounts[npc.id] ?? 0) + 1 },
+        killCounts: { ...prev.killCounts, [npc.id]: killNumber },
         collectionLog,
+        collectionLogFirsts,
       };
     });
 
@@ -315,9 +362,22 @@ export function useGameState(userId: string | null = null) {
         drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
       };
 
+      const openNumber = (prev.containerOpenCounts[container.itemId] ?? 0) + 1;
       const collectionLog = { ...prev.collectionLog };
+      const collectionLogFirsts = { ...prev.collectionLogFirsts };
       for (const d of drops) {
+        const isFirst = !(d.item.id in collectionLog);
         collectionLog[d.item.id] = (collectionLog[d.item.id] ?? 0) + d.quantity;
+        if (isFirst && d.item.id !== "coins") {
+          collectionLogFirsts[d.item.id] = {
+            itemId: d.item.id,
+            sourceType: "container",
+            sourceId: container.itemId,
+            sourceName: container.name,
+            sourceCount: openNumber,
+            timestamp: Date.now(),
+          };
+        }
       }
 
       return {
@@ -325,7 +385,9 @@ export function useGameState(userId: string | null = null) {
         inventory,
         gp: prev.gp + coinsGained,
         log: [logEntry, ...prev.log].slice(0, MAX_LOG_ENTRIES),
+        containerOpenCounts: { ...prev.containerOpenCounts, [container.itemId]: openNumber },
         collectionLog,
+        collectionLogFirsts,
       };
     });
 
@@ -488,7 +550,9 @@ export function useGameState(userId: string | null = null) {
     inventory: state.inventory,
     log: state.log,
     killCounts: state.killCounts,
+    containerOpenCounts: state.containerOpenCounts,
     collectionLog: state.collectionLog,
+    collectionLogFirsts: state.collectionLogFirsts,
     gp: state.gp,
     unlockedNpcIds,
     totalNpcCount: npcs.length,

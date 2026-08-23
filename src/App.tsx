@@ -13,6 +13,7 @@ import { useGameState } from "./hooks/useGameState";
 // Only mounted on demand (modals/overlays) — lazy-loaded so first paint
 // doesn't have to wait on code most visitors won't need this session.
 const AuthModal = lazy(() => import("./components/AuthModal"));
+const CollectionLogModal = lazy(() => import("./components/CollectionLogModal"));
 const ConfirmModal = lazy(() => import("./components/ConfirmModal"));
 const ContainerModal = lazy(() => import("./components/ContainerModal"));
 const HowToPlayModal = lazy(() => import("./components/HowToPlayModal"));
@@ -28,6 +29,7 @@ function App() {
   const [showAuth, setShowAuth] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showCollectionLog, setShowCollectionLog] = useState(false);
   const [showPrestigeConfirm, setShowPrestigeConfirm] = useState(false);
   const [celebratingPrestige, setCelebratingPrestige] = useState<number | null>(null);
   const auth = useAuth();
@@ -63,6 +65,7 @@ function App() {
         onSignOut={auth.signOut}
         onOpenLeaderboard={() => setShowLeaderboard(true)}
         onOpenHowToPlay={() => setShowHowToPlay(true)}
+        onOpenCollectionLog={() => setShowCollectionLog(true)}
         prestigeCount={game.prestigeCount}
         canPrestige={game.canPrestige}
         unlockedNpcCount={game.unlockedNpcIds.size}
@@ -172,6 +175,13 @@ function App() {
         )}
 
         {showHowToPlay && <HowToPlayModal onClose={() => setShowHowToPlay(false)} />}
+
+        {showCollectionLog && (
+          <CollectionLogModal
+            collectionLogFirsts={game.collectionLogFirsts}
+            onClose={() => setShowCollectionLog(false)}
+          />
+        )}
 
         {celebratingPrestige !== null && (
           <PrestigeCelebration prestigeCount={celebratingPrestige} onDismiss={() => setCelebratingPrestige(null)} />
