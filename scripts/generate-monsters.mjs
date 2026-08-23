@@ -19,6 +19,7 @@ const ROOT = path.resolve(__dirname, "..");
 const UA = "osrs-drop-simulator-fan-site (data build script)";
 
 const MONSTERS_URL = "https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/monsters-complete.json";
+const ITEMS_URL = "https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json";
 const MAPPING_URL = "https://prices.runescape.wiki/api/v1/osrs/mapping";
 const LATEST_URL = "https://prices.runescape.wiki/api/v1/osrs/latest";
 
@@ -30,7 +31,21 @@ function slugify(name) {
     .replace(/^-+|-+$/g, "");
 }
 
+// Guessing "https://.../images/<Name>.png" from a monster/item name gets it
+// wrong for a real minority of entries (redirects to a shared tiered-item
+// page, disambiguation pages, name drift from the price API's canonical
+// name, etc). Rather than re-deriving these live on every run (slow, and a
+// couple of resolutions need a manual disambiguation call a script can't
+// make — e.g. picking which combat-level variant of "Mummy" to use), this
+// is a checked-in table of verified corrections, built from a one-time
+// audit that HEAD-checked every generated icon URL against the live wiki.
+// Re-run that audit (see icon-overrides.json's sibling script in git
+// history / ask Claude to redo it) if new broken icons show up after a
+// game update.
+const ICON_OVERRIDES = JSON.parse(readFileSync(path.join(__dirname, "icon-overrides.json"), "utf8"));
+
 function img(name) {
+  if (ICON_OVERRIDES[name]) return ICON_OVERRIDES[name];
   return `https://oldschool.runescape.wiki/images/${name.replace(/ /g, "_")}.png`;
 }
 
@@ -68,15 +83,65 @@ async function fetchJson(url) {
   return res.json();
 }
 
+/** True per-item stackability (cache-derived), keyed by item name. Name-based
+ * pattern matching (the old approach) misses plenty of real stackable items
+ * — e.g. "Feather" doesn't end in any of the suffixes a regex would guess. */
+function buildStackableByName(itemsRaw) {
+  const byName = new Map();
+  for (const it of Object.values(itemsRaw)) {
+    if (!byName.has(it.name)) byName.set(it.name, Boolean(it.stackable));
+  }
+  return byName;
+}
+
+/** osrsreboxed-db has ~1,200 exact-duplicate drop rows across ~80 monsters
+ * (confirmed by inspection — e.g. Mugger's own source entry lists "Bones"
+ * twice). Not our bug, but we still need to not ship it. */
+function dedupeDrops(drops) {
+  const seen = new Set();
+  const out = [];
+  for (const d of drops) {
+    const key = `${d.id}|${d.quantity}|${d.rarity}|${d.rolls}|${d.noted}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(d);
+  }
+  return out;
+}
+
+function entryKey(e) {
+  return `${e.itemId}|${e.minQuantity}|${e.maxQuantity}|${e.numerator}|${e.denominator}|${Boolean(e.noted)}`;
+}
+
+/** A handful of monsters have two raw rows for the same item with slightly
+ * different rarity (e.g. 0.1640625 vs 0.171875) that both round to the same
+ * denominator once converted to an effective probability — invisible to the
+ * raw-level dedupe above but still a real double-roll of the same drop.
+ * `exclude` additionally strips entries already guaranteed elsewhere (e.g. a
+ * near-100% tertiary roll for an item that's already an `always` drop). */
+function dedupeEntries(entries, exclude = new Set()) {
+  const seen = new Set();
+  const out = [];
+  for (const e of entries) {
+    const key = entryKey(e);
+    if (seen.has(key) || exclude.has(key)) continue;
+    seen.add(key);
+    out.push(e);
+  }
+  return out;
+}
+
 async function main() {
-  console.log("Fetching monster database, item mapping, and live prices...");
-  const [monstersRaw, mapping, latest] = await Promise.all([
+  console.log("Fetching monster database, item database, item mapping, and live prices...");
+  const [monstersRaw, itemsRaw, mapping, latest] = await Promise.all([
     fetchJson(MONSTERS_URL),
+    fetchJson(ITEMS_URL),
     fetchJson(MAPPING_URL),
     fetchJson(LATEST_URL),
   ]);
 
   const mappingById = new Map(mapping.map((it) => [it.id, it]));
+  const stackableByName = buildStackableByName(itemsRaw);
   const { npcIds: existingNpcIds, itemIds: existingItemIds } = existingHandcraftedIds();
 
   const allMonsters = Object.values(monstersRaw);
@@ -84,13 +149,29 @@ async function main() {
     (m) => !m.duplicate && m.combat_level > 0 && Array.isArray(m.drops) && m.drops.length > 0,
   );
 
-  // Dedupe by slug, keeping the richest (most drops) entry per name.
+  // Dedupe by slug, keeping the richest (most drops) entry per name. Drop
+  // rows are deduped first so a monster padded with duplicate rows doesn't
+  // get wrongly favored as the "richest" version. Ties keep the FIRST entry
+  // (source data lists ids ascending, and the "normal"/live variant always
+  // has a lower id than any "unused" sibling — see the unused-NPC check
+  // just below, which relies on that ordering).
   const bySlug = new Map();
   for (const m of eligible) {
     const slug = slugify(m.name);
     if (existingNpcIds.has(slug)) continue;
+    m.drops = dedupeDrops(m.drops);
     const prev = bySlug.get(slug);
     if (!prev || m.drops.length > prev.drops.length) bySlug.set(slug, m);
+  }
+
+  // A few source entries are leftover/never-actually-encounterable NPCs
+  // (e.g. "Golem" combat level 55, wiki-flagged "Golem (unused NPC)" — no
+  // live spawn exists). Not a real drop source, so it doesn't belong in a
+  // simulator of actual game mechanics. Siblings that tie on drop count
+  // with a "normal" (non-unused) version are unaffected, since the normal
+  // version's lower id already wins the tie above.
+  for (const [slug, m] of [...bySlug]) {
+    if (/unused/i.test(m.wiki_url || "")) bySlug.delete(slug);
   }
 
   // The monster DB's drop name and the price-mapping's canonical name can differ for the
@@ -135,6 +216,9 @@ async function main() {
 
     if (always.length === 0 && tertiary.length === 0) continue;
 
+    const dedupedAlways = dedupeEntries(always);
+    const alwaysKeys = new Set(dedupedAlways.map(entryKey));
+
     generatedMonsters.push({
       id: slug,
       name: m.name,
@@ -143,9 +227,9 @@ async function main() {
       examine: m.examine || "",
       category: isBoss ? "boss" : m.combat_level >= 30 ? "mid" : "low",
       unlockCost: unlockCostFor(m.combat_level, isBoss),
-      always,
+      always: dedupedAlways,
       mainTable: [],
-      tertiary,
+      tertiary: dedupeEntries(tertiary, alwaysKeys),
     });
   }
 
@@ -155,6 +239,10 @@ async function main() {
     const name = canonicalNameById.get(id);
     const slug = slugify(name);
     if (existingItemIds.has(slug) || generatedItems[slug]) continue;
+
+    // Noted items always stack as a matter of game mechanics regardless of
+    // the base item's own stackability, same override dropLogic.ts applies.
+    const stackable = stackableByName.get(name) ?? false;
 
     if (mapped) {
       const price = latest.data[String(id)];
@@ -168,6 +256,7 @@ async function main() {
         members: Boolean(mapped.members),
         value,
         tradeable: true,
+        stackable,
       };
     } else {
       // Not in the tradeable item mapping (pets, ensouled heads, some quest-bound drops).
@@ -176,6 +265,7 @@ async function main() {
         name,
         iconUrl: img(name),
         members: Boolean(membersById.get(id)),
+        stackable,
         value: 0,
         tradeable: false,
       };

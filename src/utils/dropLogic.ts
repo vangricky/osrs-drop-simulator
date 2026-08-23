@@ -91,12 +91,9 @@ export function formatDropRate(entry: DropEntry): string {
   return `${entry.numerator}/${entry.denominator.toLocaleString()}`;
 }
 
-const STACKABLE_PATTERN =
-  /coins|\brune$|\bseed$|\barrow(?:tip)?s?$|\bdart(?:tip)?s?$|\bbolt(?:tip)?s?$|essence$|\bshard$|\bdust$|\bbrew$/i;
-
 export function isStackable(item: DropItem, noted?: boolean): boolean {
   if (noted) return true;
-  return STACKABLE_PATTERN.test(item.name);
+  return item.stackable;
 }
 
 /** OSRS-style compact GP formatting, e.g. 1234 -> "1.2K", 15000000 -> "15M". */

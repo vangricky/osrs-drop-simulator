@@ -275,39 +275,11 @@
     "id": "zombie",
     "name": "Zombie",
     "combatLevel": 13,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_(Level_13).png",
     "examine": "Dead man walking.",
     "category": "low",
     "unlockCost": 240000,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -774,13 +746,6 @@
         "denominator": 64
       },
       {
-        "itemId": "zombie-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
-      },
-      {
         "itemId": "nature-rune",
         "minQuantity": 6,
         "maxQuantity": 6,
@@ -807,13 +772,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 36
-      },
-      {
-        "itemId": "zombie-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 4
       },
       {
         "itemId": "grimy-harralander",
@@ -886,13 +844,6 @@
         "denominator": 32
       },
       {
-        "itemId": "zombie-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
-      },
-      {
         "itemId": "coins",
         "minQuantity": 18,
         "maxQuantity": 18,
@@ -928,20 +879,6 @@
         "denominator": 64
       },
       {
-        "itemId": "zombie-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 4
-      },
-      {
-        "itemId": "zombie-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
-      },
-      {
         "itemId": "iron-mace",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -954,13 +891,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 64
-      },
-      {
-        "itemId": "larrans-key",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1253
       },
       {
         "itemId": "bronze-kiteshield",
@@ -1031,13 +961,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 30
-      },
-      {
-        "itemId": "slayers-enchantment",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 301
       },
       {
         "itemId": "grimy-harralander",
@@ -1124,13 +1047,6 @@
         "denominator": 21
       },
       {
-        "itemId": "coins",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
         "itemId": "fishing-bait",
         "minQuantity": 7,
         "maxQuantity": 7,
@@ -1166,13 +1082,6 @@
         "denominator": 32
       },
       {
-        "itemId": "zombie-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 4
-      },
-      {
         "itemId": "bronze-longsword",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -1180,21 +1089,7 @@
         "denominator": 128
       },
       {
-        "itemId": "zombie-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
-      },
-      {
         "itemId": "bronze-kiteshield",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "iron-dagger",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
@@ -1234,13 +1129,6 @@
         "maxQuantity": 3,
         "numerator": 1,
         "denominator": 43
-      },
-      {
-        "itemId": "fire-rune",
-        "minQuantity": 7,
-        "maxQuantity": 7,
-        "numerator": 1,
-        "denominator": 128
       },
       {
         "itemId": "iron-axe",
@@ -1353,7 +1241,7 @@
     "id": "skeleton",
     "name": "Skeleton",
     "combatLevel": 22,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_(level_21,_1).png",
     "examine": "Could do with gaining a few pounds.",
     "category": "low",
     "unlockCost": 910000,
@@ -1668,7 +1556,7 @@
     "id": "skeleton-mage",
     "name": "Skeleton Mage",
     "combatLevel": 16,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_Mage.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skeleton_Mage_(lv_16).png",
     "examine": "An undead worker of dark magic.",
     "category": "low",
     "unlockCost": 410000,
@@ -1716,7 +1604,7 @@
     "id": "rock-crab",
     "name": "Rock Crab",
     "combatLevel": 13,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Rock_Crab.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rock_crab_(exposed).png",
     "examine": "No one likes crabs...",
     "category": "low",
     "unlockCost": 240000,
@@ -2148,13 +2036,6 @@
     "category": "mid",
     "unlockCost": 8600000,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -2656,39 +2537,11 @@
         "denominator": 11
       },
       {
-        "itemId": "coins",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 1,
-        "denominator": 18
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 62,
-        "maxQuantity": 62,
-        "numerator": 1,
-        "denominator": 32
-      },
-      {
         "itemId": "steel-dagger",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 43
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 42,
-        "maxQuantity": 42,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
       },
       {
         "itemId": "trading-sticks",
@@ -2733,20 +2586,6 @@
         "denominator": 32
       },
       {
-        "itemId": "limpwurt-root",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 6
-      },
-      {
-        "itemId": "goblin-mail",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 26
-      },
-      {
         "itemId": "iron-spear",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -2768,48 +2607,6 @@
         "denominator": 5
       },
       {
-        "itemId": "ecumenical-key",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 60
-      },
-      {
-        "itemId": "clue-scroll-beginner",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 70
-      },
-      {
-        "itemId": "hobgoblin-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
-      },
-      {
-        "itemId": "iron-sword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "steel-dagger",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "steel-longsword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "steel-longsword",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -2829,41 +2626,6 @@
         "maxQuantity": 2,
         "numerator": 1,
         "denominator": 64
-      },
-      {
-        "itemId": "fire-rune",
-        "minQuantity": 7,
-        "maxQuantity": 7,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "body-rune",
-        "minQuantity": 6,
-        "maxQuantity": 6,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "nature-rune",
-        "minQuantity": 4,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "cosmic-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 128
       },
       {
         "itemId": "iron-javelin",
@@ -2873,102 +2635,11 @@
         "denominator": 128
       },
       {
-        "itemId": "grimy-guam-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 73
-      },
-      {
-        "itemId": "grimy-marrentill",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 98
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "grimy-tarromin",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 130
-      },
-      {
-        "itemId": "grimy-harralander",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 167
-      },
-      {
-        "itemId": "grimy-ranarr-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 213
-      },
-      {
-        "itemId": "grimy-irit-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 293
-      },
-      {
-        "itemId": "grimy-avantoe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 390
-      },
-      {
-        "itemId": "grimy-kwuarm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 468
-      },
-      {
-        "itemId": "grimy-cadantine",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 585
-      },
-      {
-        "itemId": "grimy-lantadyme",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 780
-      },
-      {
-        "itemId": "grimy-dwarf-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 780
-      },
-      {
         "itemId": "limpwurt-seed",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 82
-      },
-      {
-        "itemId": "water-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 64
       },
       {
         "itemId": "strawberry-seed",
@@ -3284,7 +2955,7 @@
     "id": "baby-red-dragon",
     "name": "Baby red dragon",
     "combatLevel": 65,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_red_dragon.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_red_dragon_(1).png",
     "examine": "Young, but still dangerous.",
     "category": "mid",
     "unlockCost": 14000000,
@@ -4571,7 +4242,7 @@
     "id": "baby-blue-dragon",
     "name": "Baby blue dragon",
     "combatLevel": 48,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_blue_dragon.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_blue_dragon_(1).png",
     "examine": "Young but still dangerous.",
     "category": "mid",
     "unlockCost": 6400000,
@@ -5366,13 +5037,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ],
     "mainTable": [],
@@ -5546,126 +5210,7 @@
         "denominator": 100
       },
       {
-        "itemId": "bronze-pickaxe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 10
-      },
-      {
-        "itemId": "bronze-med-helm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 32
-      },
-      {
         "itemId": "bronze-battleaxe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "iron-battleaxe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "bronze-bolts",
-        "minQuantity": 2,
-        "maxQuantity": 12,
-        "numerator": 1,
-        "denominator": 18
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 32
-      },
-      {
-        "itemId": "nature-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 32
-      },
-      {
-        "itemId": "bronze-battleaxe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 4,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 6
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 1,
-        "denominator": 11
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 30,
-        "maxQuantity": 30,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "hammer",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 13
-      },
-      {
-        "itemId": "bronze-bar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 18
-      },
-      {
-        "itemId": "iron-ore",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 32
-      },
-      {
-        "itemId": "tin-ore",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "copper-ore",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "iron-bar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 43
-      },
-      {
-        "itemId": "coal",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
@@ -5705,6 +5250,13 @@
         "maxQuantity": 4,
         "numerator": 1,
         "denominator": 6
+      },
+      {
+        "itemId": "coins",
+        "minQuantity": 10,
+        "maxQuantity": 10,
+        "numerator": 1,
+        "denominator": 11
       }
     ]
   },
@@ -7901,7 +7453,7 @@
     "id": "cave-crawler",
     "name": "Cave crawler",
     "combatLevel": 23,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_crawler.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_crawler_(1).png",
     "examine": "A spiky crawling critter.",
     "category": "low",
     "unlockCost": 1000000,
@@ -10204,7 +9756,7 @@
     "id": "turoth",
     "name": "Turoth",
     "combatLevel": 86,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Turoth.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Turoth_(lv_83).png",
     "examine": "It's one small leg short!",
     "category": "mid",
     "unlockCost": 27000000,
@@ -11764,7 +11316,7 @@
     "id": "desert-lizard",
     "name": "Desert Lizard",
     "combatLevel": 24,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Desert_Lizard.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Desert_Lizard_(green).png",
     "examine": "A cold-blooded creature, partial to warmth.",
     "category": "low",
     "unlockCost": 1100000,
@@ -13632,7 +13184,7 @@
     "id": "big-frog",
     "name": "Big frog",
     "combatLevel": 24,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Big_frog.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_frog.png",
     "examine": "It didn't get that big eating flies.",
     "category": "low",
     "unlockCost": 1100000,
@@ -13933,7 +13485,7 @@
     "id": "cave-bug",
     "name": "Cave bug",
     "combatLevel": 6,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_bug.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_bug_(level_6).png",
     "examine": "A nasty crawling critter.",
     "category": "low",
     "unlockCost": 0,
@@ -16442,13 +15994,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ],
     "mainTable": [],
@@ -16648,7 +16193,7 @@
     "id": "black-knight",
     "name": "Black Knight",
     "combatLevel": 33,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Knight.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Knight_(male).png",
     "examine": "A dark-hearted knight.",
     "category": "mid",
     "unlockCost": 2500000,
@@ -17411,18 +16956,11 @@
     "id": "pirate",
     "name": "Pirate",
     "combatLevel": 23,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Pirate.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Pirate_(Brimhaven).png",
     "examine": "Yar! Shiver me timbers!",
     "category": "low",
     "unlockCost": 1000000,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -18139,7 +17677,7 @@
     "id": "monk-of-zamorak",
     "name": "Monk of Zamorak",
     "combatLevel": 22,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Monk_of_Zamorak.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Monk_of_Zamorak_(level_17).png",
     "examine": "An evil human cleric.",
     "category": "low",
     "unlockCost": 910000,
@@ -19063,18 +18601,11 @@
     "id": "zygomite",
     "name": "Zygomite",
     "combatLevel": 74,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zygomite.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zygomite_(level_74).png",
     "examine": "A bouncy fungus.",
     "category": "mid",
     "unlockCost": 19000000,
     "always": [
-      {
-        "itemId": "ashes",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "ashes",
         "minQuantity": 1,
@@ -19466,13 +18997,6 @@
         "denominator": 35
       },
       {
-        "itemId": "clay",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 20
-      },
-      {
         "itemId": "nature-rune",
         "minQuantity": 2,
         "maxQuantity": 2,
@@ -19527,7 +19051,7 @@
     "id": "sorebones",
     "name": "Sorebones",
     "combatLevel": 57,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Sorebones.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Sorebones_(jacket).png",
     "examine": "Bedside manner is a little lacking, I think.",
     "category": "mid",
     "unlockCost": 9800000,
@@ -19884,18 +19408,11 @@
     "id": "zombie-pirate",
     "name": "Zombie pirate",
     "combatLevel": 57,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_pirate.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_pirate_(1).png",
     "examine": "Aaaarg, me hearty!",
     "category": "mid",
     "unlockCost": 9800000,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -20215,13 +19732,6 @@
         "denominator": 43
       },
       {
-        "itemId": "right-eye-patch",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "mithril-scimitar",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -20264,88 +19774,11 @@
         "denominator": 43
       },
       {
-        "itemId": "grimy-guam-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 17
-      },
-      {
-        "itemId": "grimy-marrentill",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 23
-      },
-      {
-        "itemId": "grimy-tarromin",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 30
-      },
-      {
         "itemId": "cosmic-rune",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
         "denominator": 43
-      },
-      {
-        "itemId": "grimy-harralander",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 39
-      },
-      {
-        "itemId": "grimy-ranarr-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 50
-      },
-      {
-        "itemId": "grimy-irit-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 68
-      },
-      {
-        "itemId": "grimy-avantoe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 91
-      },
-      {
-        "itemId": "grimy-kwuarm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 109
-      },
-      {
-        "itemId": "grimy-cadantine",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 137
-      },
-      {
-        "itemId": "grimy-lantadyme",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 182
-      },
-      {
-        "itemId": "grimy-dwarf-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 182
       },
       {
         "itemId": "coins",
@@ -20397,13 +19830,6 @@
         "denominator": 6
       },
       {
-        "itemId": "rusty-scimitar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "braindeath-rum",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -20418,20 +19844,6 @@
         "denominator": 128
       },
       {
-        "itemId": "zombie-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 4
-      },
-      {
-        "itemId": "zombie-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
-      },
-      {
         "itemId": "chaos-rune",
         "minQuantity": 4,
         "maxQuantity": 4,
@@ -20444,7 +19856,7 @@
     "id": "zombie-swab",
     "name": "Zombie swab",
     "combatLevel": 55,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_swab.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zombie_swab_(1).png",
     "examine": "He talks a good fight.",
     "category": "mid",
     "unlockCost": 9000000,
@@ -21495,7 +20907,7 @@
     "id": "ice-troll",
     "name": "Ice Troll",
     "combatLevel": 124,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Ice_Troll.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ice_troll_(level_120,_1).png",
     "examine": "Brrrrr...he must be cold!",
     "category": "mid",
     "unlockCost": 68000000,
@@ -22153,7 +21565,7 @@
     "id": "mummy",
     "name": "Mummy",
     "combatLevel": 96,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Mummy.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mummy_(level_96).png",
     "examine": "Highly flammable!",
     "category": "mid",
     "unlockCost": 36000000,
@@ -22619,7 +22031,7 @@
     "id": "suqah",
     "name": "Suqah",
     "combatLevel": 111,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Suqah.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Suqah_(1).png",
     "examine": "A strange creature unique to Lunar Isle.",
     "category": "mid",
     "unlockCost": 52000000,
@@ -23145,18 +22557,11 @@
     "id": "locust-rider",
     "name": "Locust rider",
     "combatLevel": 106,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Locust_rider.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Locust_rider_(ranged).png",
     "examine": "A mounted lancer.",
     "category": "mid",
     "unlockCost": 46000000,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -23557,7 +22962,7 @@
     "id": "icelord",
     "name": "Icelord",
     "combatLevel": 51,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Icelord.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Icelord_(melee).png",
     "examine": "Sturdy cold being.",
     "category": "mid",
     "unlockCost": 7400000,
@@ -23592,7 +22997,7 @@
     "id": "zogre",
     "name": "Zogre",
     "combatLevel": 44,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zogre.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zogre_(1).png",
     "examine": "A partially decomposing zombie ogre.",
     "category": "mid",
     "unlockCost": 5100000,
@@ -23634,7 +23039,7 @@
     "id": "skogre",
     "name": "Skogre",
     "combatLevel": 44,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Skogre.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skogre_(1).png",
     "examine": "It's falling apart!",
     "category": "mid",
     "unlockCost": 5100000,
@@ -26741,7 +26146,7 @@
     "id": "dagannoth-mother",
     "name": "Dagannoth mother",
     "combatLevel": 100,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_mother.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_mother_white.png",
     "examine": "A horror from the ocean depths...",
     "category": "mid",
     "unlockCost": 40000000,
@@ -27383,7 +26788,7 @@
     "id": "cave-horror",
     "name": "Cave horror",
     "combatLevel": 80,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_horror.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cave_horror_(1).png",
     "examine": "A horrible, emaciated ape like creature with beady red eyes.",
     "category": "mid",
     "unlockCost": 23000000,
@@ -27846,7 +27251,7 @@
     "id": "angry-giant-rat",
     "name": "Angry giant rat",
     "combatLevel": 45,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Angry_giant_rat.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Angry_giant_rat_(level_45,_1).png",
     "examine": "He looks a little on the cross side!",
     "category": "mid",
     "unlockCost": 5400000,
@@ -29119,7 +28524,7 @@
     "id": "giant-scarab-hard",
     "name": "Giant Scarab (hard)",
     "combatLevel": 316,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Scarab_(hard).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_Scarab.png",
     "examine": "A huge scarab.",
     "category": "mid",
     "unlockCost": 710000000,
@@ -29139,7 +28544,7 @@
     "id": "dessous-hard",
     "name": "Dessous (hard)",
     "combatLevel": 217,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dessous_(hard).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dessous.png",
     "examine": "A vampyre warrior of Zamorak.",
     "category": "mid",
     "unlockCost": 280000000,
@@ -29159,7 +28564,7 @@
     "id": "kamil-hard",
     "name": "Kamil (hard)",
     "combatLevel": 273,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Kamil_(hard).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Kamil.png",
     "examine": "Ice warrior.",
     "category": "mid",
     "unlockCost": 490000000,
@@ -29186,7 +28591,7 @@
     "id": "damis-hard",
     "name": "Damis (hard)",
     "combatLevel": 200,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Damis_(hard).png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Damis_first_form.png",
     "examine": "The warrior of darkness.",
     "category": "mid",
     "unlockCost": 230000000,
@@ -29993,7 +29398,7 @@
     "id": "experiment",
     "name": "Experiment",
     "combatLevel": 51,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Experiment.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Experiment_(level_51).png",
     "examine": "It has a key hanging from its collar.",
     "category": "mid",
     "unlockCost": 7400000,
@@ -30181,7 +29586,7 @@
     "id": "afflicted",
     "name": "Afflicted",
     "combatLevel": 37,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Afflicted.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Afflicted_(level_30).png",
     "examine": "A local villager of Mort'ton.",
     "category": "mid",
     "unlockCost": 3300000,
@@ -30418,13 +29823,6 @@
         "denominator": 1
       },
       {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
         "itemId": "feather",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -30447,7 +29845,7 @@
     "id": "dwarf-gang-member",
     "name": "Dwarf gang member",
     "combatLevel": 44,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf_gang_member.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf_gang_member_(1).png",
     "examine": "A short stout menacing fellow.",
     "category": "mid",
     "unlockCost": 5100000,
@@ -30758,13 +30156,6 @@
     "category": "mid",
     "unlockCost": 2900000,
     "always": [
-      {
-        "itemId": "rock-elemental",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "rock-elemental",
         "minQuantity": 1,
@@ -31542,7 +30933,7 @@
     "id": "camp-dweller",
     "name": "Camp dweller",
     "combatLevel": 31,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Camp_dweller.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Camp_dweller_(level_25).png",
     "examine": "One of the inhabitants of the camp.",
     "category": "mid",
     "unlockCost": 2100000,
@@ -31562,7 +30953,7 @@
     "id": "black-guard",
     "name": "Black Guard",
     "combatLevel": 25,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Guard.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Guard_(level_25,_1).png",
     "examine": "A member of the Black Guard, a special division of the dwarven army.",
     "category": "low",
     "unlockCost": 1300000,
@@ -31833,7 +31224,7 @@
     "id": "thief",
     "name": "Thief",
     "combatLevel": 16,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Thief.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Thief_(Standard,_2).png",
     "examine": "Known for his light-fingered qualities.",
     "category": "low",
     "unlockCost": 410000,
@@ -32099,7 +31490,7 @@
     "id": "kebbit",
     "name": "Kebbit",
     "combatLevel": 13,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Kebbit.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Common_kebbit.png",
     "examine": "A little bigger than usual...",
     "category": "low",
     "unlockCost": 240000,
@@ -34481,7 +33872,7 @@
     "id": "battle-mage",
     "name": "Battle mage",
     "combatLevel": 54,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Battle_mage.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Battle_mage_(Saradomin).png",
     "examine": "He kills in the name of Zamorak.",
     "category": "mid",
     "unlockCost": 8600000,
@@ -34684,7 +34075,7 @@
     "id": "double-agent",
     "name": "Double agent",
     "combatLevel": 65,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Double_agent.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uri.png",
     "examine": "He's playing both sides!",
     "category": "mid",
     "unlockCost": 14000000,
@@ -34732,7 +34123,7 @@
     "id": "goat",
     "name": "Goat",
     "combatLevel": 23,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Goat.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Goat_(tan).png",
     "examine": "They'll eat anything!",
     "category": "low",
     "unlockCost": 1000000,
@@ -34759,7 +34150,7 @@
     "id": "billy-goat",
     "name": "Billy Goat",
     "combatLevel": 33,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Billy_Goat.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Billy_Goat_(brown).png",
     "examine": "They'll eat anything!",
     "category": "mid",
     "unlockCost": 2500000,
@@ -34786,32 +34177,11 @@
     "id": "white-knight",
     "name": "White Knight",
     "combatLevel": 36,
-    "iconUrl": "https://oldschool.runescape.wiki/images/White_Knight.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/White_Knight_(initiate,_male).png",
     "examine": "Shiny armour!",
     "category": "mid",
     "unlockCost": 3100000,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -35348,27 +34718,6 @@
         "denominator": 21
       },
       {
-        "itemId": "iron-bar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "apple-pie",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "iron-ore",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "grimy-tarromin",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -35376,39 +34725,11 @@
         "denominator": 182
       },
       {
-        "itemId": "pot-of-flour",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "grimy-harralander",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 234
-      },
-      {
-        "itemId": "iron-longsword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "steel-med-helm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "steel-sword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
       },
       {
         "itemId": "mind-rune",
@@ -35467,102 +34788,11 @@
         "denominator": 43
       },
       {
-        "itemId": "blood-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "grimy-guam-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 73
-      },
-      {
-        "itemId": "grimy-marrentill",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 98
-      },
-      {
-        "itemId": "grimy-tarromin",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 130
-      },
-      {
-        "itemId": "grimy-harralander",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 167
-      },
-      {
-        "itemId": "grimy-ranarr-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 213
-      },
-      {
         "itemId": "grimy-irit-leaf",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 410
-      },
-      {
-        "itemId": "grimy-irit-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 293
-      },
-      {
-        "itemId": "grimy-avantoe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 390
-      },
-      {
-        "itemId": "grimy-kwuarm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 468
-      },
-      {
-        "itemId": "grimy-cadantine",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 585
-      },
-      {
-        "itemId": "grimy-lantadyme",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 780
-      },
-      {
-        "itemId": "grimy-dwarf-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 780
       },
       {
         "itemId": "potato-seed",
@@ -35591,13 +34821,6 @@
         "maxQuantity": 3,
         "numerator": 1,
         "denominator": 50
-      },
-      {
-        "itemId": "iron-longsword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
       },
       {
         "itemId": "grimy-avantoe",
@@ -35650,24 +34873,10 @@
       },
       {
         "itemId": "coins",
-        "minQuantity": 15,
-        "maxQuantity": 15,
-        "numerator": 1,
-        "denominator": 12
-      },
-      {
-        "itemId": "coins",
         "minQuantity": 65,
         "maxQuantity": 73,
         "numerator": 1,
         "denominator": 13
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 1,
-        "denominator": 18
       },
       {
         "itemId": "coins",
@@ -35698,46 +34907,11 @@
         "denominator": 43
       },
       {
-        "itemId": "coins",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "iron-bar",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
         "denominator": 26
-      },
-      {
-        "itemId": "iron-bar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "apple-pie",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "iron-ore",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "pot-of-flour",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
       },
       {
         "itemId": "grimy-cadantine",
@@ -35894,41 +35068,6 @@
         "denominator": 128
       },
       {
-        "itemId": "iron-bar",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 21
-      },
-      {
-        "itemId": "iron-bar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "apple-pie",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "iron-ore",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "pot-of-flour",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "mind-rune",
         "minQuantity": 5,
         "maxQuantity": 5,
@@ -35936,32 +35075,11 @@
         "denominator": 12
       },
       {
-        "itemId": "iron-longsword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
         "itemId": "nature-rune",
         "minQuantity": 4,
         "maxQuantity": 4,
         "numerator": 1,
         "denominator": 32
-      },
-      {
-        "itemId": "steel-med-helm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "steel-sword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
       },
       {
         "itemId": "mind-rune",
@@ -36013,88 +35131,11 @@
         "denominator": 43
       },
       {
-        "itemId": "blood-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
         "itemId": "body-rune",
         "minQuantity": 9,
         "maxQuantity": 13,
         "numerator": 1,
         "denominator": 43
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "grimy-guam-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 73
-      },
-      {
-        "itemId": "grimy-marrentill",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 98
-      },
-      {
-        "itemId": "grimy-tarromin",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 130
-      },
-      {
-        "itemId": "grimy-harralander",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 167
-      },
-      {
-        "itemId": "grimy-ranarr-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 213
-      },
-      {
-        "itemId": "grimy-irit-leaf",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 293
-      },
-      {
-        "itemId": "grimy-avantoe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 390
-      },
-      {
-        "itemId": "grimy-kwuarm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 468
-      },
-      {
-        "itemId": "grimy-cadantine",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 585
       },
       {
         "itemId": "chaos-rune",
@@ -36104,88 +35145,11 @@
         "denominator": 43
       },
       {
-        "itemId": "grimy-lantadyme",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 780
-      },
-      {
-        "itemId": "grimy-dwarf-weed",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 780
-      },
-      {
-        "itemId": "potato-seed",
-        "minQuantity": 4,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 19
-      },
-      {
-        "itemId": "onion-seed",
-        "minQuantity": 4,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 25
-      },
-      {
-        "itemId": "cabbage-seed",
-        "minQuantity": 4,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 38
-      },
-      {
-        "itemId": "tomato-seed",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 77
-      },
-      {
-        "itemId": "sweetcorn-seed",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 155
-      },
-      {
-        "itemId": "strawberry-seed",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 311
-      },
-      {
-        "itemId": "watermelon-seed",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 651
-      },
-      {
-        "itemId": "snape-grass-seed",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 896
-      },
-      {
         "itemId": "water-rune",
         "minQuantity": 25,
         "maxQuantity": 30,
         "numerator": 1,
         "denominator": 43
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 5,
-        "maxQuantity": 5,
-        "numerator": 1,
-        "denominator": 7
       },
       {
         "itemId": "coins",
@@ -36217,31 +35181,10 @@
       },
       {
         "itemId": "coins",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 1,
-        "denominator": 18
-      },
-      {
-        "itemId": "coins",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 1,
         "denominator": 21
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 120,
-        "maxQuantity": 120,
-        "numerator": 1,
-        "denominator": 128
       },
       {
         "itemId": "iron-bar",
@@ -39356,7 +38299,7 @@
     "id": "market-guard",
     "name": "Market Guard",
     "combatLevel": 20,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Market_Guard.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Market_Guard_(Fremennik).png",
     "examine": "He guards the Draynor Market stalls from thieves.",
     "category": "low",
     "unlockCost": 720000,
@@ -40353,7 +39296,7 @@
     "id": "tzhaar-xil",
     "name": "TzHaar-Xil",
     "combatLevel": 133,
-    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Xil.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Xil_(sword).png",
     "examine": "Doesn't look very social.",
     "category": "mid",
     "unlockCost": 82000000,
@@ -40429,7 +39372,7 @@
     "id": "tzhaar-ket",
     "name": "TzHaar-Ket",
     "combatLevel": 149,
-    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Ket.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/TzHaar-Ket_(level_149).png",
     "examine": "Must be a guard or something.",
     "category": "mid",
     "unlockCost": 110000000,
@@ -41167,7 +40110,7 @@
     "id": "spiritual-warrior",
     "name": "Spiritual warrior",
     "combatLevel": 125,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_warrior.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_warrior_(Zamorak).png",
     "examine": "Saradomin's chosen warrior.",
     "category": "mid",
     "unlockCost": 70000000,
@@ -41439,7 +40382,7 @@
     "id": "spiritual-ranger",
     "name": "Spiritual ranger",
     "combatLevel": 122,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_ranger.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_ranger_(Zamorak).png",
     "examine": "A ranger spirit dedicated to Saradomin.",
     "category": "mid",
     "unlockCost": 66000000,
@@ -41627,7 +40570,7 @@
     "id": "spiritual-mage",
     "name": "Spiritual mage",
     "combatLevel": 120,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_mage.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Spiritual_mage_(Zamorak).png",
     "examine": "Saradomin's holy mage.",
     "category": "mid",
     "unlockCost": 63000000,
@@ -45071,7 +44014,7 @@
     "id": "giant-spider",
     "name": "Giant spider",
     "combatLevel": 50,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_spider.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_spider_(Level_2).png",
     "examine": "I think this spider has been genetically modified.",
     "category": "mid",
     "unlockCost": 7100000,
@@ -45738,7 +44681,7 @@
     "id": "h-a-m-guard",
     "name": "H.A.M. Guard",
     "combatLevel": 12,
-    "iconUrl": "https://oldschool.runescape.wiki/images/H.A.M._Guard.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/H.A.M._Guard_(level_12).png",
     "examine": "A guard for the 'Humans Against Monsters' group.",
     "category": "low",
     "unlockCost": 200000,
@@ -46974,7 +45917,7 @@
     "id": "werewolf",
     "name": "Werewolf",
     "combatLevel": 88,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Werewolf.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Werewolf_(Boris).png",
     "examine": "Eek! A werewolf!",
     "category": "mid",
     "unlockCost": 29000000,
@@ -55213,7 +54156,7 @@
     "id": "myre-blamish-snail",
     "name": "Myre Blamish Snail",
     "combatLevel": 9,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Myre_Blamish_Snail.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Myre_blamish_snail_(rounded).png",
     "examine": "A marsh coloured blamish snail, these types are said to spit acid.",
     "category": "low",
     "unlockCost": 0,
@@ -55247,7 +54190,7 @@
     "id": "blood-blamish-snail",
     "name": "Blood Blamish Snail",
     "combatLevel": 20,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Blood_Blamish_Snail.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Blood_Blamish_Snail_(round).png",
     "examine": "A blood coloured blamish snail, these types are said to spit acid.",
     "category": "low",
     "unlockCost": 720000,
@@ -55274,7 +54217,7 @@
     "id": "ochre-blamish-snail",
     "name": "Ochre Blamish Snail",
     "combatLevel": 10,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Ochre_Blamish_Snail.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ochre_Blamish_Snail_(round).png",
     "examine": "A muddy coloured blamish snail, these types are said to spit acid.",
     "category": "low",
     "unlockCost": 130000,
@@ -55308,7 +54251,7 @@
     "id": "bruise-blamish-snail",
     "name": "Bruise Blamish Snail",
     "combatLevel": 20,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Bruise_Blamish_Snail.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bruise_Blamish_Snail_(round).png",
     "examine": "A bruise blue coloured blamish snail, these types are said to spit acid.",
     "category": "low",
     "unlockCost": 720000,
@@ -55457,13 +54400,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 1
-      },
-      {
-        "itemId": "bat-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ],
     "mainTable": [],
@@ -55476,26 +54412,6 @@
         "denominator": 5
       }
     ]
-  },
-  {
-    "id": "golem",
-    "name": "Golem",
-    "combatLevel": 55,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Golem.png",
-    "examine": "A creature made from clay.",
-    "category": "mid",
-    "unlockCost": 9000000,
-    "always": [
-      {
-        "itemId": "imbued-tephra",
-        "minQuantity": 16,
-        "maxQuantity": 24,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
   },
   {
     "id": "unicorn",
@@ -55543,7 +54459,7 @@
     "id": "grizzly-bear",
     "name": "Grizzly bear",
     "combatLevel": 21,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Grizzly_bear.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Grizzly_bear_(level_21).png",
     "examine": "Eek! A bear!",
     "category": "low",
     "unlockCost": 810000,
@@ -56921,13 +55837,6 @@
         "denominator": 3
       },
       {
-        "itemId": "clue-scroll-medium",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 256
-      },
-      {
         "itemId": "larrans-key",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -56940,13 +55849,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 284
-      },
-      {
-        "itemId": "iron-battleaxe",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       },
       {
         "itemId": "steel-battleaxe",
@@ -57303,13 +56205,6 @@
       },
       {
         "itemId": "giant-rat-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "bones",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
@@ -59840,7 +58735,7 @@
     "id": "poison-spider",
     "name": "Poison spider",
     "combatLevel": 64,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Poison_spider.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Poison_spider_(Level_31).png",
     "examine": "I think this spider has been genetically modified.",
     "category": "mid",
     "unlockCost": 13000000,
@@ -59983,7 +58878,7 @@
     "id": "barbarian",
     "name": "Barbarian",
     "combatLevel": 17,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Barbarian.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Barbarian_(Blue_Moon_Inn).png",
     "examine": "Alberich, a fierce barbarian warrior.",
     "category": "low",
     "unlockCost": 480000,
@@ -60151,18 +59046,11 @@
     "id": "farmer",
     "name": "Farmer",
     "combatLevel": 7,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Farmer.png",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Farmer_(straw_hat,_brown_hair).png",
     "examine": "He grows the crops in this area.",
     "category": "low",
     "unlockCost": 0,
     "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
       {
         "itemId": "bones",
         "minQuantity": 1,
@@ -60426,32 +59314,11 @@
         "denominator": 3
       },
       {
-        "itemId": "coins",
-        "minQuantity": 25,
-        "maxQuantity": 25,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "fishing-bait",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 26
-      },
-      {
         "itemId": "rake",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 43
-      },
-      {
-        "itemId": "earth-talisman",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 64
       },
       {
         "itemId": "gardening-boots",
@@ -60468,13 +59335,6 @@
         "denominator": 64
       },
       {
-        "itemId": "earth-rune",
-        "minQuantity": 4,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
         "itemId": "secateurs",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -60487,13 +59347,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 128
-      },
-      {
-        "itemId": "clue-scroll-beginner",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 90
       },
       {
         "itemId": "clue-scroll-easy",
@@ -60515,34 +59368,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 26
-      },
-      {
-        "itemId": "fire-rune",
-        "minQuantity": 6,
-        "maxQuantity": 6,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "mind-rune",
-        "minQuantity": 9,
-        "maxQuantity": 9,
-        "numerator": 1,
-        "denominator": 64
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 3
       }
     ]
   },
