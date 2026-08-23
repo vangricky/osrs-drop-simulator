@@ -178,6 +178,7 @@ function App() {
 
         {showCollectionLog && (
           <CollectionLogModal
+            collectionLog={game.collectionLog}
             collectionLogFirsts={game.collectionLogFirsts}
             onClose={() => setShowCollectionLog(false)}
           />

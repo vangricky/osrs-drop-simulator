@@ -4,6 +4,7 @@ import type { CollectionLogFirst } from "../hooks/useGameState";
 import IconImg from "./IconImg";
 
 interface CollectionLogModalProps {
+  collectionLog: Record<string, number>;
   collectionLogFirsts: Record<string, CollectionLogFirst>;
   onClose: () => void;
 }
@@ -12,6 +13,10 @@ interface LogRow {
   itemId: string;
   name: string;
   iconUrl: string;
+  obtained: boolean;
+  // Present only for items obtained after this feature shipped — items
+  // obtained earlier only exist in the older `collectionLog` quantity
+  // ledger, which never recorded a source/kill-count.
   first: CollectionLogFirst | null;
 }
 
@@ -21,7 +26,7 @@ interface HoverInfo {
   top: number;
 }
 
-export default function CollectionLogModal({ collectionLogFirsts, onClose }: CollectionLogModalProps) {
+export default function CollectionLogModal({ collectionLog, collectionLogFirsts, onClose }: CollectionLogModalProps) {
   const { npcs, containers, items: allItems } = useGameData();
   const [search, setSearch] = useState("");
   // Positioned via getBoundingClientRect + `fixed`, not `absolute` relative
@@ -46,18 +51,25 @@ export default function CollectionLogModal({ collectionLogFirsts, onClose }: Col
     for (const itemId of ids) {
       const item = allItems[itemId];
       if (!item) continue;
-      out.push({ itemId, name: item.name, iconUrl: item.iconUrl, first: collectionLogFirsts[itemId] ?? null });
+      const first = collectionLogFirsts[itemId] ?? null;
+      // Items obtained before this feature shipped only ever made it into
+      // the older collectionLog quantity ledger — no "first" record exists
+      // for them, but they were still obtained and shouldn't show locked.
+      const obtained = Boolean(first) || (collectionLog[itemId] ?? 0) > 0;
+      out.push({ itemId, name: item.name, iconUrl: item.iconUrl, obtained, first });
     }
     return out;
-  }, [npcs, containers, allItems, collectionLogFirsts]);
+  }, [npcs, containers, allItems, collectionLog, collectionLogFirsts]);
 
-  const obtainedCount = rows.reduce((sum, r) => sum + (r.first ? 1 : 0), 0);
+  const obtainedCount = rows.reduce((sum, r) => sum + (r.obtained ? 1 : 0), 0);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     const visible = q ? rows.filter((r) => r.name.toLowerCase().includes(q)) : rows;
-    const obtained = visible.filter((r) => r.first).sort((a, b) => b.first!.timestamp - a.first!.timestamp);
-    const locked = visible.filter((r) => !r.first).sort((a, b) => a.name.localeCompare(b.name));
+    const obtained = visible
+      .filter((r) => r.obtained)
+      .sort((a, b) => (b.first?.timestamp ?? 0) - (a.first?.timestamp ?? 0));
+    const locked = visible.filter((r) => !r.obtained).sort((a, b) => a.name.localeCompare(b.name));
     return [...obtained, ...locked];
   }, [rows, search]);
 
@@ -102,9 +114,9 @@ export default function CollectionLogModal({ collectionLogFirsts, onClose }: Col
                 <div
                   key={row.itemId}
                   className="osrs-bevel-inset relative flex aspect-square flex-col items-center justify-center gap-1 bg-osrs-panel-dark/50 p-1.5"
-                  title={row.first ? undefined : row.name}
+                  title={row.obtained ? undefined : row.name}
                   onMouseEnter={(e) => {
-                    if (!row.first) return;
+                    if (!row.obtained) return;
                     const rect = e.currentTarget.getBoundingClientRect();
                     setHover({ row, left: rect.left + rect.width / 2, top: rect.top });
                   }}
@@ -113,11 +125,11 @@ export default function CollectionLogModal({ collectionLogFirsts, onClose }: Col
                   <IconImg
                     src={row.iconUrl}
                     alt={row.name}
-                    className={`h-8 w-8 sm:h-9 sm:w-9 ${row.first ? "" : "opacity-30 grayscale"}`}
+                    className={`h-8 w-8 sm:h-9 sm:w-9 ${row.obtained ? "" : "opacity-30 grayscale"}`}
                   />
                   <span
                     className={`w-full truncate text-center text-[9px] leading-tight ${
-                      row.first ? "text-osrs-parchment" : "text-osrs-parchment-dark/40"
+                      row.obtained ? "text-osrs-parchment" : "text-osrs-parchment-dark/40"
                     }`}
                   >
                     {row.name}
@@ -128,15 +140,16 @@ export default function CollectionLogModal({ collectionLogFirsts, onClose }: Col
           )}
         </div>
 
-        {hover?.row.first && (
+        {hover && (
           <div
             className="pointer-events-none fixed z-[60] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-none bg-osrs-panel-dark px-2 py-1 text-[11px] text-osrs-parchment shadow-lg ring-1 ring-osrs-border-light"
             style={{ left: hover.left, top: hover.top - 8 }}
           >
             <div className="font-semibold text-osrs-gold">{hover.row.name}</div>
             <div className="text-osrs-parchment-dark/80">
-              {hover.row.first.sourceName} {hover.row.first.sourceType === "kill" ? "kill" : "open"} #
-              {hover.row.first.sourceCount}
+              {hover.row.first
+                ? `${hover.row.first.sourceName} ${hover.row.first.sourceType === "kill" ? "kill" : "open"} #${hover.row.first.sourceCount}`
+                : "Obtained before this was tracked"}
             </div>
           </div>
         )}

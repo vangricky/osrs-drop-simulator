@@ -119,6 +119,12 @@ export default function Header({
               How to play
             </button>
             <button
+              onClick={onOpenCollectionLog}
+              className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+            >
+              Collection log
+            </button>
+            <button
               onClick={onOpenPrestige}
               disabled={!canPrestige}
               title={prestigeTitle}
@@ -208,6 +214,15 @@ export default function Header({
                   >
                     <span className="text-osrs-parchment-dark/70">Unique drops</span>
                     <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      onOpenCollectionLog();
+                    }}
+                    className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-2 text-left font-semibold text-osrs-parchment-dark/80 transition active:osrs-bevel-inset"
+                  >
+                    Collection log
                   </button>
                   {prestigeCount > 0 && (
                     <div className="osrs-bevel-inset flex items-center justify-between bg-osrs-panel-dark/60 px-3 py-2">
