@@ -34,6 +34,12 @@ const STEPS: Step[] = [
     iconUrl: "https://oldschool.runescape.wiki/images/Twisted_bow.png",
     iconAlt: "Twisted bow",
   },
+  {
+    title: "5. Prestige",
+    body: "Unlock every monster, bosses included, and the Prestige button lights up. It resets your GP, inventory, and unlocks back to the start, and adds 1 to a permanent prestige count with its own leaderboard tab.",
+    iconUrl: "https://oldschool.runescape.wiki/images/Max_cape.png",
+    iconAlt: "Max cape",
+  },
 ];
 
 export default function HowToPlayModal({ onClose }: HowToPlayModalProps) {
