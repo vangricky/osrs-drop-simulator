@@ -25,7 +25,7 @@ interface InventoryGridProps {
   onOpen: (index: number) => void;
 }
 
-function SlotContent({ slot }: { slot: InventorySlot }) {
+function SlotContent({ slot, tooltipBelow }: { slot: InventorySlot; tooltipBelow?: boolean }) {
   const { items: allItems } = useGameData();
   const item = allItems[slot.itemId];
   if (!item) return null;
@@ -37,7 +37,15 @@ function SlotContent({ slot }: { slot: InventorySlot }) {
           {slot.quantity >= 100000 ? `${Math.floor(slot.quantity / 1000)}K` : slot.quantity.toLocaleString()}
         </span>
       )}
-      <div className="pointer-events-none absolute -top-9 left-1/2 z-30 hidden -translate-x-1/2 whitespace-nowrap rounded-none bg-osrs-panel-dark px-2 py-1 text-[11px] text-osrs-parchment shadow-lg ring-1 ring-osrs-border-light group-hover:block">
+      {/* First-row slots have no grid content above them inside the
+          scrollable inventory panel, so a tooltip positioned above the
+          slot pokes past the panel's top edge and gets clipped by its
+          overflow-y-auto. Render those below the slot instead. */}
+      <div
+        className={`pointer-events-none absolute left-1/2 z-30 hidden -translate-x-1/2 whitespace-nowrap rounded-none bg-osrs-panel-dark px-2 py-1 text-[11px] text-osrs-parchment shadow-lg ring-1 ring-osrs-border-light group-hover:block ${
+          tooltipBelow ? "top-full mt-2" : "-top-9"
+        }`}
+      >
         {item.name}
         {slot.quantity > 1 ? ` (${slot.quantity.toLocaleString()})` : ""}
         {item.tradeable && <span className="text-osrs-gold"> · {formatGp(item.value * slot.quantity)} gp</span>}
@@ -49,12 +57,14 @@ function SlotContent({ slot }: { slot: InventorySlot }) {
 function Slot({
   index,
   slot,
+  tooltipBelow,
   onRemove,
   onSell,
   onOpen,
 }: {
   index: number;
   slot: InventorySlot | null;
+  tooltipBelow: boolean;
   onRemove: (index: number) => void;
   onSell: (index: number) => void;
   onOpen: (index: number) => void;
@@ -86,7 +96,7 @@ function Slot({
           className={`flex h-full w-full items-center justify-center ${isDragging ? "opacity-30" : ""} ${openable ? "cursor-pointer" : ""}`}
           style={{ touchAction: "none" }}
         >
-          <SlotContent slot={slot} />
+          <SlotContent slot={slot} tooltipBelow={tooltipBelow} />
         </div>
       )}
       {slot && openable && (
@@ -167,7 +177,7 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
         <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
           <div className="grid grid-cols-4 gap-1.5">
             {inventory.map((slot, i) => (
-              <Slot key={i} index={i} slot={slot} onRemove={onRemove} onSell={onSell} onOpen={onOpen} />
+              <Slot key={i} index={i} slot={slot} tooltipBelow={i < 4} onRemove={onRemove} onSell={onSell} onOpen={onOpen} />
             ))}
           </div>
           <DragOverlay>
