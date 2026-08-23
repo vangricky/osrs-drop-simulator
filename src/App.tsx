@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import AdBanner from "./components/AdBanner";
-import AuthModal from "./components/AuthModal";
-import ConfirmModal from "./components/ConfirmModal";
-import ContainerModal from "./components/ContainerModal";
 import DropLogPanel from "./components/DropLogPanel";
 import Header from "./components/Header";
 import InventoryGrid from "./components/InventoryGrid";
-import Leaderboard from "./components/Leaderboard";
 import NpcBrowser from "./components/NpcBrowser";
 import NpcDetailPanel from "./components/NpcDetailPanel";
-import UnlockCelebration from "./components/UnlockCelebration";
 import { npcs, type Npc } from "./data/npcData";
 import { useAuth } from "./hooks/useAuth";
 import { useGameState } from "./hooks/useGameState";
+
+// Only mounted on demand (modals/overlays) — lazy-loaded so first paint
+// doesn't have to wait on code most visitors won't need this session.
+const AuthModal = lazy(() => import("./components/AuthModal"));
+const ConfirmModal = lazy(() => import("./components/ConfirmModal"));
+const ContainerModal = lazy(() => import("./components/ContainerModal"));
+const Leaderboard = lazy(() => import("./components/Leaderboard"));
+const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 
 function App() {
   const [selectedNpc, setSelectedNpc] = useState<Npc | null>(npcs[0] ?? null);
@@ -101,40 +104,43 @@ function App() {
       </div>
 
       <footer className="mt-auto px-4 pb-4 text-center text-[11px] text-osrs-parchment-dark/40">
-        Fan-made simulator. Not affiliated with Jagex. Old School RuneScape is a trademark of Jagex Ltd.
+        Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy.
+        This content is not endorsed by or affiliated with Jagex.
       </footer>
 
-      {showResetConfirm && (
-        <ConfirmModal
-          title="Reset all progress?"
-          message="This wipes your GP, inventory, kill counts, and every monster you've unlocked. This can't be undone."
-          confirmLabel="Reset everything"
-          onCancel={() => setShowResetConfirm(false)}
-          onConfirm={() => {
-            game.resetAll();
-            setShowResetConfirm(false);
-          }}
-        />
-      )}
+      <Suspense fallback={null}>
+        {showResetConfirm && (
+          <ConfirmModal
+            title="Reset all progress?"
+            message="This wipes your GP, inventory, kill counts, and every monster you've unlocked. This can't be undone."
+            confirmLabel="Reset everything"
+            onCancel={() => setShowResetConfirm(false)}
+            onConfirm={() => {
+              game.resetAll();
+              setShowResetConfirm(false);
+            }}
+          />
+        )}
 
-      {game.lastContainerOpen && (
-        <ContainerModal result={game.lastContainerOpen} onClose={game.closeContainerModal} />
-      )}
+        {game.lastContainerOpen && (
+          <ContainerModal result={game.lastContainerOpen} onClose={game.closeContainerModal} />
+        )}
 
-      {celebratingNpc && (
-        <UnlockCelebration npc={celebratingNpc} onDismiss={() => setCelebratingNpc(null)} />
-      )}
+        {celebratingNpc && (
+          <UnlockCelebration npc={celebratingNpc} onDismiss={() => setCelebratingNpc(null)} />
+        )}
 
-      {authModalOpen && (
-        <AuthModal
-          auth={auth}
-          onClose={() => setShowAuth(false)}
-        />
-      )}
+        {authModalOpen && (
+          <AuthModal
+            auth={auth}
+            onClose={() => setShowAuth(false)}
+          />
+        )}
 
-      {showLeaderboard && (
-        <Leaderboard currentUsername={auth.username} onClose={() => setShowLeaderboard(false)} />
-      )}
+        {showLeaderboard && (
+          <Leaderboard currentUsername={auth.username} onClose={() => setShowLeaderboard(false)} />
+        )}
+      </Suspense>
     </div>
   );
 }

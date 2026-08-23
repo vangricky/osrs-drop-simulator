@@ -60,4 +60,4 @@ Setting up your own Supabase backend for accounts/leaderboard? See `supabase/REA
 
 ## Disclaimer
 
-This is an unofficial fan project. Old School RuneScape is a trademark of Jagex Ltd. All game data (items, monsters, drop rates) belongs to Jagex; it's used here for reference/informational purposes the same way the OSRS Wiki and countless community tools do.
+Created using intellectual property belonging to Jagex Limited under the terms of [Jagex's Fan Content Policy](https://legal.jagex.com/docs/policies/fan-content-policy). This content is not endorsed by or affiliated with Jagex.

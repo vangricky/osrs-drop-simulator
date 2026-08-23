@@ -9,16 +9,68 @@
       is silently ignored by browsers in this context, so clickjacking
       protection isn't achievable without server-controlled headers.
     -->
+    <!--
+      The sha256 in script-src allows exactly the JSON-LD block below and
+      nothing else inline — if you edit that block's content, recompute the
+      hash (see scripts/hash-jsonld.mjs) or the structured data silently
+      stops loading (CSP failures don't throw visible errors here).
+    -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-Gk9gFQGRomOc8Vn8MU+ZEp10WKU5QazH+9f/AQaISKc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3e3529" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>OSRS Drop Simulator</title>
+
+    <title>OSRS Drop Simulator — Free Old School RuneScape Drop Rate Simulator</title>
+    <meta
+      name="description"
+      content="Simulate real Old School RuneScape drop tables for 346 monsters and bosses. Grind GP, unlock new monsters, open clue caskets, and climb the global leaderboard — free, in your browser."
+    />
+    <meta name="keywords" content="OSRS, Old School RuneScape, drop simulator, drop rate calculator, OSRS bosses, OSRS drop table, RuneScape simulator, loot simulator" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vangricky.github.io/osrs-drop-simulator/" />
+
+    <!-- Open Graph / Discord / Facebook link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OSRS Drop Simulator" />
+    <meta property="og:title" content="OSRS Drop Simulator — Free Old School RuneScape Drop Rate Simulator" />
+    <meta
+      property="og:description"
+      content="Simulate real OSRS drop tables for 346 monsters and bosses. Grind GP, unlock new monsters, open clue caskets, and climb the global leaderboard — free, in your browser."
+    />
+    <meta property="og:url" content="https://vangricky.github.io/osrs-drop-simulator/" />
+    <meta property="og:image" content="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png" />
+
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="OSRS Drop Simulator — Free Old School RuneScape Drop Rate Simulator" />
+    <meta
+      name="twitter:description"
+      content="Simulate real OSRS drop tables for 346 monsters and bosses. Grind GP, unlock new monsters, and climb the global leaderboard."
+    />
+    <meta name="twitter:image" content="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "OSRS Drop Simulator",
+        "url": "https://vangricky.github.io/osrs-drop-simulator/",
+        "description": "A free browser-based drop rate simulator for Old School RuneScape, covering 346 monsters and bosses with real drop tables, a GP economy, and a global leaderboard.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any (web browser)",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
