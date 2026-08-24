@@ -31,9 +31,69 @@
       "maxGpPerKill": 33000
     },
     {
-      "id": "salarin-the-twisted",
-      "unlockCost": 660000000,
-      "maxGpPerKill": 1074
+      "id": "ahrim-the-blighted",
+      "unlockCost": 0,
+      "maxGpPerKill": 2548
+    },
+    {
+      "id": "dharok-the-wretched",
+      "unlockCost": 2300000000,
+      "maxGpPerKill": 2548
+    },
+    {
+      "id": "guthan-the-infested",
+      "unlockCost": 2300000000,
+      "maxGpPerKill": 2548
+    },
+    {
+      "id": "karil-the-tainted",
+      "unlockCost": 1500000000,
+      "maxGpPerKill": 2548
+    },
+    {
+      "id": "torag-the-corrupted",
+      "unlockCost": 2300000000,
+      "maxGpPerKill": 2548
+    },
+    {
+      "id": "verac-the-defiled",
+      "unlockCost": 2300000000,
+      "maxGpPerKill": 2548
+    },
+    {
+      "id": "tztok-jad",
+      "unlockCost": 210000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "tzkal-zuk",
+      "unlockCost": 1200000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "grotesque-guardians",
+      "unlockCost": 15000000000,
+      "maxGpPerKill": 91000
+    },
+    {
+      "id": "blood-moon",
+      "unlockCost": 31000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "blue-moon",
+      "unlockCost": 31000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "eclipse-moon",
+      "unlockCost": 31000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "revenant-maledictus",
+      "unlockCost": 50000000000,
+      "maxGpPerKill": 1000
     },
     {
       "id": "corporeal-beast",
@@ -49,36 +109,6 @@
       "id": "thermonuclear-smoke-devil",
       "unlockCost": 25000000000,
       "maxGpPerKill": 41000
-    },
-    {
-      "id": "ahrim-the-blighted",
-      "unlockCost": 1500000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "dharok-the-wretched",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "guthan-the-infested",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "karil-the-tainted",
-      "unlockCost": 1500000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "torag-the-corrupted",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "verac-the-defiled",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 1000
     },
     {
       "id": "chaos-elemental",
@@ -104,11 +134,6 @@
       "id": "dagannoth-rex",
       "unlockCost": 26000000000,
       "maxGpPerKill": 3418
-    },
-    {
-      "id": "tztok-jad",
-      "unlockCost": 210000000000,
-      "maxGpPerKill": 1000
     },
     {
       "id": "kril-tsutsaroth",
@@ -186,11 +211,6 @@
       "maxGpPerKill": 8996
     },
     {
-      "id": "demonic-brutus",
-      "unlockCost": 840000000000,
-      "maxGpPerKill": 1000
-    },
-    {
       "id": "deranged-archaeologist",
       "unlockCost": 20000000000,
       "maxGpPerKill": 1000
@@ -233,16 +253,6 @@
     {
       "id": "maggot-king",
       "unlockCost": 240000000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "melzar-the-mad",
-      "unlockCost": 190000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "the-mimic",
-      "unlockCost": 7500000000,
       "maxGpPerKill": 1000
     },
     {
@@ -291,11 +301,6 @@
       "maxGpPerKill": 1000
     },
     {
-      "id": "sir-mordred",
-      "unlockCost": 0,
-      "maxGpPerKill": 1000
-    },
-    {
       "id": "skotizo",
       "unlockCost": 30000000000,
       "maxGpPerKill": 1000
@@ -308,16 +313,6 @@
     {
       "id": "the-hueycoatl",
       "unlockCost": 170000000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "tzkal-zuk",
-      "unlockCost": 1200000000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "ulfric",
-      "unlockCost": 1600000000,
       "maxGpPerKill": 1000
     },
     {
@@ -3411,6 +3406,302 @@
     "smolcano": {
       "value": 0,
       "tradeable": false
+    },
+    "adamant-boots": {
+      "value": 740,
+      "tradeable": true
+    },
+    "ahrims-hood": {
+      "value": 424326,
+      "tradeable": true
+    },
+    "ahrims-robeskirt": {
+      "value": 1468599,
+      "tradeable": true
+    },
+    "ahrims-robetop": {
+      "value": 1494333,
+      "tradeable": true
+    },
+    "ahrims-staff": {
+      "value": 158275,
+      "tradeable": true
+    },
+    "amulet-of-avarice": {
+      "value": 420980,
+      "tradeable": true
+    },
+    "ancient-crystal": {
+      "value": 152602,
+      "tradeable": true
+    },
+    "ancient-effigy": {
+      "value": 7987037,
+      "tradeable": true
+    },
+    "ancient-emblem": {
+      "value": 498761,
+      "tradeable": true
+    },
+    "ancient-medallion": {
+      "value": 3992001,
+      "tradeable": true
+    },
+    "ancient-relic": {
+      "value": 15975358,
+      "tradeable": true
+    },
+    "ancient-statuette": {
+      "value": 1995502,
+      "tradeable": true
+    },
+    "ancient-totem": {
+      "value": 997702,
+      "tradeable": true
+    },
+    "atlatl-dart": {
+      "value": 131,
+      "tradeable": true
+    },
+    "black-tourmaline-core": {
+      "value": 599135,
+      "tradeable": true
+    },
+    "blighted-ancient-ice-sack": {
+      "value": 379,
+      "tradeable": true
+    },
+    "blighted-entangle-sack": {
+      "value": 48,
+      "tradeable": true
+    },
+    "blighted-manta-ray": {
+      "value": 104,
+      "tradeable": true
+    },
+    "blighted-teleport-spell-sack": {
+      "value": 56,
+      "tradeable": true
+    },
+    "blighted-vengeance-sack": {
+      "value": 78,
+      "tradeable": true
+    },
+    "blood-moon-chestplate": {
+      "value": 3792577,
+      "tradeable": true
+    },
+    "blood-moon-helm": {
+      "value": 824024,
+      "tradeable": true
+    },
+    "blood-moon-tassets": {
+      "value": 8852623,
+      "tradeable": true
+    },
+    "blue-moon-chestplate": {
+      "value": 1461847,
+      "tradeable": true
+    },
+    "blue-moon-helm": {
+      "value": 703551,
+      "tradeable": true
+    },
+    "blue-moon-spear": {
+      "value": 356402,
+      "tradeable": true
+    },
+    "blue-moon-tassets": {
+      "value": 3332442,
+      "tradeable": true
+    },
+    "bolt-rack": {
+      "value": 73,
+      "tradeable": true
+    },
+    "bracelet-of-ethereum-uncharged": {
+      "value": 42811,
+      "tradeable": true
+    },
+    "craws-bow-u": {
+      "value": 14908901,
+      "tradeable": true
+    },
+    "dharoks-greataxe": {
+      "value": 1907897,
+      "tradeable": true
+    },
+    "dharoks-helm": {
+      "value": 320177,
+      "tradeable": true
+    },
+    "dharoks-platebody": {
+      "value": 920325,
+      "tradeable": true
+    },
+    "dharoks-platelegs": {
+      "value": 996094,
+      "tradeable": true
+    },
+    "diamond-bolt-tips": {
+      "value": 172,
+      "tradeable": true
+    },
+    "dragonstone-bolt-tips": {
+      "value": 415,
+      "tradeable": true
+    },
+    "dual-macuahuitl": {
+      "value": 4803237,
+      "tradeable": true
+    },
+    "eclipse-atlatl": {
+      "value": 740352,
+      "tradeable": true
+    },
+    "eclipse-moon-chestplate": {
+      "value": 1501431,
+      "tradeable": true
+    },
+    "eclipse-moon-helm": {
+      "value": 808500,
+      "tradeable": true
+    },
+    "eclipse-moon-tassets": {
+      "value": 2216280,
+      "tradeable": true
+    },
+    "fire-cape": {
+      "value": 0,
+      "tradeable": false
+    },
+    "gold-bar": {
+      "value": 90,
+      "tradeable": true
+    },
+    "granite-hammer": {
+      "value": 9180929,
+      "tradeable": true
+    },
+    "granite-maul": {
+      "value": 92522,
+      "tradeable": true
+    },
+    "granite-ring": {
+      "value": 28478,
+      "tradeable": true
+    },
+    "guthans-chainskirt": {
+      "value": 228657,
+      "tradeable": true
+    },
+    "guthans-helm": {
+      "value": 145230,
+      "tradeable": true
+    },
+    "guthans-platebody": {
+      "value": 223832,
+      "tradeable": true
+    },
+    "guthans-warspear": {
+      "value": 80765,
+      "tradeable": true
+    },
+    "infernal-cape": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jar-of-stone": {
+      "value": 951500,
+      "tradeable": true
+    },
+    "karils-coif": {
+      "value": 48996,
+      "tradeable": true
+    },
+    "karils-crossbow": {
+      "value": 97121,
+      "tradeable": true
+    },
+    "karils-leatherskirt": {
+      "value": 426019,
+      "tradeable": true
+    },
+    "karils-leathertop": {
+      "value": 918585,
+      "tradeable": true
+    },
+    "magic-potion-2": {
+      "value": 42,
+      "tradeable": true
+    },
+    "mushroom-potato": {
+      "value": 932,
+      "tradeable": true
+    },
+    "noon": {
+      "value": 0,
+      "tradeable": false
+    },
+    "revenant-cave-teleport": {
+      "value": 615,
+      "tradeable": true
+    },
+    "revenant-ether": {
+      "value": 175,
+      "tradeable": true
+    },
+    "swamp-tar": {
+      "value": 4,
+      "tradeable": true
+    },
+    "thammarons-sceptre-u": {
+      "value": 2774693,
+      "tradeable": true
+    },
+    "tokkul": {
+      "value": 0,
+      "tradeable": false
+    },
+    "torags-hammers": {
+      "value": 117246,
+      "tradeable": true
+    },
+    "torags-helm": {
+      "value": 178627,
+      "tradeable": true
+    },
+    "torags-platebody": {
+      "value": 321067,
+      "tradeable": true
+    },
+    "torags-platelegs": {
+      "value": 354227,
+      "tradeable": true
+    },
+    "veracs-brassard": {
+      "value": 169193,
+      "tradeable": true
+    },
+    "veracs-flail": {
+      "value": 98045,
+      "tradeable": true
+    },
+    "veracs-helm": {
+      "value": 140298,
+      "tradeable": true
+    },
+    "veracs-plateskirt": {
+      "value": 371561,
+      "tradeable": true
+    },
+    "viggoras-chainmace-u": {
+      "value": 4264913,
+      "tradeable": true
+    },
+    "wyrmling-bones": {
+      "value": 444,
+      "tradeable": true
     }
   },
   "containers": {

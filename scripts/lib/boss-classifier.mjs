@@ -138,8 +138,22 @@ export const KNOWN_ONE_OFF_BOSSES = new Set([
   "Kamil",
   "Black Knight Titan",
   "Chronozon",
+  "Sir Mordred",
 ]);
 
+// Real, repeatable Category:Bosses members that still don't belong here:
+// either they're not on the OSRS Wiki's own curated "List of bosses"
+// overview page (the authoritative roster this project follows), or their
+// drop table can't be honestly represented by a per-kill DropsLine scrape
+// (Mimic's real reward is a guaranteed pick from the clue-reward pool, not
+// a rollable drop table — the scraper only ever captured its 2 mahogany
+// planks; Demonic Brutus's own wiki text says "his only drop is a cosmetic
+// pair of Brutus slippers and an increased drop rate for Beef" — nothing of
+// actual value, a "waste of money to unlock"). Ulfric, Melzar the Mad, and
+// Salarin the twisted are all genuine Category:Bosses members but none
+// appear on the curated List of bosses page.
+export const EXCLUDED_NOT_ON_CURATED_LIST = new Set(["Ulfric", "Melzar the Mad", "Salarin the twisted", "The Mimic", "Demonic Brutus"]);
+
 export function isRealRepeatableBoss(name) {
-  return !RAID_ROOM_BOSSES.has(name) && !KNOWN_ONE_OFF_BOSSES.has(name);
+  return !RAID_ROOM_BOSSES.has(name) && !KNOWN_ONE_OFF_BOSSES.has(name) && !EXCLUDED_NOT_ON_CURATED_LIST.has(name);
 }
