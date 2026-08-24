@@ -131,72 +131,92 @@ export default function Header({
               onClick={() => setMenuOpen((open) => !open)}
               aria-label="Open menu"
               aria-expanded={menuOpen}
-              className="osrs-bevel flex h-9 w-9 shrink-0 items-center justify-center bg-osrs-panel-dark/50 text-osrs-parchment-dark/80 active:osrs-bevel-inset"
+              className="osrs-bevel flex h-9 w-9 shrink-0 items-center justify-center bg-osrs-panel-dark/50 text-osrs-parchment-dark/80 transition active:osrs-bevel-inset"
             >
-              <span className="flex flex-col items-center gap-[3px]">
-                <span className="block h-[2px] w-4 bg-current" />
-                <span className="block h-[2px] w-4 bg-current" />
-                <span className="block h-[2px] w-4 bg-current" />
+              <span className="relative flex h-4 w-4 items-center justify-center">
+                <span
+                  className={`absolute block h-[2px] w-4 rounded-full bg-current transition-transform duration-200 ease-out ${
+                    menuOpen ? "translate-y-0 rotate-45" : "-translate-y-[5px] rotate-0"
+                  }`}
+                />
+                <span
+                  className={`absolute block h-[2px] w-4 rounded-full bg-current transition-opacity duration-150 ease-out ${
+                    menuOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+                <span
+                  className={`absolute block h-[2px] w-4 rounded-full bg-current transition-transform duration-200 ease-out ${
+                    menuOpen ? "translate-y-0 -rotate-45" : "translate-y-[5px] rotate-0"
+                  }`}
+                />
               </span>
             </button>
 
-            {menuOpen && (
-              <div className="osrs-bevel osrs-panel absolute right-0 top-[calc(100%+8px)] z-30 w-56 origin-top-right shadow-xl">
-                <div className="flex flex-col gap-2 p-3 text-sm">
+            {/* Always mounted (not conditionally rendered) so opening and
+                closing both animate — closed state fades/scales/slides out
+                via CSS transition instead of the menu just popping away. */}
+            <div
+              aria-hidden={!menuOpen}
+              className={`osrs-bevel osrs-panel absolute right-0 top-[calc(100%+8px)] z-30 w-56 origin-top-right shadow-xl transition duration-150 ease-out ${
+                menuOpen
+                  ? "translate-y-0 scale-100 opacity-100"
+                  : "pointer-events-none -translate-y-1 scale-95 opacity-0"
+              }`}
+            >
+              <div className="flex flex-col gap-1 p-2 text-sm">
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onOpenHowToPlay();
+                  }}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  How to play
+                </button>
+
+                {authEnabled && username && (
+                  <div className="px-3 pb-0.5 pt-1 text-xs text-osrs-parchment-dark/70">
+                    Signed in as <span className="font-semibold text-osrs-gold">{username}</span>
+                  </div>
+                )}
+
+                {authEnabled && username ? (
                   <button
                     onClick={() => {
                       setMenuOpen(false);
-                      onOpenHowToPlay();
+                      onSignOut();
                     }}
-                    className="osrs-bevel bg-osrs-gold/15 px-3 py-2 text-left font-semibold text-osrs-gold transition active:osrs-bevel-inset"
+                    className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-parchment-dark/80 transition hover:bg-osrs-panel-dark/60 hover:text-osrs-parchment"
                   >
-                    How to play
+                    Sign out
                   </button>
-
-                  {authEnabled && username && (
-                    <div className="px-1 pb-0.5 pt-1 text-xs text-osrs-parchment-dark/70">
-                      Signed in as <span className="font-semibold text-osrs-gold">{username}</span>
-                    </div>
-                  )}
-
-                  {authEnabled && username ? (
+                ) : (
+                  authEnabled && (
                     <button
                       onClick={() => {
                         setMenuOpen(false);
-                        onSignOut();
+                        onOpenAuth();
                       }}
-                      className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-2 text-left font-semibold text-osrs-parchment-dark/80 transition active:osrs-bevel-inset"
+                      className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
                     >
-                      Sign out
+                      Sign in
                     </button>
-                  ) : (
-                    authEnabled && (
-                      <button
-                        onClick={() => {
-                          setMenuOpen(false);
-                          onOpenAuth();
-                        }}
-                        className="osrs-bevel bg-osrs-gold/20 px-3 py-2 text-left font-semibold text-osrs-gold transition active:osrs-bevel-inset"
-                      >
-                        Sign in
-                      </button>
-                    )
-                  )}
+                  )
+                )}
 
-                  {!username && (
-                    <button
-                      onClick={() => {
-                        setMenuOpen(false);
-                        onReset();
-                      }}
-                      className="osrs-bevel bg-osrs-red/20 px-3 py-2 text-left font-semibold text-osrs-red transition active:osrs-bevel-inset"
-                    >
-                      Reset
-                    </button>
-                  )}
-                </div>
+                {!username && (
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      onReset();
+                    }}
+                    className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-red transition hover:bg-osrs-red/15"
+                  >
+                    Reset
+                  </button>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>

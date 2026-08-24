@@ -86,82 +86,95 @@ body::after {
     radial-gradient(1px 1px at 88% 8%, rgba(255, 255, 255, 0.7), transparent);
 }
 
-/* Frosted-glass panel border: a soft gold hairline + layered depth shadow,
-   replacing the old hard emboss bevel. Shared by every panel, button and
-   badge in the app, so this one rule is most of the "3D glass" redesign. */
-.osrs-bevel {
-  border-radius: 12px;
-  border: 1px solid rgba(255, 201, 77, 0.28);
-  box-shadow:
-    0 20px 45px -18px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
+/* These design-system classes are meant to compose with Tailwind utility
+   classes on the same element (e.g. `osrs-panel absolute ...`), so they're
+   declared inside Tailwind's own `base` layer rather than as plain
+   (unlayered) rules — CSS cascade layers take priority over specificity
+   entirely, and Tailwind's utilities live in `@layer utilities`, which
+   always beats unlayered CSS. Without this, a plain `.osrs-panel {
+   position: relative }` rule silently clobbered `absolute`/`fixed` on
+   elements like the header dropdown and the mobile action bar, no matter
+   how the selectors were written. */
+@layer base {
+  /* Frosted-glass panel border: a soft gold hairline + layered depth
+     shadow, replacing the old hard emboss bevel. Shared by every panel,
+     button and badge in the app, so this one rule is most of the "3D
+     glass" redesign. */
+  .osrs-bevel {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 201, 77, 0.28);
+    box-shadow:
+      0 20px 45px -18px rgba(0, 0, 0, 0.75),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
 
-.osrs-bevel-inset {
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.55);
-}
+  .osrs-bevel-inset {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.55);
+  }
 
-.osrs-panel {
-  position: relative;
-  background-color: transparent;
-  background-image: linear-gradient(165deg, rgba(74, 65, 54, 0.5) 0%, rgba(18, 14, 9, 0.72) 100%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
+  .osrs-panel {
+    position: relative;
+    background-color: transparent;
+    background-image: linear-gradient(165deg, rgba(74, 65, 54, 0.5) 0%, rgba(18, 14, 9, 0.72) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
 
-/* Soft glossy highlight across the top of every glass panel. */
-.osrs-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 42%;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent);
-  pointer-events: none;
-}
+  /* Soft glossy highlight across the top of every glass panel. */
+  .osrs-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 42%;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent);
+    pointer-events: none;
+  }
 
-/* Cinzel headings in gold get the "Ascended HUD" gold-leaf treatment: a
-   gradient fill plus an ambient glow, instead of a flat gold color. Scoped to
-   font-display so small stat numbers (font-semibold) are unaffected. */
-.font-display.text-osrs-gold {
-  background: linear-gradient(180deg, #ffe9ab, #ffb700 70%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 14px rgba(255, 183, 0, 0.4));
-}
+  /* Cinzel headings in gold get the "Ascended HUD" gold-leaf treatment: a
+     gradient fill plus an ambient glow, instead of a flat gold color.
+     Scoped to font-display so small stat numbers (font-semibold) are
+     unaffected. */
+  .font-display.text-osrs-gold {
+    background: linear-gradient(180deg, #ffe9ab, #ffb700 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 14px rgba(255, 183, 0, 0.4));
+  }
 
-/* Glowing icon "orb": a circular frosted socket used to present a boss or
-   item icon with a rarity/tier-tinted halo, set via --glow (soft bloom
-   behind) and --ring (thin edge) custom properties per usage. */
-.osrs-orb {
-  --glow: rgba(255, 183, 0, 0.35);
-  --ring: rgba(255, 183, 0, 0.5);
-  position: relative;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.3) 70%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.osrs-orb::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
-  z-index: -1;
-}
-.osrs-orb::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 1px var(--ring),
-    inset 0 0 8px rgba(255, 255, 255, 0.08);
+  /* Glowing icon "orb": a circular frosted socket used to present a boss
+     or item icon with a rarity/tier-tinted halo, set via --glow (soft
+     bloom behind) and --ring (thin edge) custom properties per usage. */
+  .osrs-orb {
+    --glow: rgba(255, 183, 0, 0.35);
+    --ring: rgba(255, 183, 0, 0.5);
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.3) 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .osrs-orb::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+    z-index: -1;
+  }
+  .osrs-orb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 1px var(--ring),
+      inset 0 0 8px rgba(255, 255, 255, 0.08);
+  }
 }
 
 .osrs-scrollbar::-webkit-scrollbar {
