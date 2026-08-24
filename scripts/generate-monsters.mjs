@@ -4,8 +4,17 @@
  *  - osrsreboxed-db (community-maintained, cache-derived monster/drop database)
  *  - the OSRS Wiki's real-time prices API (item names/icons/live values)
  *
- * Re-run this after a game update to pick up new/changed monsters. For
+ * Boss-only simulator: every candidate is cross-checked against the OSRS
+ * Wiki's Category:Bosses (osrsreboxed's own "bosses" tag is stale/loose —
+ * confirmed it includes plain Slayer monsters and one-off quest fights that
+ * happen to share a name with unrelated content) and filtered through
+ * scripts/lib/boss-classifier.mjs's raid-room/one-off-quest exclusions.
+ *
+ * Re-run this after a game update to pick up new/changed bosses. For
  * day-to-day price freshness, use update-prices.mjs instead (much cheaper).
+ * Run generate-bosses-from-wiki.mjs after this — osrsreboxed has had no new
+ * content since ~2019, so anything released since then (most current
+ * bosses) only comes from that script.
  *
  * Monsters/items already hand-authored in src/data/npcData.ts are skipped
  * here so this never clobbers verified data.
@@ -13,6 +22,13 @@
 import { writeFileSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import {
+  normalizeName,
+  fetchWikiBossNames,
+  batchFetchWikitext,
+  isQuestOnlyVariant,
+  isRealRepeatableBoss,
+} from "./lib/boss-classifier.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -66,12 +82,14 @@ function existingHandcraftedIds() {
   return { npcIds, itemIds };
 }
 
-function unlockCostFor(combatLevel, isBoss) {
-  // Monsters under combat level 6 are the free starter tier; everything
-  // from 6 up must be unlocked. Steep on purpose — this is meant to be a
-  // long grind, not a quick unlock-everything session.
-  if (combatLevel < 6) return 0;
-  let raw = 400 * combatLevel ** 2.5 * (isBoss ? 40 : 1);
+// Every remaining monster is a boss now, so this always applies the boss
+// multiplier — no more "under combat level N is free" tier, since every
+// boss here is well above any such threshold anyway. Which two bosses are
+// actually free (lowest combat level) is decided once, globally, across
+// every source (hand-authored + both generator scripts' output) by
+// scripts/finalize-starter-bosses.mjs, run last in the pipeline.
+function unlockCostFor(combatLevel) {
+  let raw = 400 * combatLevel ** 2.5 * 40;
   // Round to ~2 significant figures for a "chunky" number.
   const magnitude = 10 ** Math.floor(Math.log10(raw) - 1);
   return Math.round(raw / magnitude) * magnitude;
@@ -132,13 +150,15 @@ function dedupeEntries(entries, exclude = new Set()) {
 }
 
 async function main() {
-  console.log("Fetching monster database, item database, item mapping, and live prices...");
-  const [monstersRaw, itemsRaw, mapping, latest] = await Promise.all([
+  console.log("Fetching monster database, item database, item mapping, live prices, and the wiki's boss list...");
+  const [monstersRaw, itemsRaw, mapping, latest, wikiBossNames] = await Promise.all([
     fetchJson(MONSTERS_URL),
     fetchJson(ITEMS_URL),
     fetchJson(MAPPING_URL),
     fetchJson(LATEST_URL),
+    fetchWikiBossNames(),
   ]);
+  const wikiBossSet = new Set(wikiBossNames.map(normalizeName));
 
   const mappingById = new Map(mapping.map((it) => [it.id, it]));
   const stackableByName = buildStackableByName(itemsRaw);
@@ -146,7 +166,13 @@ async function main() {
 
   const allMonsters = Object.values(monstersRaw);
   const eligible = allMonsters.filter(
-    (m) => !m.duplicate && m.combat_level > 0 && Array.isArray(m.drops) && m.drops.length > 0,
+    (m) =>
+      !m.duplicate &&
+      m.combat_level > 0 &&
+      Array.isArray(m.drops) &&
+      m.drops.length > 0 &&
+      wikiBossSet.has(normalizeName(m.name)) &&
+      isRealRepeatableBoss(m.name),
   );
 
   // Dedupe by slug, keeping the richest (most drops) entry per name. Drop
@@ -174,6 +200,18 @@ async function main() {
     if (/unused/i.test(m.wiki_url || "")) bySlug.delete(slug);
   }
 
+  // isRealRepeatableBoss/RAID_ROOM_BOSSES catches known cases, but a wiki
+  // "boss" name match can still be the specific one-off quest-encounter
+  // page for something with a separate real repeatable version elsewhere —
+  // same check generate-bosses-from-wiki.mjs does, applied here too since
+  // osrsreboxed's data can independently include that exact quest NPC.
+  console.log(`Verifying ${bySlug.size} boss-matched candidates aren't one-off quest encounters...`);
+  const candidateWikitext = await batchFetchWikitext([...bySlug.values()].map((m) => m.name));
+  for (const [slug, m] of [...bySlug]) {
+    const wikitext = candidateWikitext[m.name];
+    if (wikitext && isQuestOnlyVariant(wikitext)) bySlug.delete(slug);
+  }
+
   // The monster DB's drop name and the price-mapping's canonical name can differ for the
   // same item id (e.g. "Cannonball" vs "Steel cannonball"). Resolve ONE canonical name per
   // id up front so the monster's itemId reference and the item dictionary key always agree.
@@ -193,7 +231,6 @@ async function main() {
   const usedItemIds = new Set();
 
   for (const [slug, m] of bySlug) {
-    const isBoss = (m.category || []).includes("bosses");
     const always = [];
     const tertiary = [];
 
@@ -225,8 +262,8 @@ async function main() {
       combatLevel: m.combat_level,
       iconUrl: img(m.name),
       examine: m.examine || "",
-      category: isBoss ? "boss" : m.combat_level >= 30 ? "mid" : "low",
-      unlockCost: unlockCostFor(m.combat_level, isBoss),
+      category: "boss",
+      unlockCost: unlockCostFor(m.combat_level),
       always: dedupedAlways,
       mainTable: [],
       tertiary: dedupeEntries(tertiary, alwaysKeys),

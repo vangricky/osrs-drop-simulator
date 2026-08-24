@@ -11,8 +11,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: "1. Pick a monster",
-    body: "Browse or search the monster list on the left. Low-level monsters (under combat level 10) are free to fight. Tougher ones cost GP to unlock.",
+    title: "1. Pick a boss",
+    body: "Every monster here is a boss. Playing as a guest, everything's unlocked from the start. Sign in and you'll start with two, then spend GP unlocking the rest.",
     iconUrl: "https://oldschool.runescape.wiki/images/Coins_10000.png",
     iconAlt: "Coins",
   },
@@ -29,14 +29,14 @@ const STEPS: Step[] = [
     iconAlt: "Blue partyhat",
   },
   {
-    title: "4. Cash in & level up",
-    body: "Spend your GP unlocking stronger monsters with better drop tables. Chase the rares and work your way up to the bosses.",
+    title: "4. Cash in & unlock more",
+    body: "Spend your GP unlocking tougher bosses with better drop tables. Chase the rares and work your way up to the true endgame.",
     iconUrl: "https://oldschool.runescape.wiki/images/Twisted_bow.png",
     iconAlt: "Twisted bow",
   },
   {
     title: "5. Prestige",
-    body: "Unlock every monster, bosses included, and the Prestige button lights up. It resets your GP, inventory, and unlocks back to the start, and adds 1 to a permanent prestige count with its own leaderboard tab.",
+    body: "Unlock every boss and the Prestige button lights up. It resets your GP, inventory, and unlocks back to the start, and adds 1 to a permanent prestige count with its own leaderboard tab.",
     iconUrl: "https://oldschool.runescape.wiki/images/Max_cape.png",
     iconAlt: "Max cape",
   },

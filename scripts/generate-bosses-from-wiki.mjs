@@ -16,63 +16,20 @@
 import { writeFileSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import {
+  fetchWikiBossNames,
+  batchFetchWikitext,
+  isQuestOnlyVariant,
+  isRealRepeatableBoss,
+} from "./lib/boss-classifier.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const UA = "osrs-drop-simulator-fan-site (data build script)";
-const WIKI_API = "https://oldschool.runescape.wiki/api.php";
 const MAPPING_URL = "https://prices.runescape.wiki/api/v1/osrs/mapping";
 const LATEST_URL = "https://prices.runescape.wiki/api/v1/osrs/latest";
 
 const ICON_OVERRIDES = JSON.parse(readFileSync(path.join(__dirname, "icon-overrides.json"), "utf8"));
-
-// Raid room bosses: only ever encountered as one stage of a full raid
-// (Theatre of Blood / Tombs of Amascut / Chambers of Xeric), fought in a
-// fixed sequence with the others, with rewards coming from the raid's
-// shared points-based roll at the end rather than a per-kill drop table on
-// that specific room boss. Unlocking one to "kill" it standalone doesn't
-// correspond to anything a real player can actually do, so it's not
-// meaningful content for this simulator. No clean structural signal for
-// this on the wiki (no shared category tag), so it's a fixed list — OSRS
-// only has three raids, and their rosters rarely change.
-const RAID_ROOM_BOSSES = new Set([
-  // Theatre of Blood
-  "The Maiden of Sugadinti",
-  "Pestilent Bloat",
-  "Nylocas Vasilias",
-  "Sotetseg",
-  "Xarpus",
-  "Verzik Vitur",
-  // Tombs of Amascut
-  "Akkha",
-  "Ba-Ba",
-  "Kephri",
-  "Zebak",
-  "Elidinis' Warden",
-  "Tumeken's Warden",
-  // Chambers of Xeric (also mostly caught separately by combat-level/drops
-  // filters below, since their pages often lack a fixed combat level — kept
-  // here too as a belt-and-suspenders in case that ever changes)
-  "Great Olm",
-  "Tekton",
-  "Vasa Nistirio",
-  "Vespula",
-  "Muttadile",
-  "Vanguard",
-  "Ice demon",
-]);
-
-/** True for a page that's specifically the one-time quest encounter version
- * of a boss that also has a separate, real repeatable version elsewhere
- * (Nightmare Zone, post-quest spawn, etc.) — the wiki's own disambiguation
- * template says so explicitly, e.g. "the quest boss fought during Desert
- * Treasure I" vs "the Nightmare Zone variant". Checked against real
- * repeatable bosses that merely originated from a quest (Vorkath, Ulfric)
- * to confirm this doesn't false-positive on those — a plain
- * Category:Quest monsters tag alone does, this specific phrasing doesn't. */
-function isQuestOnlyVariant(wikitext) {
-  return /\{\{Otheruses\|[^}]*quest boss[^}]*\}\}/i.test(wikitext);
-}
 
 function slugify(name) {
   return name
@@ -87,9 +44,11 @@ function img(name) {
   return `https://oldschool.runescape.wiki/images/${name.replace(/ /g, "_")}.png`;
 }
 
-function unlockCostFor(combatLevel, isBoss) {
-  if (combatLevel < 6) return 0;
-  let raw = 400 * combatLevel ** 2.5 * (isBoss ? 40 : 1);
+// Which bosses are actually free (lowest combat level) is decided once,
+// globally, across every source by scripts/finalize-starter-bosses.mjs, run
+// last in the pipeline — every boss here just gets the full formula cost.
+function unlockCostFor(combatLevel) {
+  let raw = 400 * combatLevel ** 2.5 * 40;
   const magnitude = 10 ** Math.floor(Math.log10(raw) - 1);
   return Math.round(raw / magnitude) * magnitude;
 }
@@ -98,53 +57,6 @@ async function fetchJson(url) {
   const res = await fetch(url, { headers: { "User-Agent": UA } });
   if (!res.ok) throw new Error(`${url} -> HTTP ${res.status}`);
   return res.json();
-}
-
-function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms));
-}
-
-async function wikiQuery(params) {
-  const url = `${WIKI_API}?${new URLSearchParams({ format: "json", ...params })}`;
-  return fetchJson(url);
-}
-
-async function getCategoryMembers(category) {
-  const members = [];
-  let cmcontinue;
-  do {
-    const params = { action: "query", list: "categorymembers", cmtitle: category, cmlimit: "500" };
-    if (cmcontinue) params.cmcontinue = cmcontinue;
-    const data = await wikiQuery(params);
-    members.push(...data.query.categorymembers.map((m) => m.title));
-    cmcontinue = data.continue?.cmcontinue;
-  } while (cmcontinue);
-  // Category:Bosses also has a pile of illustrative screenshots tagged into
-  // it (File: namespace) plus its own overview page — neither is a monster.
-  return members.filter((t) => t !== "Boss" && !t.startsWith("Category:") && !t.startsWith("File:"));
-}
-
-/** Batches title lookups (anonymous API access caps at 50/request) and is
- * polite about it — this is a few hundred pages, not worth hammering the
- * wiki's servers for. */
-async function batchFetchWikitext(titles) {
-  const result = {};
-  for (let i = 0; i < titles.length; i += 40) {
-    const chunk = titles.slice(i, i + 40);
-    const data = await wikiQuery({
-      action: "query",
-      titles: chunk.join("|"),
-      prop: "revisions",
-      rvprop: "content",
-      rvslots: "main",
-      redirects: "1",
-    });
-    for (const page of Object.values(data.query.pages ?? {})) {
-      if (page.revisions) result[page.title] = page.revisions[0].slots.main["*"];
-    }
-    await sleep(250);
-  }
-  return result;
 }
 
 function infoboxField(wikitext, infoboxName, field) {
@@ -241,7 +153,7 @@ async function main() {
   for (const id of handcraftedItemIds) existingItemBySlug.set(id, true);
 
   console.log("Fetching Category:Bosses member list...");
-  const allTitles = await getCategoryMembers("Category:Bosses");
+  const allTitles = await fetchWikiBossNames();
   let candidateTitles = allTitles.filter((t) => !existingNpcIds.has(slugify(t)));
   // TEST_LIMIT=8 / TEST_TITLES="Nex,Yama" node scripts/generate-bosses-from-wiki.mjs
   // — for spot-checking parsing changes against a small sample before a full run.
@@ -267,8 +179,8 @@ async function main() {
   const skipped = [];
 
   for (const title of candidateTitles) {
-    if (RAID_ROOM_BOSSES.has(title)) {
-      skipped.push({ title, reason: "raid room boss (only encountered as one stage of a full raid)" });
+    if (!isRealRepeatableBoss(title)) {
+      skipped.push({ title, reason: "raid room boss or known one-off quest encounter" });
       continue;
     }
     const wikitext = wikitextByTitle[title];
@@ -401,7 +313,7 @@ async function main() {
       iconUrl: pending.iconUrl,
       examine: pending.examine,
       category: "boss",
-      unlockCost: unlockCostFor(pending.combatLevel, true),
+      unlockCost: unlockCostFor(pending.combatLevel),
       always,
       mainTable: [],
       tertiary,

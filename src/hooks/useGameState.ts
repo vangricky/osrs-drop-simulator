@@ -45,8 +45,17 @@ interface PersistedState {
 const STORAGE_KEY = "osrs-drop-sim-state-v2";
 const MAX_LOG_ENTRIES = 150;
 
+// Signed-in players start with just the free-tier (unlockCost === 0) bosses
+// and grind GP to unlock the rest, same as any other unlock. Guests get
+// every boss unlocked immediately instead (see allNpcIds below) — no
+// account, no stakes, so no reason to gate anything; they're just here to
+// mess around.
 function starterUnlockedIds(npcs: Npc[]): string[] {
   return npcs.filter((n) => n.unlockCost === 0).map((n) => n.id);
+}
+
+function allNpcIds(npcs: Npc[]): string[] {
+  return npcs.map((n) => n.id);
 }
 
 function emptyInventory(): (InventorySlot | null)[] {
@@ -54,7 +63,9 @@ function emptyInventory(): (InventorySlot | null)[] {
 }
 
 // A fresh board, but `prestigeCount` is passed in separately by callers —
-// it's the one thing prestiging is supposed to NOT wipe.
+// it's the one thing prestiging is supposed to NOT wipe. Only ever used for
+// the guest path (loadCloudState is the signed-in equivalent), so
+// unlockedNpcIds is always "everything", matching the guest philosophy.
 function freshState(npcs: Npc[], prestigeCount = 0): PersistedState {
   return {
     inventory: emptyInventory(),
@@ -64,7 +75,7 @@ function freshState(npcs: Npc[], prestigeCount = 0): PersistedState {
     collectionLog: {},
     collectionLogFirsts: {},
     gp: 0,
-    unlockedNpcIds: starterUnlockedIds(npcs),
+    unlockedNpcIds: allNpcIds(npcs),
     prestigeCount,
   };
 }
@@ -80,7 +91,10 @@ function loadState(npcs: Npc[]): PersistedState {
     return {
       ...freshState(npcs),
       ...parsed,
-      unlockedNpcIds: Array.from(new Set([...starterUnlockedIds(npcs), ...(parsed.unlockedNpcIds ?? [])])),
+      // Always everything, regardless of what was saved before — a guest
+      // save made back when the roster was unlock-cost-gated shouldn't stay
+      // partially locked forever.
+      unlockedNpcIds: allNpcIds(npcs),
       prestigeCount: parsed.prestigeCount ?? 0,
       containerOpenCounts: parsed.containerOpenCounts ?? {},
       collectionLogFirsts: parsed.collectionLogFirsts ?? {},
