@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { DropEntry, Npc } from "../data/npcData";
 import type { KillResult } from "../hooks/useGameState";
@@ -36,8 +35,6 @@ function DropRow({ entry }: { entry: DropEntry }) {
 }
 
 export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, gp, onKill, onUnlock }: NpcDetailPanelProps) {
-  const [flashKey, setFlashKey] = useState(0);
-
   if (!npc) {
     return (
       <div className="osrs-bevel osrs-panel flex max-h-[70vh] min-h-0 flex-col items-center justify-center gap-3 p-8 text-center lg:h-full lg:max-h-none">
@@ -81,10 +78,12 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
             <p className="text-xs text-osrs-parchment-dark/60">
               Grind other monsters and sell your loot to afford this unlock.
             </p>
+            {/* Below lg, the fixed MobileSimulateBar handles this same action —
+                a duplicate button here would just be redundant clutter. */}
             <button
               onClick={() => onUnlock(npc)}
               disabled={gp < npc.unlockCost}
-              className="osrs-bevel mt-1 w-full bg-gradient-to-b from-osrs-red/30 to-osrs-red/10 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-red shadow-md transition hover:from-osrs-red/40 hover:to-osrs-red/20 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:from-osrs-red/30 disabled:hover:to-osrs-red/10"
+              className="osrs-bevel mt-1 hidden w-full bg-gradient-to-b from-osrs-red/30 to-osrs-red/10 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-red shadow-md transition hover:from-osrs-red/40 hover:to-osrs-red/20 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:from-osrs-red/30 disabled:hover:to-osrs-red/10 lg:block"
             >
               Unlock for {formatGp(npc.unlockCost)} gp
             </button>
@@ -94,18 +93,15 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
           </div>
         ) : (
           <button
-            onClick={() => {
-              onKill(npc);
-              setFlashKey((k) => k + 1);
-            }}
-            className="osrs-bevel bg-gradient-to-b from-osrs-gold/30 to-osrs-gold/10 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold shadow-md transition hover:from-osrs-gold/40 hover:to-osrs-gold/20 active:osrs-bevel-inset"
+            onClick={() => onKill(npc)}
+            className="osrs-bevel hidden bg-gradient-to-b from-osrs-gold/30 to-osrs-gold/10 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold shadow-md transition hover:from-osrs-gold/40 hover:to-osrs-gold/20 active:osrs-bevel-inset lg:block"
           >
             Simulate Drop
           </button>
         )}
 
         {isUnlocked && showLast && (
-          <div key={flashKey} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-2">
+          <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-2">
             <p className="mb-1 text-[10px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
             <div className="flex flex-wrap gap-1.5">
               {lastKill!.drops.map((d, i) => (
@@ -130,7 +126,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
           </div>
         )}
         {lastKill && lastKill.drops.length === 0 && (
-          <div key={flashKey} className="osrs-bevel-inset bg-osrs-panel-dark/50 p-2 text-center text-xs text-osrs-parchment-dark/60">
+          <div key={killCount} className="osrs-bevel-inset bg-osrs-panel-dark/50 p-2 text-center text-xs text-osrs-parchment-dark/60">
             Nothing of interest happens.
           </div>
         )}

@@ -3,6 +3,7 @@ import AdBanner from "./components/AdBanner";
 import DropLogPanel from "./components/DropLogPanel";
 import Header from "./components/Header";
 import InventoryGrid from "./components/InventoryGrid";
+import MobileSimulateBar from "./components/MobileSimulateBar";
 import NpcBrowser from "./components/NpcBrowser";
 import NpcDetailPanel from "./components/NpcDetailPanel";
 import { useGameData } from "./hooks/useGameData";
@@ -50,7 +51,9 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    // pb-20 reserves room for MobileSimulateBar's fixed bottom bar (lg:hidden)
+    // so it doesn't permanently cover the footer/last content on mobile.
+    <div className="flex min-h-screen flex-col pb-20 lg:pb-0">
       {/* No wrapper div around Header: a `sticky` element can't stick past
           its immediate parent's bottom edge, so that parent must span the
           full scrollable page, not just wrap tightly around the header. */}
@@ -130,6 +133,14 @@ function App() {
         Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy.
         This content is not endorsed by or affiliated with Jagex.
       </footer>
+
+      <MobileSimulateBar
+        npc={selectedNpc}
+        isUnlocked={isSelectedUnlocked}
+        gp={game.gp}
+        onKill={game.simulateKill}
+        onUnlock={handleUnlock}
+      />
 
       <Suspense fallback={null}>
         {showResetConfirm && (
