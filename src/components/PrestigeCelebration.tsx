@@ -17,7 +17,7 @@ export default function PrestigeCelebration({ prestigeCount, onDismiss }: Presti
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={onDismiss}>
       <div className="relative flex flex-col items-center">
         <div className="relative flex items-center justify-center">
-          <div className="unlock-ray-spin pointer-events-none absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+          <div className="unlock-ray-spin pointer-events-none absolute left-1/2 top-1/2 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
 
           {Array.from({ length: PARTICLE_COUNT }).map((_, i) => {
             const angle = (360 / PARTICLE_COUNT) * i;

@@ -30,17 +30,17 @@ function DropRow({ entry }: { entry: DropEntry }) {
   const tier = rarityTier(entry);
   const style = RARITY_STYLES[tier];
   return (
-    <li className="flex items-center gap-3 border-b border-osrs-border-dark/40 px-3 py-2 last:border-b-0">
-      <div className="osrs-orb h-8 w-8 shrink-0 p-1" style={orbGlowStyle(style.glowRgb)}>
+    <li className="flex items-center gap-2.5 border-b border-osrs-border-dark/40 px-2.5 py-2 last:border-b-0">
+      <div className="osrs-orb h-9 w-9 shrink-0 p-1" style={orbGlowStyle(style.glowRgb)}>
         <IconImg src={item.iconUrl} alt={item.name} className="h-full w-full" />
       </div>
-      <span className="min-w-0 flex-1 truncate text-xs text-osrs-parchment">
+      <span className="min-w-0 flex-1 truncate text-sm text-osrs-parchment">
         {item.name}
         {entry.maxQuantity > 1 && (
           <span className="text-osrs-parchment-dark/60"> ({entry.minQuantity}-{entry.maxQuantity})</span>
         )}
       </span>
-      <span className={`shrink-0 text-[11px] font-semibold ${style.text}`}>{formatDropRate(entry)}</span>
+      <span className={`shrink-0 text-xs font-semibold ${style.text}`}>{formatDropRate(entry)}</span>
     </li>
   );
 }
@@ -67,28 +67,28 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
-      <div className="flex items-center gap-4 border-b-2 border-osrs-border-dark p-4">
-        <div className="osrs-orb h-14 w-14 shrink-0 p-2" style={orbGlowStyle("255,63,63")}>
+      <div className="flex items-center gap-3.5 border-b-2 border-osrs-border-dark p-3.5">
+        <div className="osrs-orb h-16 w-16 shrink-0 p-2" style={orbGlowStyle("255,63,63")}>
           <IconImg src={npc.iconUrl} alt={npc.name} className="h-full w-full" />
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="truncate font-display text-lg font-bold text-osrs-gold">{npc.name}</h2>
-          <p className="mt-0.5 text-xs text-osrs-parchment-dark/70">
+          <h2 className="truncate font-display text-xl font-bold text-osrs-gold">{npc.name}</h2>
+          <p className="mt-0.5 text-sm text-osrs-parchment-dark/70">
             Combat level {npc.combatLevel} &middot; {killCount.toLocaleString()} killed
           </p>
         </div>
       </div>
 
-      <p className="border-b border-osrs-border-dark/40 px-4 py-3 text-xs italic text-osrs-parchment-dark/70">
+      <p className="border-b border-osrs-border-dark/40 px-3.5 py-2.5 text-sm italic text-osrs-parchment-dark/70">
         {npc.examine}
       </p>
 
-      <div className="flex flex-col gap-3 px-4 py-4">
+      <div className="flex flex-col gap-2.5 px-3.5 py-3.5">
         {!isUnlocked ? (
-          <div className="osrs-bevel-inset flex flex-col items-center gap-2 bg-osrs-panel-dark/50 p-5 text-center">
+          <div className="osrs-bevel-inset flex flex-col items-center gap-1.5 bg-osrs-panel-dark/50 p-4 text-center">
             <span className="text-2xl">&#128274;</span>
-            <p className="text-sm font-semibold text-osrs-parchment">{npc.name} is locked</p>
-            <p className="text-xs text-osrs-parchment-dark/60">
+            <p className="text-base font-semibold text-osrs-parchment">{npc.name} is locked</p>
+            <p className="text-sm text-osrs-parchment-dark/60">
               Grind other monsters and sell your loot to afford this unlock.
             </p>
             {/* Below lg, the fixed MobileSimulateBar handles this same action —
@@ -96,37 +96,37 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
             <button
               onClick={() => onUnlock(npc)}
               disabled={gp < npc.unlockCost}
-              className="mt-1 hidden w-full rounded-[10px] bg-gradient-to-b from-osrs-red to-red-800 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100 lg:block"
+              className="mt-1 hidden w-full rounded-[10px] bg-gradient-to-b from-osrs-red to-red-800 py-3 font-display text-base font-bold uppercase tracking-wide text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100 lg:block"
             >
               Unlock for {formatGp(npc.unlockCost)} gp
             </button>
-            <p className="text-[11px] text-osrs-parchment-dark/50">
+            <p className="text-xs text-osrs-parchment-dark/50">
               You have {formatGp(gp)} gp
             </p>
           </div>
         ) : (
           <button
             onClick={() => onKill(npc)}
-            className="hidden rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 lg:block"
+            className="hidden rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 lg:block"
           >
             Simulate Drop
           </button>
         )}
 
         {isUnlocked && showLast && (
-          <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-3">
-            <p className="mb-2 text-[10px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
-            <div className="flex flex-wrap gap-2">
+          <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-2.5">
+            <p className="mb-1.5 text-[11px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
+            <div className="flex flex-wrap gap-1.5">
               {lastKill!.drops.map((d, i) => (
                 <div
                   key={`${d.item.id}-${i}`}
                   className="animate-drop-pop osrs-bevel-inset flex items-center gap-1.5 bg-osrs-panel-dark/70 px-2 py-1.5"
                   title={d.item.name}
                 >
-                  <div className="osrs-orb h-6 w-6 shrink-0 p-0.5" style={orbGlowStyle(SOURCE_GLOW_RGB[d.source] ?? "255,183,0")}>
+                  <div className="osrs-orb h-7 w-7 shrink-0 p-1" style={orbGlowStyle(SOURCE_GLOW_RGB[d.source] ?? "255,183,0")}>
                     <IconImg src={d.item.iconUrl} alt={d.item.name} className="h-full w-full" />
                   </div>
-                  <span className="text-[11px] text-osrs-parchment">
+                  <span className="text-xs text-osrs-parchment">
                     {d.item.name}
                     {d.quantity > 1 ? ` x${d.quantity}` : ""}
                   </span>
@@ -134,27 +134,27 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
               ))}
             </div>
             {lastKill!.overflow.length > 0 && (
-              <p className="mt-2 text-[11px] font-semibold text-osrs-red">
+              <p className="mt-1.5 text-xs font-semibold text-osrs-red">
                 Inventory full: {lastKill!.overflow.map((d) => d.item.name).join(", ")} was not obtained!
               </p>
             )}
           </div>
         )}
         {lastKill && lastKill.drops.length === 0 && (
-          <div key={killCount} className="osrs-bevel-inset bg-osrs-panel-dark/50 p-3 text-center text-xs text-osrs-parchment-dark/60">
+          <div key={killCount} className="osrs-bevel-inset bg-osrs-panel-dark/50 p-2.5 text-center text-sm text-osrs-parchment-dark/60">
             Nothing of interest happens.
           </div>
         )}
       </div>
 
       <div className="min-h-0 flex-1 overflow-hidden border-t-2 border-osrs-border-dark">
-        <p className="bg-osrs-panel-dark/40 px-4 py-2 font-display text-xs font-bold uppercase tracking-wide text-osrs-parchment-dark/80">
+        <p className="bg-osrs-panel-dark/40 px-3.5 py-2 font-display text-sm font-bold uppercase tracking-wide text-osrs-parchment-dark/80">
           Drop table
         </p>
         <div className="osrs-scrollbar h-full max-h-[340px] overflow-y-auto pb-4">
           {npc.always.length > 0 && (
             <>
-              <p className="px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
+              <p className="px-2.5 pt-2.5 text-[11px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
                 100% drop
               </p>
               <ul>
@@ -166,7 +166,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
           )}
           {npc.mainTable.length > 0 && (
             <>
-              <p className="px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
+              <p className="px-2.5 pt-2.5 text-[11px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
                 Main drops
               </p>
               <ul>
@@ -178,7 +178,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
           )}
           {npc.tertiary.length > 0 && (
             <>
-              <p className="px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
+              <p className="px-2.5 pt-2.5 text-[11px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
                 Tertiary (rolled separately)
               </p>
               <ul>

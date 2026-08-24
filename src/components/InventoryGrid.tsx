@@ -32,7 +32,7 @@ function SlotContent({ slot, tooltipBelow }: { slot: InventorySlot; tooltipBelow
   if (!item) return null;
   return (
     <>
-      <IconImg src={item.iconUrl} alt={item.name} className="h-8 w-8 sm:h-9 sm:w-9" />
+      <IconImg src={item.iconUrl} alt={item.name} className="h-9 w-9 sm:h-10 sm:w-10" />
       {slot.quantity > 1 && (
         <span className="pointer-events-none absolute bottom-0.5 left-0.5 text-[10px] font-bold text-osrs-gold drop-shadow-[0_1px_1px_rgba(0,0,0,0.9)]">
           {slot.quantity >= 100000 ? `${Math.floor(slot.quantity / 1000)}K` : slot.quantity.toLocaleString()}
@@ -167,30 +167,30 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
-      <div className="flex items-center justify-between gap-3 border-b-2 border-osrs-border-dark px-4 py-3">
-        <h2 className="font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">Inventory</h2>
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-osrs-parchment-dark/70">{filledCount}/28</span>
+      <div className="flex items-center justify-between gap-2.5 border-b-2 border-osrs-border-dark px-3.5 py-2.5">
+        <h2 className="font-display text-base font-bold uppercase tracking-wide text-osrs-gold">Inventory</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="text-sm text-osrs-parchment-dark/70">{filledCount}/28</span>
           <button
             onClick={onSellAll}
             disabled={sellableValue === 0}
             title={sellableValue > 0 ? `Sell everything for ${formatGp(sellableValue)} gp` : undefined}
-            className="osrs-bevel bg-osrs-green/20 px-3 py-1.5 text-[11px] font-semibold text-osrs-green transition hover:bg-osrs-green/30 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40"
+            className="osrs-bevel bg-osrs-green/20 px-3 py-1.5 text-xs font-semibold text-osrs-green transition hover:bg-osrs-green/30 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40"
           >
             Sell all{sellableValue > 0 ? ` (${formatGp(sellableValue)})` : ""}
           </button>
           <button
             onClick={onClear}
-            className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-[11px] font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+            className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
           >
             Discard all
           </button>
         </div>
       </div>
 
-      <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-4">
+      <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-3.5">
         <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-          <div className="grid grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-4 gap-2">
             {inventory.map((slot, i) => (
               <Slot key={i} index={i} slot={slot} tooltipBelow={i < 4} onRemove={onRemove} onSell={onSell} onOpen={onOpen} />
             ))}
@@ -203,7 +203,7 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
             ) : null}
           </DragOverlay>
         </DndContext>
-        <p className="mt-4 text-center text-[11px] text-osrs-parchment-dark/50">
+        <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
           Drag to reorganize &middot; $ to sell &middot; &#127873; click to open &middot; double-click to discard
         </p>
       </div>

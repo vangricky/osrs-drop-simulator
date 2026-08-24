@@ -40,8 +40,8 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full w-full min-h-0 min-w-0 flex-col">
-      <div className="border-b-2 border-osrs-border-dark p-4">
-        <h2 className="mb-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">
+      <div className="border-b-2 border-osrs-border-dark p-3.5">
+        <h2 className="mb-2 font-display text-base font-bold uppercase tracking-wide text-osrs-gold">
           Find an NPC
         </h2>
         <input
@@ -53,11 +53,11 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
         />
       </div>
 
-      <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-3">
+      <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-2.5">
         {filtered.length === 0 && (
           <p className="p-4 text-center text-sm text-osrs-parchment-dark/60">No monsters found.</p>
         )}
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-1.5">
           {filtered.map((npc) => {
             const kills = killCounts[npc.id] ?? 0;
             const active = npc.id === selectedNpcId;
@@ -66,14 +66,14 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
               <li key={npc.id}>
                 <button
                   onClick={() => onSelect(npc)}
-                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${
+                  className={`flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left transition ${
                     active
                       ? "osrs-bevel-inset bg-osrs-gold/15"
                       : "border-2 border-transparent hover:bg-osrs-panel-dark/40"
                   } ${locked ? "opacity-60" : ""}`}
                 >
                   <div
-                    className={`osrs-orb h-8 w-8 shrink-0 p-1 ${locked ? "grayscale" : ""}`}
+                    className={`osrs-orb h-9 w-9 shrink-0 p-1 ${locked ? "grayscale" : ""}`}
                     style={orbGlowStyle(combatGlowRgb(npc.combatLevel))}
                   >
                     <IconImg src={npc.iconUrl} alt={npc.name} className="h-full w-full" />
@@ -81,16 +81,16 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm text-osrs-parchment">{npc.name}</span>
                     {locked ? (
-                      <span className="block text-[10px] font-semibold text-osrs-red">
+                      <span className="block text-[11px] font-semibold text-osrs-red">
                         &#128274; {formatGp(npc.unlockCost)} gp
                       </span>
                     ) : (
                       kills > 0 && (
-                        <span className="block text-[10px] text-osrs-parchment-dark/60">{kills} killed</span>
+                        <span className="block text-[11px] text-osrs-parchment-dark/60">{kills} killed</span>
                       )
                     )}
                   </span>
-                  <span className={`shrink-0 text-xs font-semibold ${combatColor(npc.combatLevel)}`}>
+                  <span className={`shrink-0 text-sm font-semibold ${combatColor(npc.combatLevel)}`}>
                     {npc.combatLevel}
                   </span>
                 </button>

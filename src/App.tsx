@@ -96,10 +96,10 @@ function App() {
         onOpenPrestige={() => setShowPrestigeConfirm(true)}
       />
 
-      <div className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 items-stretch justify-center gap-5 px-4 py-5">
+      <div className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 items-stretch justify-center gap-3 px-4 py-4">
         <AdBanner variant="skyscraper-left" />
 
-        <main className="flex min-w-0 flex-1 min-h-0 flex-col gap-3 lg:grid lg:grid-cols-12 lg:gap-5">
+        <main className="flex min-w-0 flex-1 min-h-0 flex-col gap-2 lg:grid lg:grid-cols-12 lg:gap-3">
           {/* Below lg: one panel visible at a time, switched by these tabs.
               At lg+ every panel is shown at once, so this row doesn't render. */}
           <div className="flex shrink-0 gap-1 lg:hidden" role="tablist" aria-label="Panel">

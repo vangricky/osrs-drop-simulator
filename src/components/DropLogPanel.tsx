@@ -20,24 +20,24 @@ export default function DropLogPanel({ log }: DropLogPanelProps) {
   const { items: allItems } = useGameData();
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
-      <div className="border-b-2 border-osrs-border-dark px-4 py-3">
-        <h2 className="font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">Drop Log</h2>
+      <div className="border-b-2 border-osrs-border-dark px-3.5 py-2.5">
+        <h2 className="font-display text-base font-bold uppercase tracking-wide text-osrs-gold">Drop Log</h2>
       </div>
       <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto">
         {log.length === 0 ? (
-          <p className="p-4 text-center text-xs text-osrs-parchment-dark/50">
+          <p className="p-4 text-center text-sm text-osrs-parchment-dark/50">
             No kills yet. Simulate a drop to see it here.
           </p>
         ) : (
           <ul className="divide-y divide-osrs-border-dark/40">
             {log.map((entry) => (
-              <li key={entry.id} className="px-4 py-3">
+              <li key={entry.id} className="px-3.5 py-2.5">
                 <div className="mb-1.5 flex items-center justify-between">
-                  <span className="truncate text-xs font-semibold text-osrs-parchment">{entry.npcName}</span>
-                  <span className="shrink-0 text-[10px] text-osrs-parchment-dark/50">{timeAgo(entry.timestamp)}</span>
+                  <span className="truncate text-sm font-semibold text-osrs-parchment">{entry.npcName}</span>
+                  <span className="shrink-0 text-xs text-osrs-parchment-dark/50">{timeAgo(entry.timestamp)}</span>
                 </div>
                 {entry.drops.length === 0 ? (
-                  <p className="text-[11px] italic text-osrs-parchment-dark/50">Nothing</p>
+                  <p className="text-xs italic text-osrs-parchment-dark/50">Nothing</p>
                 ) : (
                   <div className="flex flex-wrap gap-1.5">
                     {entry.drops.map((d, i) => {
@@ -49,9 +49,9 @@ export default function DropLogPanel({ log }: DropLogPanelProps) {
                           className="osrs-bevel-inset flex items-center gap-1 bg-osrs-panel-dark/50 px-1 py-0.5"
                           title={item.name}
                         >
-                          <IconImg src={item.iconUrl} alt={item.name} className="h-5 w-5" />
+                          <IconImg src={item.iconUrl} alt={item.name} className="h-6 w-6" />
                           {d.quantity > 1 && (
-                            <span className="text-[10px] text-osrs-parchment-dark/70">x{d.quantity}</span>
+                            <span className="text-xs text-osrs-parchment-dark/70">x{d.quantity}</span>
                           )}
                         </div>
                       );

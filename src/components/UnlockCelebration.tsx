@@ -23,7 +23,7 @@ export default function UnlockCelebration({ npc, onDismiss }: UnlockCelebrationP
     >
       <div className="relative flex flex-col items-center">
         <div className="relative flex items-center justify-center">
-          <div className="unlock-ray-spin pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+          <div className="unlock-ray-spin pointer-events-none absolute left-1/2 top-1/2 h-[180px] w-[180px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
 
           {Array.from({ length: PARTICLE_COUNT }).map((_, i) => {
             const angle = (360 / PARTICLE_COUNT) * i;
