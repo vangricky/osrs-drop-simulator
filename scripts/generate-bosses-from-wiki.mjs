@@ -24,6 +24,7 @@ import {
   parseWikiRarity,
   parseWikiQuantity,
   parseDropsLinesFromWikitext,
+  shouldKeepAlwaysEntry,
 } from "./lib/boss-classifier.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -151,6 +152,7 @@ async function main() {
     for (const line of dropsLines) {
       const rarity = parseWikiRarity(line.rarity);
       if (!rarity) continue; // couldn't parse — skip rather than fabricate a rate
+      if (rarity.denominator === 1 && !shouldKeepAlwaysEntry(line.raritynotes)) continue;
       const { min, max, noted } = parseWikiQuantity(line.quantity);
       pendingItemNames.add(line.name);
       rawEntries.push({

@@ -321,12 +321,43 @@ export function parseDropsLinesFromWikitext(wikitext) {
     if (call.name === "DropsLineClue") {
       const name = CLUE_ITEM_BY_TYPE[(params.type ?? "").toLowerCase()];
       if (!name) continue;
-      lines.push({ name, quantity: "1", rarity: params.rarity, noted: false, section: currentSection, rolls });
+      lines.push({ name, quantity: "1", rarity: params.rarity, noted: false, section: currentSection, rolls, raritynotes: params.raritynotes });
       continue;
     }
 
     if (!params.name) continue;
-    lines.push({ name: params.name, quantity: params.quantity, rarity: params.rarity, noted: params.noted === "yes", section: currentSection, rolls });
+    lines.push({ name: params.name, quantity: params.quantity, rarity: params.rarity, noted: params.noted === "yes", section: currentSection, rolls, raritynotes: params.raritynotes });
   }
   return lines;
+}
+
+// A "rarity=Always" DropsLine with a raritynotes footnote is a real signal
+// worth checking before trusting: the wiki uses "Always" for guaranteed
+// drops in general, but ALSO reuses it for things that are only guaranteed
+// under some completely different, non-repeatable, or one-off condition —
+// e.g. Duke Sucellus's "Ancient blood ornament kit" ("Only when defeated in
+// the awakened encounter as the last of the four"), GWD generals' "Frozen
+// key piece" ("only dropped during The Frozen Door miniquest"), Cerberus's
+// "Reward casket (elite)" ("only dropped when completing an elite clue
+// scroll asking you to kill a hellhound" — an unrelated clue meta-mechanic,
+// not a Cerberus drop at all), or Araxxor's "Coagulated venom" (a
+// speed-kill achievement reward, gated on both a time limit and not already
+// owning one). None of these are real per-kill guaranteed drops, and this
+// project has no state to represent "only once" or "only during X" —
+// including them fabricates a drop that doesn't happen on a normal kill.
+//
+// The one exception verified across every wilderness/duo boss that splits
+// loot by damage dealt (Callisto, Venenatis, Vet'ion, The Nightmare, The
+// Hueycoatl): "Big bones" going to whoever dealt the most damage, with
+// "Bones" as the consolation prize for anyone else. Since this whole
+// project already simulates every kill as a solo/MVP kill (matches Barrows,
+// Revenant maledictus, General Graardor etc.), the MVP variant ("most
+// damage"/"MVP") is correctly guaranteed for a solo player and safe to
+// keep — its non-MVP counterpart is what should be dropped instead.
+const MVP_DAMAGE_RARITYNOTES_RE = /most damage|\bmvp\b/i;
+const NON_MVP_RARITYNOTES_RE = /did not deal|not deal the most|eligible.*but/i;
+
+export function shouldKeepAlwaysEntry(raritynotes) {
+  if (!raritynotes || !raritynotes.trim()) return true;
+  return MVP_DAMAGE_RARITYNOTES_RE.test(raritynotes) && !NON_MVP_RARITYNOTES_RE.test(raritynotes);
 }

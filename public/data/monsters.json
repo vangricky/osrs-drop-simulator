@@ -1356,14 +1356,6 @@
         "numerator": 1,
         "denominator": 1,
         "noted": true
-      },
-      {
-        "itemId": "frozen-key-piece-saradomin",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
       }
     ],
     "mainTable": [
@@ -2500,14 +2492,6 @@
         "numerator": 1,
         "denominator": 1,
         "noted": true
-      },
-      {
-        "itemId": "frozen-key-piece-zamorak",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
       }
     ],
     "mainTable": [
@@ -2719,14 +2703,6 @@
         "itemId": "feather",
         "minQuantity": 1,
         "maxQuantity": 16,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "frozen-key-piece-armadyl",
-        "minQuantity": 1,
-        "maxQuantity": 1,
         "numerator": 1,
         "denominator": 1,
         "noted": true
@@ -3697,22 +3673,6 @@
     "mainRolls": 2,
     "tertiary": [
       {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "reward-casket-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
         "itemId": "glacial-temotli",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -4094,14 +4054,6 @@
       }
     ],
     "tertiary": [
-      {
-        "itemId": "coagulated-venom",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
       {
         "itemId": "clue-scroll-elite",
         "minQuantity": 1,
@@ -5461,14 +5413,6 @@
         "numerator": 1,
         "denominator": 1,
         "noted": true
-      },
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
       }
     ],
     "mainTable": [
@@ -6539,22 +6483,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 15,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "reward-casket-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
         "noted": true
       },
       {
@@ -7829,14 +7757,6 @@
     ],
     "tertiary": [
       {
-        "itemId": "odd-key",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
         "itemId": "clue-scroll-easy",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -7874,14 +7794,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 2500,
-        "noted": true
-      },
-      {
-        "itemId": "ancient-blood-ornament-kit",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
         "noted": true
       }
     ]
@@ -8931,14 +8843,6 @@
         "numerator": 1,
         "denominator": 2500,
         "noted": true
-      },
-      {
-        "itemId": "ancient-blood-ornament-kit",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
       }
     ]
   },
@@ -8955,14 +8859,6 @@
         "itemId": "granite-dust",
         "minQuantity": 25,
         "maxQuantity": 35,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "sunstone-crystal",
-        "minQuantity": 1,
-        "maxQuantity": 1,
         "numerator": 1,
         "denominator": 1,
         "noted": true
@@ -9739,14 +9635,6 @@
     "always": [
       {
         "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "bones",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
@@ -10932,14 +10820,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 45,
-        "noted": true
-      },
-      {
-        "itemId": "charged-ice",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
         "noted": true
       },
       {
@@ -12461,22 +12341,6 @@
     "mainRolls": 2,
     "tertiary": [
       {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "reward-casket-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
         "itemId": "long-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -13727,14 +13591,6 @@
     ],
     "tertiary": [
       {
-        "itemId": "temple-key-desert-treasure-ii",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
         "itemId": "clue-scroll-easy",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -13767,14 +13623,6 @@
         "noted": true
       },
       {
-        "itemId": "ancient-blood-ornament-kit",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
         "itemId": "butch",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -13795,14 +13643,6 @@
     "always": [
       {
         "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "bones",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
@@ -14209,14 +14049,6 @@
     "always": [
       {
         "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "bones",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
@@ -14958,14 +14790,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "ancient-blood-ornament-kit",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
         "noted": true
       },
       {

@@ -17,12 +17,15 @@ let cached: Promise<GameData> | null = null;
 export function loadGameData(): Promise<GameData> {
   if (!cached) {
     const base = import.meta.env.BASE_URL;
+    // Cache-busting query param — see vite-env.d.ts's __DATA_BUILD_TIME__
+    // comment for why this fixed-URL fetch needs one.
+    const v = `?v=${__DATA_BUILD_TIME__}`;
     cached = Promise.all([
-      fetch(`${base}data/monsters.json`).then((r) => {
+      fetch(`${base}data/monsters.json${v}`).then((r) => {
         if (!r.ok) throw new Error(`Failed to load monsters.json: ${r.status}`);
         return r.json() as Promise<Npc[]>;
       }),
-      fetch(`${base}data/items.json`).then((r) => {
+      fetch(`${base}data/items.json${v}`).then((r) => {
         if (!r.ok) throw new Error(`Failed to load items.json: ${r.status}`);
         return r.json() as Promise<Record<string, DropItem>>;
       }),
