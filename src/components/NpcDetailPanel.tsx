@@ -1,8 +1,17 @@
 import { useGameData } from "../hooks/useGameData";
 import type { DropEntry, Npc } from "../data/npcData";
 import type { KillResult } from "../hooks/useGameState";
-import { RARITY_STYLES, formatDropRate, formatGp, rarityTier } from "../utils/dropLogic";
+import { RARITY_STYLES, formatDropRate, formatGp, orbGlowStyle, rarityTier } from "../utils/dropLogic";
 import IconImg from "./IconImg";
+
+// RolledDrop.source doesn't carry a rarity tier, just where it came from —
+// this is a coarser stand-in so the "You received" chips still get a
+// tier-ish glow color without threading the full DropEntry through.
+const SOURCE_GLOW_RGB: Record<string, string> = {
+  always: "148,163,184",
+  main: "255,183,0",
+  tertiary: "192,132,252",
+};
 
 interface NpcDetailPanelProps {
   npc: Npc | null;
@@ -22,7 +31,9 @@ function DropRow({ entry }: { entry: DropEntry }) {
   const style = RARITY_STYLES[tier];
   return (
     <li className="flex items-center gap-2 border-b border-osrs-border-dark/40 px-2 py-1.5 last:border-b-0">
-      <IconImg src={item.iconUrl} alt={item.name} className="h-7 w-7 shrink-0" />
+      <div className="osrs-orb h-8 w-8 shrink-0 p-1" style={orbGlowStyle(style.glowRgb)}>
+        <IconImg src={item.iconUrl} alt={item.name} className="h-full w-full" />
+      </div>
       <span className="min-w-0 flex-1 truncate text-xs text-osrs-parchment">
         {item.name}
         {entry.maxQuantity > 1 && (
@@ -57,7 +68,9 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
       <div className="flex items-center gap-3 border-b-2 border-osrs-border-dark p-3">
-        <IconImg src={npc.iconUrl} alt={npc.name} className="h-14 w-14 shrink-0" />
+        <div className="osrs-orb h-14 w-14 shrink-0 p-2" style={orbGlowStyle("255,63,63")}>
+          <IconImg src={npc.iconUrl} alt={npc.name} className="h-full w-full" />
+        </div>
         <div className="min-w-0 flex-1">
           <h2 className="truncate font-display text-lg font-bold text-osrs-gold">{npc.name}</h2>
           <p className="text-xs text-osrs-parchment-dark/70">
@@ -83,7 +96,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
             <button
               onClick={() => onUnlock(npc)}
               disabled={gp < npc.unlockCost}
-              className="osrs-bevel mt-1 hidden w-full bg-gradient-to-b from-osrs-red/30 to-osrs-red/10 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-red shadow-md transition hover:from-osrs-red/40 hover:to-osrs-red/20 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:from-osrs-red/30 disabled:hover:to-osrs-red/10 lg:block"
+              className="mt-1 hidden w-full rounded-[10px] bg-gradient-to-b from-osrs-red to-red-800 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100 lg:block"
             >
               Unlock for {formatGp(npc.unlockCost)} gp
             </button>
@@ -94,7 +107,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
         ) : (
           <button
             onClick={() => onKill(npc)}
-            className="osrs-bevel hidden bg-gradient-to-b from-osrs-gold/30 to-osrs-gold/10 py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold shadow-md transition hover:from-osrs-gold/40 hover:to-osrs-gold/20 active:osrs-bevel-inset lg:block"
+            className="hidden rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-2.5 font-display text-sm font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 lg:block"
           >
             Simulate Drop
           </button>
@@ -110,7 +123,9 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
                   className="animate-drop-pop osrs-bevel-inset flex items-center gap-1 bg-osrs-panel-dark/70 px-1.5 py-1"
                   title={d.item.name}
                 >
-                  <IconImg src={d.item.iconUrl} alt={d.item.name} className="h-6 w-6" />
+                  <div className="osrs-orb h-6 w-6 shrink-0 p-0.5" style={orbGlowStyle(SOURCE_GLOW_RGB[d.source] ?? "255,183,0")}>
+                    <IconImg src={d.item.iconUrl} alt={d.item.name} className="h-full w-full" />
+                  </div>
                   <span className="text-[11px] text-osrs-parchment">
                     {d.item.name}
                     {d.quantity > 1 ? ` x${d.quantity}` : ""}

@@ -94,13 +94,18 @@ export function rarityTier(entry: DropEntry): RarityTier {
   return "veryrare";
 }
 
-export const RARITY_STYLES: Record<RarityTier, { text: string; ring: string; label: string }> = {
-  always: { text: "text-slate-300", ring: "ring-slate-400", label: "Always" },
-  common: { text: "text-osrs-green", ring: "ring-osrs-green", label: "Common" },
-  uncommon: { text: "text-osrs-blue", ring: "ring-osrs-blue", label: "Uncommon" },
-  rare: { text: "text-purple-400", ring: "ring-purple-400", label: "Rare" },
-  veryrare: { text: "text-osrs-orange", ring: "ring-osrs-orange", label: "Very rare" },
+export const RARITY_STYLES: Record<RarityTier, { text: string; ring: string; label: string; glowRgb: string }> = {
+  always: { text: "text-slate-300", ring: "ring-slate-400", label: "Always", glowRgb: "148,163,184" },
+  common: { text: "text-osrs-green", ring: "ring-osrs-green", label: "Common", glowRgb: "63,255,63" },
+  uncommon: { text: "text-osrs-blue", ring: "ring-osrs-blue", label: "Uncommon", glowRgb: "79,143,255" },
+  rare: { text: "text-purple-400", ring: "ring-purple-400", label: "Rare", glowRgb: "192,132,252" },
+  veryrare: { text: "text-osrs-orange", ring: "ring-osrs-orange", label: "Very rare", glowRgb: "255,152,31" },
 };
+
+/** CSS custom-property values for the .osrs-orb glow/ring, given a rarity tier's glowRgb. */
+export function orbGlowStyle(glowRgb: string): Record<string, string> {
+  return { "--glow": `rgba(${glowRgb},.32)`, "--ring": `rgba(${glowRgb},.55)` };
+}
 
 export function formatDropRate(entry: DropEntry): string {
   if (entry.numerator === 1) return `1/${entry.denominator.toLocaleString()}`;

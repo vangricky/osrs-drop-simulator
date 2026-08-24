@@ -124,7 +124,7 @@ export default function Header({
               onClick={onOpenPrestige}
               disabled={!canPrestige}
               title={prestigeTitle}
-              className="osrs-bevel bg-osrs-gold/20 px-3 py-1.5 text-xs font-semibold text-osrs-gold transition hover:bg-osrs-gold/30 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:border-osrs-border-light disabled:bg-osrs-panel-dark/30 disabled:text-osrs-parchment-dark/40 disabled:hover:bg-osrs-panel-dark/30"
+              className="rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-3 py-1.5 text-xs font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:bg-osrs-panel-dark/30 disabled:bg-none disabled:text-osrs-parchment-dark/40 disabled:shadow-none disabled:hover:brightness-100"
             >
               Prestige
             </button>
@@ -152,7 +152,7 @@ export default function Header({
               authEnabled && (
                 <button
                   onClick={onOpenAuth}
-                  className="osrs-bevel bg-osrs-gold/20 px-3 py-1.5 text-xs font-semibold text-osrs-gold transition hover:bg-osrs-gold/30 active:osrs-bevel-inset"
+                  className="rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-3 py-1.5 text-xs font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] transition hover:brightness-110"
                 >
                   Sign in
                 </button>

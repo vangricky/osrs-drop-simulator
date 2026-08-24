@@ -26,7 +26,7 @@ export default function MobileSimulateBar({ npc, isUnlocked, gp, onKill, onUnloc
       {isUnlocked ? (
         <button
           onClick={() => onKill(npc)}
-          className="osrs-bevel w-full bg-gradient-to-b from-osrs-gold/30 to-osrs-gold/10 py-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold shadow-md transition active:osrs-bevel-inset"
+          className="w-full rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition active:brightness-95"
         >
           Simulate Drop
         </button>
@@ -34,7 +34,7 @@ export default function MobileSimulateBar({ npc, isUnlocked, gp, onKill, onUnloc
         <button
           onClick={() => onUnlock(npc)}
           disabled={gp < npc.unlockCost}
-          className="osrs-bevel w-full bg-gradient-to-b from-osrs-red/30 to-osrs-red/10 py-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-red shadow-md transition active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40"
+          className="w-full rounded-[10px] bg-gradient-to-b from-osrs-red to-red-800 py-3 font-display text-sm font-bold uppercase tracking-wide text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)] transition active:brightness-95 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Unlock {npc.name} for {formatGp(npc.unlockCost)} gp
         </button>

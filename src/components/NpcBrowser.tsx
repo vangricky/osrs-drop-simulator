@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { Npc } from "../data/npcData";
-import { formatGp } from "../utils/dropLogic";
+import { formatGp, orbGlowStyle } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
 interface NpcBrowserProps {
@@ -16,6 +16,13 @@ function combatColor(level: number): string {
   if (level >= 80) return "text-osrs-orange";
   if (level >= 30) return "text-osrs-gold";
   return "text-osrs-green";
+}
+
+function combatGlowRgb(level: number): string {
+  if (level >= 200) return "255,63,63";
+  if (level >= 80) return "255,152,31";
+  if (level >= 30) return "255,183,0";
+  return "63,255,63";
 }
 
 export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlockedNpcIds }: NpcBrowserProps) {
@@ -65,11 +72,12 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
                       : "border-2 border-transparent hover:bg-osrs-panel-dark/40"
                   } ${locked ? "opacity-60" : ""}`}
                 >
-                  <IconImg
-                    src={npc.iconUrl}
-                    alt={npc.name}
-                    className={`h-8 w-8 shrink-0 ${locked ? "grayscale" : ""}`}
-                  />
+                  <div
+                    className={`osrs-orb h-8 w-8 shrink-0 p-1 ${locked ? "grayscale" : ""}`}
+                    style={orbGlowStyle(combatGlowRgb(npc.combatLevel))}
+                  >
+                    <IconImg src={npc.iconUrl} alt={npc.name} className="h-full w-full" />
+                  </div>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm text-osrs-parchment">{npc.name}</span>
                     {locked ? (
