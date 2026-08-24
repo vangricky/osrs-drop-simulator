@@ -61349,53 +61349,6 @@
     ]
   },
   {
-    "id": "agrith-na-na",
-    "name": "Agrith-Na-Na",
-    "combatLevel": 146,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Agrith-Na-Na.png",
-    "examine": "Big, scary, angry and a good source of energy.",
-    "category": "boss",
-    "unlockCost": 4100000000,
-    "always": [
-      {
-        "itemId": "banana",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
-  },
-  {
-    "id": "akkha",
-    "name": "Akkha",
-    "combatLevel": 337,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Akkha.png",
-    "examine": "A manifestation of vengeance.",
-    "category": "boss",
-    "unlockCost": 33000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "hets-capture",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "eldritch-ashes",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
     "id": "alchemical-hydra",
     "name": "Alchemical Hydra",
     "combatLevel": 426,
@@ -62398,229 +62351,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 2800
-      }
-    ]
-  },
-  {
-    "id": "ba-ba",
-    "name": "Ba-Ba",
-    "combatLevel": 359,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Ba-Ba.png",
-    "examine": "A big ol' monke.",
-    "category": "boss",
-    "unlockCost": 39000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "apmekens-capture",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "big-banana",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
-    "id": "black-knight-titan",
-    "name": "Black Knight Titan",
-    "combatLevel": 120,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Black_Knight_Titan.png",
-    "examine": "He looks mean and powerful.",
-    "category": "boss",
-    "unlockCost": 2500000000,
-    "always": [
-      {
-        "itemId": "bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "iron-dagger",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 4,
-        "denominator": 128
-      },
-      {
-        "itemId": "iron-full-helm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 5,
-        "denominator": 128
-      },
-      {
-        "itemId": "iron-kiteshield",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 128
-      },
-      {
-        "itemId": "steel-longsword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "iron-arrow",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 6,
-        "denominator": 128
-      },
-      {
-        "itemId": "fire-rune",
-        "minQuantity": 15,
-        "maxQuantity": 15,
-        "numerator": 3,
-        "denominator": 128
-      },
-      {
-        "itemId": "water-rune",
-        "minQuantity": 7,
-        "maxQuantity": 7,
-        "numerator": 3,
-        "denominator": 128
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 3,
-        "denominator": 128
-      },
-      {
-        "itemId": "steel-arrow",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "mind-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "cosmic-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "nature-rune",
-        "minQuantity": 6,
-        "maxQuantity": 6,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "death-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 38,
-        "maxQuantity": 38,
-        "numerator": 14,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 52,
-        "maxQuantity": 52,
-        "numerator": 10,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 15,
-        "maxQuantity": 15,
-        "numerator": 8,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 8,
-        "maxQuantity": 8,
-        "numerator": 6,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 88,
-        "maxQuantity": 88,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "limpwurt-root",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 11,
-        "denominator": 128
-      },
-      {
-        "itemId": "beer",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 6,
-        "denominator": 128
-      },
-      {
-        "itemId": "body-talisman",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "giant-key",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128
-      },
-      {
-        "itemId": "ensouled-giant-head",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 25
-      },
-      {
-        "itemId": "giant-champion-scroll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5000
       }
     ]
   },
@@ -64613,34 +64343,6 @@
     ]
   },
   {
-    "id": "chronozon",
-    "name": "Chronozon",
-    "combatLevel": 170,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Chronozon.png",
-    "examine": "Chronozon the blood demon.",
-    "category": "boss",
-    "unlockCost": 6000000000,
-    "always": [
-      {
-        "itemId": "vile-ashes",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "looting-bag",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 3
-      }
-    ]
-  },
-  {
     "id": "crazy-archaeologist",
     "name": "Crazy archaeologist",
     "combatLevel": 204,
@@ -64840,61 +64542,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 128
-      }
-    ]
-  },
-  {
-    "id": "culinaromancer",
-    "name": "Culinaromancer",
-    "combatLevel": 75,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Culinaromancer.png",
-    "examine": "A demented evil wizard who specialises in food spells.",
-    "category": "boss",
-    "unlockCost": 780000000,
-    "always": [
-      {
-        "itemId": "cake",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
-  },
-  {
-    "id": "dad",
-    "name": "Dad",
-    "combatLevel": 101,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dad.png",
-    "examine": "An unusually large troll.",
-    "category": "boss",
-    "unlockCost": 1600000000,
-    "always": [
-      {
-        "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "long-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 400
-      },
-      {
-        "itemId": "curved-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5012
       }
     ]
   },
@@ -65100,26 +64747,6 @@
         "denominator": 131
       }
     ]
-  },
-  {
-    "id": "dessourt",
-    "name": "Dessourt",
-    "combatLevel": 121,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Dessourt.png",
-    "examine": "Bad for your teeth...and the rest of your body too.",
-    "category": "boss",
-    "unlockCost": 2600000000,
-    "always": [
-      {
-        "itemId": "chocolate-dust",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
   },
   {
     "id": "doom-of-mokhaiotl",
@@ -65890,66 +65517,6 @@
     ]
   },
   {
-    "id": "elidinis-warden",
-    "name": "Elidinis' Warden",
-    "combatLevel": 489,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Elidinis'_Warden.png",
-    "examine": "An ancient automaton imbued with the power of Elidinis.",
-    "category": "boss",
-    "unlockCost": 85000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "the-wardens",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
-    "id": "fareed",
-    "name": "Fareed",
-    "combatLevel": 167,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Fareed.png",
-    "examine": "Zamorak's warrior of fire.",
-    "category": "boss",
-    "unlockCost": 5800000000,
-    "always": [
-      {
-        "itemId": "ashes",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
-  },
-  {
-    "id": "flambeed",
-    "name": "Flambeed",
-    "combatLevel": 149,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Flambeed.png",
-    "examine": "Will give you a beating as well as indigestion.",
-    "category": "boss",
-    "unlockCost": 4300000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "cake",
-        "minQuantity": 5,
-        "maxQuantity": 5,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
     "id": "gemstone-crab",
     "name": "Gemstone Crab",
     "combatLevel": 160,
@@ -66015,62 +65582,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 500
-      }
-    ]
-  },
-  {
-    "id": "glod",
-    "name": "Glod",
-    "combatLevel": 138,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Glod.png",
-    "examine": "A cloud giant.",
-    "category": "boss",
-    "unlockCost": 3600000000,
-    "always": [
-      {
-        "itemId": "big-bones",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "uncut-sapphire",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "uncut-ruby",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "golden-goblin",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "long-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 400
-      },
-      {
-        "itemId": "curved-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5012
       }
     ]
   },
@@ -66329,80 +65840,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 80
-      }
-    ]
-  },
-  {
-    "id": "kamil",
-    "name": "Kamil",
-    "combatLevel": 154,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Kamil.png",
-    "examine": "Ice warrior.",
-    "category": "boss",
-    "unlockCost": 4700000000,
-    "always": [
-      {
-        "itemId": "chocolate-cake",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "super-restore-4",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
-  },
-  {
-    "id": "karamel",
-    "name": "Karamel",
-    "combatLevel": 136,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Karamel.png",
-    "examine": "Pure evil lightly whipped with a juicy cherry on top.",
-    "category": "boss",
-    "unlockCost": 3500000000,
-    "always": [
-      {
-        "itemId": "choc-ice",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ],
-    "mainTable": [],
-    "tertiary": []
-  },
-  {
-    "id": "kephri",
-    "name": "Kephri",
-    "combatLevel": 341,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Kephri.png",
-    "examine": "The cursed mother.",
-    "category": "boss",
-    "unlockCost": 34000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "scabaras-capture",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "scarab-dung",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ]
   },
@@ -67642,26 +67079,6 @@
     ]
   },
   {
-    "id": "nylocas-vasilias",
-    "name": "Nylocas Vasilias",
-    "combatLevel": 301,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Nylocas_Vasilias_(melee).png",
-    "examine": "One of Verzik's rather large pets.",
-    "category": "boss",
-    "unlockCost": 25000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "arachnids-of-vampyrium",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
     "id": "obor",
     "name": "Obor",
     "combatLevel": 106,
@@ -68036,26 +67453,6 @@
         "maxQuantity": 1,
         "numerator": 2,
         "denominator": 135
-      }
-    ]
-  },
-  {
-    "id": "pestilent-bloat",
-    "name": "Pestilent Bloat",
-    "combatLevel": 312,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Pestilent_Bloat.png",
-    "examine": "An infinite mass of decay and death.",
-    "category": "boss",
-    "unlockCost": 28000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "the-butcher",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ]
   },
@@ -69960,40 +69357,6 @@
     ]
   },
   {
-    "id": "sotetseg",
-    "name": "Sotetseg",
-    "combatLevel": 336,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Sotetseg.png",
-    "examine": "An intruder from the Shadow Realm, corrupted through haemalchemy.",
-    "category": "boss",
-    "unlockCost": 33000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "the-shadow-realm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "long-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 400
-      },
-      {
-        "itemId": "curved-bone",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5012
-      }
-    ]
-  },
-  {
     "id": "spindel",
     "name": "Spindel",
     "combatLevel": 302,
@@ -70515,46 +69878,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 400
-      }
-    ]
-  },
-  {
-    "id": "the-maiden-of-sugadinti",
-    "name": "The Maiden of Sugadinti",
-    "combatLevel": 324,
-    "iconUrl": "https://oldschool.runescape.wiki/images/The_Maiden_of_Sugadinti.png",
-    "examine": "This is the fate of those who cross the vampyres.",
-    "category": "boss",
-    "unlockCost": 30000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "serafinas-diary",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
-    "id": "tumekens-warden",
-    "name": "Tumeken's Warden",
-    "combatLevel": 489,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Tumeken's_Warden.png",
-    "examine": "An ancient automaton imbued with the power of Tumeken.",
-    "category": "boss",
-    "unlockCost": 85000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "the-wardens",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ]
   },
@@ -71242,26 +70565,6 @@
     ]
   },
   {
-    "id": "verzik-vitur",
-    "name": "Verzik Vitur",
-    "combatLevel": 425,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Verzik_Vitur.png",
-    "examine": "There's something very disconcerting about her.",
-    "category": "boss",
-    "unlockCost": 60000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "verzik-vitur-patient-record",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
     "id": "vetion",
     "name": "Vet'ion",
     "combatLevel": 454,
@@ -71898,26 +71201,6 @@
     ]
   },
   {
-    "id": "xarpus",
-    "name": "Xarpus",
-    "combatLevel": 331,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Xarpus.png",
-    "examine": "King of the yarasa.",
-    "category": "boss",
-    "unlockCost": 32000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "the-wild-hunt",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      }
-    ]
-  },
-  {
     "id": "yama",
     "name": "Yama",
     "combatLevel": 1238,
@@ -72263,33 +71546,6 @@
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 8000
-      }
-    ]
-  },
-  {
-    "id": "zebak",
-    "name": "Zebak",
-    "combatLevel": 371,
-    "iconUrl": "https://oldschool.runescape.wiki/images/Zebak.png",
-    "examine": "",
-    "category": "boss",
-    "unlockCost": 42000000000,
-    "always": [],
-    "mainTable": [],
-    "tertiary": [
-      {
-        "itemId": "crondis-capture",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
-      },
-      {
-        "itemId": "fang-tombs-of-amascut",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1
       }
     ]
   }

@@ -26,6 +26,54 @@ const LATEST_URL = "https://prices.runescape.wiki/api/v1/osrs/latest";
 
 const ICON_OVERRIDES = JSON.parse(readFileSync(path.join(__dirname, "icon-overrides.json"), "utf8"));
 
+// Raid room bosses: only ever encountered as one stage of a full raid
+// (Theatre of Blood / Tombs of Amascut / Chambers of Xeric), fought in a
+// fixed sequence with the others, with rewards coming from the raid's
+// shared points-based roll at the end rather than a per-kill drop table on
+// that specific room boss. Unlocking one to "kill" it standalone doesn't
+// correspond to anything a real player can actually do, so it's not
+// meaningful content for this simulator. No clean structural signal for
+// this on the wiki (no shared category tag), so it's a fixed list — OSRS
+// only has three raids, and their rosters rarely change.
+const RAID_ROOM_BOSSES = new Set([
+  // Theatre of Blood
+  "The Maiden of Sugadinti",
+  "Pestilent Bloat",
+  "Nylocas Vasilias",
+  "Sotetseg",
+  "Xarpus",
+  "Verzik Vitur",
+  // Tombs of Amascut
+  "Akkha",
+  "Ba-Ba",
+  "Kephri",
+  "Zebak",
+  "Elidinis' Warden",
+  "Tumeken's Warden",
+  // Chambers of Xeric (also mostly caught separately by combat-level/drops
+  // filters below, since their pages often lack a fixed combat level — kept
+  // here too as a belt-and-suspenders in case that ever changes)
+  "Great Olm",
+  "Tekton",
+  "Vasa Nistirio",
+  "Vespula",
+  "Muttadile",
+  "Vanguard",
+  "Ice demon",
+]);
+
+/** True for a page that's specifically the one-time quest encounter version
+ * of a boss that also has a separate, real repeatable version elsewhere
+ * (Nightmare Zone, post-quest spawn, etc.) — the wiki's own disambiguation
+ * template says so explicitly, e.g. "the quest boss fought during Desert
+ * Treasure I" vs "the Nightmare Zone variant". Checked against real
+ * repeatable bosses that merely originated from a quest (Vorkath, Ulfric)
+ * to confirm this doesn't false-positive on those — a plain
+ * Category:Quest monsters tag alone does, this specific phrasing doesn't. */
+function isQuestOnlyVariant(wikitext) {
+  return /\{\{Otheruses\|[^}]*quest boss[^}]*\}\}/i.test(wikitext);
+}
+
 function slugify(name) {
   return name
     .toLowerCase()
@@ -219,9 +267,17 @@ async function main() {
   const skipped = [];
 
   for (const title of candidateTitles) {
+    if (RAID_ROOM_BOSSES.has(title)) {
+      skipped.push({ title, reason: "raid room boss (only encountered as one stage of a full raid)" });
+      continue;
+    }
     const wikitext = wikitextByTitle[title];
     if (!wikitext) {
       skipped.push({ title, reason: "no wikitext (redirect/missing)" });
+      continue;
+    }
+    if (isQuestOnlyVariant(wikitext)) {
+      skipped.push({ title, reason: "one-time quest encounter (a separate repeatable version exists elsewhere)" });
       continue;
     }
     // Multi-form bosses (pre/post-quest, phases) use combat1/combat2/... instead
