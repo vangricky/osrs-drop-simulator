@@ -130,9 +130,16 @@ async function main() {
       skipped.push({ title, reason: "one-time quest encounter (a separate repeatable version exists elsewhere)" });
       continue;
     }
-    // Multi-form bosses (pre/post-quest, phases) use combat1/combat2/... instead
-    // of a plain `combat` field — combat1 is always the first-listed version.
-    const combatRaw = infoboxField(wikitext, "Monster", "combat") ?? infoboxField(wikitext, "Monster", "combat1");
+    // Multi-form bosses (pre/post-quest, phases) use combat1/combat2/...
+    // instead of a plain `combat` field. Usually combat1 is the version to
+    // use, but a few (Kraken: "Whirlpool" form1 is a non-combat inactive
+    // state with combat1=N/A, the real "Kraken" form2=291) have an inactive
+    // first form — so try each field in order and take the first one that's
+    // actually a number rather than assuming position 1 is always right.
+    const combatCandidates = ["combat", "combat1", "combat2", "combat3", "combat4"]
+      .map((f) => infoboxField(wikitext, "Monster", f))
+      .filter(Boolean);
+    const combatRaw = combatCandidates.find((raw) => Number.isFinite(Number(raw.replace(/[^\d]/g, ""))) && Number(raw.replace(/[^\d]/g, "")) > 0);
     const combatLevel = combatRaw ? Number(combatRaw.replace(/[^\d]/g, "")) : NaN;
     if (!Number.isFinite(combatLevel) || combatLevel <= 0) {
       skipped.push({ title, reason: `no valid combat level (${combatRaw})` });
@@ -155,6 +162,15 @@ async function main() {
         denominator: rarity.denominator,
         ...(line.noted || noted ? { noted: true } : {}),
         isGuaranteed: line.section === "100%" && rarity.denominator === 1,
+        // The wiki's own "Tertiary" section is the only one that means
+        // "independent bonus roll" (pets, clue scrolls) — every other named
+        // section (Weapons and armour, Runes, Resources, Other, Unique...)
+        // is really one combined main drop table, just split across
+        // subsections for readability. Rolled as a single weighted pick
+        // (see dropLogic.ts's rollDrop) so a kill is always guaranteed
+        // something from it, same as the real game.
+        isTertiary: line.section.trim().toLowerCase() === "tertiary",
+        rolls: line.rolls ?? 1,
       });
     }
     if (rawEntries.length === 0) {
@@ -234,13 +250,22 @@ async function main() {
   const newMonsters = [];
   for (const pending of pendingMonsters) {
     const always = [];
+    const mainTable = [];
     const tertiary = [];
+    let mainRolls = 1;
     for (const raw of pending.rawEntries) {
       if (invalidItemNames.has(raw.itemName)) continue;
-      const { itemName: _itemName, isGuaranteed, ...entry } = raw;
-      (isGuaranteed ? always : tertiary).push(entry);
+      const { itemName: _itemName, isGuaranteed, isTertiary, rolls, ...entry } = raw;
+      if (isGuaranteed) {
+        always.push(entry);
+      } else if (isTertiary) {
+        tertiary.push(entry);
+      } else {
+        mainTable.push(entry);
+        if (rolls > mainRolls) mainRolls = rolls;
+      }
     }
-    if (always.length === 0 && tertiary.length === 0) {
+    if (always.length === 0 && mainTable.length === 0 && tertiary.length === 0) {
       skipped.push({ title: pending.name, reason: "no valid drops after item validation" });
       continue;
     }
@@ -257,7 +282,8 @@ async function main() {
       category: "boss",
       unlockCost: existing ? existing.unlockCost : unlockCostFor(pending.combatLevel),
       always,
-      mainTable: [],
+      mainTable,
+      ...(mainRolls > 1 ? { mainRolls } : {}),
       tertiary,
     });
   }

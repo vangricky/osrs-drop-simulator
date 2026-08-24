@@ -6037,5 +6037,14 @@
     "value": 8173,
     "tradeable": true,
     "stackable": false
+  },
+  "trident-of-the-seas-full": {
+    "id": "trident-of-the-seas-full",
+    "name": "Trident of the Seas (full)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Trident_of_the_Seas_(full).png",
+    "members": true,
+    "value": 886318,
+    "tradeable": true,
+    "stackable": false
   }
 }

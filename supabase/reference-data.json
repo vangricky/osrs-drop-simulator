@@ -43,7 +43,7 @@
     {
       "id": "grotesque-guardians",
       "unlockCost": 15000000000,
-      "maxGpPerKill": 91000
+      "maxGpPerKill": 101000
     },
     {
       "id": "revenant-maledictus",
@@ -123,7 +123,7 @@
     {
       "id": "kreearra",
       "unlockCost": 130000000000,
-      "maxGpPerKill": 83000
+      "maxGpPerKill": 43000
     },
     {
       "id": "abyssal-sire",
@@ -133,7 +133,7 @@
     {
       "id": "alchemical-hydra",
       "unlockCost": 60000000000,
-      "maxGpPerKill": 172100
+      "maxGpPerKill": 241000
     },
     {
       "id": "amoxliatl",
@@ -153,17 +153,17 @@
     {
       "id": "branda-the-fire-queen",
       "unlockCost": 37000000000,
-      "maxGpPerKill": 61000
+      "maxGpPerKill": 121000
     },
     {
       "id": "brutus",
       "unlockCost": 0,
-      "maxGpPerKill": 1600
+      "maxGpPerKill": 1240
     },
     {
       "id": "bryophyta",
       "unlockCost": 3000000000,
-      "maxGpPerKill": 2862
+      "maxGpPerKill": 1600
     },
     {
       "id": "callisto",
@@ -208,7 +208,7 @@
     {
       "id": "eldric-the-ice-king",
       "unlockCost": 37000000000,
-      "maxGpPerKill": 61000
+      "maxGpPerKill": 121000
     },
     {
       "id": "gemstone-crab",
@@ -248,7 +248,7 @@
     {
       "id": "obor",
       "unlockCost": 0,
-      "maxGpPerKill": 1834
+      "maxGpPerKill": 1176
     },
     {
       "id": "phantom-muspah",
@@ -3981,6 +3981,10 @@
     },
     "vial-of-blood": {
       "value": 8173,
+      "tradeable": true
+    },
+    "trident-of-the-seas-full": {
+      "value": 886318,
       "tradeable": true
     }
   },

@@ -15,22 +15,37 @@ function rollChance(entry: DropEntry): boolean {
   return Math.random() < entry.numerator / entry.denominator;
 }
 
-function shuffled<T>(arr: T[]): T[] {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+/** Picks exactly one entry from `entries`, weighted by each entry's own
+ * probability (numerator/denominator) relative to the others — the real
+ * game's "single roll on the main drop table" mechanic, where the table is
+ * guaranteed to produce something as long as it isn't empty. Weights are
+ * normalized against their own sum rather than assumed to already total 1,
+ * so this stays a true single guaranteed pick even when the source data's
+ * individual rates don't add up to exactly 100% (a few discarded/unparsed
+ * rows, rounding, etc.) — every entry still gets picked in the same
+ * relative proportion to the others. */
+function pickWeighted<T extends DropEntry>(entries: T[]): T | null {
+  if (entries.length === 0) return null;
+  const weights = entries.map((e) => e.numerator / e.denominator);
+  const total = weights.reduce((s, w) => s + w, 0);
+  if (total <= 0) return null;
+  let r = Math.random() * total;
+  for (let i = 0; i < entries.length; i++) {
+    r -= weights[i];
+    if (r <= 0) return entries[i];
   }
-  return copy;
+  return entries[entries.length - 1];
 }
 
 /**
  * Simulates a single roll against a loot table (an NPC kill or an openable
  * container like a clue casket).
  * - `always` entries are guaranteed every roll.
- * - `mainTable` yields at most ONE drop per roll (mirrors the real game's
- *   single weighted roll on the main table), checked in random order so no
- *   entry is unfairly favored by list position.
+ * - `mainTable` yields exactly ONE drop per roll, chosen by a single
+ *   weighted pick across the whole table (mirrors the real game's main
+ *   drop table — you always get something from it, never "nothing", the
+ *   weighting just decides which item). Repeated `mainRolls` times for
+ *   bosses whose real table is rolled more than once per kill.
  * - `tertiary` entries (clue scrolls, pets, rare uniques) roll independently
  *   and can stack with each other and with a main-table hit.
  */
@@ -44,14 +59,11 @@ export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>):
   }
 
   for (let roll = 0; roll < (table.mainRolls ?? 1); roll++) {
-    for (const entry of shuffled(table.mainTable)) {
-      if (rollChance(entry)) {
-        const item = itemsById[entry.itemId];
-        if (item) {
-          results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "main" });
-        }
-        break;
-      }
+    const entry = pickWeighted(table.mainTable);
+    if (!entry) continue;
+    const item = itemsById[entry.itemId];
+    if (item) {
+      results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "main" });
     }
   }
 

@@ -316,15 +316,17 @@ export function parseDropsLinesFromWikitext(wikitext) {
       if (key) params[key] = value;
     }
 
+    const rolls = params.rolls ? Number(params.rolls) : 1;
+
     if (call.name === "DropsLineClue") {
       const name = CLUE_ITEM_BY_TYPE[(params.type ?? "").toLowerCase()];
       if (!name) continue;
-      lines.push({ name, quantity: "1", rarity: params.rarity, noted: false, section: currentSection });
+      lines.push({ name, quantity: "1", rarity: params.rarity, noted: false, section: currentSection, rolls });
       continue;
     }
 
     if (!params.name) continue;
-    lines.push({ name: params.name, quantity: params.quantity, rarity: params.rarity, noted: params.noted === "yes", section: currentSection });
+    lines.push({ name: params.name, quantity: params.quantity, rarity: params.rarity, noted: params.noted === "yes", section: currentSection, rolls });
   }
   return lines;
 }
