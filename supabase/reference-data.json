@@ -3986,6 +3986,22 @@
     "trident-of-the-seas-full": {
       "value": 886318,
       "tradeable": true
+    },
+    "saradomin-brew-2": {
+      "value": 2773,
+      "tradeable": true
+    },
+    "super-restore-2": {
+      "value": 12406,
+      "tradeable": true
+    },
+    "orange-egg-sac": {
+      "value": 0,
+      "tradeable": false
+    },
+    "blue-egg-sac": {
+      "value": 0,
+      "tradeable": false
     }
   },
   "containers": {
@@ -4009,6 +4025,18 @@
     },
     "larrans-key": {
       "maxGpPerOpen": 351000
+    },
+    "crystal-key": {
+      "maxGpPerOpen": 8500
+    },
+    "sinister-key": {
+      "maxGpPerOpen": 1000
+    },
+    "muddy-key": {
+      "maxGpPerOpen": 1000
+    },
+    "grubby-key": {
+      "maxGpPerOpen": 61000
     }
   }
 }

@@ -6046,5 +6046,41 @@
     "value": 886318,
     "tradeable": true,
     "stackable": false
+  },
+  "saradomin-brew-2": {
+    "id": "saradomin-brew-2",
+    "name": "Saradomin brew(2)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Saradomin_brew(2).png",
+    "members": true,
+    "value": 2773,
+    "tradeable": true,
+    "stackable": false
+  },
+  "super-restore-2": {
+    "id": "super-restore-2",
+    "name": "Super restore(2)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Super_restore(2).png",
+    "members": true,
+    "value": 12406,
+    "tradeable": true,
+    "stackable": false
+  },
+  "orange-egg-sac": {
+    "id": "orange-egg-sac",
+    "name": "Orange egg sac",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Orange_egg_sac.png",
+    "members": true,
+    "stackable": false,
+    "value": 0,
+    "tradeable": false
+  },
+  "blue-egg-sac": {
+    "id": "blue-egg-sac",
+    "name": "Blue egg sac",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Blue_egg_sac.png",
+    "members": true,
+    "stackable": false,
+    "value": 0,
+    "tradeable": false
   }
 }

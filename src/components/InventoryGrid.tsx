@@ -2,6 +2,7 @@ import {
   DndContext,
   DragOverlay,
   PointerSensor,
+  TouchSensor,
   useDraggable,
   useDroppable,
   useSensor,
@@ -126,7 +127,21 @@ function Slot({
 export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onSellAll, onClear, onOpen }: InventoryGridProps) {
   const { items: allItems } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }));
+  const sensors = useSensors(
+    // Mouse (and any browser that resolves touch through the Pointer Events
+    // API cleanly) — a small movement threshold so a plain click/tap still
+    // reaches onClick/onDoubleClick instead of being eaten as a drag.
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    // Real touchscreens need their own sensor: PointerSensor alone tends to
+    // lose the race against the browser's native scroll/swipe gesture on a
+    // scrollable panel like this one, even with touch-action: none on the
+    // handle, so a press-and-drag often just scrolls the page instead of
+    // picking the item up. TouchSensor's short hold delay is dnd-kit's own
+    // recommended way to disambiguate "starting to scroll" from "starting
+    // to drag" on touch — short enough to still feel responsive, long
+    // enough that a normal tap/scroll never triggers it.
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
+  );
 
   const handleDragStart = (e: DragStartEvent) => {
     setActiveIndex(e.active.data.current?.index ?? null);
