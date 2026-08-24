@@ -157,3 +157,174 @@ export const EXCLUDED_NOT_ON_CURATED_LIST = new Set(["Ulfric", "Melzar the Mad",
 export function isRealRepeatableBoss(name) {
   return !RAID_ROOM_BOSSES.has(name) && !KNOWN_ONE_OFF_BOSSES.has(name) && !EXCLUDED_NOT_ON_CURATED_LIST.has(name);
 }
+
+const RARITY_WORD_DENOMINATOR = { always: 1, common: 8, uncommon: 32, rare: 128, "very rare": 512 };
+
+/** Wiki rarity values are either "Always", an exact fraction ("1/516"), or
+ * (mostly for bulk resource drops) a bare tier word with no exact number
+ * given anywhere on the page. Tier words get a representative denominator
+ * rather than a fabricated precise one. */
+export function parseWikiRarity(raw) {
+  if (!raw) return null;
+  const s = raw.trim().toLowerCase();
+  if (s === "always" || s === "100%") return { numerator: 1, denominator: 1 };
+  const frac = s.match(/^(\d[\d,.]*)\s*\/\s*(\d[\d,.]*)/);
+  if (frac) return { numerator: Number(frac[1].replace(/,/g, "")), denominator: Number(frac[2].replace(/,/g, "")) };
+  if (s in RARITY_WORD_DENOMINATOR) return { numerator: 1, denominator: RARITY_WORD_DENOMINATOR[s] };
+  return null;
+}
+
+/** Wiki quantity values are either a plain number, a "min-max" range, or
+ * either of those followed by " (noted)" — the wiki's own convention for
+ * marking a drop as noted, distinct from (and far more common than) an
+ * explicit `|noted=yes` DropsLine parameter. A naive Number()/range parse of
+ * "8 (noted)" fails silently and both loses the real quantity and drops the
+ * noted flag entirely — this strips that suffix first so both are captured. */
+export function parseWikiQuantity(raw) {
+  if (raw === undefined || raw === null) return { min: 1, max: 1, noted: false };
+  const noted = /\(\s*noted\s*\)/i.test(raw);
+  const cleaned = String(raw).replace(/\(\s*noted\s*\)/i, "").replace(/&nbsp;/g, "").trim();
+  const range = cleaned.match(/(\d[\d,]*)\s*-\s*(\d[\d,]*)/);
+  if (range) return { min: Number(range[1].replace(/,/g, "")), max: Number(range[2].replace(/,/g, "")), noted };
+  const n = Number(cleaned.replace(/,/g, ""));
+  return { min: Number.isFinite(n) ? n : 1, max: Number.isFinite(n) ? n : 1, noted };
+}
+
+// Section headers that mark a mutually-exclusive ALTERNATE encounter mode
+// rather than the standard per-kill table — e.g. Yama's "===Contract==="
+// section (only rolled during a special contract fight, not a normal kill;
+// items there are wrongly tagged "rarity=Always" because they're the
+// contract's guaranteed reward, not an always-drop on every normal kill) and
+// "===Junk===" (only rolled for players under 15% contribution, mutually
+// exclusive with the real table this project simulates at 100% contribution).
+const ALTERNATE_MODE_SECTIONS = new Set(["contract", "junk"]);
+
+const CLUE_ITEM_BY_TYPE = {
+  beginner: "Clue scroll (beginner)",
+  easy: "Clue scroll (easy)",
+  medium: "Clue scroll (medium)",
+  hard: "Clue scroll (hard)",
+  elite: "Clue scroll (elite)",
+  master: "Clue scroll (master)",
+};
+
+/** Scans wikitext for every top-level {{TemplateName|...}} call whose name is
+ * in `names`, returning each match's raw inner content (everything after the
+ * name, before the final closing "}}") and its start index. Tracks brace
+ * depth across BOTH {{ }} (nested templates, e.g. a citation inside a
+ * DropsLine parameter) and [[ ]] (wiki links, which can themselves contain a
+ * "|" for display text) so a naive scan doesn't mistake a nested template's
+ * own closing "}}" — or a link's internal "|" — for the outer call's end.
+ * A plain regex with `[^}]*` breaks the instant any DropsLine parameter
+ * value contains a nested template like `{{Refn|...}}`: it matches up to
+ * that inner template's own "}}" and truncates everything after it,
+ * silently losing whichever parameter (usually rarity) came next. This is
+ * why Yama's "Weapons and armour" drops (which use `quantitynotes={{Refn|
+ * ...}}`) were going missing even after the case-sensitivity fix. */
+function findBalancedTemplateCalls(wikitext, names) {
+  const results = [];
+  const nameSet = new Set(names);
+  for (let i = 0; i < wikitext.length - 1; i++) {
+    if (wikitext[i] !== "{" || wikitext[i + 1] !== "{") continue;
+    const nameMatch = /^([A-Za-z]+)([|}])/.exec(wikitext.slice(i + 2, i + 40));
+    if (!nameMatch || !nameSet.has(nameMatch[1])) continue;
+    const contentStart = i + 2 + nameMatch[1].length + (nameMatch[2] === "|" ? 1 : 0);
+
+    let depth = 1;
+    let j = contentStart;
+    for (; j < wikitext.length; j++) {
+      if (wikitext[j] === "{" && wikitext[j + 1] === "{") {
+        depth++;
+        j++;
+      } else if (wikitext[j] === "}" && wikitext[j + 1] === "}") {
+        depth--;
+        j++;
+        if (depth === 0) break;
+      }
+    }
+    if (depth !== 0) continue; // unterminated — malformed wikitext, skip
+
+    results.push({ name: nameMatch[1], content: wikitext.slice(contentStart, j - 1), index: i });
+    i = j; // resume scanning after this whole call
+  }
+  return results;
+}
+
+/** Splits a template's inner content on "|" at depth 0 only — a pipe inside
+ * a nested {{ }} or [[ ]] (e.g. a citation's own params, or a [[Link|text]])
+ * doesn't count as a parameter separator. */
+function splitTopLevelPipes(str) {
+  const parts = [];
+  let depth = 0;
+  let current = "";
+  for (let i = 0; i < str.length; i++) {
+    const two = str.slice(i, i + 2);
+    if (two === "{{" || two === "[[") {
+      depth++;
+      current += two;
+      i++;
+    } else if (two === "}}" || two === "]]") {
+      depth = Math.max(0, depth - 1);
+      current += two;
+      i++;
+    } else if (str[i] === "|" && depth === 0) {
+      parts.push(current);
+      current = "";
+    } else {
+      current += str[i];
+    }
+  }
+  parts.push(current);
+  return parts;
+}
+
+/** Parses every {{DropsLine|...}} and {{DropsLineClue|...}} on a boss page,
+ * tagged with which section header (===Section===) it fell under. Parameter
+ * keys are matched case-insensitively — the wiki's own editors aren't
+ * consistent (`rarity=` vs `Rarity=`, `quantity=` vs `Quantity=`), and a
+ * case-sensitive lookup silently drops the whole line, which is how Yama's
+ * "Runes" section (which happens to use capitalized params) went missing.
+ * Skips ALTERNATE_MODE_SECTIONS entirely. */
+export function parseDropsLinesFromWikitext(wikitext) {
+  const lines = [];
+  // Matches both ===Section=== and ====Subsection==== headers, returning the
+  // innermost (deepest) one active at a given index — needed for pages like
+  // a raid's reward chest, which nest "Normal mode"/"Challenge mode" under a
+  // shared "Unique drop table" heading.
+  const sectionRe = /(={3,4})\s*([^=]+?)\s*\1/g;
+
+  const sectionMarkers = [...wikitext.matchAll(sectionRe)].map((m) => ({ index: m.index, name: m[2] }));
+  const sectionAt = (index) => {
+    let name = "";
+    for (const marker of sectionMarkers) {
+      if (marker.index > index) break;
+      name = marker.name;
+    }
+    return name;
+  };
+
+  const calls = findBalancedTemplateCalls(wikitext, ["DropsLine", "DropsLineClue", "DropsLineReward"]);
+  for (const call of calls) {
+    const currentSection = sectionAt(call.index);
+    if (ALTERNATE_MODE_SECTIONS.has(currentSection.trim().toLowerCase())) continue;
+
+    const params = {};
+    for (const p of splitTopLevelPipes(call.content)) {
+      const eq = p.indexOf("=");
+      const key = (eq === -1 ? p : p.slice(0, eq)).trim().toLowerCase();
+      const value = eq === -1 ? "" : p.slice(eq + 1).trim();
+      if (key) params[key] = value;
+    }
+
+    if (call.name === "DropsLineClue") {
+      const name = CLUE_ITEM_BY_TYPE[(params.type ?? "").toLowerCase()];
+      if (!name) continue;
+      lines.push({ name, quantity: "1", rarity: params.rarity, noted: false, section: currentSection });
+      continue;
+    }
+
+    if (!params.name) continue;
+    lines.push({ name: params.name, quantity: params.quantity, rarity: params.rarity, noted: params.noted === "yes", section: currentSection });
+  }
+  return lines;
+}

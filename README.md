@@ -12,7 +12,7 @@ OSRS players are obsessive about drop rates: "how many Zulrah kills until I get 
 
 It's grown into a small idle/incremental game on top of that core simulator:
 
-- **69 bosses** and 700+ items, with drop rates and values sourced from real OSRS data (not guessed). Boss-only by design, no filler monsters that just drop bones
+- **65 bosses** and 700+ items, with drop rates and values sourced from real OSRS data (not guessed). Boss-only by design, no filler monsters that just drop bones
 - **A GP economy**: sell what you loot, spend GP to unlock harder bosses
 - **Progression that actually grinds**: guests get every boss unlocked to just mess around; signed-in accounts start with two and grind GP for the rest, with top-tier bosses costing *billions*
 - **Openable containers**: clue scroll caskets and chest keys you loot can be opened for their own reward rolls

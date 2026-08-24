@@ -21,6 +21,9 @@ import {
   batchFetchWikitext,
   isQuestOnlyVariant,
   isRealRepeatableBoss,
+  parseWikiRarity,
+  parseWikiQuantity,
+  parseDropsLinesFromWikitext,
 } from "./lib/boss-classifier.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -72,71 +75,6 @@ function infoboxField(wikitext, infoboxName, field) {
   return m ? m[1].trim() : null;
 }
 
-const RARITY_WORD_DENOMINATOR = {
-  always: 1,
-  common: 8,
-  uncommon: 32,
-  rare: 128,
-  "very rare": 512,
-};
-
-/** Wiki rarity values are either "Always", an exact fraction ("1/516"), or
- * (mostly for bulk resource drops) a bare tier word with no exact number
- * given anywhere on the page. Tier words get a representative denominator
- * rather than a fabricated precise one — same honesty tradeoff the wiki
- * itself makes by not giving an exact number there either. */
-function parseRarity(raw) {
-  if (!raw) return null;
-  const s = raw.trim().toLowerCase();
-  if (s === "always" || s === "100%") return { numerator: 1, denominator: 1 };
-  const frac = s.match(/^(\d+)\s*\/\s*(\d+)/);
-  if (frac) return { numerator: Number(frac[1]), denominator: Number(frac[2]) };
-  if (s in RARITY_WORD_DENOMINATOR) return { numerator: 1, denominator: RARITY_WORD_DENOMINATOR[s] };
-  return null;
-}
-
-function parseQuantity(raw) {
-  if (!raw) return { min: 1, max: 1 };
-  const range = raw.match(/(\d[\d,]*)\s*-\s*(\d[\d,]*)/);
-  if (range) return { min: Number(range[1].replace(/,/g, "")), max: Number(range[2].replace(/,/g, "")) };
-  const n = Number(raw.replace(/,/g, "").trim());
-  return Number.isFinite(n) ? { min: n, max: n } : { min: 1, max: 1 };
-}
-
-/** Every {{DropsLine|...}} on the page, tagged with which section header
- * (===Section===) it fell under — "100%" sections map to guaranteed drops,
- * everything else is treated as an independent tertiary-style roll (this
- * project doesn't model a true single-roll-per-kill main table for
- * generated content; see generate-monsters.mjs's same simplification). */
-function parseDropsLines(wikitext) {
-  const lines = [];
-  let currentSection = "";
-  const sectionRe = /===\s*([^=]+?)\s*===/g;
-  const dropsRe = /\{\{DropsLine\|([^}]*)\}\}/g;
-
-  const sectionMarkers = [...wikitext.matchAll(sectionRe)].map((m) => ({ index: m.index, name: m[1] }));
-  const sectionAt = (index) => {
-    let name = "";
-    for (const marker of sectionMarkers) {
-      if (marker.index > index) break;
-      name = marker.name;
-    }
-    return name;
-  };
-
-  for (const m of wikitext.matchAll(dropsRe)) {
-    const params = Object.fromEntries(
-      m[1].split("|").map((p) => {
-        const eq = p.indexOf("=");
-        return eq === -1 ? [p.trim(), ""] : [p.slice(0, eq).trim(), p.slice(eq + 1).trim()];
-      }),
-    );
-    if (!params.name) continue;
-    currentSection = sectionAt(m.index);
-    lines.push({ name: params.name, quantity: params.quantity, rarity: params.rarity, noted: params.noted === "yes", section: currentSection });
-  }
-  return lines;
-}
 
 async function main() {
   const outDir = path.join(ROOT, "public/data");
@@ -201,12 +139,12 @@ async function main() {
       continue;
     }
 
-    const dropsLines = parseDropsLines(wikitext);
+    const dropsLines = parseDropsLinesFromWikitext(wikitext);
     const rawEntries = [];
     for (const line of dropsLines) {
-      const rarity = parseRarity(line.rarity);
+      const rarity = parseWikiRarity(line.rarity);
       if (!rarity) continue; // couldn't parse — skip rather than fabricate a rate
-      const { min, max } = parseQuantity(line.quantity);
+      const { min, max, noted } = parseWikiQuantity(line.quantity);
       pendingItemNames.add(line.name);
       rawEntries.push({
         itemName: line.name,
@@ -215,7 +153,7 @@ async function main() {
         maxQuantity: max,
         numerator: rarity.numerator,
         denominator: rarity.denominator,
-        ...(line.noted ? { noted: true } : {}),
+        ...(line.noted || noted ? { noted: true } : {}),
         isGuaranteed: line.section === "100%" && rarity.denominator === 1,
       });
     }
@@ -306,6 +244,10 @@ async function main() {
       skipped.push({ title: pending.name, reason: "no valid drops after item validation" });
       continue;
     }
+    // Refreshing an already-generated boss (REFRESH_EXISTING mode) keeps its
+    // already-decided unlockCost (which may have been zeroed out by
+    // finalize-starter-bosses.mjs) instead of recomputing from the formula.
+    const existing = monsters.find((m) => m.id === pending.id);
     newMonsters.push({
       id: pending.id,
       name: pending.name,
@@ -313,20 +255,26 @@ async function main() {
       iconUrl: pending.iconUrl,
       examine: pending.examine,
       category: "boss",
-      unlockCost: unlockCostFor(pending.combatLevel),
+      unlockCost: existing ? existing.unlockCost : unlockCostFor(pending.combatLevel),
       always,
       mainTable: [],
       tertiary,
     });
   }
 
-  const mergedMonsters = [...monsters, ...newMonsters];
+  // Upsert by id — a refreshed boss replaces its old entry in place (keeping
+  // roster order stable) instead of being appended as a duplicate.
+  const newMonstersById = new Map(newMonsters.map((m) => [m.id, m]));
+  const mergedMonsters = [
+    ...monsters.map((m) => newMonstersById.get(m.id) ?? m),
+    ...newMonsters.filter((m) => !monsters.some((existing2) => existing2.id === m.id)),
+  ];
   const mergedItems = { ...items, ...newItems };
 
   writeFileSync(path.join(outDir, "monsters.json"), JSON.stringify(mergedMonsters, null, 2));
   writeFileSync(path.join(outDir, "items.json"), JSON.stringify(mergedItems, null, 2));
 
-  console.log(`Added ${newMonsters.length} bosses and ${Object.keys(newItems).length} items.`);
+  console.log(`Added/refreshed ${newMonsters.length} bosses and ${Object.keys(newItems).length} items.`);
   if (skipped.length > 0) {
     console.log("Skipped:");
     for (const s of skipped) console.log(`  ${s.title}: ${s.reason}`);

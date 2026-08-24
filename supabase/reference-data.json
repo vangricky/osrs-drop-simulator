@@ -31,36 +31,6 @@
       "maxGpPerKill": 33000
     },
     {
-      "id": "ahrim-the-blighted",
-      "unlockCost": 0,
-      "maxGpPerKill": 2548
-    },
-    {
-      "id": "dharok-the-wretched",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 2548
-    },
-    {
-      "id": "guthan-the-infested",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 2548
-    },
-    {
-      "id": "karil-the-tainted",
-      "unlockCost": 1500000000,
-      "maxGpPerKill": 2548
-    },
-    {
-      "id": "torag-the-corrupted",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 2548
-    },
-    {
-      "id": "verac-the-defiled",
-      "unlockCost": 2300000000,
-      "maxGpPerKill": 2548
-    },
-    {
       "id": "tztok-jad",
       "unlockCost": 210000000000,
       "maxGpPerKill": 1000
@@ -76,24 +46,34 @@
       "maxGpPerKill": 91000
     },
     {
-      "id": "blood-moon",
-      "unlockCost": 31000000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "blue-moon",
-      "unlockCost": 31000000000,
-      "maxGpPerKill": 1000
-    },
-    {
-      "id": "eclipse-moon",
-      "unlockCost": 31000000000,
-      "maxGpPerKill": 1000
-    },
-    {
       "id": "revenant-maledictus",
       "unlockCost": 50000000000,
       "maxGpPerKill": 1000
+    },
+    {
+      "id": "barrows-chest",
+      "unlockCost": 2300000000,
+      "maxGpPerKill": 11836
+    },
+    {
+      "id": "lunar-chest",
+      "unlockCost": 31000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "chambers-of-xeric-chest",
+      "unlockCost": 90000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "theatre-of-blood-chest",
+      "unlockCost": 150000000000,
+      "maxGpPerKill": 1000
+    },
+    {
+      "id": "tombs-of-amascut-chest",
+      "unlockCost": 220000000000,
+      "maxGpPerKill": 103570
     },
     {
       "id": "corporeal-beast",
@@ -108,12 +88,12 @@
     {
       "id": "thermonuclear-smoke-devil",
       "unlockCost": 25000000000,
-      "maxGpPerKill": 41000
+      "maxGpPerKill": 40998
     },
     {
       "id": "chaos-elemental",
       "unlockCost": 26000000000,
-      "maxGpPerKill": 16000
+      "maxGpPerKill": 60990
     },
     {
       "id": "commander-zilyana",
@@ -123,7 +103,7 @@
     {
       "id": "dagannoth-supreme",
       "unlockCost": 26000000000,
-      "maxGpPerKill": 3218
+      "maxGpPerKill": 3220
     },
     {
       "id": "dagannoth-prime",
@@ -153,7 +133,7 @@
     {
       "id": "alchemical-hydra",
       "unlockCost": 60000000000,
-      "maxGpPerKill": 1000
+      "maxGpPerKill": 172100
     },
     {
       "id": "amoxliatl",
@@ -267,7 +247,7 @@
     },
     {
       "id": "obor",
-      "unlockCost": 1900000000,
+      "unlockCost": 0,
       "maxGpPerKill": 1834
     },
     {
@@ -3701,6 +3681,306 @@
     },
     "wyrmling-bones": {
       "value": 444,
+      "tradeable": true
+    },
+    "frozen-key-piece-saradomin": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dagannoth-ribs": {
+      "value": 0,
+      "tradeable": false
+    },
+    "frozen-key-piece-zamorak": {
+      "value": 0,
+      "tradeable": false
+    },
+    "frozen-key-piece-armadyl": {
+      "value": 0,
+      "tradeable": false
+    },
+    "super-restore-mix-2": {
+      "value": 3428,
+      "tradeable": true
+    },
+    "zamorak-mix-2": {
+      "value": 305,
+      "tradeable": true
+    },
+    "noxious-pommel": {
+      "value": 0,
+      "tradeable": false
+    },
+    "bottomless-compost-bucket": {
+      "value": 490749,
+      "tradeable": true
+    },
+    "tangleroot": {
+      "value": 0,
+      "tradeable": false
+    },
+    "elder-venator-fang": {
+      "value": 0,
+      "tradeable": false
+    },
+    "crimson-kisten": {
+      "value": 52492510,
+      "tradeable": true
+    },
+    "maggot-marquess": {
+      "value": 0,
+      "tradeable": false
+    },
+    "frozen-cache": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem-base": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem-middle": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem-top": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dark-totem": {
+      "value": 0,
+      "tradeable": false
+    },
+    "oathplate-helm": {
+      "value": 85000000,
+      "tradeable": true
+    },
+    "oathplate-chest": {
+      "value": 86042500,
+      "tradeable": true
+    },
+    "oathplate-legs": {
+      "value": 85954269,
+      "tradeable": true
+    },
+    "dossier": {
+      "value": 0,
+      "tradeable": false
+    },
+    "chasm-teleport-scroll": {
+      "value": 33666,
+      "tradeable": true
+    },
+    "granite-gloves": {
+      "value": 25071,
+      "tradeable": true
+    },
+    "ancestral-hat": {
+      "value": 45840710,
+      "tradeable": true
+    },
+    "ancestral-robe-bottom": {
+      "value": 62603358,
+      "tradeable": true
+    },
+    "ancestral-robe-top": {
+      "value": 94942711,
+      "tradeable": true
+    },
+    "ancient-tablet": {
+      "value": 0,
+      "tradeable": false
+    },
+    "arcane-prayer-scroll": {
+      "value": 5155562,
+      "tradeable": true
+    },
+    "avernic-defender-hilt": {
+      "value": 30036223,
+      "tradeable": true
+    },
+    "breach-of-the-scarab": {
+      "value": 0,
+      "tradeable": false
+    },
+    "cache-of-runes": {
+      "value": 0,
+      "tradeable": false
+    },
+    "cactus-spine": {
+      "value": 1636,
+      "tradeable": true
+    },
+    "coconut-milk": {
+      "value": 232,
+      "tradeable": true
+    },
+    "dark-relic": {
+      "value": 0,
+      "tradeable": false
+    },
+    "dexterous-prayer-scroll": {
+      "value": 17850000,
+      "tradeable": true
+    },
+    "dinhs-bulwark": {
+      "value": 11953608,
+      "tradeable": true
+    },
+    "dragon-claws": {
+      "value": 38087481,
+      "tradeable": true
+    },
+    "dragon-hunter-crossbow": {
+      "value": 27853403,
+      "tradeable": true
+    },
+    "dragonstone": {
+      "value": 10974,
+      "tradeable": true
+    },
+    "dynamite": {
+      "value": 166,
+      "tradeable": true
+    },
+    "elder-maul": {
+      "value": 92642832,
+      "tradeable": true
+    },
+    "elidinis-ward": {
+      "value": 3517719,
+      "tradeable": true
+    },
+    "eye-of-the-corruptor": {
+      "value": 0,
+      "tradeable": false
+    },
+    "fossilised-dung": {
+      "value": 0,
+      "tradeable": true
+    },
+    "ghrazi-rapier": {
+      "value": 23631876,
+      "tradeable": true
+    },
+    "holy-ornament-kit": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jewel-of-amascut": {
+      "value": 0,
+      "tradeable": false
+    },
+    "jewel-of-the-sun": {
+      "value": 0,
+      "tradeable": false
+    },
+    "justiciar-chestguard": {
+      "value": 10306661,
+      "tradeable": true
+    },
+    "justiciar-faceguard": {
+      "value": 10339043,
+      "tradeable": true
+    },
+    "justiciar-legguards": {
+      "value": 9803681,
+      "tradeable": true
+    },
+    "kodai-insignia": {
+      "value": 48210552,
+      "tradeable": true
+    },
+    "lightbearer": {
+      "value": 3829224,
+      "tradeable": true
+    },
+    "lil-zik": {
+      "value": 0,
+      "tradeable": false
+    },
+    "lily-of-the-sands": {
+      "value": 1901,
+      "tradeable": true
+    },
+    "lizardman-fang": {
+      "value": 8,
+      "tradeable": true
+    },
+    "masori-body": {
+      "value": 40964238,
+      "tradeable": true
+    },
+    "masori-chaps": {
+      "value": 28536990,
+      "tradeable": true
+    },
+    "masori-mask": {
+      "value": 10225153,
+      "tradeable": true
+    },
+    "metamorphic-dust": {
+      "value": 0,
+      "tradeable": false
+    },
+    "olmlet": {
+      "value": 0,
+      "tradeable": false
+    },
+    "osmumtens-fang": {
+      "value": 17369604,
+      "tradeable": true
+    },
+    "potato-cactus": {
+      "value": 64,
+      "tradeable": true
+    },
+    "saltpetre": {
+      "value": 5,
+      "tradeable": true
+    },
+    "sanguine-dust": {
+      "value": 0,
+      "tradeable": false
+    },
+    "sanguine-ornament-kit": {
+      "value": 0,
+      "tradeable": false
+    },
+    "sanguinesti-staff-uncharged": {
+      "value": 16975000,
+      "tradeable": true
+    },
+    "scythe-of-vitur-uncharged": {
+      "value": 1216444000,
+      "tradeable": true
+    },
+    "thread-of-elidinis": {
+      "value": 0,
+      "tradeable": false
+    },
+    "torn-prayer-scroll": {
+      "value": 47607,
+      "tradeable": true
+    },
+    "tumekens-shadow-uncharged": {
+      "value": 795968767,
+      "tradeable": true
+    },
+    "twisted-ancestral-colour-kit": {
+      "value": 0,
+      "tradeable": false
+    },
+    "twisted-bow": {
+      "value": 1367270500,
+      "tradeable": true
+    },
+    "twisted-buckler": {
+      "value": 13036086,
+      "tradeable": true
+    },
+    "vial-of-blood": {
+      "value": 8173,
       "tradeable": true
     }
   },
