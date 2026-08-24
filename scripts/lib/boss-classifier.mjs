@@ -174,6 +174,36 @@ export function parseWikiRarity(raw) {
   return null;
 }
 
+/** Reward-casket pages (and a few other tables) write rarity denominators
+ * as MediaWiki `{{#expr: ... }}` parser-function calls instead of a plain
+ * number — e.g. `10/{{#expr:11 * 31}}` — since the real denominator is a
+ * product of several sub-table sizes. Left unevaluated, parseWikiRarity
+ * can't read the denominator at all and the whole row gets silently
+ * dropped. Every case seen across the reward-casket pages is plain
+ * arithmetic (*, /, +, -, parentheses) with an optional trailing
+ * "round N" — so this evaluates that safely (character-whitelisted, no
+ * function calls) rather than pulling in a full expression parser. */
+export function evalWikiExprTemplates(wikitext) {
+  return wikitext.replace(/\{\{#expr:\s*([^{}]*?)\s*\}\}/g, (whole, expr) => {
+    const roundMatch = expr.match(/^(.*?)\s+round\s+(-?\d+)$/i);
+    const mathPart = roundMatch ? roundMatch[1] : expr;
+    if (!/^[\d\s.+\-*/()]+$/.test(mathPart)) return whole; // not plain arithmetic — leave untouched rather than risk a wrong eval
+    let value;
+    try {
+      // eslint-disable-next-line no-new-func
+      value = Function(`"use strict"; return (${mathPart});`)();
+    } catch {
+      return whole;
+    }
+    if (typeof value !== "number" || !Number.isFinite(value)) return whole;
+    if (roundMatch) {
+      const decimals = Math.max(0, Number(roundMatch[2]));
+      value = Number(value.toFixed(decimals));
+    }
+    return String(value);
+  });
+}
+
 /** Wiki quantity values are either a plain number, a "min-max" range, or
  * either of those followed by " (noted)" — the wiki's own convention for
  * marking a drop as noted, distinct from (and far more common than) an
@@ -197,7 +227,14 @@ export function parseWikiQuantity(raw) {
 // contract's guaranteed reward, not an always-drop on every normal kill) and
 // "===Junk===" (only rolled for players under 15% contribution, mutually
 // exclusive with the real table this project simulates at 100% contribution).
-const ALTERNATE_MODE_SECTIONS = new Set(["contract", "junk"]);
+// "Mimic rewards" (a subsection of Elite/Master reward-casket pages) is the
+// loot table for optionally fighting The Mimic boss when a reward casket
+// turns into one (a 1/35 or 1/15 chance, opt-in, and not one of the casket's
+// normal 4-6 reward rolls) — a mutually-exclusive alternate encounter, same
+// category as Yama's Contract, and consistent with this project's existing,
+// deliberate exclusion of The Mimic as a boss (EXCLUDED_NOT_ON_CURATED_LIST
+// above): its real reward can't be honestly represented as a per-open drop.
+const ALTERNATE_MODE_SECTIONS = new Set(["contract", "junk", "mimic rewards"]);
 
 const CLUE_ITEM_BY_TYPE = {
   beginner: "Clue scroll (beginner)",
@@ -285,7 +322,8 @@ function splitTopLevelPipes(str) {
  * case-sensitive lookup silently drops the whole line, which is how Yama's
  * "Runes" section (which happens to use capitalized params) went missing.
  * Skips ALTERNATE_MODE_SECTIONS entirely. */
-export function parseDropsLinesFromWikitext(wikitext) {
+export function parseDropsLinesFromWikitext(rawWikitext) {
+  const wikitext = evalWikiExprTemplates(rawWikitext);
   const lines = [];
   // Matches both ===Section=== and ====Subsection==== headers, returning the
   // innermost (deepest) one active at a given index — needed for pages like
