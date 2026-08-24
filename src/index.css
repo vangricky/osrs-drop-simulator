@@ -96,6 +96,15 @@ body::after {
    elements like the header dropdown and the mobile action bar, no matter
    how the selectors were written. */
 @layer base {
+  /* Browsers don't show a pointer cursor on <button> by default (only on
+     links) — every clickable button and link in the app should look
+     clickable on hover. Excludes disabled buttons so their own
+     disabled:cursor-not-allowed utility still applies. */
+  button:not(:disabled),
+  a[href] {
+    cursor: pointer;
+  }
+
   /* Frosted-glass panel border: a soft gold hairline + layered depth
      shadow, replacing the old hard emboss bevel. Shared by every panel,
      button and badge in the app, so this one rule is most of the "3D
