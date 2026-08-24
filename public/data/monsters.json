@@ -92,7 +92,8 @@
         "minQuantity": 2000,
         "maxQuantity": 2000,
         "numerator": 17,
-        "denominator": 512
+        "denominator": 512,
+        "noted": true
       },
       {
         "itemId": "adamant-arrow",
@@ -192,7 +193,8 @@
         "minQuantity": 30,
         "maxQuantity": 30,
         "numerator": 20,
-        "denominator": 512
+        "denominator": 512,
+        "noted": true
       },
       {
         "itemId": "white-berries",
@@ -465,7 +467,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "raw-shark",
@@ -503,7 +506,8 @@
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "pirate-boots",
@@ -517,14 +521,16 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 32
+        "denominator": 32,
+        "noted": true
       },
       {
         "itemId": "edible-seaweed",
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 1,
-        "denominator": 43
+        "denominator": 43,
+        "noted": true
       },
       {
         "itemId": "rune-longsword",
@@ -798,28 +804,32 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 107
+        "denominator": 107,
+        "noted": true
       },
       {
         "itemId": "tuna-potato",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 3,
-        "denominator": 107
+        "denominator": 107,
+        "noted": true
       },
       {
         "itemId": "sanfew-serum-4",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 3,
-        "denominator": 107
+        "denominator": 107,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-4",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 107
+        "denominator": 107,
+        "noted": true
       },
       {
         "itemId": "pure-essence",
@@ -1017,14 +1027,16 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 5
+        "denominator": 5,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 5
+        "denominator": 5,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
@@ -1419,35 +1431,40 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "saradomin-brew-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "super-defence-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "magic-potion-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -1687,7 +1704,8 @@
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "yew-logs",
@@ -1959,7 +1977,8 @@
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 10,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -2279,21 +2298,24 @@
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 7,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "swordfish",
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 4,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "shark",
         "minQuantity": 5,
         "maxQuantity": 5,
         "numerator": 1,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "dagannoth-ribs",
@@ -2447,28 +2469,32 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "super-strength-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "super-restore-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "zamorak-brew-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -2658,14 +2684,16 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "super-defence-3",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 127
+        "denominator": 127,
+        "noted": true
       },
       {
         "itemId": "grimy-dwarf-weed",
@@ -2863,7 +2891,8 @@
         "minQuantity": 300,
         "maxQuantity": 300,
         "numerator": 4,
-        "denominator": 139
+        "denominator": 139,
+        "noted": true
       },
       {
         "itemId": "grimy-kwuarm",
@@ -2979,14 +3008,16 @@
         "minQuantity": 10,
         "maxQuantity": 10,
         "numerator": 7,
-        "denominator": 139
+        "denominator": 139,
+        "noted": true
       },
       {
         "itemId": "super-restore-4",
         "minQuantity": 4,
         "maxQuantity": 4,
         "numerator": 5,
-        "denominator": 139
+        "denominator": 139,
+        "noted": true
       },
       {
         "itemId": "binding-necklace",
@@ -3001,7 +3032,8 @@
         "minQuantity": 6,
         "maxQuantity": 6,
         "numerator": 2,
-        "denominator": 139
+        "denominator": 139,
+        "noted": true
       },
       {
         "itemId": "jug-of-water",
@@ -3034,7 +3066,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 1
+        "denominator": 1,
+        "noted": true
       }
     ],
     "mainTable": [],
@@ -3192,7 +3225,8 @@
         "minQuantity": 2,
         "maxQuantity": 4,
         "numerator": 7,
-        "denominator": 101
+        "denominator": 101,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-3",
@@ -3206,7 +3240,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 7,
-        "denominator": 101
+        "denominator": 101,
+        "noted": true
       },
       {
         "itemId": "dragon-bones",
@@ -3539,14 +3574,16 @@
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 16
+        "denominator": 16,
+        "noted": true
       },
       {
         "itemId": "wild-pie",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 16
+        "denominator": 16,
+        "noted": true
       },
       {
         "itemId": "rune-kiteshield",
@@ -3569,7 +3606,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 6,
-        "denominator": 115
+        "denominator": 115,
+        "noted": true
       },
       {
         "itemId": "rune-2h-sword",
@@ -3584,7 +3622,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 115
+        "denominator": 115,
+        "noted": true
       },
       {
         "itemId": "death-rune",
@@ -3878,14 +3917,16 @@
         "minQuantity": 9,
         "maxQuantity": 9,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "rune-2h-sword",
@@ -3934,7 +3975,8 @@
         "minQuantity": 190,
         "maxQuantity": 190,
         "numerator": 4,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "uncut-ruby",
@@ -4077,35 +4119,40 @@
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "looting-bag",
@@ -4205,21 +4252,24 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 55
+        "denominator": 55,
+        "noted": true
       },
       {
         "itemId": "rune-scimitar",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 55
+        "denominator": 55,
+        "noted": true
       },
       {
         "itemId": "rune-pickaxe",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 55
+        "denominator": 55,
+        "noted": true
       },
       {
         "itemId": "fire-rune",
@@ -4390,7 +4440,8 @@
         "minQuantity": 2,
         "maxQuantity": 4,
         "numerator": 2,
-        "denominator": 55
+        "denominator": 55,
+        "noted": true
       },
       {
         "itemId": "desiccated-page",
@@ -4552,14 +4603,16 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 5,
-        "denominator": 81
+        "denominator": 81,
+        "noted": true
       },
       {
         "itemId": "logs",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 5,
-        "denominator": 81
+        "denominator": 81,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -5168,7 +5221,8 @@
         "minQuantity": 600,
         "maxQuantity": 600,
         "numerator": 4,
-        "denominator": 126
+        "denominator": 126,
+        "noted": true
       },
       {
         "itemId": "uncut-ruby",
@@ -5339,35 +5393,40 @@
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "looting-bag",
@@ -5465,14 +5524,16 @@
         "minQuantity": 8,
         "maxQuantity": 8,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "ancient-staff",
@@ -5521,7 +5582,8 @@
         "minQuantity": 180,
         "maxQuantity": 180,
         "numerator": 4,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "uncut-ruby",
@@ -5666,35 +5728,40 @@
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "looting-bag",
@@ -5892,7 +5959,8 @@
         "minQuantity": 50,
         "maxQuantity": 50,
         "numerator": 4,
-        "denominator": 130
+        "denominator": 130,
+        "noted": true
       },
       {
         "itemId": "runite-bolts-unf",
@@ -5921,14 +5989,16 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 6,
-        "denominator": 130
+        "denominator": 130,
+        "noted": true
       },
       {
         "itemId": "summer-pie",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 130
+        "denominator": 130,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -6174,7 +6244,8 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "shark",
@@ -6334,7 +6405,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "red-dhide-body",
@@ -6362,7 +6434,8 @@
         "minQuantity": 150,
         "maxQuantity": 150,
         "numerator": 4,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "dragon-arrow",
@@ -6383,7 +6456,8 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-4",
@@ -6586,7 +6660,8 @@
         "minQuantity": 80,
         "maxQuantity": 80,
         "numerator": 4,
-        "denominator": 131
+        "denominator": 131,
+        "noted": true
       },
       {
         "itemId": "grimy-dwarf-weed",
@@ -6647,7 +6722,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 4,
-        "denominator": 131
+        "denominator": 131,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
@@ -6661,14 +6737,16 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 8,
-        "denominator": 131
+        "denominator": 131,
+        "noted": true
       },
       {
         "itemId": "shark",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 8,
-        "denominator": 131
+        "denominator": 131,
+        "noted": true
       },
       {
         "itemId": "crystal-key",
@@ -6790,7 +6868,8 @@
         "minQuantity": 200,
         "maxQuantity": 600,
         "numerator": 5,
-        "denominator": 104
+        "denominator": 104,
+        "noted": true
       },
       {
         "itemId": "onyx-bolts",
@@ -6878,7 +6957,8 @@
         "minQuantity": 18,
         "maxQuantity": 75,
         "numerator": 5,
-        "denominator": 104
+        "denominator": 104,
+        "noted": true
       },
       {
         "itemId": "tooth-half-of-key-moon-key",
@@ -7003,7 +7083,8 @@
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 5.4
+        "denominator": 5.4,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
@@ -7048,7 +7129,8 @@
         "minQuantity": 57,
         "maxQuantity": 57,
         "numerator": 1,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "pure-essence",
@@ -7165,7 +7247,8 @@
         "minQuantity": 6090,
         "maxQuantity": 6090,
         "numerator": 8,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "raw-sea-turtle",
@@ -7315,28 +7398,32 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 56
+        "denominator": 56,
+        "noted": true
       },
       {
         "itemId": "rune-sq-shield",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 56
+        "denominator": 56,
+        "noted": true
       },
       {
         "itemId": "rune-axe",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 56
+        "denominator": 56,
+        "noted": true
       },
       {
         "itemId": "rune-pickaxe",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 56
+        "denominator": 56,
+        "noted": true
       },
       {
         "itemId": "water-rune",
@@ -7500,7 +7587,8 @@
         "minQuantity": 2,
         "maxQuantity": 4,
         "numerator": 2,
-        "denominator": 56
+        "denominator": 56,
+        "noted": true
       },
       {
         "itemId": "desiccated-page",
@@ -7966,7 +8054,8 @@
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 5.4
+        "denominator": 5.4,
+        "noted": true
       },
       {
         "itemId": "aether-catalyst",
@@ -8068,7 +8157,8 @@
         "minQuantity": 5481,
         "maxQuantity": 5481,
         "numerator": 8,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "dragon-bolts-unf",
@@ -8097,7 +8187,8 @@
         "minQuantity": 46,
         "maxQuantity": 46,
         "numerator": 8,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "bronze-arrow",
@@ -8286,7 +8377,8 @@
         "minQuantity": 90,
         "maxQuantity": 100,
         "numerator": 16,
-        "denominator": 150
+        "denominator": 150,
+        "noted": true
       },
       {
         "itemId": "law-rune",
@@ -8321,14 +8413,16 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 8,
-        "denominator": 150
+        "denominator": 150,
+        "noted": true
       },
       {
         "itemId": "yellowfin",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 8,
-        "denominator": 150
+        "denominator": 150,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-2",
@@ -8436,7 +8530,8 @@
         "minQuantity": 2,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 32
+        "denominator": 32,
+        "noted": true
       },
       {
         "itemId": "dull-ancient-medal",
@@ -8471,7 +8566,8 @@
         "minQuantity": 2,
         "maxQuantity": 4,
         "numerator": 41,
-        "denominator": 159
+        "denominator": 159,
+        "noted": true
       },
       {
         "itemId": "dull-ancient-medal",
@@ -8771,7 +8867,8 @@
         "minQuantity": 42,
         "maxQuantity": 2252,
         "numerator": 1,
-        "denominator": 8
+        "denominator": 8,
+        "noted": true
       },
       {
         "itemId": "air-orb",
@@ -8826,35 +8923,40 @@
         "minQuantity": 10,
         "maxQuantity": 10,
         "numerator": 1,
-        "denominator": 8
+        "denominator": 8,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-4",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 8
+        "denominator": 8,
+        "noted": true
       },
       {
         "itemId": "saradomin-brew-4",
         "minQuantity": 1,
         "maxQuantity": 10,
         "numerator": 1,
-        "denominator": 8
+        "denominator": 8,
+        "noted": true
       },
       {
         "itemId": "super-restore-4",
         "minQuantity": 1,
         "maxQuantity": 5,
         "numerator": 1,
-        "denominator": 8
+        "denominator": 8,
+        "noted": true
       },
       {
         "itemId": "blood-essence",
         "minQuantity": 1,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 82
+        "denominator": 82,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -9029,7 +9131,8 @@
         "minQuantity": 6,
         "maxQuantity": 220,
         "numerator": 4,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "rune-arrow",
@@ -9130,42 +9233,48 @@
         "minQuantity": 1,
         "maxQuantity": 18,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "shark",
         "minQuantity": 1,
         "maxQuantity": 16,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
         "minQuantity": 1,
         "maxQuantity": 10,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "sanfew-serum-3",
         "minQuantity": 1,
         "maxQuantity": 8,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "saradomin-brew-3",
         "minQuantity": 1,
         "maxQuantity": 10,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "zamorak-brew-3",
         "minQuantity": 1,
         "maxQuantity": 10,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -9661,42 +9770,48 @@
         "minQuantity": 4,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 9
+        "denominator": 9,
+        "noted": true
       },
       {
         "itemId": "summer-pie",
         "minQuantity": 4,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 9
+        "denominator": 9,
+        "noted": true
       },
       {
         "itemId": "ancient-brew-3",
         "minQuantity": 1,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 9
+        "denominator": 9,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-3",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 9
+        "denominator": 9,
+        "noted": true
       },
       {
         "itemId": "super-restore-3",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 9
+        "denominator": 9,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 9
+        "denominator": 9,
+        "noted": true
       },
       {
         "itemId": "rune-kiteshield",
@@ -9733,7 +9848,8 @@
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 4,
-        "denominator": 235
+        "denominator": 235,
+        "noted": true
       },
       {
         "itemId": "rune-sword",
@@ -9789,7 +9905,8 @@
         "minQuantity": 670,
         "maxQuantity": 670,
         "numerator": 5,
-        "denominator": 235
+        "denominator": 235,
+        "noted": true
       },
       {
         "itemId": "grimy-toadflax",
@@ -10135,7 +10252,8 @@
         "minQuantity": 137,
         "maxQuantity": 382,
         "numerator": 4,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "rune-arrow",
@@ -10236,42 +10354,48 @@
         "minQuantity": 16,
         "maxQuantity": 29,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "shark",
         "minQuantity": 13,
         "maxQuantity": 26,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
         "minQuantity": 8,
         "maxQuantity": 15,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "sanfew-serum-3",
         "minQuantity": 6,
         "maxQuantity": 12,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "saradomin-brew-3",
         "minQuantity": 8,
         "maxQuantity": 15,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "zamorak-brew-3",
         "minQuantity": 8,
         "maxQuantity": 15,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "coins",
@@ -10596,7 +10720,8 @@
         "minQuantity": 5,
         "maxQuantity": 8,
         "numerator": 5,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "weapon-poison",
@@ -10892,7 +11017,8 @@
         "minQuantity": 30,
         "maxQuantity": 50,
         "numerator": 4,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "onyx-bolt-tips",
@@ -11076,14 +11202,16 @@
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "tuna",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "shark",
@@ -11097,7 +11225,8 @@
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-1",
@@ -11209,21 +11338,24 @@
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 3,
-        "denominator": 33
+        "denominator": 33,
+        "noted": true
       },
       {
         "itemId": "tuna",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 3,
-        "denominator": 33
+        "denominator": 33,
+        "noted": true
       },
       {
         "itemId": "lobster",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 3,
-        "denominator": 33
+        "denominator": 33,
+        "noted": true
       },
       {
         "itemId": "shark",
@@ -11752,14 +11884,16 @@
         "minQuantity": 8,
         "maxQuantity": 8,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 5,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "rune-knife",
@@ -11808,7 +11942,8 @@
         "minQuantity": 200,
         "maxQuantity": 200,
         "numerator": 4,
-        "denominator": 128
+        "denominator": 128,
+        "noted": true
       },
       {
         "itemId": "diamond-bolts-e",
@@ -11944,35 +12079,40 @@
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 5,
-        "denominator": 54
+        "denominator": 54,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 5,
-        "denominator": 54
+        "denominator": 54,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 5,
-        "denominator": 54
+        "denominator": 54,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 5,
-        "denominator": 54
+        "denominator": 54,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 5,
-        "denominator": 54
+        "denominator": 54,
+        "noted": true
       },
       {
         "itemId": "looting-bag",
@@ -12035,7 +12175,8 @@
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 11,
-        "denominator": 315
+        "denominator": 315,
+        "noted": true
       },
       {
         "itemId": "tome-of-earth-empty",
@@ -12219,7 +12360,8 @@
         "minQuantity": 60,
         "maxQuantity": 1200,
         "numerator": 3,
-        "denominator": 68
+        "denominator": 68,
+        "noted": true
       },
       {
         "itemId": "rune-dart-tip",
@@ -12338,7 +12480,8 @@
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 5.3
+        "denominator": 5.3,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
@@ -12462,7 +12605,8 @@
         "minQuantity": 3654,
         "maxQuantity": 3654,
         "numerator": 8,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "dragon-dart-tip",
@@ -12741,7 +12885,8 @@
         "minQuantity": 600,
         "maxQuantity": 600,
         "numerator": 4,
-        "denominator": 126
+        "denominator": 126,
+        "noted": true
       },
       {
         "itemId": "uncut-ruby",
@@ -12905,35 +13050,40 @@
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "looting-bag",
@@ -13128,7 +13278,8 @@
         "minQuantity": 550,
         "maxQuantity": 550,
         "numerator": 4,
-        "denominator": 126
+        "denominator": 126,
+        "noted": true
       },
       {
         "itemId": "uncut-ruby",
@@ -13301,35 +13452,40 @@
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-karambwan",
         "minQuantity": 5,
         "maxQuantity": 6,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "blighted-super-restore-4",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "ranging-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-2",
         "minQuantity": 2,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 18
+        "denominator": 18,
+        "noted": true
       },
       {
         "itemId": "looting-bag",
@@ -13468,7 +13624,8 @@
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 1,
-        "denominator": 5.5
+        "denominator": 5.5,
+        "noted": true
       },
       {
         "itemId": "bronze-longsword",
@@ -13507,7 +13664,8 @@
         "minQuantity": 710,
         "maxQuantity": 710,
         "numerator": 1,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "pure-essence",
@@ -13610,7 +13768,8 @@
         "minQuantity": 84126,
         "maxQuantity": 84126,
         "numerator": 8,
-        "denominator": 100
+        "denominator": 100,
+        "noted": true
       },
       {
         "itemId": "runite-bolts-unf",
@@ -13771,28 +13930,32 @@
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 7.5,
-        "denominator": 95.11
+        "denominator": 95.11,
+        "noted": true
       },
       {
         "itemId": "wild-pie",
         "minQuantity": 3,
         "maxQuantity": 4,
         "numerator": 7.5,
-        "denominator": 95.11
+        "denominator": 95.11,
+        "noted": true
       },
       {
         "itemId": "prayer-potion-3",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 7.5,
-        "denominator": 95.11
+        "denominator": 95.11,
+        "noted": true
       },
       {
         "itemId": "super-restore-mix-2",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 7.5,
-        "denominator": 95.11
+        "denominator": 95.11,
+        "noted": true
       },
       {
         "itemId": "super-combat-potion-1",
