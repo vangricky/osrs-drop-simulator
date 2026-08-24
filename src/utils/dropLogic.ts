@@ -4,6 +4,10 @@ export interface RolledDrop {
   item: DropItem;
   quantity: number;
   source: "always" | "main" | "tertiary";
+  /** Whether THIS drop entry is noted (stacks in one inventory slot even if
+   * the underlying item isn't naturally stackable) — carried from the
+   * DropEntry that produced it so addDropsToInventory can honor it. */
+  noted?: boolean;
 }
 
 function randomInRange(min: number, max: number): number {
@@ -55,7 +59,7 @@ export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>):
   for (const entry of table.always) {
     const item = itemsById[entry.itemId];
     if (!item) continue;
-    results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "always" });
+    results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "always", noted: entry.noted });
   }
 
   for (let roll = 0; roll < (table.mainRolls ?? 1); roll++) {
@@ -63,7 +67,7 @@ export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>):
     if (!entry) continue;
     const item = itemsById[entry.itemId];
     if (item) {
-      results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "main" });
+      results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "main", noted: entry.noted });
     }
   }
 
@@ -71,7 +75,7 @@ export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>):
     if (rollChance(entry)) {
       const item = itemsById[entry.itemId];
       if (item) {
-        results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "tertiary" });
+        results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "tertiary", noted: entry.noted });
       }
     }
   }

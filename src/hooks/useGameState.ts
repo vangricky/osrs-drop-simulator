@@ -166,7 +166,7 @@ function addDropsToInventory(
 
   for (const drop of drops) {
     let remaining = drop.quantity;
-    const stackable = isStackable(drop.item);
+    const stackable = isStackable(drop.item, drop.noted);
 
     if (stackable) {
       const existingIndex = next.findIndex((slot) => slot?.itemId === drop.item.id);
