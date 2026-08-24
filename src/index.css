@@ -114,6 +114,55 @@ body::after {
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.55);
   }
 
+  /* Hover/press feedback for every ghost-style clickable control (anything
+     using .osrs-bevel on a real <button>/<a> — panels use the same class on
+     <div>/<header>, which this tag-scoped selector doesn't touch). A
+     noticeable lift + brighter edge + deeper shadow, not just a faint text
+     color shift. */
+  button.osrs-bevel,
+  a.osrs-bevel {
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease,
+      border-color 150ms ease,
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+  button.osrs-bevel:hover:not(:disabled),
+  a.osrs-bevel:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 201, 77, 0.6);
+    box-shadow:
+      0 22px 42px -16px rgba(0, 0, 0, 0.85),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 0 1px rgba(255, 183, 0, 0.2);
+  }
+  button.osrs-bevel:active:not(:disabled),
+  a.osrs-bevel:active {
+    transform: translateY(0);
+    box-shadow:
+      0 8px 16px -10px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* Solid gold/red gradient CTAs (Simulate Drop, Unlock, Prestige, Sign
+     in, ...) — a lift + brightness bump instead of the single
+     hover:brightness-110 utility alone, which read as barely-there. */
+  .osrs-cta {
+    transition:
+      transform 150ms ease,
+      filter 150ms ease,
+      box-shadow 150ms ease;
+  }
+  .osrs-cta:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+  }
+  .osrs-cta:active:not(:disabled) {
+    transform: translateY(0);
+    filter: brightness(0.96);
+  }
+
   .osrs-panel {
     position: relative;
     background-color: transparent;

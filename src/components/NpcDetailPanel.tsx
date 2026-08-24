@@ -96,7 +96,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
             <button
               onClick={() => onUnlock(npc)}
               disabled={gp < npc.unlockCost}
-              className="mt-1 hidden w-full rounded-[10px] bg-gradient-to-b from-osrs-red to-red-800 py-3 font-display text-base font-bold uppercase tracking-wide text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100 lg:block"
+              className="osrs-cta mt-1 hidden w-full rounded-[10px] bg-gradient-to-b from-osrs-red to-red-800 py-3 font-display text-base font-bold uppercase tracking-wide text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100 lg:block"
             >
               Unlock for {formatGp(npc.unlockCost)} gp
             </button>
@@ -107,7 +107,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
         ) : (
           <button
             onClick={() => onKill(npc)}
-            className="hidden rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 lg:block"
+            className="osrs-cta hidden rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 lg:block"
           >
             Simulate Drop
           </button>
