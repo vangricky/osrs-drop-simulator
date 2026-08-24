@@ -59,8 +59,8 @@ export default function Header({
     // `sticky top-0` element, not `fixed` — no content offset needed) so GP
     // and kill count stay visible on mobile without scrolling back up.
     <header className="osrs-bevel osrs-panel sticky top-4 z-20 mx-4 mt-4 shadow-lg">
-      <div className="flex items-center justify-between gap-2 px-3 py-2 sm:flex-wrap sm:gap-3 sm:px-4 sm:py-3">
-        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+      <div className="flex items-center justify-between gap-3 px-4 py-3 sm:flex-wrap sm:gap-4 sm:px-6 sm:py-4">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
           <img
             src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png"
             alt=""
@@ -80,25 +80,25 @@ export default function Header({
         {/* GP/kills/unique-drops badges and (on sm+) the full action row.
             Fixed-size (shrink-0) so the title above truncates first on a
             narrow phone instead of pushing these off-screen. */}
-        <div className="flex shrink-0 items-center gap-1.5 text-xs sm:flex-wrap sm:gap-4 sm:text-sm">
+        <div className="flex shrink-0 items-center gap-2 text-xs sm:flex-wrap sm:gap-3 sm:text-sm">
           <div
-            className="osrs-bevel-inset flex items-center gap-1.5 bg-osrs-panel-dark/60 px-2 py-1.5 sm:gap-2 sm:px-3"
+            className="osrs-bevel-inset flex items-center gap-2 bg-osrs-panel-dark/60 px-3 py-2 sm:gap-2.5 sm:px-4"
             title={`${gp.toLocaleString()} coins`}
           >
             <span className="text-osrs-parchment-dark/70">GP:</span>
             <span className="font-semibold text-osrs-gold">{formatGp(gp)}</span>
           </div>
-          <div className="osrs-bevel-inset flex items-center gap-1.5 bg-osrs-panel-dark/60 px-2 py-1.5 sm:gap-2 sm:px-3">
+          <div className="osrs-bevel-inset flex items-center gap-2 bg-osrs-panel-dark/60 px-3 py-2 sm:gap-2.5 sm:px-4">
             <span className="text-osrs-parchment-dark/70">Kills:</span>
             <span className="font-semibold text-osrs-gold">{totalKills.toLocaleString()}</span>
           </div>
-          <div className="osrs-bevel-inset hidden items-center gap-2 bg-osrs-panel-dark/60 px-3 py-1.5 sm:flex">
+          <div className="osrs-bevel-inset hidden items-center gap-2.5 bg-osrs-panel-dark/60 px-4 py-2 sm:flex">
             <span className="text-osrs-parchment-dark/70">Unique drops:</span>
             <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
           </div>
           {prestigeCount > 0 && (
             <div
-              className="osrs-bevel-inset hidden items-center gap-1.5 bg-osrs-panel-dark/60 px-2 py-1.5 sm:flex sm:gap-2 sm:px-3"
+              className="osrs-bevel-inset hidden items-center gap-2 bg-osrs-panel-dark/60 px-3 py-2 sm:flex sm:gap-2.5 sm:px-4"
               title={`Prestiged ${prestigeCount}x`}
             >
               <span className="text-osrs-parchment-dark/70">Prestige:</span>
@@ -107,16 +107,16 @@ export default function Header({
           )}
 
           {/* sm+ (tablet/desktop): every control shown inline, same as before. */}
-          <div className="hidden items-center gap-2 sm:flex">
+          <div className="hidden items-center gap-3 sm:flex">
             <button
               onClick={onOpenHowToPlay}
-              className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+              className="osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
             >
               How to play
             </button>
             <button
               onClick={onOpenCollectionLog}
-              className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+              className="osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
             >
               Collection log
             </button>
@@ -124,14 +124,14 @@ export default function Header({
               onClick={onOpenPrestige}
               disabled={!canPrestige}
               title={prestigeTitle}
-              className="rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-3 py-1.5 text-xs font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:bg-osrs-panel-dark/30 disabled:bg-none disabled:text-osrs-parchment-dark/40 disabled:shadow-none disabled:hover:brightness-100"
+              className="rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-4 py-2 text-xs font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:bg-osrs-panel-dark/30 disabled:bg-none disabled:text-osrs-parchment-dark/40 disabled:shadow-none disabled:hover:brightness-100"
             >
               Prestige
             </button>
             {authEnabled && (
               <button
                 onClick={onOpenLeaderboard}
-                className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+                className="osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
               >
                 Leaderboard
               </button>
@@ -143,7 +143,7 @@ export default function Header({
                 </span>
                 <button
                   onClick={onSignOut}
-                  className="osrs-bevel bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+                  className="osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
                 >
                   Sign out
                 </button>
@@ -152,7 +152,7 @@ export default function Header({
               authEnabled && (
                 <button
                   onClick={onOpenAuth}
-                  className="rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-3 py-1.5 text-xs font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] transition hover:brightness-110"
+                  className="rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-4 py-2 text-xs font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] transition hover:brightness-110"
                 >
                   Sign in
                 </button>
@@ -161,7 +161,7 @@ export default function Header({
             {!username && (
               <button
                 onClick={onReset}
-                className="osrs-bevel bg-osrs-red/20 px-3 py-1.5 text-xs font-semibold text-osrs-red transition hover:bg-osrs-red/30 active:osrs-bevel-inset"
+                className="osrs-bevel bg-osrs-red/20 px-4 py-2 text-xs font-semibold text-osrs-red transition hover:bg-osrs-red/30 active:osrs-bevel-inset"
               >
                 Reset
               </button>
@@ -186,7 +186,7 @@ export default function Header({
 
             {menuOpen && (
               <div className="osrs-bevel osrs-panel absolute right-0 top-[calc(100%+8px)] z-30 w-56 origin-top-right shadow-xl">
-                <div className="flex flex-col gap-1.5 p-2 text-xs">
+                <div className="flex flex-col gap-2 p-3 text-xs">
                   <button
                     onClick={() => {
                       setMenuOpen(false);

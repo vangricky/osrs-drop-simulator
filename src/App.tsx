@@ -96,10 +96,10 @@ function App() {
         onOpenPrestige={() => setShowPrestigeConfirm(true)}
       />
 
-      <div className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 items-stretch justify-center gap-4 px-4 py-4">
+      <div className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 items-stretch justify-center gap-5 px-4 py-5">
         <AdBanner variant="skyscraper-left" />
 
-        <main className="flex min-w-0 flex-1 min-h-0 flex-col gap-2 lg:grid lg:grid-cols-12 lg:gap-4">
+        <main className="flex min-w-0 flex-1 min-h-0 flex-col gap-3 lg:grid lg:grid-cols-12 lg:gap-5">
           {/* Below lg: one panel visible at a time, switched by these tabs.
               At lg+ every panel is shown at once, so this row doesn't render. */}
           <div className="flex shrink-0 gap-1 lg:hidden" role="tablist" aria-label="Panel">
@@ -121,7 +121,7 @@ function App() {
           </div>
 
           <div
-            className={`min-h-0 flex-1 lg:col-span-3 lg:flex lg:h-full ${mobileTab === "bosses" ? "flex" : "hidden"}`}
+            className={`min-h-0 min-w-0 flex-1 lg:col-span-3 lg:flex lg:h-full ${mobileTab === "bosses" ? "flex" : "hidden"}`}
           >
             <NpcBrowser
               selectedNpcId={selectedNpc?.id ?? null}
@@ -132,7 +132,7 @@ function App() {
           </div>
 
           <div
-            className={`min-h-0 flex-1 flex-col gap-4 lg:col-span-5 lg:flex lg:h-full ${mobileTab === "detail" ? "flex" : "hidden"}`}
+            className={`min-h-0 min-w-0 flex-1 flex-col gap-4 lg:col-span-5 lg:flex lg:h-full ${mobileTab === "detail" ? "flex" : "hidden"}`}
           >
             <div className="min-h-0 flex-1">
               <NpcDetailPanel
@@ -149,7 +149,7 @@ function App() {
           </div>
 
           <div
-            className={`min-h-0 flex-1 flex-col gap-4 lg:col-span-4 lg:flex lg:h-full ${mobileTab === "inventory" ? "flex" : "hidden"}`}
+            className={`min-h-0 min-w-0 flex-1 flex-col gap-4 lg:col-span-4 lg:flex lg:h-full ${mobileTab === "inventory" ? "flex" : "hidden"}`}
           >
             <div className="min-h-0 flex-[1.3]">
               <InventoryGrid

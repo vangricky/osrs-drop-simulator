@@ -39,9 +39,9 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
   }, [npcs, query]);
 
   return (
-    <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
-      <div className="border-b-2 border-osrs-border-dark p-3">
-        <h2 className="mb-2 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">
+    <div className="osrs-bevel osrs-panel flex h-full w-full min-h-0 min-w-0 flex-col">
+      <div className="border-b-2 border-osrs-border-dark p-4">
+        <h2 className="mb-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-gold">
           Find an NPC
         </h2>
         <input
@@ -49,15 +49,15 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search monster name..."
-          className="osrs-bevel-inset w-full bg-osrs-panel-dark/70 px-3 py-2 text-sm text-osrs-parchment placeholder:text-osrs-parchment-dark/50 focus:outline-none"
+          className="osrs-bevel-inset w-full bg-osrs-panel-dark/70 px-3 py-2.5 text-sm text-osrs-parchment placeholder:text-osrs-parchment-dark/50 focus:outline-none"
         />
       </div>
 
-      <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-2">
+      <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-3">
         {filtered.length === 0 && (
           <p className="p-4 text-center text-sm text-osrs-parchment-dark/60">No monsters found.</p>
         )}
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col gap-2">
           {filtered.map((npc) => {
             const kills = killCounts[npc.id] ?? 0;
             const active = npc.id === selectedNpcId;
@@ -66,7 +66,7 @@ export default function NpcBrowser({ selectedNpcId, onSelect, killCounts, unlock
               <li key={npc.id}>
                 <button
                   onClick={() => onSelect(npc)}
-                  className={`flex w-full items-center gap-2 px-2 py-1.5 text-left transition ${
+                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${
                     active
                       ? "osrs-bevel-inset bg-osrs-gold/15"
                       : "border-2 border-transparent hover:bg-osrs-panel-dark/40"

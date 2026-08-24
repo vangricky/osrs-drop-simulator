@@ -30,7 +30,7 @@ function DropRow({ entry }: { entry: DropEntry }) {
   const tier = rarityTier(entry);
   const style = RARITY_STYLES[tier];
   return (
-    <li className="flex items-center gap-2 border-b border-osrs-border-dark/40 px-2 py-1.5 last:border-b-0">
+    <li className="flex items-center gap-3 border-b border-osrs-border-dark/40 px-3 py-2 last:border-b-0">
       <div className="osrs-orb h-8 w-8 shrink-0 p-1" style={orbGlowStyle(style.glowRgb)}>
         <IconImg src={item.iconUrl} alt={item.name} className="h-full w-full" />
       </div>
@@ -67,25 +67,25 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
-      <div className="flex items-center gap-3 border-b-2 border-osrs-border-dark p-3">
+      <div className="flex items-center gap-4 border-b-2 border-osrs-border-dark p-4">
         <div className="osrs-orb h-14 w-14 shrink-0 p-2" style={orbGlowStyle("255,63,63")}>
           <IconImg src={npc.iconUrl} alt={npc.name} className="h-full w-full" />
         </div>
         <div className="min-w-0 flex-1">
           <h2 className="truncate font-display text-lg font-bold text-osrs-gold">{npc.name}</h2>
-          <p className="text-xs text-osrs-parchment-dark/70">
+          <p className="mt-0.5 text-xs text-osrs-parchment-dark/70">
             Combat level {npc.combatLevel} &middot; {killCount.toLocaleString()} killed
           </p>
         </div>
       </div>
 
-      <p className="border-b border-osrs-border-dark/40 px-3 py-2 text-xs italic text-osrs-parchment-dark/70">
+      <p className="border-b border-osrs-border-dark/40 px-4 py-3 text-xs italic text-osrs-parchment-dark/70">
         {npc.examine}
       </p>
 
-      <div className="flex flex-col gap-2 px-3 py-3">
+      <div className="flex flex-col gap-3 px-4 py-4">
         {!isUnlocked ? (
-          <div className="osrs-bevel-inset flex flex-col items-center gap-2 bg-osrs-panel-dark/50 p-4 text-center">
+          <div className="osrs-bevel-inset flex flex-col items-center gap-2 bg-osrs-panel-dark/50 p-5 text-center">
             <span className="text-2xl">&#128274;</span>
             <p className="text-sm font-semibold text-osrs-parchment">{npc.name} is locked</p>
             <p className="text-xs text-osrs-parchment-dark/60">
@@ -114,13 +114,13 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
         )}
 
         {isUnlocked && showLast && (
-          <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-2">
-            <p className="mb-1 text-[10px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
-            <div className="flex flex-wrap gap-1.5">
+          <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-3">
+            <p className="mb-2 text-[10px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
+            <div className="flex flex-wrap gap-2">
               {lastKill!.drops.map((d, i) => (
                 <div
                   key={`${d.item.id}-${i}`}
-                  className="animate-drop-pop osrs-bevel-inset flex items-center gap-1 bg-osrs-panel-dark/70 px-1.5 py-1"
+                  className="animate-drop-pop osrs-bevel-inset flex items-center gap-1.5 bg-osrs-panel-dark/70 px-2 py-1.5"
                   title={d.item.name}
                 >
                   <div className="osrs-orb h-6 w-6 shrink-0 p-0.5" style={orbGlowStyle(SOURCE_GLOW_RGB[d.source] ?? "255,183,0")}>
@@ -134,27 +134,27 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
               ))}
             </div>
             {lastKill!.overflow.length > 0 && (
-              <p className="mt-1.5 text-[11px] font-semibold text-osrs-red">
+              <p className="mt-2 text-[11px] font-semibold text-osrs-red">
                 Inventory full: {lastKill!.overflow.map((d) => d.item.name).join(", ")} was not obtained!
               </p>
             )}
           </div>
         )}
         {lastKill && lastKill.drops.length === 0 && (
-          <div key={killCount} className="osrs-bevel-inset bg-osrs-panel-dark/50 p-2 text-center text-xs text-osrs-parchment-dark/60">
+          <div key={killCount} className="osrs-bevel-inset bg-osrs-panel-dark/50 p-3 text-center text-xs text-osrs-parchment-dark/60">
             Nothing of interest happens.
           </div>
         )}
       </div>
 
       <div className="min-h-0 flex-1 overflow-hidden border-t-2 border-osrs-border-dark">
-        <p className="bg-osrs-panel-dark/40 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-osrs-parchment-dark/80">
+        <p className="bg-osrs-panel-dark/40 px-4 py-2 font-display text-xs font-bold uppercase tracking-wide text-osrs-parchment-dark/80">
           Drop table
         </p>
         <div className="osrs-scrollbar h-full max-h-[340px] overflow-y-auto pb-4">
           {npc.always.length > 0 && (
             <>
-              <p className="px-2 pt-2 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
+              <p className="px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
                 100% drop
               </p>
               <ul>
@@ -166,7 +166,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
           )}
           {npc.mainTable.length > 0 && (
             <>
-              <p className="px-2 pt-2 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
+              <p className="px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
                 Main drops
               </p>
               <ul>
@@ -178,7 +178,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
           )}
           {npc.tertiary.length > 0 && (
             <>
-              <p className="px-2 pt-2 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
+              <p className="px-3 pt-3 text-[10px] font-semibold uppercase tracking-wide text-osrs-parchment-dark/50">
                 Tertiary (rolled separately)
               </p>
               <ul>
