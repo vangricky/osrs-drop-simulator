@@ -22,21 +22,23 @@ export default function UnlockCelebration({ npc, onDismiss }: UnlockCelebrationP
       onClick={onDismiss}
     >
       <div className="relative flex flex-col items-center">
-        <div className="unlock-ray-spin pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+        <div className="relative flex items-center justify-center">
+          <div className="unlock-ray-spin pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
 
-        {Array.from({ length: PARTICLE_COUNT }).map((_, i) => {
-          const angle = (360 / PARTICLE_COUNT) * i;
-          return (
-            <span
-              key={i}
-              className="unlock-particle pointer-events-none absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full bg-osrs-gold"
-              style={{ ["--angle" as string]: `${angle}deg`, animationDelay: `${(i % 4) * 60}ms` }}
-            />
-          );
-        })}
+          {Array.from({ length: PARTICLE_COUNT }).map((_, i) => {
+            const angle = (360 / PARTICLE_COUNT) * i;
+            return (
+              <span
+                key={i}
+                className="unlock-particle pointer-events-none absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full bg-osrs-gold"
+                style={{ ["--angle" as string]: `${angle}deg`, animationDelay: `${(i % 4) * 60}ms` }}
+              />
+            );
+          })}
 
-        <div className="unlock-icon-pop relative z-10">
-          <IconImg src={npc.iconUrl} alt={npc.name} className="h-28 w-28 drop-shadow-[0_0_20px_rgba(255,183,0,0.8)]" />
+          <div className="unlock-icon-pop relative z-10">
+            <IconImg src={npc.iconUrl} alt={npc.name} className="h-28 w-28 drop-shadow-[0_0_20px_rgba(255,183,0,0.8)]" />
+          </div>
         </div>
 
         <p className="unlock-text-pop relative z-10 mt-4 font-display text-3xl font-bold uppercase tracking-widest text-osrs-gold drop-shadow-[0_0_10px_rgba(255,183,0,0.9)]">

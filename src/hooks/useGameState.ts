@@ -504,7 +504,9 @@ export function useGameState(userId: string | null = null) {
   // correct if the roster ever changes size after someone's already unlocked
   // everything that existed at the time.
   const prestige = useCallback(async (): Promise<number | null> => {
-    const allUnlocked = npcs.length > 0 && npcs.every((n) => stateRef.current.unlockedNpcIds.includes(n.id));
+    const allUnlocked =
+      npcs.length > 0 &&
+      npcs.every((n) => n.unlockCost === 0 || stateRef.current.unlockedNpcIds.includes(n.id));
     if (!allUnlocked) return null;
 
     if (!userId) {
@@ -552,7 +554,17 @@ export function useGameState(userId: string | null = null) {
 
   const uniqueItemsObtained = useMemo(() => Object.keys(state.collectionLog).length, [state.collectionLog]);
 
-  const unlockedNpcIds = useMemo(() => new Set(state.unlockedNpcIds), [state.unlockedNpcIds]);
+  // Free-tier bosses (unlockCost === 0, e.g. Brutus/Obor) are always treated
+  // as unlocked regardless of what's in stored/synced unlockedNpcIds — signed-in
+  // accounts created (or prestiged) before a boss became free otherwise show it
+  // as locked and require a pointless 0-gp "unlock" click.
+  const unlockedNpcIds = useMemo(() => {
+    const ids = new Set(state.unlockedNpcIds);
+    for (const n of npcs) {
+      if (n.unlockCost === 0) ids.add(n.id);
+    }
+    return ids;
+  }, [state.unlockedNpcIds, npcs]);
 
   const canPrestige = useMemo(
     () => npcs.length > 0 && npcs.every((n) => unlockedNpcIds.has(n.id)),
