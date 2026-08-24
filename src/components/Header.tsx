@@ -92,14 +92,10 @@ export default function Header({
             <span className="text-osrs-parchment-dark/70">Kills:</span>
             <span className="font-semibold text-osrs-gold">{totalKills.toLocaleString()}</span>
           </div>
-          <button
-            onClick={onOpenCollectionLog}
-            title="Open collection log"
-            className="osrs-bevel-inset hidden items-center gap-2 bg-osrs-panel-dark/60 px-3 py-1.5 transition hover:bg-osrs-panel-dark/80 sm:flex"
-          >
+          <div className="osrs-bevel-inset hidden items-center gap-2 bg-osrs-panel-dark/60 px-3 py-1.5 sm:flex">
             <span className="text-osrs-parchment-dark/70">Unique drops:</span>
             <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
-          </button>
+          </div>
           {prestigeCount > 0 && (
             <div
               className="osrs-bevel-inset hidden items-center gap-1.5 bg-osrs-panel-dark/60 px-2 py-1.5 sm:flex sm:gap-2 sm:px-3"
@@ -205,16 +201,10 @@ export default function Header({
                       Signed in as <span className="font-semibold text-osrs-gold">{username}</span>
                     </div>
                   )}
-                  <button
-                    onClick={() => {
-                      setMenuOpen(false);
-                      onOpenCollectionLog();
-                    }}
-                    className="osrs-bevel-inset flex items-center justify-between bg-osrs-panel-dark/60 px-3 py-2 transition active:bg-osrs-panel-dark/80"
-                  >
+                  <div className="osrs-bevel-inset flex items-center justify-between bg-osrs-panel-dark/60 px-3 py-2">
                     <span className="text-osrs-parchment-dark/70">Unique drops</span>
                     <span className="font-semibold text-osrs-gold">{uniqueItemsObtained}</span>
-                  </button>
+                  </div>
                   <button
                     onClick={() => {
                       setMenuOpen(false);
