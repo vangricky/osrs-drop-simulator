@@ -1,4 +1,4 @@
-type AdVariant = "skyscraper-left" | "skyscraper-right" | "leaderboard" | "rectangle";
+type AdVariant = "skyscraper-left" | "skyscraper-right" | "rectangle";
 
 interface AdBannerProps {
   variant: AdVariant;
@@ -6,10 +6,11 @@ interface AdBannerProps {
 }
 
 const VARIANT_STYLE: Record<AdVariant, { wrapper: string; label: string }> = {
-  "skyscraper-left": { wrapper: "sticky top-24 hidden h-[600px] w-[160px] shrink-0 xl:flex xl:flex-col", label: "160 x 600" },
-  "skyscraper-right": { wrapper: "sticky top-24 hidden h-[600px] w-[160px] shrink-0 xl:flex xl:flex-col", label: "160 x 600" },
-  leaderboard: { wrapper: "hidden h-[90px] w-full sm:flex", label: "728 x 90" },
-  rectangle: { wrapper: "flex h-[250px] w-full", label: "300 x 250" },
+  // max-h (not a fixed h) so it never forces the fixed-height app shell to
+  // overflow — it just shrinks to whatever room the sidebar actually has.
+  "skyscraper-left": { wrapper: "hidden h-full max-h-[600px] w-[160px] shrink-0 xl:flex xl:flex-col", label: "160 x 600" },
+  "skyscraper-right": { wrapper: "hidden h-full max-h-[600px] w-[160px] shrink-0 xl:flex xl:flex-col", label: "160 x 600" },
+  rectangle: { wrapper: "flex h-[250px] w-full shrink-0", label: "300 x 250" },
 };
 
 /**

@@ -22,9 +22,21 @@ const Leaderboard = lazy(() => import("./components/Leaderboard"));
 const PrestigeCelebration = lazy(() => import("./components/PrestigeCelebration"));
 const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 
+// Below lg, the page shows one panel at a time (tabs) instead of stacking
+// all of them, since a phone screen can't fit boss browser + kill panel +
+// inventory + log without forcing the whole page to scroll. At lg+ this is
+// ignored entirely — every panel is shown at once in the 3-column layout.
+const MOBILE_TABS = [
+  { key: "bosses", label: "Bosses" },
+  { key: "detail", label: "Kill" },
+  { key: "inventory", label: "Inventory" },
+] as const;
+type MobileTab = (typeof MOBILE_TABS)[number]["key"];
+
 function App() {
   const { npcs } = useGameData();
   const [selectedNpc, setSelectedNpc] = useState<Npc | null>(npcs[0] ?? null);
+  const [mobileTab, setMobileTab] = useState<MobileTab>("detail");
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [celebratingNpc, setCelebratingNpc] = useState<Npc | null>(null);
   const [showAuth, setShowAuth] = useState(false);
@@ -37,6 +49,15 @@ function App() {
   const game = useGameState(auth.userId);
   const isSelectedUnlocked = selectedNpc ? game.unlockedNpcIds.has(selectedNpc.id) : false;
   const authModalOpen = showAuth || auth.needsUsername;
+
+  // Jumping to a boss from the browser should also jump straight to its kill
+  // panel on mobile — otherwise picking a boss would silently do nothing
+  // until the player noticed they had to switch tabs themselves. No-op cost
+  // at lg+, where the tabs aren't shown at all.
+  const handleSelectNpc = (npc: Npc) => {
+    setSelectedNpc(npc);
+    setMobileTab("detail");
+  };
 
   const handleUnlock = (npc: Npc) => {
     if (game.unlockNpc(npc)) {
@@ -51,12 +72,11 @@ function App() {
   };
 
   return (
-    // pb-20 reserves room for MobileSimulateBar's fixed bottom bar (lg:hidden)
-    // so it doesn't permanently cover the footer/last content on mobile.
-    <div className="flex min-h-screen flex-col pb-20 lg:pb-0">
-      {/* No wrapper div around Header: a `sticky` element can't stick past
-          its immediate parent's bottom edge, so that parent must span the
-          full scrollable page, not just wrap tightly around the header. */}
+    // The whole page is a fixed-height app shell (h-dvh + overflow-hidden on
+    // html/body/#root, see index.css) — it never scrolls itself. Every panel
+    // that can outgrow its space scrolls internally instead, so nothing here
+    // needs bottom padding to "make room" for anything below it.
+    <div className="flex h-dvh flex-col overflow-hidden">
       <Header
         gp={game.gp}
         totalKills={game.totalKills}
@@ -76,21 +96,45 @@ function App() {
         onOpenPrestige={() => setShowPrestigeConfirm(true)}
       />
 
-      <div className="mx-auto flex w-full max-w-[1600px] flex-1 items-start justify-center gap-4 px-4 py-4">
+      <div className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 items-stretch justify-center gap-4 px-4 py-4">
         <AdBanner variant="skyscraper-left" />
 
-        <main className="grid min-w-0 flex-1 grid-cols-1 gap-4 lg:h-[720px] lg:grid-cols-12">
-          <div className="lg:col-span-3 lg:h-full lg:min-h-[420px]">
+        <main className="flex min-w-0 flex-1 min-h-0 flex-col gap-2 lg:grid lg:grid-cols-12 lg:gap-4">
+          {/* Below lg: one panel visible at a time, switched by these tabs.
+              At lg+ every panel is shown at once, so this row doesn't render. */}
+          <div className="flex shrink-0 gap-1 lg:hidden" role="tablist" aria-label="Panel">
+            {MOBILE_TABS.map((tab) => (
+              <button
+                key={tab.key}
+                role="tab"
+                aria-selected={mobileTab === tab.key}
+                onClick={() => setMobileTab(tab.key)}
+                className={`flex-1 px-2 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                  mobileTab === tab.key
+                    ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
+                    : "osrs-bevel bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 active:osrs-bevel-inset"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div
+            className={`min-h-0 flex-1 lg:col-span-3 lg:flex lg:h-full ${mobileTab === "bosses" ? "flex" : "hidden"}`}
+          >
             <NpcBrowser
               selectedNpcId={selectedNpc?.id ?? null}
-              onSelect={setSelectedNpc}
+              onSelect={handleSelectNpc}
               killCounts={game.killCounts}
               unlockedNpcIds={game.unlockedNpcIds}
             />
           </div>
 
-          <div className="flex flex-col gap-4 lg:col-span-5 lg:h-full lg:min-h-[520px]">
-            <div className="min-h-0 lg:flex-1">
+          <div
+            className={`min-h-0 flex-1 flex-col gap-4 lg:col-span-5 lg:flex lg:h-full ${mobileTab === "detail" ? "flex" : "hidden"}`}
+          >
+            <div className="min-h-0 flex-1">
               <NpcDetailPanel
                 npc={selectedNpc}
                 killCount={selectedNpc ? game.killCounts[selectedNpc.id] ?? 0 : 0}
@@ -104,8 +148,10 @@ function App() {
             {selectedNpc && !isSelectedUnlocked && <AdBanner variant="rectangle" className="shrink-0" />}
           </div>
 
-          <div className="flex flex-col gap-4 lg:col-span-4 lg:h-full lg:min-h-[600px]">
-            <div className="lg:min-h-[340px] lg:flex-[1.3]">
+          <div
+            className={`min-h-0 flex-1 flex-col gap-4 lg:col-span-4 lg:flex lg:h-full ${mobileTab === "inventory" ? "flex" : "hidden"}`}
+          >
+            <div className="min-h-0 flex-[1.3]">
               <InventoryGrid
                 inventory={game.inventory}
                 onMove={game.moveItem}
@@ -116,7 +162,7 @@ function App() {
                 onOpen={game.openContainer}
               />
             </div>
-            <div className="lg:min-h-[220px] lg:flex-1">
+            <div className="min-h-0 flex-1">
               <DropLogPanel log={game.log} />
             </div>
           </div>
@@ -125,14 +171,14 @@ function App() {
         <AdBanner variant="skyscraper-right" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1600px] px-4 pb-4">
-        <AdBanner variant="leaderboard" />
-      </div>
-
-      <footer className="mt-auto px-4 pb-4 text-center text-[11px] text-osrs-parchment-dark/40">
+      <footer className="shrink-0 px-4 py-1.5 text-center text-[11px] text-osrs-parchment-dark/40">
         Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy.
         This content is not endorsed by or affiliated with Jagex.
       </footer>
+
+      {/* Reserves the room MobileSimulateBar's fixed bottom bar (lg:hidden)
+          occupies, so it overlays blank space instead of the footer. */}
+      <div className="h-20 shrink-0 lg:hidden" aria-hidden="true" />
 
       <MobileSimulateBar
         npc={selectedNpc}

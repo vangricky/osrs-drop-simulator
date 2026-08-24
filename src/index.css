@@ -19,10 +19,16 @@
   --color-osrs-text: #ffe4a3;
 }
 
+/* App-shell layout: the page itself never scrolls (fixed to the viewport,
+   like a native app/game client) — every panel that needs more content than
+   it has room for scrolls internally instead. See each panel's own
+   `overflow-y-auto` region. */
 html,
 body,
 #root {
   height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {

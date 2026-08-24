@@ -37,7 +37,7 @@ function DropRow({ entry }: { entry: DropEntry }) {
 export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, gp, onKill, onUnlock }: NpcDetailPanelProps) {
   if (!npc) {
     return (
-      <div className="osrs-bevel osrs-panel flex max-h-[70vh] min-h-0 flex-col items-center justify-center gap-3 p-8 text-center lg:h-full lg:max-h-none">
+      <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col items-center justify-center gap-3 p-8 text-center">
         <img
           src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png"
           alt=""
@@ -55,7 +55,7 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
   const showLast = lastKill && lastKill.drops.length > 0;
 
   return (
-    <div className="osrs-bevel osrs-panel flex max-h-[85vh] min-h-0 flex-col lg:h-full lg:max-h-none">
+    <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
       <div className="flex items-center gap-3 border-b-2 border-osrs-border-dark p-3">
         <IconImg src={npc.iconUrl} alt={npc.name} className="h-14 w-14 shrink-0" />
         <div className="min-w-0 flex-1">
