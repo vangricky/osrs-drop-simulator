@@ -32,9 +32,10 @@ const MOBILE_TABS = [
 ] as const;
 type MobileTab = (typeof MOBILE_TABS)[number]["key"];
 
+const LAST_NPC_STORAGE_KEY = "osrs-drop-sim-last-npc-v1";
+
 function App() {
   const { npcs } = useGameData();
-  const [selectedNpc, setSelectedNpc] = useState<Npc | null>(npcs[0] ?? null);
   const [mobileTab, setMobileTab] = useState<MobileTab>("detail");
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [celebratingNpc, setCelebratingNpc] = useState<Npc | null>(null);
@@ -46,6 +47,22 @@ function App() {
   const [celebratingPrestige, setCelebratingPrestige] = useState<number | null>(null);
   const auth = useAuth();
   const game = useGameState(auth.userId);
+  // Defaults to whichever boss this browser last had selected (so a reload
+  // doesn't dump the player back on a random/locked boss), falling back to
+  // the first unlocked one if there's no stored pick, the stored pick no
+  // longer exists, or it's since become locked — never to an arbitrary
+  // (possibly high-level, locked) npcs[0].
+  const [selectedNpc, setSelectedNpc] = useState<Npc | null>(() => {
+    const lastId = localStorage.getItem(LAST_NPC_STORAGE_KEY);
+    const last = lastId ? npcs.find((n) => n.id === lastId) : undefined;
+    if (last && game.unlockedNpcIds.has(last.id)) return last;
+    // No usable stored pick — fall back to the easiest unlocked boss (same
+    // combat-level-ascending order NpcBrowser lists them in) rather than
+    // npcs[0], which is raw data-pipeline order and can land on something
+    // like King Black Dragon.
+    const byLevel = [...npcs].sort((a, b) => a.combatLevel - b.combatLevel);
+    return byLevel.find((n) => game.unlockedNpcIds.has(n.id)) ?? npcs[0] ?? null;
+  });
   const isSelectedUnlocked = selectedNpc ? game.unlockedNpcIds.has(selectedNpc.id) : false;
   const authModalOpen = showAuth || auth.needsUsername;
 
@@ -55,6 +72,7 @@ function App() {
   // at lg+, where the tabs aren't shown at all.
   const handleSelectNpc = (npc: Npc) => {
     setSelectedNpc(npc);
+    localStorage.setItem(LAST_NPC_STORAGE_KEY, npc.id);
     setMobileTab("detail");
   };
 

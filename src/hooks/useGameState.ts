@@ -210,6 +210,17 @@ export interface ContainerOpenResult extends KillResult {
   containerName: string;
 }
 
+// Slightly above the server's own anti-cheat cooldown between minting
+// actions (see check_and_touch_mint_cooldown in
+// supabase/migrations/0004_security_hardening.sql, 200ms). Calling
+// record_kill/open_container faster than that gets silently rejected
+// server-side ("too many requests") while the client had already credited
+// gp locally — the gp shown would then only revert once a reload re-fetched
+// the (lower) authoritative cloud value. Serializing every cloud mutation
+// through one queue with this minimum spacing keeps normal clicking from
+// ever outrunning what the server will actually accept.
+const MIN_MUTATION_GAP_MS = 220;
+
 export function useGameState(userId: string | null = null) {
   const { npcs, items: allItems, containers } = useGameData();
   const [state, setState] = useState<PersistedState>(() => loadState(npcs));
@@ -222,6 +233,34 @@ export function useGameState(userId: string | null = null) {
   useEffect(() => {
     stateRef.current = state;
   });
+
+  const mutationQueueRef = useRef<Promise<void>>(Promise.resolve());
+  const lastMutationAtRef = useRef(0);
+  // Runs `run` after every previously-queued cloud mutation has settled, at
+  // least MIN_MUTATION_GAP_MS after the previous one started. If it comes
+  // back with an error (rejected by the server) or throws (network failure),
+  // `onRejected` undoes the matching optimistic local update so the UI never
+  // keeps showing gp the server didn't actually accept.
+  const enqueueCloudMutation = useCallback(
+    (run: () => PromiseLike<{ error: unknown }>, onRejected?: () => void) => {
+      mutationQueueRef.current = mutationQueueRef.current.then(async () => {
+        const wait = lastMutationAtRef.current + MIN_MUTATION_GAP_MS - Date.now();
+        if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
+        lastMutationAtRef.current = Date.now();
+        try {
+          const { error } = await run();
+          if (error) {
+            console.error("cloud sync rejected, rolling back", error);
+            onRejected?.();
+          }
+        } catch (error) {
+          console.error("cloud sync failed, rolling back", error);
+          onRejected?.();
+        }
+      });
+    },
+    [],
+  );
 
   // Guest progress lives in localStorage (already the initial state). Signed-in
   // progress lives in Supabase; switching accounts (or signing out) swaps
@@ -330,21 +369,27 @@ export function useGameState(userId: string | null = null) {
     });
 
     if (userId && supabase) {
-      supabase
-        .rpc("record_kill", {
-          p_npc_id: npc.id,
-          p_gp_gained: coinsGained,
-          p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
-        })
-        .then(({ error }) => {
-          if (error) console.error("record_kill failed", error);
-        });
+      enqueueCloudMutation(
+        () =>
+          supabase!.rpc("record_kill", {
+            p_npc_id: npc.id,
+            p_gp_gained: coinsGained,
+            p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
+          }),
+        () => {
+          setState((prev) => ({
+            ...prev,
+            gp: prev.gp - coinsGained,
+            killCounts: { ...prev.killCounts, [npc.id]: Math.max(0, (prev.killCounts[npc.id] ?? 1) - 1) },
+          }));
+        },
+      );
     }
 
     const result: KillResult = { drops, overflow };
     setLastKill(result);
     return result;
-  }, [userId, allItems]);
+  }, [userId, allItems, enqueueCloudMutation]);
 
   const openContainer = useCallback((index: number): ContainerOpenResult | null => {
     const slot0 = stateRef.current.inventory[index];
@@ -406,21 +451,30 @@ export function useGameState(userId: string | null = null) {
     });
 
     if (userId && supabase) {
-      supabase
-        .rpc("open_container", {
-          p_container_item_id: container.itemId,
-          p_gp_gained: coinsGained,
-          p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
-        })
-        .then(({ error }) => {
-          if (error) console.error("open_container failed", error);
-        });
+      enqueueCloudMutation(
+        () =>
+          supabase!.rpc("open_container", {
+            p_container_item_id: container.itemId,
+            p_gp_gained: coinsGained,
+            p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
+          }),
+        () => {
+          setState((prev) => ({
+            ...prev,
+            gp: prev.gp - coinsGained,
+            containerOpenCounts: {
+              ...prev.containerOpenCounts,
+              [container.itemId]: Math.max(0, (prev.containerOpenCounts[container.itemId] ?? 1) - 1),
+            },
+          }));
+        },
+      );
     }
 
     const result: ContainerOpenResult = { drops, overflow, containerName: container.name };
     setLastContainerOpen(result);
     return result;
-  }, [userId, allItems, containers]);
+  }, [userId, allItems, containers, enqueueCloudMutation]);
 
   const moveItem = useCallback((from: number, to: number) => {
     setState((prev) => {
@@ -444,6 +498,10 @@ export function useGameState(userId: string | null = null) {
   }, []);
 
   const sellItem = useCallback((index: number) => {
+    const slot = stateRef.current.inventory[index];
+    const item = slot ? allItems[slot.itemId] : null;
+    const gained = slot && item ? item.value * slot.quantity : 0;
+
     setState((prev) => {
       const slot = prev.inventory[index];
       if (!slot) return prev;
@@ -453,19 +511,18 @@ export function useGameState(userId: string | null = null) {
       next[index] = null;
       return { ...prev, inventory: next, gp: prev.gp + item.value * slot.quantity };
     });
-    if (userId && supabase) {
-      const slot = stateRef.current.inventory[index];
-      if (slot) {
-        supabase.rpc("sell_item", { p_item_id: slot.itemId, p_quantity: slot.quantity }).then(({ error }) => {
-          if (error) console.error("sell_item failed", error);
-        });
-      }
+    if (userId && supabase && slot && item?.tradeable) {
+      enqueueCloudMutation(
+        () => supabase!.rpc("sell_item", { p_item_id: slot.itemId, p_quantity: slot.quantity }),
+        () => setState((prev) => ({ ...prev, gp: prev.gp - gained })),
+      );
     }
-  }, [userId, allItems]);
+  }, [userId, allItems, enqueueCloudMutation]);
 
   const sellAll = useCallback(() => {
+    let gained = 0;
     setState((prev) => {
-      let gained = 0;
+      gained = 0;
       const next = prev.inventory.map((slot) => {
         if (!slot) return slot;
         const item = allItems[slot.itemId];
@@ -476,12 +533,13 @@ export function useGameState(userId: string | null = null) {
       if (gained === 0) return prev;
       return { ...prev, inventory: next, gp: prev.gp + gained };
     });
-    if (userId && supabase) {
-      supabase.rpc("sell_all_items").then(({ error }) => {
-        if (error) console.error("sell_all_items failed", error);
-      });
+    if (userId && supabase && gained > 0) {
+      enqueueCloudMutation(
+        () => supabase!.rpc("sell_all_items"),
+        () => setState((prev) => ({ ...prev, gp: prev.gp - gained })),
+      );
     }
-  }, [userId, allItems]);
+  }, [userId, allItems, enqueueCloudMutation]);
 
   const unlockNpc = useCallback((npc: Npc): boolean => {
     let success = false;
@@ -492,12 +550,19 @@ export function useGameState(userId: string | null = null) {
       return { ...prev, gp: prev.gp - npc.unlockCost, unlockedNpcIds: [...prev.unlockedNpcIds, npc.id] };
     });
     if (success && userId && supabase) {
-      supabase.rpc("unlock_npc", { p_npc_id: npc.id }).then(({ error }) => {
-        if (error) console.error("unlock_npc failed", error);
-      });
+      enqueueCloudMutation(
+        () => supabase!.rpc("unlock_npc", { p_npc_id: npc.id }),
+        () => {
+          setState((prev) => ({
+            ...prev,
+            gp: prev.gp + npc.unlockCost,
+            unlockedNpcIds: prev.unlockedNpcIds.filter((id) => id !== npc.id),
+          }));
+        },
+      );
     }
     return success;
-  }, [userId]);
+  }, [userId, enqueueCloudMutation]);
 
   // Requires every monster (bosses included) to be unlocked at once — checked
   // against the CURRENT npc list rather than a stored count, so it stays
