@@ -11,6 +11,7 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
+import { snapCenterToCursor } from "@dnd-kit/modifiers";
 import { useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { InventorySlot } from "../hooks/useGameState";
@@ -201,6 +202,15 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
           // closestCenter picks the droppable whose center is nearest the
           // dragged item's center instead, which is unambiguous per-cell.
           collisionDetection={closestCenter}
+          // Without this, dnd-kit tracks wherever within the cell you first
+          // touched it and preserves that same offset for the rest of the
+          // drag — on a small touch target that reads as "the item is stuck
+          // below my finger," and worse, the drop target is computed from
+          // that same offset rect, not from where the finger actually ends
+          // up. snapCenterToCursor re-centers the dragged rect (and thus
+          // both collision detection and the overlay below) on the current
+          // pointer position instead, regardless of the initial grab point.
+          modifiers={[snapCenterToCursor]}
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
@@ -209,7 +219,7 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
               <Slot key={i} index={i} slot={slot} tooltipBelow={i < 4} onRemove={onRemove} onSell={onSell} onOpen={onOpen} />
             ))}
           </div>
-          <DragOverlay>
+          <DragOverlay modifiers={[snapCenterToCursor]}>
             {activeSlot ? (
               <div className="osrs-bevel-inset flex aspect-square items-center justify-center bg-osrs-panel-dark/80">
                 <SlotContent slot={activeSlot} />
