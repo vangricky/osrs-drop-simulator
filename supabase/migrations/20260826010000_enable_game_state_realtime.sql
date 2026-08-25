@@ -1,0 +1,14 @@
+-- Enables Supabase Realtime change notifications for game_state so every
+-- open tab/device for a signed-in player gets pushed gp/kill-count/etc
+-- updates as soon as another tab or device writes them, instead of only
+-- finding out on the next page load. Table was not previously in the
+-- supabase_realtime publication (verified via
+-- pg_publication_tables — no rows existed for any table before this).
+--
+-- Safe from the same client-can-forge-gp concern as direct UPDATEs: this
+-- only lets an authenticated client SUBSCRIBE to changes on rows they can
+-- already SELECT (RLS policy "Users can read their own game state" still
+-- applies to realtime's postgres_changes stream), not write to them — the
+-- validated RPCs in 0002_actions.sql/0004_security_hardening.sql remain
+-- the only way to actually change a row.
+alter publication supabase_realtime add table public.game_state;

@@ -294,6 +294,40 @@ export function useGameState(userId: string | null = null) {
     };
   }, [userId, npcs, allItems]);
 
+  // Live cross-tab/cross-device sync: without this, a second tab or device
+  // signed into the same account only ever saw this account's gp/kills/etc
+  // as of whatever it last loaded — no matter how long it sat open, or how
+  // much changed elsewhere in the meantime. Supabase Realtime pushes the
+  // updated row the moment any of the RPCs above commit it, so every open
+  // tab/device converges on the same authoritative numbers immediately
+  // instead of only finding out on their next reload.
+  useEffect(() => {
+    if (!userId || !supabase) return;
+    const channel = supabase
+      .channel(`game_state_${userId}`)
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "game_state", filter: `user_id=eq.${userId}` },
+        (payload) => {
+          const row = payload.new as Record<string, unknown>;
+          setState((prev) => ({
+            ...prev,
+            gp: Number(row.gp),
+            killCounts: (row.kill_counts as Record<string, number>) ?? prev.killCounts,
+            containerOpenCounts: (row.container_open_counts as Record<string, number>) ?? prev.containerOpenCounts,
+            collectionLog: (row.collection_log as Record<string, number>) ?? prev.collectionLog,
+            collectionLogFirsts: (row.collection_log_firsts as Record<string, CollectionLogFirst>) ?? prev.collectionLogFirsts,
+            unlockedNpcIds: (row.unlocked_npc_ids as string[]) ?? prev.unlockedNpcIds,
+            prestigeCount: Number(row.prestige_count ?? prev.prestigeCount),
+          }));
+        },
+      )
+      .subscribe();
+    return () => {
+      supabase!.removeChannel(channel);
+    };
+  }, [userId]);
+
   useEffect(() => {
     if (userId) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
