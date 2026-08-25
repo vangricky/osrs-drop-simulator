@@ -8,6 +8,24 @@ export default defineConfig({
   // (that was only needed for the old vangricky.github.io/osrs-drop-simulator/ URL).
   base: '/',
   plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      output: {
+        // Splits large, rarely-changing vendor code into its own chunk(s) so
+        // a deploy that only touches app code (which is most of them) doesn't
+        // force every returning visitor to re-download React/Supabase/dnd-kit
+        // too — those chunks stay cached across deploys under their own
+        // content hash.
+        manualChunks: (id: string) => {
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("react")) return "react";
+          if (id.includes("@supabase")) return "supabase";
+          if (id.includes("@dnd-kit")) return "dnd-kit";
+          return undefined;
+        },
+      },
+    },
+  },
   define: {
     // public/data/*.json is fetched at a fixed URL (see loadGameData.ts) so
     // it can be updated without a full app redeploy (e.g. the daily price

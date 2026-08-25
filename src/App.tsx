@@ -29,6 +29,7 @@ const MOBILE_TABS = [
   { key: "bosses", label: "Bosses" },
   { key: "detail", label: "Kill" },
   { key: "inventory", label: "Inventory" },
+  { key: "log", label: "Log" },
 ] as const;
 type MobileTab = (typeof MOBILE_TABS)[number]["key"];
 
@@ -165,10 +166,18 @@ function App() {
             </div>
           </div>
 
+          {/* On mobile, Inventory and Log are separate tabs so the inventory
+              grid gets the full panel height instead of splitting it with
+              the drop log below — at lg+ both still stack in one column,
+              same as before. */}
           <div
-            className={`min-h-0 min-w-0 flex-1 flex-col gap-4 lg:col-span-4 lg:flex lg:h-full ${mobileTab === "inventory" ? "flex" : "hidden"}`}
+            className={`min-h-0 min-w-0 flex-1 flex-col gap-4 lg:col-span-4 lg:flex lg:h-full ${
+              mobileTab === "inventory" || mobileTab === "log" ? "flex" : "hidden"
+            }`}
           >
-            <div className="min-h-0 flex-[1.3]">
+            <div
+              className={`min-h-0 lg:flex lg:flex-[1.3] ${mobileTab === "inventory" ? "flex flex-1" : "hidden"}`}
+            >
               <InventoryGrid
                 inventory={game.inventory}
                 onMove={game.moveItem}
@@ -179,7 +188,7 @@ function App() {
                 onOpen={game.openContainer}
               />
             </div>
-            <div className="min-h-0 flex-1">
+            <div className={`min-h-0 lg:flex lg:flex-1 ${mobileTab === "log" ? "flex flex-1" : "hidden"}`}>
               <DropLogPanel log={game.log} />
             </div>
           </div>

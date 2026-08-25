@@ -25,6 +25,7 @@ export default function IconImg({ src, alt, className }: IconImgProps) {
       src={src}
       alt={alt}
       loading="lazy"
+      decoding="async"
       className={`object-contain ${className ?? ""}`}
       onError={() => setFailed(true)}
     />

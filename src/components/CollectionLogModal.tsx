@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { CollectionLogFirst } from "../hooks/useGameState";
 import IconImg from "./IconImg";
@@ -63,15 +63,57 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
 
   const obtainedCount = rows.reduce((sum, r) => sum + (r.obtained ? 1 : 0), 0);
 
-  const filtered = useMemo(() => {
+  const { obtained, locked } = useMemo(() => {
     const q = search.trim().toLowerCase();
     const visible = q ? rows.filter((r) => r.name.toLowerCase().includes(q)) : rows;
-    const obtained = visible
-      .filter((r) => r.obtained)
-      .sort((a, b) => (b.first?.timestamp ?? 0) - (a.first?.timestamp ?? 0));
-    const locked = visible.filter((r) => !r.obtained).sort((a, b) => a.name.localeCompare(b.name));
-    return [...obtained, ...locked];
+    return {
+      obtained: visible
+        .filter((r) => r.obtained)
+        .sort((a, b) => (b.first?.timestamp ?? 0) - (a.first?.timestamp ?? 0)),
+      locked: visible.filter((r) => !r.obtained).sort((a, b) => a.name.localeCompare(b.name)),
+    };
   }, [rows, search]);
+
+  // Locked items are usually the bulk of the roster (hundreds of them) and
+  // sit past the (typically much shorter) obtained list, so mounting every
+  // one of them up front was the actual cost behind "scrolling down feels
+  // slow" — a few hundred simultaneous cells/icons the first time this
+  // modal opens. Reveal them incrementally instead: only the first page is
+  // rendered until the scroll sentinel comes near view.
+  const LOCKED_PAGE_SIZE = 120;
+  const [visibleLockedCount, setVisibleLockedCount] = useState(LOCKED_PAGE_SIZE);
+  // Reset the page size when the search term changes, following React's
+  // "adjust state during render" pattern instead of an effect — this runs
+  // synchronously as part of the same render rather than triggering a
+  // second one.
+  const [prevSearch, setPrevSearch] = useState(search);
+  if (search !== prevSearch) {
+    setPrevSearch(search);
+    setVisibleLockedCount(LOCKED_PAGE_SIZE);
+  }
+  const visibleLocked = locked.slice(0, visibleLockedCount);
+  const hasMoreLocked = visibleLockedCount < locked.length;
+  const displayedRows = useMemo(() => [...obtained, ...visibleLocked], [obtained, visibleLocked]);
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!hasMoreLocked) return;
+    const root = scrollContainerRef.current;
+    const target = sentinelRef.current;
+    if (!root || !target) return;
+    // rootMargin loads the next page well before the sentinel is actually
+    // scrolled into view, so more rows (and their icons) are already
+    // mounted and loading by the time the player gets there.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setVisibleLockedCount((c) => c + LOCKED_PAGE_SIZE);
+      },
+      { root, rootMargin: "600px 0px" },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [hasMoreLocked]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
@@ -103,14 +145,15 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
         />
 
         <div
+          ref={scrollContainerRef}
           className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto pr-1"
           onScroll={() => setHover(null)}
         >
-          {filtered.length === 0 ? (
+          {obtained.length + locked.length === 0 ? (
             <p className="py-8 text-center text-sm text-osrs-parchment-dark/60">No items match that search.</p>
           ) : (
             <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-6 md:grid-cols-8">
-              {filtered.map((row) => (
+              {displayedRows.map((row) => (
                 <div
                   key={row.itemId}
                   className="osrs-bevel-inset relative flex aspect-square flex-col items-center justify-center gap-1 bg-osrs-panel-dark/50 p-1.5"
@@ -138,6 +181,7 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
               ))}
             </div>
           )}
+          {hasMoreLocked && <div ref={sentinelRef} aria-hidden="true" className="h-px" />}
         </div>
 
         {hover && (
