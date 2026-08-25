@@ -32,8 +32,20 @@ export default function DropLogPanel({ log }: DropLogPanelProps) {
           <ul className="divide-y divide-osrs-border-dark/40">
             {log.map((entry) => (
               <li key={entry.id} className="px-3.5 py-2.5">
-                <div className="mb-1.5 flex items-center justify-between">
-                  <span className="truncate text-sm font-semibold text-osrs-parchment">{entry.npcName}</span>
+                <div className="mb-1.5 flex items-center justify-between gap-2">
+                  <span className="min-w-0 truncate text-sm font-semibold text-osrs-parchment">
+                    {entry.npcName}
+                    {/* Guests can carry a localStorage save from before this
+                        was tracked — those older entries won't have it. */}
+                    {typeof entry.sourceCount === "number" && (
+                      <>
+                        {" "}
+                        <span className="font-normal text-osrs-parchment-dark/50">
+                          ({entry.sourceType === "container" ? "open" : "kill"} #{entry.sourceCount})
+                        </span>
+                      </>
+                    )}
+                  </span>
                   <span className="shrink-0 text-xs text-osrs-parchment-dark/50">{timeAgo(entry.timestamp)}</span>
                 </div>
                 {entry.drops.length === 0 ? (

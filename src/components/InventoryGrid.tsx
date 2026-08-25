@@ -1,4 +1,5 @@
 import {
+  closestCenter,
   DndContext,
   DragOverlay,
   PointerSensor,
@@ -189,7 +190,20 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
       </div>
 
       <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-3.5">
-        <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+        <DndContext
+          sensors={sensors}
+          // The default rectIntersection strategy compares overlap area
+          // between the dragged rect and every droppable rect — in a dense,
+          // uniform grid like this one that's ambiguous (adjacent cells'
+          // rects overlap it almost equally while the pointer is between
+          // them), so it was resolving to the wrong neighboring slot and
+          // swapping items other than the ones actually under the cursor.
+          // closestCenter picks the droppable whose center is nearest the
+          // dragged item's center instead, which is unambiguous per-cell.
+          collisionDetection={closestCenter}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+        >
           <div className="grid grid-cols-4 gap-2">
             {inventory.map((slot, i) => (
               <Slot key={i} index={i} slot={slot} tooltipBelow={i < 4} onRemove={onRemove} onSell={onSell} onOpen={onOpen} />

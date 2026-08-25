@@ -16,6 +16,12 @@ export interface LogEntry {
   timestamp: number;
   npcId: string;
   npcName: string;
+  sourceType: "kill" | "container";
+  // Which numbered kill/open of that source this entry was (e.g. this was
+  // Brutus kill #47) — same "first obtained" bookkeeping the collection log
+  // already tracks per item, just recorded on every entry instead of only
+  // the first.
+  sourceCount: number;
   drops: { itemId: string; quantity: number; source: RolledDrop["source"] }[];
 }
 
@@ -329,15 +335,17 @@ export function useGameState(userId: string | null = null) {
       const { inventory, overflow: ov } = addDropsToInventory(prev.inventory, itemDrops);
       overflow = ov;
 
+      const killNumber = (prev.killCounts[npc.id] ?? 0) + 1;
       const logEntry: LogEntry = {
         id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         timestamp: Date.now(),
         npcId: npc.id,
         npcName: npc.name,
+        sourceType: "kill",
+        sourceCount: killNumber,
         drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
       };
 
-      const killNumber = (prev.killCounts[npc.id] ?? 0) + 1;
       const collectionLog = { ...prev.collectionLog };
       const collectionLogFirsts = { ...prev.collectionLogFirsts };
       for (const d of drops) {
@@ -413,15 +421,17 @@ export function useGameState(userId: string | null = null) {
       const { inventory, overflow: ov } = addDropsToInventory(consumedInventory, itemDrops);
       overflow = ov;
 
+      const openNumber = (prev.containerOpenCounts[container.itemId] ?? 0) + 1;
       const logEntry: LogEntry = {
         id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         timestamp: Date.now(),
         npcId: container.itemId,
         npcName: container.name,
+        sourceType: "container",
+        sourceCount: openNumber,
         drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
       };
 
-      const openNumber = (prev.containerOpenCounts[container.itemId] ?? 0) + 1;
       const collectionLog = { ...prev.collectionLog };
       const collectionLogFirsts = { ...prev.collectionLogFirsts };
       for (const d of drops) {

@@ -116,7 +116,10 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
         {isUnlocked && showLast && (
           <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-2.5">
             <p className="mb-1.5 text-[11px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
-            <div className="flex flex-wrap gap-1.5">
+            {/* A big multi-item drop (barrows chest, raid chests, etc.) can
+                easily overflow a couple of wrapped rows — cap the height and
+                scroll internally instead of spilling out past the panel. */}
+            <div className="osrs-scrollbar flex max-h-48 flex-wrap gap-1.5 overflow-y-auto pr-0.5">
               {lastKill!.drops.map((d, i) => (
                 <div
                   key={`${d.item.id}-${i}`}

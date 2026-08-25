@@ -176,7 +176,7 @@ function App() {
             }`}
           >
             <div
-              className={`min-h-0 lg:flex lg:flex-[1.3] ${mobileTab === "inventory" ? "flex flex-1" : "hidden"}`}
+              className={`min-h-0 min-w-0 w-full flex-col lg:flex lg:flex-[1.3] ${mobileTab === "inventory" ? "flex flex-1" : "hidden"}`}
             >
               <InventoryGrid
                 inventory={game.inventory}
@@ -188,7 +188,9 @@ function App() {
                 onOpen={game.openContainer}
               />
             </div>
-            <div className={`min-h-0 lg:flex lg:flex-1 ${mobileTab === "log" ? "flex flex-1" : "hidden"}`}>
+            <div
+              className={`min-h-0 min-w-0 w-full flex-col lg:flex lg:flex-1 ${mobileTab === "log" ? "flex flex-1" : "hidden"}`}
+            >
               <DropLogPanel log={game.log} />
             </div>
           </div>
