@@ -564,20 +564,33 @@ export function useGameState(userId: string | null = null) {
   }, [userId, allItems, enqueueCloudMutation]);
 
   const sellAll = useCallback(() => {
-    let gained = 0;
+    // Computed from stateRef (up to date as of last render) before calling
+    // setState, not from a variable mutated inside the updater and read
+    // right after — setState's updater doesn't necessarily run
+    // synchronously (see prestige's guest path below for the same
+    // hazard), so that outer variable could still read its initial value
+    // here, making the "did anything actually sell" check below false even
+    // though the optimistic update a moment later shows it succeeding.
+    // That's exactly what was happening: the RPC below never fired for
+    // signed-in players, so nothing ever actually got sold server-side —
+    // the gp gain was purely local and vanished once anything re-synced
+    // from the cloud.
+    const gained = stateRef.current.inventory.reduce((sum, slot) => {
+      if (!slot) return sum;
+      const item = allItems[slot.itemId];
+      if (!item?.tradeable) return sum;
+      return sum + item.value * slot.quantity;
+    }, 0);
+    if (gained === 0) return;
     setState((prev) => {
-      gained = 0;
       const next = prev.inventory.map((slot) => {
         if (!slot) return slot;
         const item = allItems[slot.itemId];
-        if (!item || !item.tradeable) return slot;
-        gained += item.value * slot.quantity;
-        return null;
+        return item?.tradeable ? null : slot;
       });
-      if (gained === 0) return prev;
       return { ...prev, inventory: next, gp: prev.gp + gained };
     });
-    if (userId && supabase && gained > 0) {
+    if (userId && supabase) {
       enqueueCloudMutation(
         () => supabase!.rpc("sell_all_items"),
         () => setState((prev) => ({ ...prev, gp: prev.gp - gained })),
@@ -586,26 +599,30 @@ export function useGameState(userId: string | null = null) {
   }, [userId, allItems, enqueueCloudMutation]);
 
   const unlockNpc = useCallback((npc: Npc): boolean => {
-    let success = false;
-    setState((prev) => {
-      if (prev.unlockedNpcIds.includes(npc.id)) return prev;
-      if (prev.gp < npc.unlockCost) return prev;
-      success = true;
-      return { ...prev, gp: prev.gp - npc.unlockCost, unlockedNpcIds: [...prev.unlockedNpcIds, npc.id] };
+    // Same stateRef-before-setState pattern as sellAll above, for the same
+    // reason: `success` read immediately after setState (rather than from
+    // stateRef beforehand) was stale more often than not, so the unlock_npc
+    // RPC below almost never actually fired for signed-in players.
+    const prev = stateRef.current;
+    if (prev.unlockedNpcIds.includes(npc.id)) return false;
+    if (prev.gp < npc.unlockCost) return false;
+    setState((p) => {
+      if (p.unlockedNpcIds.includes(npc.id) || p.gp < npc.unlockCost) return p;
+      return { ...p, gp: p.gp - npc.unlockCost, unlockedNpcIds: [...p.unlockedNpcIds, npc.id] };
     });
-    if (success && userId && supabase) {
+    if (userId && supabase) {
       enqueueCloudMutation(
         () => supabase!.rpc("unlock_npc", { p_npc_id: npc.id }),
         () => {
-          setState((prev) => ({
-            ...prev,
-            gp: prev.gp + npc.unlockCost,
-            unlockedNpcIds: prev.unlockedNpcIds.filter((id) => id !== npc.id),
+          setState((p) => ({
+            ...p,
+            gp: p.gp + npc.unlockCost,
+            unlockedNpcIds: p.unlockedNpcIds.filter((id) => id !== npc.id),
           }));
         },
       );
     }
-    return success;
+    return true;
   }, [userId, enqueueCloudMutation]);
 
   // Requires every monster (bosses included) to be unlocked at once — checked
