@@ -1,5 +1,4 @@
 import { lazy, Suspense, useState } from "react";
-import AdBanner from "./components/AdBanner";
 import DropLogPanel from "./components/DropLogPanel";
 import Header from "./components/Header";
 import InventoryGrid from "./components/InventoryGrid";
@@ -96,9 +95,10 @@ function App() {
         onOpenPrestige={() => setShowPrestigeConfirm(true)}
       />
 
-      <div className="mx-auto flex w-full min-h-0 max-w-[1600px] flex-1 items-stretch justify-center gap-3 px-4 py-4">
-        <AdBanner variant="skyscraper-left" />
-
+      {/* Widened from the old 1600px cap now that the side ad columns are
+          gone — the three panels stretch to use the reclaimed width instead
+          of leaving it empty on large screens. */}
+      <div className="mx-auto flex w-full min-h-0 max-w-[1920px] flex-1 items-stretch justify-center gap-3 px-4 py-4">
         <main className="flex min-w-0 flex-1 min-h-0 flex-col gap-2 lg:grid lg:grid-cols-12 lg:gap-3">
           {/* Below lg: one panel visible at a time, switched by these tabs.
               At lg+ every panel is shown at once, so this row doesn't render. */}
@@ -145,7 +145,6 @@ function App() {
                 onUnlock={handleUnlock}
               />
             </div>
-            {selectedNpc && !isSelectedUnlocked && <AdBanner variant="rectangle" className="shrink-0" />}
           </div>
 
           <div
@@ -167,8 +166,6 @@ function App() {
             </div>
           </div>
         </main>
-
-        <AdBanner variant="skyscraper-right" />
       </div>
 
       <footer className="shrink-0 px-4 py-1.5 text-center text-[11px] text-osrs-parchment-dark/40">
