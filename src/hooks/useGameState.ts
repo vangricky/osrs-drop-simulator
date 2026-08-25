@@ -133,6 +133,53 @@ function inventoryFromLedger(ledger: Record<string, number>, items: Record<strin
   return next;
 }
 
+/** Tops up a cached display arrangement with anything the ledger says is
+ * owned but the cache doesn't show — never removes/shrinks what's already
+ * displayed, only adds the shortfall into existing stacks or empty slots.
+ * Needed because the cache can under-represent true ownership (e.g. an
+ * optimistic "sold"/"moved" that got cached before its RPC actually landed,
+ * or in the past, before that class of bug was fixed) — without this,
+ * those items become permanently invisible and unsellable despite still
+ * being genuinely owned. */
+function reconcileInventoryWithLedger(
+  cached: (InventorySlot | null)[],
+  ledger: Record<string, number>,
+  items: Record<string, DropItem>,
+): (InventorySlot | null)[] {
+  const shown: Record<string, number> = {};
+  for (const slot of cached) {
+    if (!slot) continue;
+    shown[slot.itemId] = (shown[slot.itemId] ?? 0) + slot.quantity;
+  }
+
+  const next = [...cached];
+  const firstEmptySlot = () => next.findIndex((slot) => slot === null);
+
+  for (const [itemId, ownedQuantity] of Object.entries(ledger)) {
+    const missing = ownedQuantity - (shown[itemId] ?? 0);
+    if (missing <= 0) continue;
+    const item = items[itemId];
+    if (!item) continue;
+
+    if (isStackable(item)) {
+      const existingIndex = next.findIndex((slot) => slot?.itemId === itemId);
+      if (existingIndex !== -1) {
+        next[existingIndex] = { ...next[existingIndex]!, quantity: next[existingIndex]!.quantity + missing };
+      } else {
+        const slotIndex = firstEmptySlot();
+        if (slotIndex !== -1) next[slotIndex] = { itemId, quantity: missing };
+      }
+    } else {
+      for (let i = 0; i < missing; i++) {
+        const slotIndex = firstEmptySlot();
+        if (slotIndex === -1) break;
+        next[slotIndex] = { itemId, quantity: 1 };
+      }
+    }
+  }
+  return next;
+}
+
 async function loadCloudState(userId: string, npcs: Npc[], items: Record<string, DropItem>): Promise<PersistedState | null> {
   if (!supabase) return null;
   const [{ data: gs }, { data: userItems }] = await Promise.all([
@@ -146,7 +193,9 @@ async function loadCloudState(userId: string, npcs: Npc[], items: Record<string,
 
   const cachedInventory = Array.isArray(gs.inventory_cache) ? (gs.inventory_cache as (InventorySlot | null)[]) : [];
   const inventory =
-    cachedInventory.length === INVENTORY_SIZE ? cachedInventory : inventoryFromLedger(ledger, items);
+    cachedInventory.length === INVENTORY_SIZE
+      ? reconcileInventoryWithLedger(cachedInventory, ledger, items)
+      : inventoryFromLedger(ledger, items);
 
   return {
     inventory,
