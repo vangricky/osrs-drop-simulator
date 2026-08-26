@@ -14,20 +14,19 @@ import {
 import { snapCenterToCursor } from "@dnd-kit/modifiers";
 import { getEventCoordinates } from "@dnd-kit/utilities";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useGameData } from "../hooks/useGameData";
 import type { InventorySlot } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
 // How long a hold (mouse or touch) has to stay still before it opens the
-// Sell/Lock menu. Short enough that dragging to an option while still
-// holding feels immediate once it appears.
+// Lock menu. Short enough that dragging onto it while still holding feels
+// immediate once it appears.
 const LONG_PRESS_MS = 700;
 // Movement beyond this, before the hold has opened the menu, cancels it —
 // the input is scrolling or starting a drag instead of holding in place.
 const LONG_PRESS_MOVE_TOLERANCE = 10;
-
-type MenuAction = "sell" | "lock";
 
 interface InventoryGridProps {
   inventory: (InventorySlot | null)[];
@@ -141,12 +140,14 @@ function Slot({
             // (and thus a native click) on whatever's under the pointer at
             // release — without this, releasing back over the same slot
             // (e.g. the drag-to-Lock never happened) would silently also
-            // open the container underneath the menu. Checked via a ref
+            // open/sell the item underneath the menu. Checked via a ref
             // rather than a prop: the click fires synchronously right after
             // the mouseup that already closed the menu, before React has
             // re-rendered this handler with a "menu's gone now" closure.
             if (suppressClickRef.current === index) return;
-            if (openable && !slot.locked) onOpen(index);
+            if (slot.locked) return;
+            if (openable) onOpen(index);
+            else if (item?.tradeable) onSell(index);
           }}
           onContextMenu={(e) => {
             e.preventDefault();
@@ -174,27 +175,13 @@ function Slot({
           &#127873;
         </span>
       )}
-      {slot && slot.locked ? (
+      {slot && slot.locked && (
         <span
           title="Locked — right-click (or hold) to unlock"
           className="osrs-bevel pointer-events-none absolute -right-1 -top-1 z-20 flex h-4 w-4 items-center justify-center bg-osrs-panel-dark text-[9px] text-osrs-parchment-dark"
         >
           &#128274;
         </span>
-      ) : (
-        slot &&
-        item?.tradeable && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onSell(index);
-            }}
-            title={`Sell for ${formatGp(item.value * slot.quantity)} gp`}
-            className="osrs-bevel absolute -right-1 -top-1 z-20 hidden h-4 w-4 items-center justify-center bg-osrs-gold text-[9px] font-bold text-osrs-panel-dark group-hover:flex"
-          >
-            $
-          </button>
-        )
       )}
     </div>
   );
@@ -213,7 +200,10 @@ export default function InventoryGrid({
   const { items: allItems } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
-  const [hoveredAction, setHoveredActionState] = useState<MenuAction | null>(null);
+  // Lock is the only option left in the hold/right-click menu now that a
+  // plain click sells directly — this just tracks whether the pointer is
+  // currently over that one button while the menu is open.
+  const [hoveringLock, setHoveringLockState] = useState(false);
   // Where the dragged item's floating copy should render, tracked from
   // dnd-kit's own (touch-safe) coordinate stream rather than its built-in
   // DragOverlay — that component positions itself via a `position: fixed`
@@ -236,18 +226,18 @@ export default function InventoryGrid({
   const pressTimer = useRef<number | null>(null);
   const pressStartRef = useRef<{ index: number; x: number; y: number } | null>(null);
   const pressActiveRef = useRef(false);
-  const hoveredActionRef = useRef<MenuAction | null>(null);
+  const hoveringLockRef = useRef(false);
   const suppressClickRef = useRef<number | null>(null);
-  const menuButtonRefs = useRef<Partial<Record<MenuAction, HTMLButtonElement | null>>>({});
+  const lockButtonRef = useRef<HTMLButtonElement | null>(null);
   const globalListenersRef = useRef<{
     move: (e: MouseEvent | TouchEvent) => void;
     up: () => void;
     cancel: () => void;
   } | null>(null);
 
-  const setHoveredAction = (action: MenuAction | null) => {
-    hoveredActionRef.current = action;
-    setHoveredActionState(action);
+  const setHoveringLock = (hovering: boolean) => {
+    hoveringLockRef.current = hovering;
+    setHoveringLockState(hovering);
   };
 
   const clearPressTimer = () => {
@@ -268,19 +258,16 @@ export default function InventoryGrid({
     globalListenersRef.current = null;
   };
 
-  const resolveHoveredAction = (x: number, y: number): MenuAction | null => {
-    for (const action of ["sell", "lock"] as MenuAction[]) {
-      const el = menuButtonRefs.current[action];
-      if (!el) continue;
-      const r = el.getBoundingClientRect();
-      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return action;
-    }
-    return null;
+  const resolveHoveringLock = (x: number, y: number): boolean => {
+    const el = lockButtonRef.current;
+    if (!el) return false;
+    const r = el.getBoundingClientRect();
+    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
   };
 
   const movePress = (x: number, y: number) => {
     if (pressActiveRef.current) {
-      setHoveredAction(resolveHoveredAction(x, y));
+      setHoveringLock(resolveHoveringLock(x, y));
       return;
     }
     if (!pressStartRef.current) return;
@@ -295,16 +282,13 @@ export default function InventoryGrid({
   function endPressSession(commit: boolean) {
     clearPressTimer();
     removeGlobalListeners();
-    if (commit && pressActiveRef.current && pressStartRef.current) {
-      const { index } = pressStartRef.current;
-      const action = hoveredActionRef.current;
-      if (action === "sell") onSell(index);
-      else if (action === "lock") onToggleLock(index);
+    if (commit && pressActiveRef.current && pressStartRef.current && hoveringLockRef.current) {
+      onToggleLock(pressStartRef.current.index);
     }
     pressActiveRef.current = false;
     pressStartRef.current = null;
     setContextMenu(null);
-    setHoveredAction(null);
+    setHoveringLock(false);
     // Cleared a tick later, not immediately: the native "click" that
     // follows this same mouseup fires before React re-renders, so the
     // Slot's onClick handler needs to still see this set on that pass.
@@ -336,7 +320,7 @@ export default function InventoryGrid({
       pressActiveRef.current = true;
       suppressClickRef.current = index;
       setContextMenu({ index, x, y, openedVia: "hold" });
-      setHoveredAction(null);
+      setHoveringLock(false);
     }, LONG_PRESS_MS);
   };
 
@@ -430,7 +414,6 @@ export default function InventoryGrid({
   }, 0);
 
   const menuSlot = contextMenu ? inventory[contextMenu.index] : null;
-  const menuItem = menuSlot ? allItems[menuSlot.itemId] : null;
   // Hold-opened menus (mobile long-press) anchor to the slot's own square —
   // touch coordinates during a sustained hold have been landing the menu
   // far from the finger on real devices, so this positions it directly
@@ -521,70 +504,58 @@ export default function InventoryGrid({
             ))}
           </div>
         </DndContext>
-        {activeSlot && dragPoint && dragSize && (
-          <div
-            className="osrs-bevel-inset pointer-events-none fixed z-50 flex items-center justify-center bg-osrs-panel-dark/80"
-            style={{
-              left: dragPoint.x - dragSize.width / 2,
-              top: dragPoint.y - dragSize.height / 2,
-              width: dragSize.width,
-              height: dragSize.height,
-            }}
-          >
-            <SlotContent slot={activeSlot} />
-          </div>
-        )}
+        {activeSlot &&
+          dragPoint &&
+          dragSize &&
+          createPortal(
+            <div
+              className="osrs-bevel-inset pointer-events-none fixed z-50 flex items-center justify-center bg-osrs-panel-dark/80"
+              style={{
+                left: dragPoint.x - dragSize.width / 2,
+                top: dragPoint.y - dragSize.height / 2,
+                width: dragSize.width,
+                height: dragSize.height,
+              }}
+            >
+              <SlotContent slot={activeSlot} />
+            </div>,
+            document.body,
+          )}
         <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
-          Drag to reorganize &middot; $ to sell &middot; &#127873; click to open &middot; double-click to discard
-          &middot; right-click or hold (drag to choose) to lock
+          Drag to reorganize &middot; click to sell/open &middot; &#127873; opens a container &middot; double-click
+          to discard &middot; right-click or hold to lock
         </p>
       </div>
 
-      {contextMenu && menuSlot && (
-        <div
-          className="osrs-bevel osrs-panel fixed z-50 min-w-[130px] overflow-hidden py-1 text-sm"
-          style={menuPosition ?? { left: 0, top: 0 }}
-          onClick={(e) => e.stopPropagation()}
-          onContextMenu={(e) => e.preventDefault()}
-        >
-          {menuItem?.tradeable && !menuSlot.locked && (
+      {contextMenu &&
+        menuSlot &&
+        createPortal(
+          <div
+            className="osrs-bevel osrs-panel fixed z-50 min-w-[110px] overflow-hidden py-1 text-sm"
+            style={menuPosition ?? { left: 0, top: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            onContextMenu={(e) => e.preventDefault()}
+          >
             <button
-              ref={(el) => {
-                menuButtonRefs.current.sell = el;
-              }}
+              ref={lockButtonRef}
               onClick={() => {
                 // Hold-opened menus resolve on release (see endPressSession)
                 // — this onClick only does anything for the rightclick
                 // flow, where releasing the mouse just opens the menu and
-                // picking an option is a separate subsequent click.
+                // picking the option is a separate subsequent click.
                 if (contextMenu.openedVia === "hold") return;
-                onSell(contextMenu.index);
+                onToggleLock(contextMenu.index);
                 setContextMenu(null);
               }}
               className={`block w-full px-4 py-2 text-left transition ${
-                hoveredAction === "sell" ? "bg-osrs-gold/20 text-osrs-gold" : "text-osrs-parchment hover:bg-osrs-gold/15"
+                hoveringLock ? "bg-osrs-gold/20 text-osrs-gold" : "text-osrs-parchment hover:bg-osrs-gold/15"
               }`}
             >
-              Sell
+              {menuSlot.locked ? "Unlock" : "Lock"}
             </button>
-          )}
-          <button
-            ref={(el) => {
-              menuButtonRefs.current.lock = el;
-            }}
-            onClick={() => {
-              if (contextMenu.openedVia === "hold") return;
-              onToggleLock(contextMenu.index);
-              setContextMenu(null);
-            }}
-            className={`block w-full px-4 py-2 text-left transition ${
-              hoveredAction === "lock" ? "bg-osrs-gold/20 text-osrs-gold" : "text-osrs-parchment hover:bg-osrs-gold/15"
-            }`}
-          >
-            {menuSlot.locked ? "Unlock" : "Lock"}
-          </button>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
