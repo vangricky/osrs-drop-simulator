@@ -138,6 +138,16 @@ function Slot({
             onPressStart(index, e.clientX, e.clientY);
           }}
           onTouchStart={(e) => {
+            // Deliberately NOT also invoking dnd-kit's own TouchSensor
+            // activator here (it's on this same prop, spread from
+            // `{...listeners}` above, and this handler replaces it) — wiring
+            // both up left TouchSensor's delay-based activation stuck
+            // "listening" after a long hold with no movement (exactly this
+            // gesture), never cleanly resolving and leaving the slot
+            // permanently marked as dragging. PointerSensor (a separate
+            // `onPointerDown`, untouched by this handler) already covers
+            // touch-drag activation via the browser's own touch-to-pointer
+            // event translation, so nothing is actually lost here.
             const t = e.touches[0];
             onPressStart(index, t.clientX, t.clientY);
           }}
