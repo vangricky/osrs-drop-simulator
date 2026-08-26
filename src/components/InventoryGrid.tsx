@@ -198,6 +198,9 @@ export default function InventoryGrid({
 
   const pressTimer = useRef<number | null>(null);
   const pressStartRef = useRef<{ index: number; x: number; y: number } | null>(null);
+  // Set once the hold has actually toggled the lock, so the still-held
+  // finger/mouse doesn't need tracking anymore — just waiting for release.
+  const firedRef = useRef(false);
   const suppressClickRef = useRef<number | null>(null);
   const globalListenersRef = useRef<{
     move: (e: MouseEvent | TouchEvent) => void;
@@ -223,19 +226,31 @@ export default function InventoryGrid({
     globalListenersRef.current = null;
   };
 
+  // Only called on the actual release (or a cancelled hold) — NOT the
+  // moment the lock toggles, since the finger/mouse is typically still down
+  // well past that point. Clearing suppressClickRef here, right as the
+  // trailing native "click" is about to fire from this same release, is
+  // what keeps that click from also selling/opening the item underneath.
   const endPressSession = () => {
     clearPressTimer();
     removeGlobalListeners();
+    const wasFired = firedRef.current;
     pressStartRef.current = null;
-    // Cleared a tick later, not immediately: the native "click" that
-    // follows this same mouseup fires before React re-renders, so the
-    // Slot's onClick handler needs to still see this set on that pass.
-    window.setTimeout(() => {
-      suppressClickRef.current = null;
-    }, 0);
+    firedRef.current = false;
+    if (wasFired) {
+      // Cleared a tick later, not immediately: the native "click" that
+      // follows this same release fires before React re-renders, so the
+      // Slot's onClick handler needs to still see this set on that pass.
+      window.setTimeout(() => {
+        suppressClickRef.current = null;
+      }, 0);
+    }
   };
 
   const movePress = (x: number, y: number) => {
+    // Once the lock has fired there's nothing left to track — just wait
+    // for release, however long that takes.
+    if (firedRef.current) return;
     if (!pressStartRef.current) return;
     const dx = x - pressStartRef.current.x;
     const dy = y - pressStartRef.current.y;
@@ -245,6 +260,7 @@ export default function InventoryGrid({
   const handlePressStart = (index: number, x: number, y: number) => {
     endPressSession();
     pressStartRef.current = { index, x, y };
+    firedRef.current = false;
 
     const move = (e: MouseEvent | TouchEvent) => {
       const point = "touches" in e ? e.touches[0] : (e as MouseEvent);
@@ -260,9 +276,12 @@ export default function InventoryGrid({
     window.addEventListener("touchcancel", up);
 
     pressTimer.current = window.setTimeout(() => {
+      firedRef.current = true;
       suppressClickRef.current = index;
       onToggleLock(index);
-      endPressSession();
+      // Deliberately not calling endPressSession() here — the finger/mouse
+      // is still down, so the click-suppression must stay armed until the
+      // real release (handled by the `up` listener above).
     }, LONG_PRESS_MS);
   };
 
