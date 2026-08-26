@@ -19,15 +19,16 @@
   --color-osrs-text: #ffe4a3;
 }
 
-/* App-shell layout: the game screen itself (App's own root div, sized via
-   `h-dvh` in App.tsx) never scrolls — every panel that needs more content
-   than it has room for scrolls internally instead (see each panel's own
-   `overflow-y-auto` region). The page as a whole, though, is allowed to
-   scroll past that first full-height screen: static SEO copy lives in
-   index.html as a sibling of #root, below the game, for players who scroll
-   down and for crawlers that don't execute JS. */
+/* App-shell layout: the page itself never scrolls (fixed to the viewport,
+   like a native app/game client) — every panel that needs more content than
+   it has room for scrolls internally instead. See each panel's own
+   `overflow-y-auto` region. SEO/FAQ copy lives on its own static page
+   (public/faq/) rather than below the game, precisely so this stays true. */
 html,
-body {
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
   overscroll-behavior: none;
 }
 

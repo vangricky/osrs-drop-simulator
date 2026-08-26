@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      This page is deliberately plain, hand-written static HTML — not part
+      of the Vite/React build — so it renders with zero JavaScript and a
+      guaranteed 200 response for any crawler or visitor. It intentionally
+      does NOT reference the main app's compiled CSS bundle (that filename
+      is content-hashed and changes every deploy); the styling below is a
+      small, self-contained stylesheet matching the game's palette instead,
+      so this page can't silently break when the app rebuilds.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+    />
+    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="/brand/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3e3529" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>FAQ & How It Works — OSRS Drop Simulator</title>
+    <meta
+      name="description"
+      content="How OSRS Drop Simulator's drop rates, GP economy, unlocks, and clue caskets work, plus answers to common questions about the free Old School RuneScape drop-rate simulator."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://osrsdropsimulation.com/faq/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OSRS Drop Simulator" />
+    <meta property="og:title" content="FAQ & How It Works — OSRS Drop Simulator" />
+    <meta
+      property="og:description"
+      content="How drop rates, GP, unlocks, and clue caskets work in OSRS Drop Simulator, plus answers to common questions."
+    />
+    <meta property="og:url" content="https://osrsdropsimulation.com/faq/" />
+    <meta property="og:image" content="https://osrsdropsimulation.com/brand/logo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is OSRS Drop Simulator affiliated with Jagex or RuneScape?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. OSRS Drop Simulator is unofficial fan content created under Jagex's Fan Content Policy. It is not sponsored by, endorsed by, or affiliated with Jagex Limited."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How accurate are the drop rates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every drop table uses the same rates published on the Old School RuneScape Wiki: base data comes from the osrsreboxed community database, with bosses added to the game after that dataset was frozen scraped directly from the Wiki instead. Item values refresh daily from the live Grand Exchange price API."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an account to play?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Guests can play immediately with every boss unlocked, saved to that browser. Creating a free account instead syncs your progress to the cloud, adds you to the public leaderboard, and starts you with two bosses unlocked, spending in-game GP to unlock the rest like everyone else."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after I unlock every boss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Once every boss is unlocked, the Prestige button activates. Prestiging resets your GP, inventory, and unlocks back to the start and adds one to a permanent prestige count with its own leaderboard tab."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are clue caskets and keys for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some drops are containers rather than plain items, like clue caskets and chest keys, and can be opened from your inventory for a separate roll of bonus loot, the same way clue scrolls and locked chests work in the real game."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my progress saved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Guest progress is saved to your browser's local storage. Signed-in progress is saved to the cloud and available from any device."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        font-family: "Cabin", ui-sans-serif, system-ui, sans-serif;
+        background: linear-gradient(180deg, #0c0a08 0%, #1c1712 55%, #241d15 100%);
+        color: #ffe4a3;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 46rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 4rem;
+      }
+      a.back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: #ffb700;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a.back:hover {
+        text-decoration: underline;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Cinzel", serif;
+        color: #ffb700;
+        line-height: 1.25;
+      }
+      h1 {
+        font-size: 1.9rem;
+        margin: 0 0 1rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+        margin: 2rem 0 0.75rem;
+      }
+      h3 {
+        font-size: 1.05rem;
+        color: #d9c8a0;
+        margin: 1.5rem 0 0.35rem;
+      }
+      p {
+        color: #c3ac7e;
+        line-height: 1.7;
+        margin: 0 0 1rem;
+      }
+      footer {
+        margin-top: 3rem;
+        font-size: 0.75rem;
+        color: rgba(195, 172, 126, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="/">&larr; Back to the simulator</a>
+
+      <h1>OSRS Drop Simulator: FAQ &amp; How It Works</h1>
+      <p>
+        A free, browser-based drop-rate simulator for Old School RuneScape, covering 65 bosses — from
+        early low-level fights like Obor and Bryophyta up to end-game raids and bosses like the Chambers
+        of Xeric, Theatre of Blood, Tombs of Amascut, Nex, and Yama. Pick a boss, roll its real drop
+        table, and fill a 28-slot inventory with loot to sell or lock, exactly like the live game.
+      </p>
+
+      <h2>How it works</h2>
+      <p>
+        Every kill rolls a boss's drop table using its real published drop rates: guaranteed drops
+        always show up, one weighted item rolls from the main table per kill, and rare tertiary drops
+        like clue scrolls and pets roll independently on top of that. Sell loot straight from your
+        inventory for GP, then spend it unlocking tougher bosses with better tables. Unlock every boss
+        and you can Prestige — resetting your run and climbing the permanent prestige leaderboard.
+      </p>
+
+      <h2>Bosses you can fight</h2>
+      <p>
+        Vorkath, Zulrah, King Black Dragon, Kalphite Queen, General Graardor and the God Wars Dungeon
+        generals, the Barrows brothers, Corporeal Beast, Cerberus, Grotesque Guardians, Kraken,
+        Alchemical Hydra, Nex, TzTok-Jad, TzKal-Zuk, the Chambers of Xeric, Theatre of Blood, Tombs of
+        Amascut, and Yama are all in, alongside dozens more spanning every combat level from a fresh
+        account's first boss kill to true end-game PvM.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+
+      <h3>Is OSRS Drop Simulator affiliated with Jagex or RuneScape?</h3>
+      <p>
+        No. OSRS Drop Simulator is unofficial fan content created under Jagex's Fan Content Policy. It
+        is not sponsored by, endorsed by, or affiliated with Jagex Limited.
+      </p>
+
+      <h3>How accurate are the drop rates?</h3>
+      <p>
+        Every drop table uses the same rates published on the Old School RuneScape Wiki: base data
+        comes from the osrsreboxed community database, with bosses added to the game after that dataset
+        was frozen scraped directly from the Wiki instead. Item values refresh daily from the live Grand
+        Exchange price API.
+      </p>
+
+      <h3>Do I need an account to play?</h3>
+      <p>
+        No. Guests can play immediately with every boss unlocked, saved to that browser. Creating a free
+        account instead syncs your progress to the cloud, adds you to the public leaderboard, and starts
+        you with two bosses unlocked, spending in-game GP to unlock the rest like everyone else.
+      </p>
+
+      <h3>What happens after I unlock every boss?</h3>
+      <p>
+        Once every boss is unlocked, the Prestige button activates. Prestiging resets your GP,
+        inventory, and unlocks back to the start and adds one to a permanent prestige count with its own
+        leaderboard tab.
+      </p>
+
+      <h3>What are clue caskets and keys for?</h3>
+      <p>
+        Some drops are containers rather than plain items, like clue caskets and chest keys, and can be
+        opened from your inventory for a separate roll of bonus loot, the same way clue scrolls and
+        locked chests work in the real game.
+      </p>
+
+      <h3>Is my progress saved?</h3>
+      <p>
+        Yes. Guest progress is saved to your browser's local storage. Signed-in progress is saved to the
+        cloud and available from any device.
+      </p>
+
+      <a class="back" href="/">&larr; Back to the simulator</a>
+
+      <footer>
+        Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan
+        Content Policy. This content is not endorsed by or affiliated with Jagex.
+      </footer>
+    </main>
+  </body>
+</html>

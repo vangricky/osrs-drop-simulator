@@ -176,6 +176,14 @@ export default function Header({
                 </button>
 
                 <a
+                  href="/faq/"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  FAQ &amp; how it works
+                </a>
+
+                <a
                   href="https://buymeacoffee.com/osrsdropsimulation"
                   target="_blank"
                   rel="noopener noreferrer"
