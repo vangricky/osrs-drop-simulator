@@ -180,7 +180,7 @@ export default function Header({
                   onClick={() => setMenuOpen(false)}
                   className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
                 >
-                  FAQ &amp; how it works
+                  FAQ
                 </a>
 
                 <a
