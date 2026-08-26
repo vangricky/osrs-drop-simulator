@@ -1,5 +1,6 @@
 import { useGameData } from "../hooks/useGameData";
 import type { LogEntry } from "../hooks/useGameState";
+import { consolidateDrops } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
 interface DropLogPanelProps {
@@ -52,12 +53,16 @@ export default function DropLogPanel({ log }: DropLogPanelProps) {
                   <p className="text-xs italic text-osrs-parchment-dark/50">Nothing</p>
                 ) : (
                   <div className="flex flex-wrap gap-1.5">
-                    {entry.drops.map((d, i) => {
+                    {/* Several independent rolls (e.g. Barrows chest's 7
+                        main-table rolls) can land on the same item —
+                        consolidate into one summed chip per item rather than
+                        a chip per roll. */}
+                    {consolidateDrops(entry.drops, (d) => d.itemId).map((d) => {
                       const item = allItems[d.itemId];
                       if (!item) return null;
                       return (
                         <div
-                          key={`${d.itemId}-${i}`}
+                          key={d.itemId}
                           className="osrs-bevel-inset flex items-center gap-1 bg-osrs-panel-dark/50 px-1 py-0.5"
                           title={item.name}
                         >

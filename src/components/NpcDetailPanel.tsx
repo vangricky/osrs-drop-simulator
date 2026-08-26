@@ -1,7 +1,7 @@
 import { useGameData } from "../hooks/useGameData";
 import type { DropEntry, Npc } from "../data/npcData";
 import type { KillResult } from "../hooks/useGameState";
-import { RARITY_STYLES, formatDropRate, formatGp, orbGlowStyle, rarityTier } from "../utils/dropLogic";
+import { RARITY_STYLES, consolidateDrops, formatDropRate, formatGp, orbGlowStyle, rarityTier } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
 // RolledDrop.source doesn't carry a rarity tier, just where it came from —
@@ -64,6 +64,12 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
   }
 
   const showLast = lastKill && lastKill.drops.length > 0;
+  // Several independent rolls (e.g. Barrows chest's 7 main-table rolls) can
+  // land on the same item — consolidate into one summed chip per item rather
+  // than a chip per roll, matching how the real game's loot notification
+  // presents a kill's rewards as one list.
+  const consolidatedDrops = lastKill ? consolidateDrops(lastKill.drops, (d) => d.item.id) : [];
+  const consolidatedOverflow = lastKill ? consolidateDrops(lastKill.overflow, (d) => d.item.id) : [];
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
@@ -114,15 +120,18 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
         )}
 
         {isUnlocked && showLast && (
-          <div key={killCount} className="osrs-bevel-inset animate-flash-gold bg-osrs-panel-dark/50 p-2.5">
+          <div key={killCount} className="osrs-bevel-inset animate-flash-gold overflow-hidden bg-osrs-panel-dark/50 p-2.5">
             <p className="mb-1.5 text-[11px] uppercase tracking-wide text-osrs-parchment-dark/60">You received</p>
             {/* A big multi-item drop (barrows chest, raid chests, etc.) can
                 easily overflow a couple of wrapped rows — cap the height and
-                scroll internally instead of spilling out past the panel. */}
-            <div className="osrs-scrollbar flex max-h-48 flex-wrap gap-1.5 overflow-y-auto pr-0.5">
-              {lastKill!.drops.map((d, i) => (
+                scroll internally instead of spilling out past the panel. The
+                outer overflow-hidden is a defensive backstop so the inner
+                scroll box's rounded/bordered chips can never visually bleed
+                past this panel's own edge, regardless of viewport quirks. */}
+            <div className="osrs-scrollbar flex max-h-48 flex-wrap gap-1.5 overflow-auto pr-0.5">
+              {consolidatedDrops.map((d) => (
                 <div
-                  key={`${d.item.id}-${i}`}
+                  key={d.item.id}
                   className="animate-drop-pop osrs-bevel-inset flex items-center gap-1.5 bg-osrs-panel-dark/70 px-2 py-1.5"
                   title={d.item.name}
                 >
@@ -136,9 +145,9 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
                 </div>
               ))}
             </div>
-            {lastKill!.overflow.length > 0 && (
+            {consolidatedOverflow.length > 0 && (
               <p className="mt-1.5 text-xs font-semibold text-osrs-red">
-                Inventory full: {lastKill!.overflow.map((d) => d.item.name).join(", ")} was not obtained!
+                Inventory full: {consolidatedOverflow.map((d) => d.item.name).join(", ")} was not obtained!
               </p>
             )}
           </div>

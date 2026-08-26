@@ -120,6 +120,30 @@ export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>, 
   return results;
 }
 
+/**
+ * Merges same-item entries (matched by `keyOf`) into one, summing quantity —
+ * for display only, never for the actual roll math above. A single kill can
+ * legitimately land on the same item more than once (e.g. Barrows chest's 7
+ * independent main-table rolls, several of which can hit "coins" or the same
+ * rune), and without this every one of those rolls rendered as its own
+ * separate "Coins x307" chip instead of one combined line, which both looked
+ * like a bug and made a big multi-roll table (Barrows, raid chests) far more
+ * likely to overflow its display box. Keeps first-seen order and the first
+ * occurrence's other fields (icon/source/etc — irrelevant here since same
+ * key implies same item).
+ */
+export function consolidateDrops<T extends { quantity: number }>(drops: T[], keyOf: (d: T) => string): T[] {
+  const order: string[] = [];
+  const byKey = new Map<string, T>();
+  for (const d of drops) {
+    const key = keyOf(d);
+    const existing = byKey.get(key);
+    byKey.set(key, existing ? { ...existing, quantity: existing.quantity + d.quantity } : d);
+    if (!existing) order.push(key);
+  }
+  return order.map((k) => byKey.get(k)!);
+}
+
 export type RarityTier = "always" | "common" | "uncommon" | "rare" | "veryrare";
 
 export function rarityTier(entry: DropEntry): RarityTier {
