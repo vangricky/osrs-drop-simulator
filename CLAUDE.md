@@ -51,6 +51,13 @@ Monster and item data is NOT hand-maintained in one place. It's a pipeline:
 Hand-editing `public/data/*.json` will be silently overwritten by the next `generate-monsters`/`update-prices`
 run. Hand-authored NPCs, items, and all openable containers live in `src/data/npcData.ts` directly.
 
+`generate-monsters.mjs`'s current logic puts every non-guaranteed drop into `tertiary` and always emits
+`mainTable: []` — but the currently-committed `public/data/monsters.json` has richly weighted `mainTable`
+entries for every generated boss (confirmed by reading the script and the live data side by side). The script
+and the shipped data have drifted apart at some point since the last full regeneration; running
+`npm run generate-monsters` today would restructure every generated boss's table, not just refresh prices. Diff
+the output carefully (or fix the drift first) before trusting a fresh run.
+
 `scripts/lib/boss-classifier.mjs` is the shared library for wiki-scraping scripts: wikitext parsing
 (`parseDropsLinesFromWikitext`, `parseWikiRarity`, `parseWikiQuantity`, `evalWikiExprTemplates` for MediaWiki
 `{{#expr:...}}` arithmetic), and classification logic for what counts as a "real repeatable boss" vs. a raid room
@@ -75,6 +82,12 @@ Every `LootTable` (an `Npc` kill or a `ContainerDef` open) has three independent
 This is the single mechanic driving both boss kills and container opens (clue caskets, keys) — there is no
 separate reward-resolution logic for containers.
 
+An item being droppable and having its own entry in `containers` (keyed by item id) are two independent facts
+— nothing cross-checks them. A key/casket item can exist and be dropped by a boss with no matching
+`containers[itemId]`, and the UI just silently treats it as a normal non-openable item (no error, no visual
+difference beyond the missing "click to open" badge). When adding a new lootable key/casket, verify both sides
+exist, not just the item definition.
+
 ### State: local-first, with a validated cloud layer
 
 `src/hooks/useGameState.ts` is the core game state (inventory, GP, kill counts, collection log, unlocks,
@@ -98,6 +111,16 @@ after any data pipeline change that affects unlock costs, item values, or contai
 setup (one-time SQL migrations, custom SMTP via Resend, OAuth providers) — accounts/leaderboard are fully
 optional; the app runs guest-only with no Supabase project configured (`src/lib/supabase.ts` exports
 `supabaseEnabled`).
+
+### SEO: `public/faq/` is a second, non-React static page
+
+`index.html`'s `<body>` is just `<div id="root">` — the whole game is client-rendered, so a crawler that
+doesn't execute JS sees no content there. `public/faq/index.html` exists specifically to have *something*
+genuinely static and indexable: it's hand-written HTML with its own inline `<style>` (matching the game's
+palette by hand, not by referencing the Vite build's hashed CSS output) and its own `<meta>`/CSP/JSON-LD
+(`FAQPage` structured data). It is deliberately **not** wired into the React app or the Vite build — treat it
+as its own small static site living inside `public/`, linked from the in-game hamburger menu as a plain
+`<a href="/faq/">`, not a client-side route.
 
 ### Deploy
 
