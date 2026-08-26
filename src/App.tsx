@@ -186,6 +186,7 @@ function App() {
                 onSellAll={game.sellAll}
                 onClear={game.clearInventory}
                 onOpen={game.openContainer}
+                onToggleLock={game.toggleLock}
               />
             </div>
             <div

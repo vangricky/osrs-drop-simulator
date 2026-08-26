@@ -9,6 +9,12 @@ export const INVENTORY_SIZE = 28;
 export interface InventorySlot {
   itemId: string;
   quantity: number;
+  // Player-set protection against accidental disposal — excluded from
+  // Sell All, Discard All, and the per-slot sell/discard actions until
+  // unlocked. Purely a client-side display/UX concern (not economically
+  // meaningful), so it rides along in the same cloud inventory-cache sync
+  // as the rest of the slot without needing any server-side validation.
+  locked?: boolean;
 }
 
 export interface LogEntry {
@@ -580,6 +586,8 @@ export function useGameState(userId: string | null = null) {
 
   const removeItem = useCallback((index: number) => {
     setState((prev) => {
+      const slot = prev.inventory[index];
+      if (slot?.locked) return prev;
       const next = [...prev.inventory];
       next[index] = null;
       return { ...prev, inventory: next };
@@ -587,17 +595,31 @@ export function useGameState(userId: string | null = null) {
   }, []);
 
   const clearInventory = useCallback(() => {
-    setState((prev) => ({ ...prev, inventory: emptyInventory() }));
+    setState((prev) => ({
+      ...prev,
+      inventory: prev.inventory.map((slot) => (slot?.locked ? slot : null)),
+    }));
+  }, []);
+
+  const toggleLock = useCallback((index: number) => {
+    setState((prev) => {
+      const slot = prev.inventory[index];
+      if (!slot) return prev;
+      const next = [...prev.inventory];
+      next[index] = { ...slot, locked: !slot.locked };
+      return { ...prev, inventory: next };
+    });
   }, []);
 
   const sellItem = useCallback((index: number) => {
     const slot = stateRef.current.inventory[index];
+    if (slot?.locked) return;
     const item = slot ? allItems[slot.itemId] : null;
     const gained = slot && item ? item.value * slot.quantity : 0;
 
     setState((prev) => {
       const slot = prev.inventory[index];
-      if (!slot) return prev;
+      if (!slot || slot.locked) return prev;
       const item = allItems[slot.itemId];
       if (!item || !item.tradeable) return prev;
       const next = [...prev.inventory];
@@ -624,8 +646,22 @@ export function useGameState(userId: string | null = null) {
     // signed-in players, so nothing ever actually got sold server-side —
     // the gp gain was purely local and vanished once anything re-synced
     // from the cloud.
+    //
+    // sell_all_items sells every tradeable item in the account's full
+    // ledger, not just what's shown in these 28 slots (a stackable item
+    // only ever occupies one slot here, so a locked slot's item id is the
+    // account's *entire* holding of it) — so locked item ids are passed
+    // through to the RPC as an exclusion list. Without that, "locked"
+    // would only be a display-layer illusion: the same server call that
+    // surfaced this whole feature's need (a locked item is still just an
+    // item in the ledger) would happily sell it anyway.
+    const lockedItemIds = Array.from(
+      new Set(
+        stateRef.current.inventory.filter((slot): slot is InventorySlot => Boolean(slot?.locked)).map((slot) => slot.itemId),
+      ),
+    );
     const gained = stateRef.current.inventory.reduce((sum, slot) => {
-      if (!slot) return sum;
+      if (!slot || slot.locked) return sum;
       const item = allItems[slot.itemId];
       if (!item?.tradeable) return sum;
       return sum + item.value * slot.quantity;
@@ -633,7 +669,7 @@ export function useGameState(userId: string | null = null) {
     if (gained === 0) return;
     setState((prev) => {
       const next = prev.inventory.map((slot) => {
-        if (!slot) return slot;
+        if (!slot || slot.locked) return slot;
         const item = allItems[slot.itemId];
         return item?.tradeable ? null : slot;
       });
@@ -641,7 +677,7 @@ export function useGameState(userId: string | null = null) {
     });
     if (userId && supabase) {
       enqueueCloudMutation(
-        () => supabase!.rpc("sell_all_items"),
+        () => supabase!.rpc("sell_all_items", { p_exclude_item_ids: lockedItemIds }),
         () => setState((prev) => ({ ...prev, gp: prev.gp - gained })),
       );
     }
@@ -769,6 +805,7 @@ export function useGameState(userId: string | null = null) {
     moveItem,
     removeItem,
     clearInventory,
+    toggleLock,
     sellItem,
     sellAll,
     unlockNpc,

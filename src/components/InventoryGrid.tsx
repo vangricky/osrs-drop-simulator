@@ -12,11 +12,18 @@ import {
   type DragStartEvent,
 } from "@dnd-kit/core";
 import { snapCenterToCursor } from "@dnd-kit/modifiers";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { InventorySlot } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
+
+// How long a touch has to hold still on a slot before it counts as a
+// long-press (opens the same Sell/Lock menu a right-click does on desktop).
+const LONG_PRESS_MS = 1500;
+// Movement beyond this cancels a pending long-press — the touch is
+// scrolling or starting a drag instead of holding in place.
+const LONG_PRESS_MOVE_TOLERANCE = 10;
 
 interface InventoryGridProps {
   inventory: (InventorySlot | null)[];
@@ -26,6 +33,13 @@ interface InventoryGridProps {
   onSellAll: () => void;
   onClear: () => void;
   onOpen: (index: number) => void;
+  onToggleLock: (index: number) => void;
+}
+
+interface ContextMenuState {
+  index: number;
+  x: number;
+  y: number;
 }
 
 function SlotContent({ slot, tooltipBelow }: { slot: InventorySlot; tooltipBelow?: boolean }) {
@@ -52,6 +66,7 @@ function SlotContent({ slot, tooltipBelow }: { slot: InventorySlot; tooltipBelow
         {item.name}
         {slot.quantity > 1 ? ` (${slot.quantity.toLocaleString()})` : ""}
         {item.tradeable && <span className="text-osrs-gold"> · {formatGp(item.value * slot.quantity)} gp</span>}
+        {slot.locked && <span className="text-osrs-parchment-dark/60"> · locked</span>}
       </div>
     </>
   );
@@ -64,6 +79,7 @@ function Slot({
   onRemove,
   onSell,
   onOpen,
+  onContextMenu,
 }: {
   index: number;
   slot: InventorySlot | null;
@@ -71,6 +87,7 @@ function Slot({
   onRemove: (index: number) => void;
   onSell: (index: number) => void;
   onOpen: (index: number) => void;
+  onContextMenu: (index: number, x: number, y: number) => void;
 }) {
   const { items: allItems, containers } = useGameData();
   const { setNodeRef: setDropRef, isOver } = useDroppable({ id: `slot-${index}`, data: { index } });
@@ -81,6 +98,31 @@ function Slot({
   });
   const item = slot ? allItems[slot.itemId] : null;
   const openable = slot ? Boolean(containers[slot.itemId]) : false;
+
+  const longPressTimer = useRef<number | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const clearLongPress = () => {
+    if (longPressTimer.current !== null) {
+      window.clearTimeout(longPressTimer.current);
+      longPressTimer.current = null;
+    }
+  };
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!slot) return;
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+    clearLongPress();
+    longPressTimer.current = window.setTimeout(() => {
+      onContextMenu(index, t.clientX, t.clientY);
+    }, LONG_PRESS_MS);
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const t = e.touches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_TOLERANCE) clearLongPress();
+  };
 
   return (
     <div
@@ -96,6 +138,14 @@ function Slot({
           {...attributes}
           onDoubleClick={() => onRemove(index)}
           onClick={() => openable && onOpen(index)}
+          onContextMenu={(e) => {
+            e.preventDefault();
+            onContextMenu(index, e.clientX, e.clientY);
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={clearLongPress}
+          onTouchCancel={clearLongPress}
           className={`flex h-full w-full items-center justify-center ${isDragging ? "opacity-30" : ""} ${openable ? "cursor-pointer" : ""}`}
           style={{ touchAction: "none" }}
         >
@@ -110,25 +160,45 @@ function Slot({
           &#127873;
         </span>
       )}
-      {slot && item?.tradeable && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onSell(index);
-          }}
-          title={`Sell for ${formatGp(item.value * slot.quantity)} gp`}
-          className="osrs-bevel absolute -right-1 -top-1 z-20 hidden h-4 w-4 items-center justify-center bg-osrs-gold text-[9px] font-bold text-osrs-panel-dark group-hover:flex"
+      {slot && slot.locked ? (
+        <span
+          title="Locked — right-click (or hold) to unlock"
+          className="osrs-bevel pointer-events-none absolute -right-1 -top-1 z-20 flex h-4 w-4 items-center justify-center bg-osrs-panel-dark text-[9px] text-osrs-parchment-dark"
         >
-          $
-        </button>
+          &#128274;
+        </span>
+      ) : (
+        slot &&
+        item?.tradeable && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onSell(index);
+            }}
+            title={`Sell for ${formatGp(item.value * slot.quantity)} gp`}
+            className="osrs-bevel absolute -right-1 -top-1 z-20 hidden h-4 w-4 items-center justify-center bg-osrs-gold text-[9px] font-bold text-osrs-panel-dark group-hover:flex"
+          >
+            $
+          </button>
+        )
       )}
     </div>
   );
 }
 
-export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onSellAll, onClear, onOpen }: InventoryGridProps) {
+export default function InventoryGrid({
+  inventory,
+  onMove,
+  onRemove,
+  onSell,
+  onSellAll,
+  onClear,
+  onOpen,
+  onToggleLock,
+}: InventoryGridProps) {
   const { items: allItems } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
   const sensors = useSensors(
     // Mouse (and any browser that resolves touch through the Pointer Events
     // API cleanly) — a small movement threshold so a plain click/tap still
@@ -141,9 +211,31 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
     // picking the item up. TouchSensor's short hold delay is dnd-kit's own
     // recommended way to disambiguate "starting to scroll" from "starting
     // to drag" on touch — short enough to still feel responsive, long
-    // enough that a normal tap/scroll never triggers it.
+    // enough that a normal tap/scroll never triggers it. It's shorter than
+    // the long-press threshold below, so a still-held touch activates a
+    // (no-op, since the finger hasn't moved) drag first and the context
+    // menu on top of it once the long-press fires — harmless, since
+    // nothing actually reorders unless the finger moves.
     useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
   );
+
+  useEffect(() => {
+    if (!contextMenu) return;
+    const close = () => setContextMenu(null);
+    const closeOnEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("click", close);
+    window.addEventListener("contextmenu", close);
+    window.addEventListener("scroll", close, true);
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      window.removeEventListener("click", close);
+      window.removeEventListener("contextmenu", close);
+      window.removeEventListener("scroll", close, true);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [contextMenu]);
 
   const handleDragStart = (e: DragStartEvent) => {
     setActiveIndex(e.active.data.current?.index ?? null);
@@ -161,11 +253,14 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
   const activeSlot = activeIndex !== null ? inventory[activeIndex] : null;
   const filledCount = inventory.filter(Boolean).length;
   const sellableValue = inventory.reduce((sum, slot) => {
-    if (!slot) return sum;
+    if (!slot || slot.locked) return sum;
     const item = allItems[slot.itemId];
     if (!item?.tradeable) return sum;
     return sum + item.value * slot.quantity;
   }, 0);
+
+  const menuSlot = contextMenu ? inventory[contextMenu.index] : null;
+  const menuItem = menuSlot ? allItems[menuSlot.itemId] : null;
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
@@ -176,7 +271,7 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
           <button
             onClick={onSellAll}
             disabled={sellableValue === 0}
-            title={sellableValue > 0 ? `Sell everything for ${formatGp(sellableValue)} gp` : undefined}
+            title={sellableValue > 0 ? `Sell everything unlocked for ${formatGp(sellableValue)} gp` : undefined}
             className="osrs-bevel bg-osrs-green/20 px-3 py-1.5 text-xs font-semibold text-osrs-green transition hover:bg-osrs-green/30 active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40"
           >
             Sell all{sellableValue > 0 ? ` (${formatGp(sellableValue)})` : ""}
@@ -216,7 +311,16 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
         >
           <div className="grid grid-cols-4 gap-2">
             {inventory.map((slot, i) => (
-              <Slot key={i} index={i} slot={slot} tooltipBelow={i < 4} onRemove={onRemove} onSell={onSell} onOpen={onOpen} />
+              <Slot
+                key={i}
+                index={i}
+                slot={slot}
+                tooltipBelow={i < 4}
+                onRemove={onRemove}
+                onSell={onSell}
+                onOpen={onOpen}
+                onContextMenu={(index, x, y) => setContextMenu({ index, x, y })}
+              />
             ))}
           </div>
           <DragOverlay modifiers={[snapCenterToCursor]}>
@@ -229,8 +333,42 @@ export default function InventoryGrid({ inventory, onMove, onRemove, onSell, onS
         </DndContext>
         <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
           Drag to reorganize &middot; $ to sell &middot; &#127873; click to open &middot; double-click to discard
+          &middot; right-click (hold on mobile) to lock
         </p>
       </div>
+
+      {contextMenu && menuSlot && (
+        <div
+          className="osrs-bevel osrs-panel fixed z-50 min-w-[130px] overflow-hidden py-1 text-sm"
+          style={{
+            left: Math.min(contextMenu.x, window.innerWidth - 150),
+            top: Math.min(contextMenu.y, window.innerHeight - 100),
+          }}
+          onClick={(e) => e.stopPropagation()}
+          onContextMenu={(e) => e.preventDefault()}
+        >
+          {menuItem?.tradeable && !menuSlot.locked && (
+            <button
+              onClick={() => {
+                onSell(contextMenu.index);
+                setContextMenu(null);
+              }}
+              className="block w-full px-4 py-2 text-left text-osrs-parchment transition hover:bg-osrs-gold/15"
+            >
+              Sell
+            </button>
+          )}
+          <button
+            onClick={() => {
+              onToggleLock(contextMenu.index);
+              setContextMenu(null);
+            }}
+            className="block w-full px-4 py-2 text-left text-osrs-parchment transition hover:bg-osrs-gold/15"
+          >
+            {menuSlot.locked ? "Unlock" : "Lock"}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
