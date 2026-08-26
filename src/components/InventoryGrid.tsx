@@ -20,12 +20,11 @@ import type { InventorySlot } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
-// How long a hold (mouse or touch) has to stay still before it opens the
-// Lock menu. Short enough that dragging onto it while still holding feels
-// immediate once it appears.
-const LONG_PRESS_MS = 700;
-// Movement beyond this, before the hold has opened the menu, cancels it —
-// the input is scrolling or starting a drag instead of holding in place.
+// How long a hold (mouse or touch) has to stay still before it toggles the
+// slot's lock — no menu in between, the hold IS the action.
+const LONG_PRESS_MS = 500;
+// Movement beyond this, before the hold fires, cancels it — the input is
+// scrolling or starting a drag instead of holding in place.
 const LONG_PRESS_MOVE_TOLERANCE = 10;
 
 interface InventoryGridProps {
@@ -37,16 +36,6 @@ interface InventoryGridProps {
   onClear: () => void;
   onOpen: (index: number) => void;
   onToggleLock: (index: number) => void;
-}
-
-interface ContextMenuState {
-  index: number;
-  x: number;
-  y: number;
-  // "hold" menus resolve via drag-to-select-then-release (see
-  // handlePressStart below); "rightclick" ones behave like a normal
-  // desktop context menu — open, then a separate click on an option.
-  openedVia: "hold" | "rightclick";
 }
 
 function SlotContent({ slot, tooltipBelow }: { slot: InventorySlot; tooltipBelow?: boolean }) {
@@ -86,10 +75,9 @@ function Slot({
   onRemove,
   onSell,
   onOpen,
-  onContextMenu,
+  onRightClick,
   onPressStart,
   suppressClickRef,
-  dragBlocked,
   registerEl,
 }: {
   index: number;
@@ -98,10 +86,9 @@ function Slot({
   onRemove: (index: number) => void;
   onSell: (index: number) => void;
   onOpen: (index: number) => void;
-  onContextMenu: (index: number, x: number, y: number) => void;
+  onRightClick: (index: number) => void;
   onPressStart: (index: number, x: number, y: number) => void;
   suppressClickRef: React.RefObject<number | null>;
-  dragBlocked: boolean;
   registerEl: (index: number, el: HTMLDivElement | null) => void;
 }) {
   const { items: allItems, containers } = useGameData();
@@ -109,12 +96,7 @@ function Slot({
   const { attributes, listeners, setNodeRef: setDragRef, isDragging } = useDraggable({
     id: `slot-${index}`,
     data: { index },
-    // Also disabled once this slot's hold has opened the Sell/Lock menu —
-    // otherwise dragging a finger/cursor over to "Lock" crosses dnd-kit's
-    // own activation distance and reorders the item at the same time,
-    // which is exactly the "why is it dragging while I'm just trying to
-    // pick a menu option" bug this guards against.
-    disabled: slot === null || dragBlocked,
+    disabled: slot === null,
   });
   const item = slot ? allItems[slot.itemId] : null;
   const openable = slot ? Boolean(containers[slot.itemId]) : false;
@@ -136,14 +118,12 @@ function Slot({
           {...attributes}
           onDoubleClick={() => onRemove(index)}
           onClick={() => {
-            // A hold that opened the menu still ends in a mousedown+mouseup
-            // (and thus a native click) on whatever's under the pointer at
-            // release — without this, releasing back over the same slot
-            // (e.g. the drag-to-Lock never happened) would silently also
-            // open/sell the item underneath the menu. Checked via a ref
-            // rather than a prop: the click fires synchronously right after
-            // the mouseup that already closed the menu, before React has
-            // re-rendered this handler with a "menu's gone now" closure.
+            // A hold that fired the auto-lock still ends in a mousedown+mouseup
+            // (and thus a native click) on release — without this, that click
+            // would silently also open/sell the item right after locking it.
+            // Checked via a ref rather than a prop: the click fires
+            // synchronously right after the mouseup, before React has
+            // re-rendered this handler with an up-to-date closure.
             if (suppressClickRef.current === index) return;
             if (slot.locked) return;
             if (openable) onOpen(index);
@@ -151,7 +131,7 @@ function Slot({
           }}
           onContextMenu={(e) => {
             e.preventDefault();
-            onContextMenu(index, e.clientX, e.clientY);
+            onRightClick(index);
           }}
           onMouseDown={(e) => {
             if (e.button !== 0) return;
@@ -177,7 +157,7 @@ function Slot({
       )}
       {slot && slot.locked && (
         <span
-          title="Locked — right-click (or hold) to unlock"
+          title="Locked — hold (or right-click) to unlock"
           className="osrs-bevel pointer-events-none absolute -right-1 -top-1 z-20 flex h-4 w-4 items-center justify-center bg-osrs-panel-dark text-[9px] text-osrs-parchment-dark"
         >
           &#128274;
@@ -199,11 +179,6 @@ export default function InventoryGrid({
 }: InventoryGridProps) {
   const { items: allItems } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
-  // Lock is the only option left in the hold/right-click menu now that a
-  // plain click sells directly — this just tracks whether the pointer is
-  // currently over that one button while the menu is open.
-  const [hoveringLock, setHoveringLockState] = useState(false);
   // Where the dragged item's floating copy should render, tracked from
   // dnd-kit's own (touch-safe) coordinate stream rather than its built-in
   // DragOverlay — that component positions itself via a `position: fixed`
@@ -214,10 +189,8 @@ export default function InventoryGrid({
   const [dragOrigin, setDragOrigin] = useState<{ x: number; y: number } | null>(null);
   const [dragDelta, setDragDelta] = useState({ x: 0, y: 0 });
   const [dragSize, setDragSize] = useState<{ width: number; height: number } | null>(null);
-  // Each slot's own element, keyed by index — used to position the hold-menu
-  // right next to the actual square (see contextMenu render below) and to
-  // size the floating drag copy, instead of relying on raw touch/pointer
-  // coordinates that can land far from the slot on some mobile browsers.
+  // Each slot's own element, keyed by index — used to size the floating
+  // drag copy above.
   const slotElRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const registerSlotEl = (index: number, el: HTMLDivElement | null) => {
     slotElRefs.current[index] = el;
@@ -225,20 +198,12 @@ export default function InventoryGrid({
 
   const pressTimer = useRef<number | null>(null);
   const pressStartRef = useRef<{ index: number; x: number; y: number } | null>(null);
-  const pressActiveRef = useRef(false);
-  const hoveringLockRef = useRef(false);
   const suppressClickRef = useRef<number | null>(null);
-  const lockButtonRef = useRef<HTMLButtonElement | null>(null);
   const globalListenersRef = useRef<{
     move: (e: MouseEvent | TouchEvent) => void;
     up: () => void;
     cancel: () => void;
   } | null>(null);
-
-  const setHoveringLock = (hovering: boolean) => {
-    hoveringLockRef.current = hovering;
-    setHoveringLockState(hovering);
-  };
 
   const clearPressTimer = () => {
     if (pressTimer.current !== null) {
@@ -258,106 +223,62 @@ export default function InventoryGrid({
     globalListenersRef.current = null;
   };
 
-  const resolveHoveringLock = (x: number, y: number): boolean => {
-    const el = lockButtonRef.current;
-    if (!el) return false;
-    const r = el.getBoundingClientRect();
-    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
-  };
-
-  const movePress = (x: number, y: number) => {
-    if (pressActiveRef.current) {
-      setHoveringLock(resolveHoveringLock(x, y));
-      return;
-    }
-    if (!pressStartRef.current) return;
-    const dx = x - pressStartRef.current.x;
-    const dy = y - pressStartRef.current.y;
-    if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_TOLERANCE) endPressSession(false);
-  };
-
-  // `commit` — apply whatever action is currently highlighted (a real
-  // release ending the hold) vs. just tearing the session down (moved too
-  // far before the menu opened, or the component unmounted mid-hold).
-  function endPressSession(commit: boolean) {
+  const endPressSession = () => {
     clearPressTimer();
     removeGlobalListeners();
-    if (commit && pressActiveRef.current && pressStartRef.current && hoveringLockRef.current) {
-      onToggleLock(pressStartRef.current.index);
-    }
-    pressActiveRef.current = false;
     pressStartRef.current = null;
-    setContextMenu(null);
-    setHoveringLock(false);
     // Cleared a tick later, not immediately: the native "click" that
     // follows this same mouseup fires before React re-renders, so the
     // Slot's onClick handler needs to still see this set on that pass.
     window.setTimeout(() => {
       suppressClickRef.current = null;
     }, 0);
-  }
+  };
+
+  const movePress = (x: number, y: number) => {
+    if (!pressStartRef.current) return;
+    const dx = x - pressStartRef.current.x;
+    const dy = y - pressStartRef.current.y;
+    if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_TOLERANCE) endPressSession();
+  };
 
   const handlePressStart = (index: number, x: number, y: number) => {
-    endPressSession(false);
+    endPressSession();
     pressStartRef.current = { index, x, y };
-    pressActiveRef.current = false;
 
     const move = (e: MouseEvent | TouchEvent) => {
       const point = "touches" in e ? e.touches[0] : (e as MouseEvent);
       if (!point) return;
       movePress(point.clientX, point.clientY);
     };
-    const up = () => endPressSession(true);
-    const cancel = () => endPressSession(false);
-    globalListenersRef.current = { move, up, cancel };
+    const up = () => endPressSession();
+    globalListenersRef.current = { move, up, cancel: up };
     window.addEventListener("mousemove", move);
     window.addEventListener("touchmove", move, { passive: true });
     window.addEventListener("mouseup", up);
     window.addEventListener("touchend", up);
-    window.addEventListener("touchcancel", cancel);
+    window.addEventListener("touchcancel", up);
 
     pressTimer.current = window.setTimeout(() => {
-      pressActiveRef.current = true;
       suppressClickRef.current = index;
-      setContextMenu({ index, x, y, openedVia: "hold" });
-      setHoveringLock(false);
+      onToggleLock(index);
+      endPressSession();
     }, LONG_PRESS_MS);
   };
 
-  const handleRightClick = (index: number, x: number, y: number) => {
-    endPressSession(false);
-    setContextMenu({ index, x, y, openedVia: "rightclick" });
+  const handleRightClick = (index: number) => {
+    endPressSession();
+    onToggleLock(index);
   };
 
-  // Redefined every render (it closes over onSell/onToggleLock), so an
+  // Redefined every render (it closes over onToggleLock), so an
   // always-current ref is what the mount-only cleanup below actually calls
   // — keeping it out of the effect's deps is deliberate, not an oversight.
   const endPressSessionRef = useRef(endPressSession);
-  endPressSessionRef.current = endPressSession;
-  useEffect(() => () => endPressSessionRef.current(false), []);
-
-  // Right-click-opened menus behave like a normal desktop context menu —
-  // closed by clicking away, scrolling, or Escape, with the option itself
-  // selected by a separate subsequent click. Hold-opened ones manage their
-  // own lifecycle entirely through the press session above (this would
-  // just be redundant, though harmless, for those).
   useEffect(() => {
-    if (!contextMenu || contextMenu.openedVia !== "rightclick") return;
-    const close = () => setContextMenu(null);
-    const closeOnEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-    };
-    window.addEventListener("click", close);
-    window.addEventListener("contextmenu", close);
-    window.addEventListener("scroll", close, true);
-    window.addEventListener("keydown", closeOnEscape);
-    return () => {
-      window.removeEventListener("click", close);
-      window.removeEventListener("contextmenu", close);
-      window.removeEventListener("scroll", close, true);
-      window.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [contextMenu]);
+    endPressSessionRef.current = endPressSession;
+  });
+  useEffect(() => () => endPressSessionRef.current(), []);
 
   const sensors = useSensors(
     // Mouse (and any browser that resolves touch through the Pointer Events
@@ -412,29 +333,6 @@ export default function InventoryGrid({
     if (!item?.tradeable) return sum;
     return sum + item.value * slot.quantity;
   }, 0);
-
-  const menuSlot = contextMenu ? inventory[contextMenu.index] : null;
-  // Hold-opened menus (mobile long-press) anchor to the slot's own square —
-  // touch coordinates during a sustained hold have been landing the menu
-  // far from the finger on real devices, so this positions it directly
-  // beside the item instead of trusting the raw touch point. Right-click
-  // still follows the cursor like a normal desktop context menu.
-  const menuPosition = (() => {
-    if (!contextMenu) return null;
-    const MENU_WIDTH = 140;
-    const MENU_GAP = 6;
-    if (contextMenu.openedVia === "hold") {
-      const rect = slotElRefs.current[contextMenu.index]?.getBoundingClientRect();
-      if (!rect) return { left: Math.min(contextMenu.x, window.innerWidth - 150), top: Math.min(contextMenu.y, window.innerHeight - 100) };
-      const left =
-        rect.right + MENU_GAP + MENU_WIDTH <= window.innerWidth
-          ? rect.right + MENU_GAP
-          : Math.max(4, rect.left - MENU_GAP - MENU_WIDTH);
-      const top = Math.max(4, Math.min(rect.top, window.innerHeight - 100));
-      return { left, top };
-    }
-    return { left: Math.min(contextMenu.x, window.innerWidth - 150), top: Math.min(contextMenu.y, window.innerHeight - 100) };
-  })();
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
@@ -495,10 +393,9 @@ export default function InventoryGrid({
                 onRemove={onRemove}
                 onSell={onSell}
                 onOpen={onOpen}
-                onContextMenu={handleRightClick}
+                onRightClick={handleRightClick}
                 onPressStart={handlePressStart}
                 suppressClickRef={suppressClickRef}
-                dragBlocked={contextMenu?.index === i && contextMenu.openedVia === "hold"}
                 registerEl={registerSlotEl}
               />
             ))}
@@ -523,39 +420,9 @@ export default function InventoryGrid({
           )}
         <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
           Drag to reorganize &middot; click to sell/open &middot; &#127873; opens a container &middot; double-click
-          to discard &middot; right-click or hold to lock
+          to discard &middot; hold or right-click to lock/unlock
         </p>
       </div>
-
-      {contextMenu &&
-        menuSlot &&
-        createPortal(
-          <div
-            className="osrs-bevel osrs-panel fixed z-50 min-w-[110px] overflow-hidden py-1 text-sm"
-            style={menuPosition ?? { left: 0, top: 0 }}
-            onClick={(e) => e.stopPropagation()}
-            onContextMenu={(e) => e.preventDefault()}
-          >
-            <button
-              ref={lockButtonRef}
-              onClick={() => {
-                // Hold-opened menus resolve on release (see endPressSession)
-                // — this onClick only does anything for the rightclick
-                // flow, where releasing the mouse just opens the menu and
-                // picking the option is a separate subsequent click.
-                if (contextMenu.openedVia === "hold") return;
-                onToggleLock(contextMenu.index);
-                setContextMenu(null);
-              }}
-              className={`block w-full px-4 py-2 text-left transition ${
-                hoveringLock ? "bg-osrs-gold/20 text-osrs-gold" : "text-osrs-parchment hover:bg-osrs-gold/15"
-              }`}
-            >
-              {menuSlot.locked ? "Unlock" : "Lock"}
-            </button>
-          </div>,
-          document.body,
-        )}
     </div>
   );
 }
