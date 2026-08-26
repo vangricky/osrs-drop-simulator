@@ -268,7 +268,20 @@ export default function InventoryGrid({
   };
 
   const handlePressStart = (index: number, x: number, y: number) => {
-    endPressSession();
+    if (pressStartRef.current) {
+      // A duplicate press-start for the exact same still-held gesture —
+      // real touchscreens fire a compatibility "mousedown" partway through
+      // an ongoing touch hold (our own onMouseDown/onTouchStart both call
+      // this), and restarting the session here would arm a brand new
+      // LONG_PRESS_MS timer that goes on to fire a second, unwanted toggle
+      // before the finger ever lifts. Ignore it and let the original
+      // session run its course.
+      if (pressStartRef.current.index === index) return;
+      // A genuinely different press arrived while another was still
+      // "active" — shouldn't happen with a single pointer, but tear down
+      // the stale one defensively rather than leaving two timers running.
+      endPressSession();
+    }
     pressStartRef.current = { index, x, y };
     firedRef.current = false;
 
