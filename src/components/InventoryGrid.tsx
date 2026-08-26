@@ -99,29 +99,50 @@ function Slot({
   const item = slot ? allItems[slot.itemId] : null;
   const openable = slot ? Boolean(containers[slot.itemId]) : false;
 
+  // Shared "press and hold" gesture behind both the touch long-press and
+  // the mouse/trackpad long-press below — same timer/position tracking,
+  // just fed from whichever input actually fired.
   const longPressTimer = useRef<number | null>(null);
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const pressStart = useRef<{ x: number; y: number } | null>(null);
   const clearLongPress = () => {
     if (longPressTimer.current !== null) {
       window.clearTimeout(longPressTimer.current);
       longPressTimer.current = null;
     }
   };
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const startLongPress = (x: number, y: number) => {
     if (!slot) return;
-    const t = e.touches[0];
-    touchStart.current = { x: t.clientX, y: t.clientY };
+    pressStart.current = { x, y };
     clearLongPress();
     longPressTimer.current = window.setTimeout(() => {
-      onContextMenu(index, t.clientX, t.clientY);
+      onContextMenu(index, x, y);
     }, LONG_PRESS_MS);
   };
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!touchStart.current) return;
-    const t = e.touches[0];
-    const dx = t.clientX - touchStart.current.x;
-    const dy = t.clientY - touchStart.current.y;
+  const moveLongPress = (x: number, y: number) => {
+    if (!pressStart.current) return;
+    const dx = x - pressStart.current.x;
+    const dy = y - pressStart.current.y;
     if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_TOLERANCE) clearLongPress();
+  };
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    startLongPress(t.clientX, t.clientY);
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    moveLongPress(t.clientX, t.clientY);
+  };
+  // Trackpad users have no easy right-click gesture (two-finger tap isn't
+  // always known/enabled) — a plain click-and-hold opens the same menu, so
+  // the feature doesn't depend on right-click working at all. Harmless for
+  // mouse users too: a stationary hold doesn't clear dnd-kit's own 6px
+  // drag-activation threshold, so it never fights with dragging.
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (e.button !== 0) return;
+    startLongPress(e.clientX, e.clientY);
+  };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    moveLongPress(e.clientX, e.clientY);
   };
 
   return (
@@ -146,8 +167,12 @@ function Slot({
           onTouchMove={handleTouchMove}
           onTouchEnd={clearLongPress}
           onTouchCancel={clearLongPress}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={clearLongPress}
+          onMouseLeave={clearLongPress}
           className={`flex h-full w-full items-center justify-center ${isDragging ? "opacity-30" : ""} ${openable ? "cursor-pointer" : ""}`}
-          style={{ touchAction: "none" }}
+          style={{ touchAction: "none", WebkitTouchCallout: "none" }}
         >
           <SlotContent slot={slot} tooltipBelow={tooltipBelow} />
         </div>
@@ -333,7 +358,7 @@ export default function InventoryGrid({
         </DndContext>
         <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
           Drag to reorganize &middot; $ to sell &middot; &#127873; click to open &middot; double-click to discard
-          &middot; right-click (hold on mobile) to lock
+          &middot; right-click or hold to lock
         </p>
       </div>
 

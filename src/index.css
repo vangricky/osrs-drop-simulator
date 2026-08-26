@@ -105,6 +105,19 @@ body::after {
     cursor: pointer;
   }
 
+  /* iOS Safari's long-press-on-image callout (Save/Copy/Share Photo) fires
+     on every <img> in the app regardless of any JS touch handlers — it
+     pre-empts the inventory's long-press-to-lock gesture entirely, showing
+     the OS sheet instead of our own context menu. None of these are real
+     photos a player would want to save, so long-press callout is disabled
+     everywhere; -webkit-user-select covers the same gesture on other
+     WebKit/Blink browsers that treat a long-press as a selection start. */
+  img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
   /* Frosted-glass panel border: a soft gold hairline + layered depth
      shadow, replacing the old hard emboss bevel. Shared by every panel,
      button and badge in the app, so this one rule is most of the "3D
