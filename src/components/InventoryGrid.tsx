@@ -1,7 +1,6 @@
 import {
   closestCenter,
   DndContext,
-  DragOverlay,
   PointerSensor,
   TouchSensor,
   useDraggable,
@@ -9,9 +8,11 @@ import {
   useSensor,
   useSensors,
   type DragEndEvent,
+  type DragMoveEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
 import { snapCenterToCursor } from "@dnd-kit/modifiers";
+import { getEventCoordinates } from "@dnd-kit/utilities";
 import { useEffect, useRef, useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { InventorySlot } from "../hooks/useGameState";
@@ -90,6 +91,7 @@ function Slot({
   onPressStart,
   suppressClickRef,
   dragBlocked,
+  registerEl,
 }: {
   index: number;
   slot: InventorySlot | null;
@@ -101,6 +103,7 @@ function Slot({
   onPressStart: (index: number, x: number, y: number) => void;
   suppressClickRef: React.RefObject<number | null>;
   dragBlocked: boolean;
+  registerEl: (index: number, el: HTMLDivElement | null) => void;
 }) {
   const { items: allItems, containers } = useGameData();
   const { setNodeRef: setDropRef, isOver } = useDroppable({ id: `slot-${index}`, data: { index } });
@@ -119,7 +122,10 @@ function Slot({
 
   return (
     <div
-      ref={setDropRef}
+      ref={(el) => {
+        setDropRef(el);
+        registerEl(index, el);
+      }}
       className={`osrs-bevel-inset group relative flex aspect-square items-center justify-center bg-osrs-panel-dark/50 ${
         isOver ? "ring-2 ring-osrs-gold" : ""
       } ${openable ? "ring-1 ring-osrs-gold/50" : ""}`}
@@ -208,6 +214,24 @@ export default function InventoryGrid({
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
   const [hoveredAction, setHoveredActionState] = useState<MenuAction | null>(null);
+  // Where the dragged item's floating copy should render, tracked from
+  // dnd-kit's own (touch-safe) coordinate stream rather than its built-in
+  // DragOverlay — that component positions itself via a `position: fixed`
+  // node measured/placed by dnd-kit internally, which on real mobile Safari
+  // was landing well above the actual finger position. Driving a plain
+  // fixed-position div ourselves from dragOrigin+delta guarantees it's
+  // exactly where dnd-kit says the pointer is, on every input type.
+  const [dragOrigin, setDragOrigin] = useState<{ x: number; y: number } | null>(null);
+  const [dragDelta, setDragDelta] = useState({ x: 0, y: 0 });
+  const [dragSize, setDragSize] = useState<{ width: number; height: number } | null>(null);
+  // Each slot's own element, keyed by index — used to position the hold-menu
+  // right next to the actual square (see contextMenu render below) and to
+  // size the floating drag copy, instead of relying on raw touch/pointer
+  // coordinates that can land far from the slot on some mobile browsers.
+  const slotElRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  const registerSlotEl = (index: number, el: HTMLDivElement | null) => {
+    slotElRefs.current[index] = el;
+  };
 
   const pressTimer = useRef<number | null>(null);
   const pressStartRef = useRef<{ index: number; x: number; y: number } | null>(null);
@@ -368,19 +392,35 @@ export default function InventoryGrid({
   );
 
   const handleDragStart = (e: DragStartEvent) => {
-    setActiveIndex(e.active.data.current?.index ?? null);
+    const index = e.active.data.current?.index ?? null;
+    setActiveIndex(index);
+    setDragOrigin(getEventCoordinates(e.activatorEvent) ?? null);
+    setDragDelta({ x: 0, y: 0 });
+    const rect = typeof index === "number" ? slotElRefs.current[index]?.getBoundingClientRect() : null;
+    setDragSize(rect ? { width: rect.width, height: rect.height } : null);
+  };
+
+  const handleDragMove = (e: DragMoveEvent) => {
+    setDragDelta(e.delta);
+  };
+
+  const resetDragOverlay = () => {
+    setActiveIndex(null);
+    setDragOrigin(null);
+    setDragSize(null);
   };
 
   const handleDragEnd = (e: DragEndEvent) => {
-    setActiveIndex(null);
     const from = e.active.data.current?.index;
     const to = e.over?.data.current?.index;
+    resetDragOverlay();
     if (typeof from === "number" && typeof to === "number") {
       onMove(from, to);
     }
   };
 
   const activeSlot = activeIndex !== null ? inventory[activeIndex] : null;
+  const dragPoint = dragOrigin ? { x: dragOrigin.x + dragDelta.x, y: dragOrigin.y + dragDelta.y } : null;
   const filledCount = inventory.filter(Boolean).length;
   const sellableValue = inventory.reduce((sum, slot) => {
     if (!slot || slot.locked) return sum;
@@ -391,6 +431,27 @@ export default function InventoryGrid({
 
   const menuSlot = contextMenu ? inventory[contextMenu.index] : null;
   const menuItem = menuSlot ? allItems[menuSlot.itemId] : null;
+  // Hold-opened menus (mobile long-press) anchor to the slot's own square —
+  // touch coordinates during a sustained hold have been landing the menu
+  // far from the finger on real devices, so this positions it directly
+  // beside the item instead of trusting the raw touch point. Right-click
+  // still follows the cursor like a normal desktop context menu.
+  const menuPosition = (() => {
+    if (!contextMenu) return null;
+    const MENU_WIDTH = 140;
+    const MENU_GAP = 6;
+    if (contextMenu.openedVia === "hold") {
+      const rect = slotElRefs.current[contextMenu.index]?.getBoundingClientRect();
+      if (!rect) return { left: Math.min(contextMenu.x, window.innerWidth - 150), top: Math.min(contextMenu.y, window.innerHeight - 100) };
+      const left =
+        rect.right + MENU_GAP + MENU_WIDTH <= window.innerWidth
+          ? rect.right + MENU_GAP
+          : Math.max(4, rect.left - MENU_GAP - MENU_WIDTH);
+      const top = Math.max(4, Math.min(rect.top, window.innerHeight - 100));
+      return { left, top };
+    }
+    return { left: Math.min(contextMenu.x, window.innerWidth - 150), top: Math.min(contextMenu.y, window.innerHeight - 100) };
+  })();
 
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
@@ -437,7 +498,9 @@ export default function InventoryGrid({
           // pointer position instead, regardless of the initial grab point.
           modifiers={[snapCenterToCursor]}
           onDragStart={handleDragStart}
+          onDragMove={handleDragMove}
           onDragEnd={handleDragEnd}
+          onDragCancel={resetDragOverlay}
         >
           <div className="grid grid-cols-4 gap-2">
             {inventory.map((slot, i) => (
@@ -453,17 +516,24 @@ export default function InventoryGrid({
                 onPressStart={handlePressStart}
                 suppressClickRef={suppressClickRef}
                 dragBlocked={contextMenu?.index === i && contextMenu.openedVia === "hold"}
+                registerEl={registerSlotEl}
               />
             ))}
           </div>
-          <DragOverlay modifiers={[snapCenterToCursor]}>
-            {activeSlot ? (
-              <div className="osrs-bevel-inset flex aspect-square items-center justify-center bg-osrs-panel-dark/80">
-                <SlotContent slot={activeSlot} />
-              </div>
-            ) : null}
-          </DragOverlay>
         </DndContext>
+        {activeSlot && dragPoint && dragSize && (
+          <div
+            className="osrs-bevel-inset pointer-events-none fixed z-50 flex items-center justify-center bg-osrs-panel-dark/80"
+            style={{
+              left: dragPoint.x - dragSize.width / 2,
+              top: dragPoint.y - dragSize.height / 2,
+              width: dragSize.width,
+              height: dragSize.height,
+            }}
+          >
+            <SlotContent slot={activeSlot} />
+          </div>
+        )}
         <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
           Drag to reorganize &middot; $ to sell &middot; &#127873; click to open &middot; double-click to discard
           &middot; right-click or hold (drag to choose) to lock
@@ -473,10 +543,7 @@ export default function InventoryGrid({
       {contextMenu && menuSlot && (
         <div
           className="osrs-bevel osrs-panel fixed z-50 min-w-[130px] overflow-hidden py-1 text-sm"
-          style={{
-            left: Math.min(contextMenu.x, window.innerWidth - 150),
-            top: Math.min(contextMenu.y, window.innerHeight - 100),
-          }}
+          style={menuPosition ?? { left: 0, top: 0 }}
           onClick={(e) => e.stopPropagation()}
           onContextMenu={(e) => e.preventDefault()}
         >
