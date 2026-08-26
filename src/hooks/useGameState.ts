@@ -487,7 +487,7 @@ export function useGameState(userId: string | null = null) {
   }, [state.collectionLogFirsts, userId]);
 
   const simulateKill = useCallback((npc: Npc): KillResult => {
-    const drops = rollDrop(npc, allItems);
+    const drops = rollDrop(npc, allItems, stateRef.current.collectionLog);
     // Coin drops go straight to the GP balance rather than taking an inventory slot.
     const coinDrops = drops.filter((d) => d.item.id === "coins");
     const itemDrops = drops.filter((d) => d.item.id !== "coins");
@@ -568,7 +568,7 @@ export function useGameState(userId: string | null = null) {
     const container = containers[slot0.itemId];
     if (!container) return null;
 
-    const drops = rollDrop(container, allItems);
+    const drops = rollDrop(container, allItems, stateRef.current.collectionLog);
     const coinDrops = drops.filter((d) => d.item.id === "coins");
     const itemDrops = drops.filter((d) => d.item.id !== "coins");
     const coinsGained = coinDrops.reduce((sum, d) => sum + d.quantity, 0);

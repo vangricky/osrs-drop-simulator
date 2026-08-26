@@ -20,12 +20,55 @@ export interface DropEntry {
   noted?: boolean;
 }
 
+/** One member of a TertiaryGroup — same shape as DropEntry minus the rate,
+ * since the group as a whole rolls once and its rate applies to the group. */
+export interface TertiaryGroupItem {
+  itemId: string;
+  minQuantity: number;
+  maxQuantity: number;
+  noted?: boolean;
+}
+
+/**
+ * A handful of real OSRS drop tables (Sarachnis's 3 tattered pages, Skotizo's
+ * 3 dark totem pieces) roll ONE shared chance for "the whole group", and only
+ * then decide which member you actually get — normally whichever you own the
+ * fewest of, so a full set fills in evenly instead of ever handing out a
+ * duplicate while you're still missing one. This is NOT the same as 3
+ * independent tertiary rolls: modeling it that way (as this project once did)
+ * both inflates the combined trigger rate 3x AND makes it possible to get all
+ * 3 members from a single kill, when the real game guarantees exactly one
+ * (occasionally all of them together, only via `completeNumerator`/
+ * `completeDenominator` on the rare tables that have that bonus). */
+export interface TertiaryGroupEntry {
+  numerator: number;
+  denominator: number;
+  items: TertiaryGroupItem[];
+  /** Chance, given the group's own roll hits, of receiving every item in
+   * the group at once instead of just one (e.g. Skotizo's "complete dark
+   * totem" bonus: 1/4 of totem-subtable hits). Omitted where the real game
+   * has no such bonus (Sarachnis's pages: always exactly one per hit). */
+  completeNumerator?: number;
+  completeDenominator?: number;
+  /** Which member to hand out on a (non-complete) hit: "leastOwned" (default)
+   * for sets meant to fill in evenly, like Sarachnis's pages or Skotizo's
+   * totem pieces; "uniform" for a plain even split with no such bias, like
+   * the DT2 bosses' shared clue-scroll roll (1/40 for "a clue", split evenly
+   * across the 4 tiers) — a player's clue-tier history has no bearing on
+   * which tier they get next. */
+  selection?: "leastOwned" | "uniform";
+}
+
 export interface LootTable {
   always: DropEntry[];
   mainTable: DropEntry[];
   /** Number of independent rolls against mainTable per opening/kill (defaults to 1). */
   mainRolls?: number;
   tertiary: DropEntry[];
+  /** Independent rolls, same as `tertiary`, but each entry hands out exactly
+   * one (or, rarely, all) of a shared set rather than rolling every member
+   * separately — see TertiaryGroupEntry. */
+  tertiaryGroups?: TertiaryGroupEntry[];
 }
 
 export interface Npc extends LootTable {

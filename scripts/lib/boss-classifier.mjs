@@ -236,6 +236,27 @@ export function parseWikiQuantity(raw) {
 // above): its real reward can't be honestly represented as a per-open drop.
 const ALTERNATE_MODE_SECTIONS = new Set(["contract", "junk", "mimic rewards"]);
 
+// A handful of boss pages put TWO complete, sibling drop tables under two
+// separate level-2 (==Heading==) sections rather than one shared table with
+// per-line footnotes — e.g. Obor/Bryophyta (OSRS's only two F2P-repeatable
+// bosses) list "==Members' worlds drops==" and "==Free-to-play worlds
+// drops==" side by side with near-identical item lists; Scurrius lists
+// "==Drops (MVP/Solo)==" and "==Drops (non-MVP)==" (this project already
+// simulates every kill as solo/MVP, same rule as the raritynotes-based
+// MVP_DAMAGE_RARITYNOTES_RE handling below); Maggot King lists "==Drops
+// (take-eggs)==" and "==Drops (open-stomach)==", two mutually-exclusive
+// corpse-looting choices (open-stomach is the fuller, more representative
+// table — take-eggs trades away normal loot for a boosted pet chance).
+// parseDropsLinesFromWikitext only ever tracked the innermost ===/====
+// heading, so it had no way to tell these apart and merged both sibling
+// tables into one, roughly doubling most items' effective rate (worse for
+// `tertiary`/`always` entries, which roll independently or are guaranteed
+// every kill, than for `mainTable`, which is one weighted pick regardless of
+// pool size). This is a hand-verified exclusion list, same pattern as
+// ALTERNATE_MODE_SECTIONS above — matched against the nearest level-2
+// ancestor heading, case-insensitively.
+const NON_CANONICAL_TOP_SECTIONS = new Set(["free-to-play worlds drops", "drops (non-mvp)", "drops (take-eggs)"]);
+
 const CLUE_ITEM_BY_TYPE = {
   beginner: "Clue scroll (beginner)",
   easy: "Clue scroll (easy)",
@@ -341,10 +362,29 @@ export function parseDropsLinesFromWikitext(rawWikitext) {
     return name;
   };
 
+  // Level-2 (==Heading==) markers only — tracked separately from the =3/4=
+  // ones above so existing ALTERNATE_MODE_SECTIONS behavior (matched against
+  // the innermost heading) is untouched. A real "==Heading==" line has
+  // nothing but "=" immediately outside the two marker "="s; requiring the
+  // captured text to start with a non-"=" character is what keeps this from
+  // also matching a "===Heading===" (===) or "====Heading====" line, which
+  // would otherwise match the "==" prefix/suffix of a longer marker.
+  const topSectionRe = /^==([^=\n][^\n]*?)==\s*$/gm;
+  const topSectionMarkers = [...wikitext.matchAll(topSectionRe)].map((m) => ({ index: m.index, name: m[1].trim() }));
+  const topSectionAt = (index) => {
+    let name = "";
+    for (const marker of topSectionMarkers) {
+      if (marker.index > index) break;
+      name = marker.name;
+    }
+    return name;
+  };
+
   const calls = findBalancedTemplateCalls(wikitext, ["DropsLine", "DropsLineClue", "DropsLineReward"]);
   for (const call of calls) {
     const currentSection = sectionAt(call.index);
     if (ALTERNATE_MODE_SECTIONS.has(currentSection.trim().toLowerCase())) continue;
+    if (NON_CANONICAL_TOP_SECTIONS.has(topSectionAt(call.index).toLowerCase())) continue;
 
     const params = {};
     for (const p of splitTopLevelPipes(call.content)) {

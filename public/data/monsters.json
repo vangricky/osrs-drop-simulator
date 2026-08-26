@@ -4950,16 +4950,7 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
+        "denominator": 1
       }
     ],
     "mainTable": [
@@ -4968,128 +4959,112 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 5,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "magic-staff",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "steel-med-helm",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "mithril-sword",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "mithril-spear",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "steel-kiteshield",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "law-rune",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 4,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "air-rune",
         "minQuantity": 18,
         "maxQuantity": 18,
         "numerator": 3,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "earth-rune",
         "minQuantity": 27,
         "maxQuantity": 27,
         "numerator": 3,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "chaos-rune",
         "minQuantity": 7,
         "maxQuantity": 7,
         "numerator": 3,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "nature-rune",
         "minQuantity": 6,
         "maxQuantity": 6,
         "numerator": 3,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "cosmic-rune",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 2,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "iron-arrow",
         "minQuantity": 15,
         "maxQuantity": 15,
         "numerator": 2,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "steel-arrow",
         "minQuantity": 30,
         "maxQuantity": 30,
         "numerator": 1,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "death-rune",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 1,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "blood-rune",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "coins",
@@ -5124,202 +5099,21 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "coal",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 128,
-        "noted": true
+        "denominator": 128
       },
       {
         "itemId": "spinach-roll",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "black-sq-shield",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 5,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "magic-staff",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "steel-med-helm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "mithril-sword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "steel-kiteshield",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 4,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "air-rune",
-        "minQuantity": 18,
-        "maxQuantity": 18,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "earth-rune",
-        "minQuantity": 27,
-        "maxQuantity": 27,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 7,
-        "maxQuantity": 7,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "nature-rune",
-        "minQuantity": 6,
-        "maxQuantity": 6,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "cosmic-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 2,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "iron-arrow",
-        "minQuantity": 15,
-        "maxQuantity": 15,
-        "numerator": 2,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "steel-arrow",
-        "minQuantity": 30,
-        "maxQuantity": 30,
-        "numerator": 1,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "death-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 1,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 5,
         "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 5,
-        "maxQuantity": 5,
-        "numerator": 35,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 37,
-        "maxQuantity": 37,
-        "numerator": 19,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 11,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 119,
-        "maxQuantity": 119,
-        "numerator": 10,
-        "denominator": 128
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 300,
-        "maxQuantity": 300,
-        "numerator": 2,
-        "denominator": 128
-      },
-      {
-        "itemId": "steel-bar",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 6,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "coal",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "spinach-roll",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 128,
-        "noted": true
       }
     ],
     "tertiary": [
@@ -5328,72 +5122,49 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 4,
-        "noted": true
+        "denominator": 4
       },
       {
         "itemId": "ensouled-giant-head",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 24,
-        "noted": true
+        "denominator": 24
       },
       {
         "itemId": "clue-scroll-beginner",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 45,
-        "noted": true
+        "denominator": 45
       },
       {
         "itemId": "mossy-key",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 16,
-        "noted": true
+        "denominator": 16
       },
       {
         "itemId": "long-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 400,
-        "noted": true
+        "denominator": 400
       },
       {
         "itemId": "giant-champion-scroll",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 5000,
-        "noted": true
+        "denominator": 5000
       },
       {
         "itemId": "curved-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 5012.5,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-beginner",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 45,
-        "noted": true
-      },
-      {
-        "itemId": "mossy-key",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 16,
-        "noted": true
+        "denominator": 5012.5
       }
     ]
   },
@@ -7757,44 +7528,45 @@
     ],
     "tertiary": [
       {
-        "itemId": "clue-scroll-easy",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-medium",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-hard",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
         "itemId": "baron",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 2500,
         "noted": true
+      }
+    ],
+    "tertiaryGroups": [
+      {
+        "numerator": 1,
+        "denominator": 40,
+        "items": [
+          {
+            "itemId": "clue-scroll-easy",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-elite",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-hard",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-medium",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          }
+        ],
+        "selection": "uniform"
       }
     ]
   },
@@ -8805,44 +8577,45 @@
     ],
     "tertiary": [
       {
-        "itemId": "clue-scroll-easy",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-medium",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-hard",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
         "itemId": "lilviathan",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 2500,
         "noted": true
+      }
+    ],
+    "tertiaryGroups": [
+      {
+        "numerator": 1,
+        "denominator": 40,
+        "items": [
+          {
+            "itemId": "clue-scroll-easy",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-elite",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-hard",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-medium",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          }
+        ],
+        "selection": "uniform"
       }
     ]
   },
@@ -9095,52 +8868,32 @@
     "always": [],
     "mainTable": [
       {
-        "itemId": "stymphike-tartare",
-        "minQuantity": 2,
-        "maxQuantity": 4,
-        "numerator": 1,
-        "denominator": 32,
-        "noted": true
-      },
-      {
-        "itemId": "dull-ancient-medal",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 32,
-        "noted": true
-      },
-      {
         "itemId": "elder-venator-fang",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 340,
-        "noted": true
+        "denominator": 340
       },
       {
         "itemId": "crimson-kisten",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 520,
-        "noted": true
+        "denominator": 520
       },
       {
         "itemId": "stymphike-tartare",
         "minQuantity": 2,
         "maxQuantity": 4,
         "numerator": 41,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "dull-ancient-medal",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 41,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "uncut-ruby",
@@ -9155,8 +8908,7 @@
         "minQuantity": 51,
         "maxQuantity": 74,
         "numerator": 10,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "mort-myre-fungus",
@@ -9171,8 +8923,7 @@
         "minQuantity": 23,
         "maxQuantity": 34,
         "numerator": 10,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "runite-ore",
@@ -9187,8 +8938,7 @@
         "minQuantity": 8,
         "maxQuantity": 11,
         "numerator": 5,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "gold-ore",
@@ -9219,122 +8969,100 @@
         "minQuantity": 4,
         "maxQuantity": 5,
         "numerator": 4,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "venator-fang",
         "minQuantity": 112,
         "maxQuantity": 179,
         "numerator": 2,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "venator-tooth",
         "minQuantity": 178,
         "maxQuantity": 219,
         "numerator": 2,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-spear",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 12,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-ring",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-bracelet",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-necklace",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-amulet",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-battleaxe",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-longsword",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-halberd",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       },
       {
         "itemId": "tarnished-2h-sword",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 159,
-        "noted": true
+        "denominator": 159
       }
     ],
     "tertiary": [
-      {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 40,
-        "noted": true
-      },
       {
         "itemId": "maggot-marquess",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 3500,
-        "noted": true
+        "denominator": 3500
       },
       {
         "itemId": "clue-scroll-elite",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 40,
-        "noted": true
+        "denominator": 40
       }
     ]
   },
@@ -9948,16 +9676,7 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
+        "denominator": 1
       }
     ],
     "mainTable": [
@@ -9966,120 +9685,105 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 16,
-        "noted": true
+        "denominator": 16
       },
       {
         "itemId": "iron-full-helm",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 5,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "iron-dagger",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 4,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "iron-kiteshield",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "steel-longsword",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "iron-arrow",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "fire-rune",
         "minQuantity": 15,
         "maxQuantity": 15,
         "numerator": 3,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "water-rune",
         "minQuantity": 7,
         "maxQuantity": 7,
         "numerator": 3,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "law-rune",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 3,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "steel-arrow",
         "minQuantity": 10,
         "maxQuantity": 10,
         "numerator": 2,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "mind-rune",
         "minQuantity": 3,
         "maxQuantity": 3,
         "numerator": 2,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "cosmic-rune",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 2,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "nature-rune",
         "minQuantity": 6,
         "maxQuantity": 6,
         "numerator": 2,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "chaos-rune",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "death-rune",
         "minQuantity": 2,
         "maxQuantity": 2,
         "numerator": 1,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "coins",
@@ -10121,217 +9825,21 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 11,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "beer",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 135,
-        "noted": true
+        "denominator": 135
       },
       {
         "itemId": "body-talisman",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 2,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "giant-key",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 16,
-        "noted": true
-      },
-      {
-        "itemId": "iron-full-helm",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 5,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "iron-dagger",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 4,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "iron-kiteshield",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "steel-longsword",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "iron-arrow",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 6,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "fire-rune",
-        "minQuantity": 15,
-        "maxQuantity": 15,
-        "numerator": 3,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "water-rune",
-        "minQuantity": 7,
-        "maxQuantity": 7,
-        "numerator": 3,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 3,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "steel-arrow",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 2,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "mind-rune",
-        "minQuantity": 3,
-        "maxQuantity": 3,
-        "numerator": 2,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "cosmic-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 2,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "nature-rune",
-        "minQuantity": 6,
-        "maxQuantity": 6,
-        "numerator": 2,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "death-rune",
-        "minQuantity": 2,
-        "maxQuantity": 2,
-        "numerator": 1,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 5,
-        "maxQuantity": 5,
-        "numerator": 18,
         "denominator": 135
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 38,
-        "maxQuantity": 38,
-        "numerator": 14,
-        "denominator": 135
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 52,
-        "maxQuantity": 52,
-        "numerator": 10,
-        "denominator": 135
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 15,
-        "maxQuantity": 15,
-        "numerator": 8,
-        "denominator": 135
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 10,
-        "maxQuantity": 10,
-        "numerator": 7,
-        "denominator": 135
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 8,
-        "maxQuantity": 8,
-        "numerator": 6,
-        "denominator": 135
-      },
-      {
-        "itemId": "coins",
-        "minQuantity": 88,
-        "maxQuantity": 88,
-        "numerator": 2,
-        "denominator": 135
-      },
-      {
-        "itemId": "limpwurt-root",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 11,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "beer",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 6,
-        "denominator": 135,
-        "noted": true
-      },
-      {
-        "itemId": "body-talisman",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 2,
-        "denominator": 135,
-        "noted": true
       }
     ],
     "tertiary": [
@@ -10340,48 +9848,35 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 25,
-        "noted": true
+        "denominator": 25
       },
       {
         "itemId": "clue-scroll-beginner",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 50,
-        "noted": true
+        "denominator": 50
       },
       {
         "itemId": "long-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 400,
-        "noted": true
+        "denominator": 400
       },
       {
         "itemId": "giant-champion-scroll",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 5000,
-        "noted": true
+        "denominator": 5000
       },
       {
         "itemId": "curved-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 5012.5,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-beginner",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 50,
-        "noted": true
+        "denominator": 5012.5
       }
     ]
   },
@@ -11482,30 +10977,6 @@
     ],
     "tertiary": [
       {
-        "itemId": "tattered-moon-page",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5,
-        "noted": true
-      },
-      {
-        "itemId": "tattered-sun-page",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5,
-        "noted": true
-      },
-      {
-        "itemId": "tattered-temple-page",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 5,
-        "noted": true
-      },
-      {
         "itemId": "giant-egg-sac-full",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -11560,6 +11031,32 @@
         "numerator": 1,
         "denominator": 3000,
         "noted": true
+      }
+    ],
+    "tertiaryGroups": [
+      {
+        "numerator": 1,
+        "denominator": 5,
+        "items": [
+          {
+            "itemId": "tattered-moon-page",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "tattered-sun-page",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "tattered-temple-page",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          }
+        ]
       }
     ]
   },
@@ -11870,24 +11367,14 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 1,
-        "noted": true
+        "denominator": 1
       },
       {
         "itemId": "raw-rat-meat",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 1,
-        "noted": true
-      },
-      {
-        "itemId": "big-bones",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 1,
-        "noted": true
+        "denominator": 1
       }
     ],
     "mainTable": [
@@ -11896,152 +11383,133 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "rune-med-helm",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "rune-full-helm",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "rune-sq-shield",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "rune-chainbody",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "rune-battleaxe",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "adamant-arrow",
         "minQuantity": 20,
         "maxQuantity": 50,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "rune-arrow",
         "minQuantity": 20,
         "maxQuantity": 50,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "chaos-rune",
         "minQuantity": 70,
         "maxQuantity": 125,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "death-rune",
         "minQuantity": 40,
         "maxQuantity": 90,
         "numerator": 3,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "law-rune",
         "minQuantity": 10,
         "maxQuantity": 30,
         "numerator": 3,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "trout",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "tuna",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "shark",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "lobster",
         "minQuantity": 1,
         "maxQuantity": 3,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "ranging-potion-1",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "super-strength-1",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 3,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "cheese",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "prayer-potion-4",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 6,
-        "denominator": 100,
-        "noted": true
+        "denominator": 100
       },
       {
         "itemId": "coins",
@@ -12049,102 +11517,6 @@
         "maxQuantity": 9000,
         "numerator": 6,
         "denominator": 100
-      },
-      {
-        "itemId": "adamant-arrow",
-        "minQuantity": 20,
-        "maxQuantity": 35,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "rune-arrow",
-        "minQuantity": 20,
-        "maxQuantity": 35,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "chaos-rune",
-        "minQuantity": 40,
-        "maxQuantity": 70,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "death-rune",
-        "minQuantity": 30,
-        "maxQuantity": 50,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "law-rune",
-        "minQuantity": 5,
-        "maxQuantity": 15,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "trout",
-        "minQuantity": 1,
-        "maxQuantity": 3,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "tuna",
-        "minQuantity": 1,
-        "maxQuantity": 3,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "lobster",
-        "minQuantity": 1,
-        "maxQuantity": 3,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "shark",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "ranging-potion-1",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "super-strength-1",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 33,
-        "noted": true
-      },
-      {
-        "itemId": "cheese",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 33,
-        "noted": true
       }
     ],
     "tertiary": [
@@ -12153,48 +11525,35 @@
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 25,
-        "noted": true
+        "denominator": 25
       },
       {
         "itemId": "scurrius-spine",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 33,
-        "noted": true
+        "denominator": 33
       },
       {
         "itemId": "long-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 400,
-        "noted": true
+        "denominator": 400
       },
       {
         "itemId": "curved-bone",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 5012.5,
-        "noted": true
+        "denominator": 5012.5
       },
       {
         "itemId": "scurry",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
-        "denominator": 3000,
-        "noted": true
-      },
-      {
-        "itemId": "scurrius-spine",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 33,
-        "noted": true
+        "denominator": 3000
       }
     ]
   },
@@ -12620,30 +11979,6 @@
         "noted": true
       },
       {
-        "itemId": "dark-totem-base",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "dark-totem-middle",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
-        "itemId": "dark-totem-top",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 3,
-        "denominator": 128,
-        "noted": true
-      },
-      {
         "itemId": "dark-totem",
         "minQuantity": 1,
         "maxQuantity": 1,
@@ -12658,6 +11993,34 @@
         "numerator": 1,
         "denominator": 200,
         "noted": true
+      }
+    ],
+    "tertiaryGroups": [
+      {
+        "numerator": 4,
+        "denominator": 128,
+        "items": [
+          {
+            "itemId": "dark-totem-base",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "dark-totem-middle",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "dark-totem-top",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          }
+        ],
+        "completeNumerator": 1,
+        "completeDenominator": 4
       }
     ]
   },
@@ -13591,44 +12954,45 @@
     ],
     "tertiary": [
       {
-        "itemId": "clue-scroll-easy",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-medium",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-hard",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
         "itemId": "butch",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 3000,
         "noted": true
+      }
+    ],
+    "tertiaryGroups": [
+      {
+        "numerator": 1,
+        "denominator": 40,
+        "items": [
+          {
+            "itemId": "clue-scroll-easy",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-elite",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-hard",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-medium",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          }
+        ],
+        "selection": "uniform"
       }
     ]
   },
@@ -14761,44 +14125,45 @@
     ],
     "tertiary": [
       {
-        "itemId": "clue-scroll-easy",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-medium",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-hard",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
-        "itemId": "clue-scroll-elite",
-        "minQuantity": 1,
-        "maxQuantity": 1,
-        "numerator": 1,
-        "denominator": 160,
-        "noted": true
-      },
-      {
         "itemId": "wisp",
         "minQuantity": 1,
         "maxQuantity": 1,
         "numerator": 1,
         "denominator": 2000,
         "noted": true
+      }
+    ],
+    "tertiaryGroups": [
+      {
+        "numerator": 1,
+        "denominator": 40,
+        "items": [
+          {
+            "itemId": "clue-scroll-easy",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-elite",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-hard",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          },
+          {
+            "itemId": "clue-scroll-medium",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "noted": true
+          }
+        ],
+        "selection": "uniform"
       }
     ]
   },

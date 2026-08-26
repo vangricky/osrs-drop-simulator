@@ -1,4 +1,4 @@
-import type { DropEntry, DropItem, LootTable } from "../data/npcData";
+import type { DropEntry, DropItem, LootTable, TertiaryGroupItem } from "../data/npcData";
 
 export interface RolledDrop {
   item: DropItem;
@@ -15,8 +15,20 @@ function randomInRange(min: number, max: number): number {
   return min + Math.floor(Math.random() * (max - min + 1));
 }
 
-function rollChance(entry: DropEntry): boolean {
+function rollChance(entry: { numerator: number; denominator: number }): boolean {
   return Math.random() < entry.numerator / entry.denominator;
+}
+
+/** Picks which member of a TertiaryGroup to hand out on a hit: whichever the
+ * player owns the fewest of (ties broken randomly), matching the real game's
+ * "fills in your set evenly" behavior — falls back to a uniform random pick
+ * when no ownership data is available (guest/no collection log). */
+function pickLeastOwned(items: TertiaryGroupItem[], ownedCounts?: Record<string, number>): TertiaryGroupItem {
+  if (!ownedCounts) return items[Math.floor(Math.random() * items.length)];
+  const counts = items.map((it) => ownedCounts[it.itemId] ?? 0);
+  const min = Math.min(...counts);
+  const leastOwned = items.filter((_, i) => counts[i] === min);
+  return leastOwned[Math.floor(Math.random() * leastOwned.length)];
 }
 
 /** Picks exactly one entry from `entries`, weighted by each entry's own
@@ -52,8 +64,16 @@ function pickWeighted<T extends DropEntry>(entries: T[]): T | null {
  *   bosses whose real table is rolled more than once per kill.
  * - `tertiary` entries (clue scrolls, pets, rare uniques) roll independently
  *   and can stack with each other and with a main-table hit.
+ * - `tertiaryGroups` entries (Sarachnis's pages, Skotizo's totem pieces) roll
+ *   ONE shared chance per group, handing out exactly one member (whichever
+ *   `ownedCounts` says the player has fewest of, or all of them together on
+ *   the rare table with a `completeNumerator`/`completeDenominator` bonus).
+ *
+ * `ownedCounts` (typically the player's collection log) is optional and only
+ * affects which member of a tertiaryGroup gets picked — omit it to fall back
+ * to a uniform random pick within the group.
  */
-export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>): RolledDrop[] {
+export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>, ownedCounts?: Record<string, number>): RolledDrop[] {
   const results: RolledDrop[] = [];
 
   for (const entry of table.always) {
@@ -76,6 +96,23 @@ export function rollDrop(table: LootTable, itemsById: Record<string, DropItem>):
       const item = itemsById[entry.itemId];
       if (item) {
         results.push({ item, quantity: randomInRange(entry.minQuantity, entry.maxQuantity), source: "tertiary", noted: entry.noted });
+      }
+    }
+  }
+
+  for (const group of table.tertiaryGroups ?? []) {
+    if (!rollChance(group)) continue;
+    const givesComplete =
+      group.completeNumerator !== undefined &&
+      group.completeDenominator !== undefined &&
+      rollChance({ numerator: group.completeNumerator, denominator: group.completeDenominator });
+    const chosen = givesComplete
+      ? group.items
+      : [group.selection === "uniform" ? group.items[Math.floor(Math.random() * group.items.length)] : pickLeastOwned(group.items, ownedCounts)];
+    for (const it of chosen) {
+      const item = itemsById[it.itemId];
+      if (item) {
+        results.push({ item, quantity: randomInRange(it.minQuantity, it.maxQuantity), source: "tertiary", noted: it.noted });
       }
     }
   }
