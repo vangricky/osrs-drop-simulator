@@ -175,6 +175,16 @@ export default function Header({
                   How to play
                 </button>
 
+                <a
+                  href="https://buymeacoffee.com/osrsdropsimulation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  &#9749; Buy me a coffee
+                </a>
+
                 {authEnabled && username && (
                   <div className="px-3 pb-0.5 pt-1 text-xs text-osrs-parchment-dark/70">
                     Signed in as <span className="font-semibold text-osrs-gold">{username}</span>
