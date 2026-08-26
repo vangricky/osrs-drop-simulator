@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useGameData } from "../hooks/useGameData";
-import type { DropItem, Npc } from "../data/npcData";
+import type { ContainerDef, DropEntry, DropItem, Npc } from "../data/npcData";
 import { supabase } from "../lib/supabase";
 import { isStackable, rollDrop, type RolledDrop } from "../utils/dropLogic";
 
@@ -116,8 +116,44 @@ function loadState(npcs: Npc[]): PersistedState {
   }
 }
 
+/** The server ledger (user_items) only tracks item_id + quantity, not
+ * whether any given unit was obtained "noted" — the per-roll flag that
+ * makes an otherwise non-stacking item (bull bones, mooleta, clue
+ * scrolls, ...) stack in the inventory grid during actual play (see
+ * addDropsToInventory / isStackable(item, drop.noted)). Reconstructing a
+ * display purely from the ledger can't know that on a per-unit basis, so
+ * instead: if ANY drop table anywhere can produce this item noted, treat
+ * it as always-stacking for reconstruction — collapsing it into one slot
+ * is far closer to reality than fragmenting the ledger's raw count into
+ * a slot per unit. */
+function computeNotedItemIds(npcs: Npc[], containers: Record<string, ContainerDef>): Set<string> {
+  const ids = new Set<string>();
+  const scan = (entries: DropEntry[]) => {
+    for (const e of entries) if (e.noted) ids.add(e.itemId);
+  };
+  for (const npc of npcs) {
+    scan(npc.always);
+    scan(npc.mainTable);
+    scan(npc.tertiary);
+  }
+  for (const container of Object.values(containers)) {
+    scan(container.always);
+    scan(container.mainTable);
+    scan(container.tertiary);
+  }
+  return ids;
+}
+
+function displayStackable(itemId: string, item: DropItem, notedItemIds: Set<string>): boolean {
+  return isStackable(item) || notedItemIds.has(itemId);
+}
+
 /** Arranges a server item-quantity ledger into a display-only 28-slot grid (stackables get one slot, non-stackables one-per-unit, extras beyond 28 slots are simply not shown). */
-function inventoryFromLedger(ledger: Record<string, number>, items: Record<string, DropItem>): (InventorySlot | null)[] {
+function inventoryFromLedger(
+  ledger: Record<string, number>,
+  items: Record<string, DropItem>,
+  notedItemIds: Set<string>,
+): (InventorySlot | null)[] {
   const next = emptyInventory();
   const firstEmptySlot = () => next.findIndex((slot) => slot === null);
 
@@ -125,7 +161,7 @@ function inventoryFromLedger(ledger: Record<string, number>, items: Record<strin
     if (quantity <= 0) continue;
     const item = items[itemId];
     if (!item) continue;
-    if (isStackable(item)) {
+    if (displayStackable(itemId, item, notedItemIds)) {
       const slotIndex = firstEmptySlot();
       if (slotIndex !== -1) next[slotIndex] = { itemId, quantity };
     } else {
@@ -151,6 +187,7 @@ function reconcileInventoryWithLedger(
   cached: (InventorySlot | null)[],
   ledger: Record<string, number>,
   items: Record<string, DropItem>,
+  notedItemIds: Set<string>,
 ): (InventorySlot | null)[] {
   const shown: Record<string, number> = {};
   for (const slot of cached) {
@@ -167,7 +204,7 @@ function reconcileInventoryWithLedger(
     const item = items[itemId];
     if (!item) continue;
 
-    if (isStackable(item)) {
+    if (displayStackable(itemId, item, notedItemIds)) {
       const existingIndex = next.findIndex((slot) => slot?.itemId === itemId);
       if (existingIndex !== -1) {
         next[existingIndex] = { ...next[existingIndex]!, quantity: next[existingIndex]!.quantity + missing };
@@ -186,7 +223,40 @@ function reconcileInventoryWithLedger(
   return next;
 }
 
-async function loadCloudState(userId: string, npcs: Npc[], items: Record<string, DropItem>): Promise<PersistedState | null> {
+/** One-time repair for accounts that already accumulated duplicate slots
+ * of the same stackable-per-computeNotedItemIds item (from before this
+ * fix existed) — merges every occurrence of such an item into its first
+ * slot, freeing the rest. A no-op for an already-correct inventory. */
+function mergeStackableDuplicates(
+  inventory: (InventorySlot | null)[],
+  items: Record<string, DropItem>,
+  notedItemIds: Set<string>,
+): (InventorySlot | null)[] {
+  const next = [...inventory];
+  const firstIndexByItemId = new Map<string, number>();
+  for (let i = 0; i < next.length; i++) {
+    const slot = next[i];
+    if (!slot) continue;
+    const item = items[slot.itemId];
+    if (!item || !displayStackable(slot.itemId, item, notedItemIds)) continue;
+    const firstIndex = firstIndexByItemId.get(slot.itemId);
+    if (firstIndex === undefined) {
+      firstIndexByItemId.set(slot.itemId, i);
+      continue;
+    }
+    const first = next[firstIndex]!;
+    next[firstIndex] = { ...first, quantity: first.quantity + slot.quantity, locked: first.locked || slot.locked };
+    next[i] = null;
+  }
+  return next;
+}
+
+async function loadCloudState(
+  userId: string,
+  npcs: Npc[],
+  items: Record<string, DropItem>,
+  containers: Record<string, ContainerDef>,
+): Promise<PersistedState | null> {
   if (!supabase) return null;
   const [{ data: gs }, { data: userItems }] = await Promise.all([
     supabase.from("game_state").select("*").eq("user_id", userId).maybeSingle(),
@@ -197,11 +267,15 @@ async function loadCloudState(userId: string, npcs: Npc[], items: Record<string,
   const ledger: Record<string, number> = {};
   for (const row of userItems ?? []) ledger[row.item_id] = row.quantity;
 
+  const notedItemIds = computeNotedItemIds(npcs, containers);
   const cachedInventory = Array.isArray(gs.inventory_cache) ? (gs.inventory_cache as (InventorySlot | null)[]) : [];
-  const inventory =
+  const inventory = mergeStackableDuplicates(
     cachedInventory.length === INVENTORY_SIZE
-      ? reconcileInventoryWithLedger(cachedInventory, ledger, items)
-      : inventoryFromLedger(ledger, items);
+      ? reconcileInventoryWithLedger(cachedInventory, ledger, items, notedItemIds)
+      : inventoryFromLedger(ledger, items, notedItemIds),
+    items,
+    notedItemIds,
+  );
 
   return {
     inventory,
@@ -339,7 +413,7 @@ export function useGameState(userId: string | null = null) {
     }
     cloudLoadedRef.current = false;
     let cancelled = false;
-    loadCloudState(userId, npcs, allItems).then((cloud) => {
+    loadCloudState(userId, npcs, allItems, containers).then((cloud) => {
       if (cancelled || !cloud) return;
       cloudLoadedRef.current = true;
       setState(cloud);
@@ -347,7 +421,7 @@ export function useGameState(userId: string | null = null) {
     return () => {
       cancelled = true;
     };
-  }, [userId, npcs, allItems]);
+  }, [userId, npcs, allItems, containers]);
 
   // Live cross-tab/cross-device sync: without this, a second tab or device
   // signed into the same account only ever saw this account's gp/kills/etc
@@ -739,12 +813,12 @@ export function useGameState(userId: string | null = null) {
       console.error("prestige failed", error);
       return null;
     }
-    const cloud = await loadCloudState(userId, npcs, allItems);
+    const cloud = await loadCloudState(userId, npcs, allItems, containers);
     if (cloud) setState(cloud);
     setLastKill(null);
     setLastContainerOpen(null);
     return typeof data === "number" ? data : null;
-  }, [userId, npcs, allItems]);
+  }, [userId, npcs, allItems, containers]);
 
   const resetAll = useCallback(() => {
     // Signed-in progress isn't resettable from here — there's no "wipe my
