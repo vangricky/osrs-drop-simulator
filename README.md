@@ -4,6 +4,8 @@
 
 **[Play it live →](https://osrsdropsimulation.com/)**
 
+[FAQ](https://osrsdropsimulation.com/faq/) · [Buy me a coffee ☕](https://buymeacoffee.com/osrsdropsimulation)
+
 A fan-made drop rate simulator for *Old School RuneScape*, boss-only by design. Kill bosses, roll their real drop tables, sell your loot, and grind your way up to the richest endgame content in the game, all without leaving your browser. Not affiliated with or endorsed by Jagex.
 
 ## What is this?
@@ -21,12 +23,11 @@ It's grown into a small idle/incremental game on top of that core simulator:
 
 ## How to play
 
-1. **Pick a boss** from the browser on the left. Playing as a guest, everything's unlocked from the start, no grinding required. Sign in and you'll start with two, then unlock the rest with GP.
-2. **Hit "Simulate Drop"** to roll its drop table. Coins go straight to your GP balance; items land in your 28-slot inventory.
-3. **Sell what you don't need**: click the `$` badge on an item, or use "Sell all" to liquidate your whole inventory at once.
-4. **Unlock new bosses** with GP once you can afford them. Costs scale steeply, from tens of millions for the lowest-level bosses up to hundreds of billions for the true endgame. This is meant to take a while.
-5. **Open anything you loot that's "openable"** (clue scroll caskets, Brimstone/Larran's keys): look for the 🎁 badge on an inventory slot. These roll their own separate reward table, including some of the rarest, highest-value items in the game.
-6. **Sign in** (top right) to save your progress to the cloud instead of just this browser, and get a spot on the leaderboard.
+1. **Pick a boss** from the list on the left. Playing as a guest, everything's unlocked from the start, no grinding required. Sign in and you'll start with two, then unlock the rest with GP.
+2. **Hit "Simulate Drop"** to roll its drop table. Coins go straight to your GP balance, and items land in your 28 slot inventory.
+3. **Sell, open, or lock what you get.** Click an item to sell it for GP right away, or to open it if it's a container like a clue casket, Larran's key, or Crystal key. Hold an item down for a second to lock it, so it can't be sold or discarded by accident. "Sell all" liquidates everything that isn't locked in one click.
+4. **Unlock new bosses** with GP once you can afford them. Costs scale steeply, from tens of millions for the lowest level bosses up to hundreds of billions for the true endgame. This is meant to take a while.
+5. **Sign in** (top right) to save your progress to the cloud instead of just this browser, and get a spot on the leaderboard.
 
 ## Climbing the leaderboard
 
