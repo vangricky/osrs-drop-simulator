@@ -18,12 +18,15 @@ import type { InventorySlot } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
 
-// How long a touch has to hold still on a slot before it counts as a
-// long-press (opens the same Sell/Lock menu a right-click does on desktop).
-const LONG_PRESS_MS = 1500;
-// Movement beyond this cancels a pending long-press — the touch is
-// scrolling or starting a drag instead of holding in place.
+// How long a hold (mouse or touch) has to stay still before it opens the
+// Sell/Lock menu. Short enough that dragging to an option while still
+// holding feels immediate once it appears.
+const LONG_PRESS_MS = 700;
+// Movement beyond this, before the hold has opened the menu, cancels it —
+// the input is scrolling or starting a drag instead of holding in place.
 const LONG_PRESS_MOVE_TOLERANCE = 10;
+
+type MenuAction = "sell" | "lock";
 
 interface InventoryGridProps {
   inventory: (InventorySlot | null)[];
@@ -40,6 +43,10 @@ interface ContextMenuState {
   index: number;
   x: number;
   y: number;
+  // "hold" menus resolve via drag-to-select-then-release (see
+  // handlePressStart below); "rightclick" ones behave like a normal
+  // desktop context menu — open, then a separate click on an option.
+  openedVia: "hold" | "rightclick";
 }
 
 function SlotContent({ slot, tooltipBelow }: { slot: InventorySlot; tooltipBelow?: boolean }) {
@@ -80,6 +87,8 @@ function Slot({
   onSell,
   onOpen,
   onContextMenu,
+  onPressStart,
+  suppressClickRef,
 }: {
   index: number;
   slot: InventorySlot | null;
@@ -88,6 +97,8 @@ function Slot({
   onSell: (index: number) => void;
   onOpen: (index: number) => void;
   onContextMenu: (index: number, x: number, y: number) => void;
+  onPressStart: (index: number, x: number, y: number) => void;
+  suppressClickRef: React.RefObject<number | null>;
 }) {
   const { items: allItems, containers } = useGameData();
   const { setNodeRef: setDropRef, isOver } = useDroppable({ id: `slot-${index}`, data: { index } });
@@ -98,52 +109,6 @@ function Slot({
   });
   const item = slot ? allItems[slot.itemId] : null;
   const openable = slot ? Boolean(containers[slot.itemId]) : false;
-
-  // Shared "press and hold" gesture behind both the touch long-press and
-  // the mouse/trackpad long-press below — same timer/position tracking,
-  // just fed from whichever input actually fired.
-  const longPressTimer = useRef<number | null>(null);
-  const pressStart = useRef<{ x: number; y: number } | null>(null);
-  const clearLongPress = () => {
-    if (longPressTimer.current !== null) {
-      window.clearTimeout(longPressTimer.current);
-      longPressTimer.current = null;
-    }
-  };
-  const startLongPress = (x: number, y: number) => {
-    if (!slot) return;
-    pressStart.current = { x, y };
-    clearLongPress();
-    longPressTimer.current = window.setTimeout(() => {
-      onContextMenu(index, x, y);
-    }, LONG_PRESS_MS);
-  };
-  const moveLongPress = (x: number, y: number) => {
-    if (!pressStart.current) return;
-    const dx = x - pressStart.current.x;
-    const dy = y - pressStart.current.y;
-    if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_TOLERANCE) clearLongPress();
-  };
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0];
-    startLongPress(t.clientX, t.clientY);
-  };
-  const handleTouchMove = (e: React.TouchEvent) => {
-    const t = e.touches[0];
-    moveLongPress(t.clientX, t.clientY);
-  };
-  // Trackpad users have no easy right-click gesture (two-finger tap isn't
-  // always known/enabled) — a plain click-and-hold opens the same menu, so
-  // the feature doesn't depend on right-click working at all. Harmless for
-  // mouse users too: a stationary hold doesn't clear dnd-kit's own 6px
-  // drag-activation threshold, so it never fights with dragging.
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (e.button !== 0) return;
-    startLongPress(e.clientX, e.clientY);
-  };
-  const handleMouseMove = (e: React.MouseEvent) => {
-    moveLongPress(e.clientX, e.clientY);
-  };
 
   return (
     <div
@@ -158,19 +123,30 @@ function Slot({
           {...listeners}
           {...attributes}
           onDoubleClick={() => onRemove(index)}
-          onClick={() => openable && onOpen(index)}
+          onClick={() => {
+            // A hold that opened the menu still ends in a mousedown+mouseup
+            // (and thus a native click) on whatever's under the pointer at
+            // release — without this, releasing back over the same slot
+            // (e.g. the drag-to-Lock never happened) would silently also
+            // open the container underneath the menu. Checked via a ref
+            // rather than a prop: the click fires synchronously right after
+            // the mouseup that already closed the menu, before React has
+            // re-rendered this handler with a "menu's gone now" closure.
+            if (suppressClickRef.current === index) return;
+            if (openable && !slot.locked) onOpen(index);
+          }}
           onContextMenu={(e) => {
             e.preventDefault();
             onContextMenu(index, e.clientX, e.clientY);
           }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={clearLongPress}
-          onTouchCancel={clearLongPress}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={clearLongPress}
-          onMouseLeave={clearLongPress}
+          onMouseDown={(e) => {
+            if (e.button !== 0) return;
+            onPressStart(index, e.clientX, e.clientY);
+          }}
+          onTouchStart={(e) => {
+            const t = e.touches[0];
+            onPressStart(index, t.clientX, t.clientY);
+          }}
           className={`flex h-full w-full items-center justify-center ${isDragging ? "opacity-30" : ""} ${openable ? "cursor-pointer" : ""}`}
           style={{ touchAction: "none", WebkitTouchCallout: "none" }}
         >
@@ -224,28 +200,134 @@ export default function InventoryGrid({
   const { items: allItems } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
-  const sensors = useSensors(
-    // Mouse (and any browser that resolves touch through the Pointer Events
-    // API cleanly) — a small movement threshold so a plain click/tap still
-    // reaches onClick/onDoubleClick instead of being eaten as a drag.
-    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
-    // Real touchscreens need their own sensor: PointerSensor alone tends to
-    // lose the race against the browser's native scroll/swipe gesture on a
-    // scrollable panel like this one, even with touch-action: none on the
-    // handle, so a press-and-drag often just scrolls the page instead of
-    // picking the item up. TouchSensor's short hold delay is dnd-kit's own
-    // recommended way to disambiguate "starting to scroll" from "starting
-    // to drag" on touch — short enough to still feel responsive, long
-    // enough that a normal tap/scroll never triggers it. It's shorter than
-    // the long-press threshold below, so a still-held touch activates a
-    // (no-op, since the finger hasn't moved) drag first and the context
-    // menu on top of it once the long-press fires — harmless, since
-    // nothing actually reorders unless the finger moves.
-    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
-  );
+  const [hoveredAction, setHoveredActionState] = useState<MenuAction | null>(null);
 
+  const pressTimer = useRef<number | null>(null);
+  const pressStartRef = useRef<{ index: number; x: number; y: number } | null>(null);
+  const pressActiveRef = useRef(false);
+  const hoveredActionRef = useRef<MenuAction | null>(null);
+  const suppressClickRef = useRef<number | null>(null);
+  const menuButtonRefs = useRef<Partial<Record<MenuAction, HTMLButtonElement | null>>>({});
+  const globalListenersRef = useRef<{
+    move: (e: MouseEvent | TouchEvent) => void;
+    up: () => void;
+    cancel: () => void;
+  } | null>(null);
+
+  const setHoveredAction = (action: MenuAction | null) => {
+    hoveredActionRef.current = action;
+    setHoveredActionState(action);
+  };
+
+  const clearPressTimer = () => {
+    if (pressTimer.current !== null) {
+      window.clearTimeout(pressTimer.current);
+      pressTimer.current = null;
+    }
+  };
+
+  const removeGlobalListeners = () => {
+    const l = globalListenersRef.current;
+    if (!l) return;
+    window.removeEventListener("mousemove", l.move);
+    window.removeEventListener("touchmove", l.move);
+    window.removeEventListener("mouseup", l.up);
+    window.removeEventListener("touchend", l.up);
+    window.removeEventListener("touchcancel", l.cancel);
+    globalListenersRef.current = null;
+  };
+
+  const resolveHoveredAction = (x: number, y: number): MenuAction | null => {
+    for (const action of ["sell", "lock"] as MenuAction[]) {
+      const el = menuButtonRefs.current[action];
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return action;
+    }
+    return null;
+  };
+
+  const movePress = (x: number, y: number) => {
+    if (pressActiveRef.current) {
+      setHoveredAction(resolveHoveredAction(x, y));
+      return;
+    }
+    if (!pressStartRef.current) return;
+    const dx = x - pressStartRef.current.x;
+    const dy = y - pressStartRef.current.y;
+    if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_TOLERANCE) endPressSession(false);
+  };
+
+  // `commit` — apply whatever action is currently highlighted (a real
+  // release ending the hold) vs. just tearing the session down (moved too
+  // far before the menu opened, or the component unmounted mid-hold).
+  function endPressSession(commit: boolean) {
+    clearPressTimer();
+    removeGlobalListeners();
+    if (commit && pressActiveRef.current && pressStartRef.current) {
+      const { index } = pressStartRef.current;
+      const action = hoveredActionRef.current;
+      if (action === "sell") onSell(index);
+      else if (action === "lock") onToggleLock(index);
+    }
+    pressActiveRef.current = false;
+    pressStartRef.current = null;
+    setContextMenu(null);
+    setHoveredAction(null);
+    // Cleared a tick later, not immediately: the native "click" that
+    // follows this same mouseup fires before React re-renders, so the
+    // Slot's onClick handler needs to still see this set on that pass.
+    window.setTimeout(() => {
+      suppressClickRef.current = null;
+    }, 0);
+  }
+
+  const handlePressStart = (index: number, x: number, y: number) => {
+    endPressSession(false);
+    pressStartRef.current = { index, x, y };
+    pressActiveRef.current = false;
+
+    const move = (e: MouseEvent | TouchEvent) => {
+      const point = "touches" in e ? e.touches[0] : (e as MouseEvent);
+      if (!point) return;
+      movePress(point.clientX, point.clientY);
+    };
+    const up = () => endPressSession(true);
+    const cancel = () => endPressSession(false);
+    globalListenersRef.current = { move, up, cancel };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("touchmove", move, { passive: true });
+    window.addEventListener("mouseup", up);
+    window.addEventListener("touchend", up);
+    window.addEventListener("touchcancel", cancel);
+
+    pressTimer.current = window.setTimeout(() => {
+      pressActiveRef.current = true;
+      suppressClickRef.current = index;
+      setContextMenu({ index, x, y, openedVia: "hold" });
+      setHoveredAction(null);
+    }, LONG_PRESS_MS);
+  };
+
+  const handleRightClick = (index: number, x: number, y: number) => {
+    endPressSession(false);
+    setContextMenu({ index, x, y, openedVia: "rightclick" });
+  };
+
+  // Redefined every render (it closes over onSell/onToggleLock), so an
+  // always-current ref is what the mount-only cleanup below actually calls
+  // — keeping it out of the effect's deps is deliberate, not an oversight.
+  const endPressSessionRef = useRef(endPressSession);
+  endPressSessionRef.current = endPressSession;
+  useEffect(() => () => endPressSessionRef.current(false), []);
+
+  // Right-click-opened menus behave like a normal desktop context menu —
+  // closed by clicking away, scrolling, or Escape, with the option itself
+  // selected by a separate subsequent click. Hold-opened ones manage their
+  // own lifecycle entirely through the press session above (this would
+  // just be redundant, though harmless, for those).
   useEffect(() => {
-    if (!contextMenu) return;
+    if (!contextMenu || contextMenu.openedVia !== "rightclick") return;
     const close = () => setContextMenu(null);
     const closeOnEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -261,6 +343,22 @@ export default function InventoryGrid({
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [contextMenu]);
+
+  const sensors = useSensors(
+    // Mouse (and any browser that resolves touch through the Pointer Events
+    // API cleanly) — a small movement threshold so a plain click/tap still
+    // reaches onClick/onDoubleClick instead of being eaten as a drag.
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    // Real touchscreens need their own sensor: PointerSensor alone tends to
+    // lose the race against the browser's native scroll/swipe gesture on a
+    // scrollable panel like this one, even with touch-action: none on the
+    // handle, so a press-and-drag often just scrolls the page instead of
+    // picking the item up. TouchSensor's short hold delay is dnd-kit's own
+    // recommended way to disambiguate "starting to scroll" from "starting
+    // to drag" on touch — short enough to still feel responsive, long
+    // enough that a normal tap/scroll never triggers it.
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
+  );
 
   const handleDragStart = (e: DragStartEvent) => {
     setActiveIndex(e.active.data.current?.index ?? null);
@@ -344,7 +442,9 @@ export default function InventoryGrid({
                 onRemove={onRemove}
                 onSell={onSell}
                 onOpen={onOpen}
-                onContextMenu={(index, x, y) => setContextMenu({ index, x, y })}
+                onContextMenu={handleRightClick}
+                onPressStart={handlePressStart}
+                suppressClickRef={suppressClickRef}
               />
             ))}
           </div>
@@ -358,7 +458,7 @@ export default function InventoryGrid({
         </DndContext>
         <p className="mt-3 text-center text-xs text-osrs-parchment-dark/50">
           Drag to reorganize &middot; $ to sell &middot; &#127873; click to open &middot; double-click to discard
-          &middot; right-click or hold to lock
+          &middot; right-click or hold (drag to choose) to lock
         </p>
       </div>
 
@@ -374,21 +474,37 @@ export default function InventoryGrid({
         >
           {menuItem?.tradeable && !menuSlot.locked && (
             <button
+              ref={(el) => {
+                menuButtonRefs.current.sell = el;
+              }}
               onClick={() => {
+                // Hold-opened menus resolve on release (see endPressSession)
+                // — this onClick only does anything for the rightclick
+                // flow, where releasing the mouse just opens the menu and
+                // picking an option is a separate subsequent click.
+                if (contextMenu.openedVia === "hold") return;
                 onSell(contextMenu.index);
                 setContextMenu(null);
               }}
-              className="block w-full px-4 py-2 text-left text-osrs-parchment transition hover:bg-osrs-gold/15"
+              className={`block w-full px-4 py-2 text-left transition ${
+                hoveredAction === "sell" ? "bg-osrs-gold/20 text-osrs-gold" : "text-osrs-parchment hover:bg-osrs-gold/15"
+              }`}
             >
               Sell
             </button>
           )}
           <button
+            ref={(el) => {
+              menuButtonRefs.current.lock = el;
+            }}
             onClick={() => {
+              if (contextMenu.openedVia === "hold") return;
               onToggleLock(contextMenu.index);
               setContextMenu(null);
             }}
-            className="block w-full px-4 py-2 text-left text-osrs-parchment transition hover:bg-osrs-gold/15"
+            className={`block w-full px-4 py-2 text-left transition ${
+              hoveredAction === "lock" ? "bg-osrs-gold/20 text-osrs-gold" : "text-osrs-parchment hover:bg-osrs-gold/15"
+            }`}
           >
             {menuSlot.locked ? "Unlock" : "Lock"}
           </button>
