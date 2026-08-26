@@ -89,6 +89,7 @@ function Slot({
   onContextMenu,
   onPressStart,
   suppressClickRef,
+  dragBlocked,
 }: {
   index: number;
   slot: InventorySlot | null;
@@ -99,13 +100,19 @@ function Slot({
   onContextMenu: (index: number, x: number, y: number) => void;
   onPressStart: (index: number, x: number, y: number) => void;
   suppressClickRef: React.RefObject<number | null>;
+  dragBlocked: boolean;
 }) {
   const { items: allItems, containers } = useGameData();
   const { setNodeRef: setDropRef, isOver } = useDroppable({ id: `slot-${index}`, data: { index } });
   const { attributes, listeners, setNodeRef: setDragRef, isDragging } = useDraggable({
     id: `slot-${index}`,
     data: { index },
-    disabled: slot === null,
+    // Also disabled once this slot's hold has opened the Sell/Lock menu —
+    // otherwise dragging a finger/cursor over to "Lock" crosses dnd-kit's
+    // own activation distance and reorders the item at the same time,
+    // which is exactly the "why is it dragging while I'm just trying to
+    // pick a menu option" bug this guards against.
+    disabled: slot === null || dragBlocked,
   });
   const item = slot ? allItems[slot.itemId] : null;
   const openable = slot ? Boolean(containers[slot.itemId]) : false;
@@ -445,6 +452,7 @@ export default function InventoryGrid({
                 onContextMenu={handleRightClick}
                 onPressStart={handlePressStart}
                 suppressClickRef={suppressClickRef}
+                dragBlocked={contextMenu?.index === i && contextMenu.openedVia === "hold"}
               />
             ))}
           </div>

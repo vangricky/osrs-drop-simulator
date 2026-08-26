@@ -52,7 +52,7 @@ export default function HowToPlayModal({ onClose }: HowToPlayModalProps) {
         <div className="mb-1 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img
-              src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png"
+              src="/brand/favicon.png"
               alt=""
               className="h-8 w-8 object-contain drop-shadow"
               onError={(e) => (e.currentTarget.style.display = "none")}

@@ -50,9 +50,9 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
     return (
       <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col items-center justify-center gap-3 p-8 text-center">
         <img
-          src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png"
+          src="/brand/favicon.png"
           alt=""
-          className="h-16 w-16 opacity-30"
+          className="h-16 w-16 object-contain opacity-30"
           onError={(e) => (e.currentTarget.style.display = "none")}
         />
         <p className="font-display text-lg text-osrs-parchment-dark/70">Select an NPC to begin</p>

@@ -8,9 +8,9 @@ function LoadingScreen() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-osrs-bg px-4 text-center">
       <img
-        src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png"
+        src="/brand/favicon.png"
         alt=""
-        className="h-16 w-16 opacity-70"
+        className="h-16 w-16 object-contain opacity-70"
         onError={(e) => (e.currentTarget.style.display = "none")}
       />
       <p className="font-display text-sm uppercase tracking-widest text-osrs-parchment-dark/70">Loading Gielinor&hellip;</p>

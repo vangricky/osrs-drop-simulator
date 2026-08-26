@@ -69,15 +69,16 @@ export default function Header({
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
             <img
-              src="https://oldschool.runescape.wiki/images/Old_School_RuneScape_logo.png"
-              alt=""
-              className="h-9 w-9 shrink-0 object-contain drop-shadow sm:h-10 sm:w-10"
+              src="/brand/logo.png"
+              alt="OSRS Drop Simulator"
+              className="h-8 w-auto shrink-0 object-contain drop-shadow sm:h-10"
               onError={(e) => (e.currentTarget.style.display = "none")}
             />
             <div className="min-w-0">
-              <h1 className="truncate font-display text-lg font-bold tracking-wide text-osrs-gold sm:text-2xl">
-                OSRS Drop Simulator
-              </h1>
+              {/* The logo image above carries the wordmark visually; this
+                  stays for accessibility/SEO (page title, screen readers)
+                  without duplicating "OSRS Drop Simulator" on screen. */}
+              <h1 className="sr-only">OSRS Drop Simulator</h1>
               <p className="hidden text-xs text-osrs-parchment-dark/80 sm:block">
                 Roll the drop table. Fill your inventory.
               </p>
