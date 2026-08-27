@@ -54,17 +54,39 @@ export default function PetSimApp() {
     [items, containers],
   );
 
-  // The interval owns the actual auto-rolling — kept in a ref so starting/
-  // stopping doesn't need to tear down and rebuild on every kc change.
-  // Speed is a multiplier on how often it fires (2x = half the interval),
-  // not extra rolls per tick, so the on-screen count still climbs one at a
-  // time no matter the speed.
-  const intervalRef = useRef<number | null>(null);
+  // The auto-roll tick source lives in a dedicated Web Worker rather than a
+  // plain setInterval on the main thread. Browsers throttle main-thread
+  // timers down to ~once/sec once a tab is backgrounded, REGARDLESS of the
+  // requested interval — exactly the kind of thing that happens when
+  // someone tabs away while an idle auto-roller runs, and it would make
+  // every speed setting silently collapse to "1x". A worker's timers aren't
+  // subject to that same throttling, so the selected speed keeps its real
+  // rate whether or not the tab is visible. The worker only decides *when*
+  // to tick (it has none of the game data needed to actually roll) —
+  // rollOnce still runs on the main thread in response to each tick.
+  const workerRef = useRef<Worker | null>(null);
   useEffect(() => {
-    if (!running || !selected) return;
-    intervalRef.current = window.setInterval(() => rollOnce(selected), ROLL_INTERVAL_MS / speed);
+    const worker = new Worker(new URL("./workers/tickWorker.ts", import.meta.url), { type: "module" });
+    workerRef.current = worker;
     return () => {
-      if (intervalRef.current) window.clearInterval(intervalRef.current);
+      worker.terminate();
+      workerRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const worker = workerRef.current;
+    if (!worker) return;
+    if (!running || !selected) {
+      worker.onmessage = null;
+      worker.postMessage({ type: "stop" });
+      return;
+    }
+    worker.onmessage = () => rollOnce(selected);
+    worker.postMessage({ type: "start", intervalMs: ROLL_INTERVAL_MS / speed });
+    return () => {
+      worker.onmessage = null;
+      worker.postMessage({ type: "stop" });
     };
   }, [running, selected, speed, rollOnce]);
 
