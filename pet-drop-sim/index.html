@@ -5,12 +5,15 @@
     <!--
       Same CSP approach as the main index.html, trimmed to what this page
       actually needs — no Supabase/Turnstile (this page doesn't touch
-      accounts, GP, or the leaderboard) and no inline script, so no sha256
-      allowance is needed either.
+      accounts, GP, or the leaderboard). The sha256 allows exactly the
+      JSON-LD block below and nothing else inline — if you edit that
+      block's content, recompute the hash (node scripts/hash-jsonld.mjs
+      pet-drop-sim/index.html) or the structured data silently stops
+      loading (CSP failures don't throw visible errors here).
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-Hogwrh7C/owShHgKHPRbgEVDiN5KdM9E/61mGQDkBJo='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -23,22 +26,56 @@
     <title>Pet Drop Simulator: OSRS Boss Pet Drop Rate Simulator</title>
     <meta
       name="description"
-      content="Pick an OSRS boss and auto-roll its real drop rate until you get the pet. Free, in your browser."
+      content="Simulate real OSRS boss pet drop rates. Pick any boss with a pet, auto-roll its real chance at high speed or resolve it instantly, and see exactly how many kills it took. Free, in your browser."
+    />
+    <meta
+      name="keywords"
+      content="OSRS pet simulator, OSRS pet drop rate, OSRS pet calculator, OSRS boss pet chance, OSRS pet kc calculator, pet drop rate simulator, OSRS pet odds"
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://osrsdropsimulation.com/pet-drop-sim/" />
 
+    <!-- Open Graph / Discord / Facebook link previews -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OSRS Drop Simulator" />
     <meta property="og:title" content="Pet Drop Simulator: OSRS Boss Pet Drop Rate Simulator" />
-    <meta property="og:description" content="Pick an OSRS boss and auto-roll its real drop rate until you get the pet." />
+    <meta
+      property="og:description"
+      content="Simulate real OSRS boss pet drop rates. Auto-roll at high speed or resolve instantly, and see exactly how many kills it took."
+    />
     <meta property="og:url" content="https://osrsdropsimulation.com/pet-drop-sim/" />
     <meta property="og:image" content="https://osrsdropsimulation.com/brand/logo.png" />
 
+    <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Pet Drop Simulator: OSRS Boss Pet Drop Rate Simulator" />
-    <meta name="twitter:description" content="Pick an OSRS boss and auto-roll its real drop rate until you get the pet." />
+    <meta
+      name="twitter:description"
+      content="Simulate real OSRS boss pet drop rates — auto-roll or resolve instantly, and see exactly how many kills it took."
+    />
     <meta name="twitter:image" content="https://osrsdropsimulation.com/brand/logo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "OSRS Pet Drop Simulator",
+        "url": "https://osrsdropsimulation.com/pet-drop-sim/",
+        "description": "A free browser-based simulator for Old School RuneScape boss pet drop rates. Pick any boss with a pet, auto-roll its real chance at high speed or resolve it instantly, and see exactly how many kills it took.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any (web browser)",
+        "isPartOf": {
+          "@type": "WebApplication",
+          "name": "OSRS Drop Simulator",
+          "url": "https://osrsdropsimulation.com/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

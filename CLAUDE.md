@@ -141,7 +141,12 @@ rate), so it's genuinely React-rendered rather than hand-written static HTML —
 "real static path GitHub Pages serves directly, no SPA-fallback trick needed" reasoning as the FAQ page.
 It reuses `GameDataProvider`/`useGameData()` (the same npc/item/container data the main game uses) but has
 none of the main game's persisted state (no GP, no inventory, no unlock costs, no localStorage) — it's a
-standalone "auto-roll a boss every 0.5s until the pet drops" tool, not tied to the incremental game's economy.
+standalone "roll a boss until the pet drops" tool, not tied to the incremental game's economy. Two ways to
+roll: "Auto Roll" ticks at a fixed 50x speed (500ms base interval / 50, driven by `src/workers/tickWorker.ts`
+so browser background-tab throttling can't silently slow it down — see that file's own comment) until the pet
+drops or it's stopped; "Instant Roll" skips the animated per-tick increment entirely, looping `rollForPet`
+synchronously until it succeeds and jumping straight to the final kc, for players who don't want to watch it
+count up.
 
 `src/data/pets.ts` (`PET_ITEM_IDS`) is a hand-curated set of every pet item id actually obtainable in this
 game — verified against the item catalog by name, not slug-guessed, since a couple of pets are named
@@ -154,6 +159,16 @@ an openable `unsired` container (see `containers` in `npcData.ts`) whose rate ge
 effective 1/2,560 figure so the Pet Drop Simulator can treat it like every other boss's flat pet chance.
 `rollForPet()` reuses the real `rollDrop()` engine (not a parallel probability calculation) so this simulator
 can't silently drift from the actual drop tables.
+
+Its `<head>` carries the same SEO shape as the main `index.html`: its own `<meta name="keywords">`, a richer
+description, and a `WebApplication` JSON-LD block (with `isPartOf` pointing back at the main site's own
+`WebApplication` entry) — same as `index.html`'s own JSON-LD, this needs its CSP `script-src` to carry a
+matching sha256 hash of that exact block, recomputed via `node scripts/hash-jsonld.mjs pet-drop-sim/index.html`
+whenever the block's content changes (that script now takes an optional path argument instead of being
+hardcoded to the main `index.html`). `public/faq/index.html` — genuinely static, so guaranteed indexable even
+by a crawler that doesn't execute JS — also links to `/pet-drop-sim/` from a dedicated FAQ entry, both as an
+easy discovery path and to give it topical link context beyond the main app's client-rendered hamburger-menu
+link. Listed in `public/sitemap.xml` alongside the main app and the FAQ page.
 
 ### Deploy
 
