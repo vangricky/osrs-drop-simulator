@@ -13,7 +13,7 @@ function formatRate(numerator: number, denominator: number): string {
 }
 
 const ROLL_INTERVAL_MS = 500;
-const SPEED_OPTIONS = [1, 2, 3, 4, 5] as const;
+const SPEED_OPTIONS = [1, 5, 10, 15, 20] as const;
 type Speed = (typeof SPEED_OPTIONS)[number];
 
 export default function PetSimApp() {
