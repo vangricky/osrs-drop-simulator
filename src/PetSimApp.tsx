@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useGameData } from "./hooks/useGameData";
 import { getPetBosses, rollForPet, type PetBossInfo } from "./data/petBosses";
 import { orbGlowStyle } from "./utils/dropLogic";
@@ -13,6 +13,8 @@ function formatRate(numerator: number, denominator: number): string {
 }
 
 const ROLL_INTERVAL_MS = 500;
+const SPEED_OPTIONS = [1, 2, 3, 4, 5] as const;
+type Speed = (typeof SPEED_OPTIONS)[number];
 
 export default function PetSimApp() {
   const { npcs, containers, items } = useGameData();
@@ -22,6 +24,7 @@ export default function PetSimApp() {
   const [selected, setSelected] = useState<PetBossInfo | null>(null);
   const [kc, setKc] = useState(0);
   const [running, setRunning] = useState(false);
+  const [speed, setSpeed] = useState<Speed>(1);
   const [wonAt, setWonAt] = useState<number | null>(null);
 
   const filteredBosses = useMemo(() => {
@@ -31,13 +34,14 @@ export default function PetSimApp() {
       .sort((a, b) => a.npc.combatLevel - b.npc.combatLevel);
   }, [petBosses, search]);
 
-  // The interval owns the actual rolling — kept in a ref so starting/
-  // stopping doesn't need to tear down and rebuild on every kc change.
-  const intervalRef = useRef<number | null>(null);
-  useEffect(() => {
-    if (!running || !selected) return;
-    intervalRef.current = window.setInterval(() => {
-      const gotPet = rollForPet(selected, items, containers);
+  // One roll, shared by both the manual "Roll" button and each auto-roll
+  // tick — a single place that increments kc and checks for the pet.
+  // useCallback keeps this stable across renders (only changes if items/
+  // containers actually change) so the auto-roll effect below doesn't tear
+  // down and restart its interval on every unrelated render.
+  const rollOnce = useCallback(
+    (npc: PetBossInfo) => {
+      const gotPet = rollForPet(npc, items, containers);
       setKc((prev) => {
         const next = prev + 1;
         if (gotPet) {
@@ -46,11 +50,23 @@ export default function PetSimApp() {
         }
         return next;
       });
-    }, ROLL_INTERVAL_MS);
+    },
+    [items, containers],
+  );
+
+  // The interval owns the actual auto-rolling — kept in a ref so starting/
+  // stopping doesn't need to tear down and rebuild on every kc change.
+  // Speed is a multiplier on how often it fires (2x = half the interval),
+  // not extra rolls per tick, so the on-screen count still climbs one at a
+  // time no matter the speed.
+  const intervalRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (!running || !selected) return;
+    intervalRef.current = window.setInterval(() => rollOnce(selected), ROLL_INTERVAL_MS / speed);
     return () => {
       if (intervalRef.current) window.clearInterval(intervalRef.current);
     };
-  }, [running, selected, items, containers]);
+  }, [running, selected, speed, rollOnce]);
 
   const selectBoss = (info: PetBossInfo) => {
     setSelected(info);
@@ -153,6 +169,13 @@ export default function PetSimApp() {
 
             <div className="flex w-full gap-2">
               <button
+                onClick={() => rollOnce(selected)}
+                disabled={running}
+                className="osrs-bevel flex-1 bg-osrs-panel-dark/50 py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-osrs-parchment-dark/80"
+              >
+                Roll
+              </button>
+              <button
                 onClick={() => setRunning((r) => !r)}
                 className={`osrs-cta flex-1 rounded-[10px] py-3 font-display text-base font-bold uppercase tracking-wide transition hover:brightness-110 ${
                   running
@@ -160,17 +183,35 @@ export default function PetSimApp() {
                     : "bg-gradient-to-b from-osrs-gold to-osrs-orange text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)]"
                 }`}
               >
-                {running ? "Stop" : kc === 0 ? "Start rolling" : "Resume"}
+                {running ? "Stop" : "Auto Roll"}
               </button>
-              {kc > 0 && !running && (
-                <button
-                  onClick={() => setKc(0)}
-                  className="osrs-bevel bg-osrs-panel-dark/50 px-4 py-3 text-sm font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
-                >
-                  Reset KC
-                </button>
-              )}
             </div>
+
+            <div className="flex w-full items-center justify-center gap-1.5">
+              <span className="text-xs uppercase tracking-wide text-osrs-parchment-dark/50">Speed:</span>
+              {SPEED_OPTIONS.map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setSpeed(s)}
+                  className={`osrs-bevel px-3 py-1.5 text-xs font-semibold transition ${
+                    speed === s
+                      ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
+                      : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 hover:text-osrs-parchment active:osrs-bevel-inset"
+                  }`}
+                >
+                  {s}x
+                </button>
+              ))}
+            </div>
+
+            {kc > 0 && !running && (
+              <button
+                onClick={() => setKc(0)}
+                className="osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+              >
+                Reset KC
+              </button>
+            )}
           </div>
         )}
       </main>
