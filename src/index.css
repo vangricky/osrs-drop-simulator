@@ -361,3 +361,80 @@ body::after {
 .unlock-text-pop {
   animation: unlock-text-pop 400ms ease-out 300ms both;
 }
+
+/* Fireworks (Fireworks.tsx): each burst is a launch trail that rises into
+   place, a bright flash at the moment it detonates, then particles radiating
+   out from that point — all `both`-filled single-shot animations (no
+   `infinite`) so the whole show plays once and holds its end state rather
+   than looping or snapping back. */
+@keyframes firework-trail-rise {
+  0% {
+    transform: translate(-50%, 60px) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0;
+  }
+}
+
+.firework-trail {
+  left: 0;
+  top: 0;
+  height: 5px;
+  width: 5px;
+  background: rgb(var(--fw-color));
+  box-shadow: 0 0 6px 1px rgba(var(--fw-color), 0.9);
+  animation: firework-trail-rise 450ms ease-in both;
+}
+
+@keyframes firework-flash-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+.firework-flash {
+  left: 0;
+  top: 0;
+  height: 26px;
+  width: 26px;
+  background: radial-gradient(circle, rgba(var(--fw-color), 0.9) 0%, rgba(var(--fw-color), 0) 70%);
+  animation: firework-flash-pop 380ms ease-out both;
+}
+
+@keyframes firework-particle-burst {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--dist)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+.firework-particle {
+  left: 0;
+  top: 0;
+  height: 6px;
+  width: 6px;
+  background: rgb(var(--fw-color));
+  box-shadow: 0 0 4px 0.5px rgba(var(--fw-color), 0.8);
+  animation: firework-particle-burst 900ms cubic-bezier(0.2, 0.6, 0.35, 1) both;
+}

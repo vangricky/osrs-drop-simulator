@@ -4,6 +4,7 @@ import { getPetBosses, rollForPet, type PetBossInfo } from "./data/petBosses";
 import { orbGlowStyle } from "./utils/dropLogic";
 import PetSimHeader from "./components/PetSimHeader";
 import IconImg from "./components/IconImg";
+import Fireworks from "./components/Fireworks";
 
 // Always shown as a reduced "1/X" (rather than e.g. "5/12,800") to match how
 // OSRS rates are conventionally written — matters for Abyssal orphan, whose
@@ -252,7 +253,8 @@ export default function PetSimApp() {
 
       {wonAt !== null && selected && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="osrs-bevel osrs-panel animate-drop-pop w-full max-w-sm p-6 text-center">
+          <Fireworks />
+          <div className="osrs-bevel osrs-panel animate-drop-pop relative z-10 w-full max-w-sm p-6 text-center">
             <p className="text-[11px] uppercase tracking-widest text-osrs-parchment-dark/60">Pet obtained!</p>
             <div className="osrs-orb mx-auto my-4 h-24 w-24 p-3" style={orbGlowStyle("255,183,0")}>
               <IconImg src={selected.petIconUrl} alt={selected.petName} className="h-full w-full" />
