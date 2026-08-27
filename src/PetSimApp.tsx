@@ -224,7 +224,7 @@ export default function PetSimApp() {
                     : "bg-gradient-to-b from-osrs-gold to-osrs-orange text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)]"
                 }`}
               >
-                {running ? "Stop" : `Auto Roll (${AUTO_ROLL_SPEED}x)`}
+                {running ? "Stop" : "Auto Roll"}
               </button>
             </div>
 
