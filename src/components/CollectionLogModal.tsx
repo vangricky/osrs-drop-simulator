@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { CollectionLogFirst } from "../hooks/useGameState";
+import { PET_ITEM_IDS } from "../data/pets";
 import IconImg from "./IconImg";
 
 interface CollectionLogModalProps {
@@ -26,8 +27,15 @@ interface HoverInfo {
   top: number;
 }
 
+const TABS = [
+  { key: "all", label: "All" },
+  { key: "pets", label: "Pets" },
+] as const;
+type Tab = (typeof TABS)[number]["key"];
+
 export default function CollectionLogModal({ collectionLog, collectionLogFirsts, onClose }: CollectionLogModalProps) {
   const { npcs, containers, items: allItems } = useGameData();
+  const [tab, setTab] = useState<Tab>("all");
   const [search, setSearch] = useState("");
   // Positioned via getBoundingClientRect + `fixed`, not `absolute` relative
   // to the grid cell — the grid scrolls (overflow-y-auto), and an
@@ -46,6 +54,13 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
       for (const entry of [...source.always, ...source.mainTable, ...source.tertiary]) {
         if (entry.itemId !== "coins") ids.add(entry.itemId);
       }
+      // tertiaryGroups (Sarachnis's pages, Skotizo's totem pieces, DT2
+      // bosses' shared clue-tier roll) hand out one of a set of items rather
+      // than listing them directly in `tertiary` — without this they'd be
+      // invisible to the collection log entirely despite being obtainable.
+      for (const group of source.tertiaryGroups ?? []) {
+        for (const item of group.items) ids.add(item.itemId);
+      }
     }
     const out: LogRow[] = [];
     for (const itemId of ids) {
@@ -63,16 +78,21 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
 
   const obtainedCount = rows.reduce((sum, r) => sum + (r.obtained ? 1 : 0), 0);
 
+  const petRows = useMemo(() => rows.filter((r) => PET_ITEM_IDS.has(r.itemId)), [rows]);
+  const petsObtainedCount = petRows.reduce((sum, r) => sum + (r.obtained ? 1 : 0), 0);
+
+  const activeRows = tab === "pets" ? petRows : rows;
+
   const { obtained, locked } = useMemo(() => {
     const q = search.trim().toLowerCase();
-    const visible = q ? rows.filter((r) => r.name.toLowerCase().includes(q)) : rows;
+    const visible = q ? activeRows.filter((r) => r.name.toLowerCase().includes(q)) : activeRows;
     return {
       obtained: visible
         .filter((r) => r.obtained)
         .sort((a, b) => (b.first?.timestamp ?? 0) - (a.first?.timestamp ?? 0)),
       locked: visible.filter((r) => !r.obtained).sort((a, b) => a.name.localeCompare(b.name)),
     };
-  }, [rows, search]);
+  }, [activeRows, search]);
 
   // Locked items are usually the bulk of the roster (hundreds of them) and
   // sit past the (typically much shorter) obtained list, so mounting every
@@ -82,13 +102,15 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
   // rendered until the scroll sentinel comes near view.
   const LOCKED_PAGE_SIZE = 120;
   const [visibleLockedCount, setVisibleLockedCount] = useState(LOCKED_PAGE_SIZE);
-  // Reset the page size when the search term changes, following React's
-  // "adjust state during render" pattern instead of an effect — this runs
-  // synchronously as part of the same render rather than triggering a
-  // second one.
+  // Reset the page size when the search term or active tab changes,
+  // following React's "adjust state during render" pattern instead of an
+  // effect — this runs synchronously as part of the same render rather than
+  // triggering a second one.
   const [prevSearch, setPrevSearch] = useState(search);
-  if (search !== prevSearch) {
+  const [prevTab, setPrevTab] = useState(tab);
+  if (search !== prevSearch || tab !== prevTab) {
     setPrevSearch(search);
+    setPrevTab(tab);
     setVisibleLockedCount(LOCKED_PAGE_SIZE);
   }
   const visibleLocked = locked.slice(0, visibleLockedCount);
@@ -132,59 +154,112 @@ export default function CollectionLogModal({ collectionLog, collectionLogFirsts,
         </div>
         <p className="mb-3 text-xs text-osrs-parchment-dark/70">
           <span className="font-semibold text-osrs-gold">
-            {obtainedCount} / {rows.length}
+            {tab === "pets" ? petsObtainedCount : obtainedCount} / {tab === "pets" ? petRows.length : rows.length}
           </span>{" "}
-          items obtained
+          {tab === "pets" ? "pets obtained" : "items obtained"}
         </p>
+
+        <div className="mb-3 flex gap-1" role="tablist" aria-label="Collection log view">
+          {TABS.map((t) => (
+            <button
+              key={t.key}
+              role="tab"
+              aria-selected={tab === t.key}
+              onClick={() => setTab(t.key)}
+              className={`flex-1 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition ${
+                tab === t.key
+                  ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
+                  : "osrs-bevel bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 active:osrs-bevel-inset"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
 
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search items..."
+          placeholder={tab === "pets" ? "Search pets..." : "Search items..."}
           className="osrs-bevel-inset mb-3 w-full bg-osrs-panel-dark/70 px-3 py-2 text-sm text-osrs-parchment placeholder:text-osrs-parchment-dark/50 focus:outline-none"
         />
 
-        <div
-          ref={scrollContainerRef}
-          className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto pr-1"
-          onScroll={() => setHover(null)}
-        >
-          {obtained.length + locked.length === 0 ? (
-            <p className="py-8 text-center text-sm text-osrs-parchment-dark/60">No items match that search.</p>
-          ) : (
-            <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-6 md:grid-cols-8">
-              {displayedRows.map((row) => (
-                <div
-                  key={row.itemId}
-                  className="osrs-bevel-inset relative flex aspect-square flex-col items-center justify-center gap-1 bg-osrs-panel-dark/50 p-1.5"
-                  title={row.obtained ? undefined : row.name}
-                  onMouseEnter={(e) => {
-                    if (!row.obtained) return;
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    setHover({ row, left: rect.left + rect.width / 2, top: rect.top });
-                  }}
-                  onMouseLeave={() => setHover((h) => (h?.row.itemId === row.itemId ? null : h))}
-                >
-                  <IconImg
-                    src={row.iconUrl}
-                    alt={row.name}
-                    className={`h-8 w-8 sm:h-9 sm:w-9 ${row.obtained ? "" : "opacity-30 grayscale"}`}
-                  />
-                  <span
-                    className={`w-full truncate text-center text-[9px] leading-tight ${
-                      row.obtained ? "text-osrs-parchment" : "text-osrs-parchment-dark/40"
-                    }`}
+        {tab === "pets" ? (
+          <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto pr-1">
+            {obtained.length + locked.length === 0 ? (
+              <p className="py-8 text-center text-sm text-osrs-parchment-dark/60">No pets match that search.</p>
+            ) : (
+              <ul className="flex flex-col gap-1.5">
+                {[...obtained, ...locked].map((row) => (
+                  <li
+                    key={row.itemId}
+                    className="osrs-bevel-inset flex items-center gap-3 bg-osrs-panel-dark/50 p-2"
                   >
-                    {row.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-          {hasMoreLocked && <div ref={sentinelRef} aria-hidden="true" className="h-px" />}
-        </div>
+                    <IconImg
+                      src={row.iconUrl}
+                      alt={row.name}
+                      className={`h-9 w-9 shrink-0 ${row.obtained ? "" : "opacity-30 grayscale"}`}
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className={`truncate text-sm font-semibold ${row.obtained ? "text-osrs-parchment" : "text-osrs-parchment-dark/40"}`}>
+                        {row.name}
+                      </p>
+                      <p className="truncate text-xs text-osrs-parchment-dark/60">
+                        {row.obtained
+                          ? row.first
+                            ? `${row.first.sourceName} ${row.first.sourceType === "kill" ? "kill" : "open"} #${row.first.sourceCount.toLocaleString()} · ${new Date(row.first.timestamp).toLocaleDateString()}`
+                            : "Obtained before this was tracked"
+                          : "Not yet obtained"}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ) : (
+          <div
+            ref={scrollContainerRef}
+            className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto pr-1"
+            onScroll={() => setHover(null)}
+          >
+            {obtained.length + locked.length === 0 ? (
+              <p className="py-8 text-center text-sm text-osrs-parchment-dark/60">No items match that search.</p>
+            ) : (
+              <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-6 md:grid-cols-8">
+                {displayedRows.map((row) => (
+                  <div
+                    key={row.itemId}
+                    className="osrs-bevel-inset relative flex aspect-square flex-col items-center justify-center gap-1 bg-osrs-panel-dark/50 p-1.5"
+                    title={row.obtained ? undefined : row.name}
+                    onMouseEnter={(e) => {
+                      if (!row.obtained) return;
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      setHover({ row, left: rect.left + rect.width / 2, top: rect.top });
+                    }}
+                    onMouseLeave={() => setHover((h) => (h?.row.itemId === row.itemId ? null : h))}
+                  >
+                    <IconImg
+                      src={row.iconUrl}
+                      alt={row.name}
+                      className={`h-8 w-8 sm:h-9 sm:w-9 ${row.obtained ? "" : "opacity-30 grayscale"}`}
+                    />
+                    <span
+                      className={`w-full truncate text-center text-[9px] leading-tight ${
+                        row.obtained ? "text-osrs-parchment" : "text-osrs-parchment-dark/40"
+                      }`}
+                    >
+                      {row.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+            {hasMoreLocked && <div ref={sentinelRef} aria-hidden="true" className="h-px" />}
+          </div>
+        )}
 
-        {hover && (
+        {tab === "all" && hover && (
           <div
             className="pointer-events-none fixed z-[60] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-none bg-osrs-panel-dark px-2 py-1 text-[11px] text-osrs-parchment shadow-lg ring-1 ring-osrs-border-light"
             style={{ left: hover.left, top: hover.top - 8 }}

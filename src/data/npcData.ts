@@ -917,6 +917,7 @@ const handcraftedItems: Record<string, DropItem> = makeItems([
   ["ensouled-hellhound-head", "Ensouled hellhound head", true, 1000, true, false],
   ["slayers-enchantment", "Slayer's enchantment", true, 2000000, true, true],
   ["hellpuppy", "Hellpuppy", true, 0, false, false],
+  ["abyssal-orphan", "Abyssal orphan", true, 0, false, false],
   ["adamant-arrow", "Adamant arrow", false, 60, true, true, "Adamant arrow 5"],
   // Bosses
   ["mole-claw", "Mole claw", true, 300, true, false],
@@ -2370,5 +2371,23 @@ export const containers: Record<string, ContainerDef> = {
       { itemId: "orange-egg-sac", minQuantity: 1, maxQuantity: 1, numerator: 1, denominator: 25, noted: true },
       { itemId: "blue-egg-sac", minQuantity: 1, maxQuantity: 1, numerator: 1, denominator: 25, noted: true },
     ],
+  },
+  // Abyssal Sire's "Unsired" drop (see its mainTable entry, 1/100) isn't a
+  // loot container in the usual sense — the real game has the player carry
+  // it to the Font of Consumption behind The Overseer, which gives either
+  // 300,000 Zamorak coins or the Abyssal orphan pet (5/128 chance of the
+  // pet). Modeled here as an "open" of the Unsired itself since this
+  // project's container mechanic already fits that two-step process exactly
+  // (drop the item, then resolve its own loot table) without needing a new
+  // one — same reasoning as every other openable key/casket.
+  unsired: {
+    itemId: "unsired",
+    name: "Font of Consumption",
+    always: [],
+    mainTable: [
+      { itemId: "coins", minQuantity: 300000, maxQuantity: 300000, numerator: 123, denominator: 128 },
+      { itemId: "abyssal-orphan", minQuantity: 1, maxQuantity: 1, numerator: 5, denominator: 128, noted: true },
+    ],
+    tertiary: [],
   },
 };
