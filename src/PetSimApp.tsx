@@ -14,8 +14,7 @@ function formatRate(numerator: number, denominator: number): string {
 }
 
 const ROLL_INTERVAL_MS = 500;
-const SPEED_OPTIONS = [1, 10, 20, 30, 40, 50] as const;
-type Speed = (typeof SPEED_OPTIONS)[number];
+const AUTO_ROLL_SPEED = 50;
 
 export default function PetSimApp() {
   const { npcs, containers, items } = useGameData();
@@ -25,7 +24,6 @@ export default function PetSimApp() {
   const [selected, setSelected] = useState<PetBossInfo | null>(null);
   const [kc, setKc] = useState(0);
   const [running, setRunning] = useState(false);
-  const [speed, setSpeed] = useState<Speed>(1);
   const [wonAt, setWonAt] = useState<number | null>(null);
 
   const filteredBosses = useMemo(() => {
@@ -35,8 +33,7 @@ export default function PetSimApp() {
       .sort((a, b) => a.npc.combatLevel - b.npc.combatLevel);
   }, [petBosses, search]);
 
-  // One roll, shared by both the manual "Roll" button and each auto-roll
-  // tick — a single place that increments kc and checks for the pet.
+  // One roll per auto-roll tick — increments kc and checks for the pet.
   // useCallback keeps this stable across renders (only changes if items/
   // containers actually change) so the auto-roll effect below doesn't tear
   // down and restart its interval on every unrelated render.
@@ -51,6 +48,28 @@ export default function PetSimApp() {
         }
         return next;
       });
+    },
+    [items, containers],
+  );
+
+  // Skips the animated per-kill increment entirely: rolls in a tight
+  // synchronous loop (the same rollForPet used by the animated auto-roll,
+  // so the odds can't drift between the two) until the pet drops, then jumps
+  // straight to the final kc and the win popup. Even the rarest pet here
+  // (~1/5,012) resolves in a few thousand iterations on average — this runs
+  // in well under a millisecond in practice; MAX_ITERATIONS only exists as a
+  // hard backstop against a true infinite loop in some pathological case.
+  const instantRoll = useCallback(
+    (npc: PetBossInfo) => {
+      setRunning(false);
+      const MAX_ITERATIONS = 50_000_000;
+      let count = 0;
+      while (count < MAX_ITERATIONS) {
+        count++;
+        if (rollForPet(npc, items, containers)) break;
+      }
+      setKc(count);
+      setWonAt(count);
     },
     [items, containers],
   );
@@ -84,12 +103,12 @@ export default function PetSimApp() {
       return;
     }
     worker.onmessage = () => rollOnce(selected);
-    worker.postMessage({ type: "start", intervalMs: ROLL_INTERVAL_MS / speed });
+    worker.postMessage({ type: "start", intervalMs: ROLL_INTERVAL_MS / AUTO_ROLL_SPEED });
     return () => {
       worker.onmessage = null;
       worker.postMessage({ type: "stop" });
     };
-  }, [running, selected, speed, rollOnce]);
+  }, [running, selected, rollOnce]);
 
   const selectBoss = (info: PetBossInfo) => {
     setSelected(info);
@@ -111,7 +130,7 @@ export default function PetSimApp() {
 
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-4 px-4 py-6 sm:py-8">
         <div className="text-center">
-          <h1 className="font-display text-2xl font-bold text-osrs-gold sm:text-3xl">Pet Drop Sim</h1>
+          <h1 className="font-display text-2xl font-bold text-osrs-gold sm:text-3xl">Pet Drop Simulator</h1>
           <p className="mt-1 text-sm text-osrs-parchment-dark/70">
             Pick a boss and auto-roll its real drop rate until the pet drops.
           </p>
@@ -192,11 +211,10 @@ export default function PetSimApp() {
 
             <div className="flex w-full gap-2">
               <button
-                onClick={() => rollOnce(selected)}
-                disabled={running}
-                className="osrs-bevel flex-1 bg-osrs-panel-dark/50 py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-osrs-parchment-dark/80"
+                onClick={() => instantRoll(selected)}
+                className="osrs-bevel flex-1 bg-osrs-panel-dark/50 py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
               >
-                Roll
+                Instant Roll
               </button>
               <button
                 onClick={() => setRunning((r) => !r)}
@@ -206,32 +224,8 @@ export default function PetSimApp() {
                     : "bg-gradient-to-b from-osrs-gold to-osrs-orange text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)]"
                 }`}
               >
-                {running ? "Stop" : "Auto Roll"}
+                {running ? "Stop" : `Auto Roll (${AUTO_ROLL_SPEED}x)`}
               </button>
-            </div>
-
-            {/* flex-wrap so this never forces horizontal overflow on narrow
-                phones — five buttons plus the label is tight even on a
-                375px-wide screen, and genuinely doesn't fit on the
-                smallest ones (320-360px), so it wraps to a second line
-                there instead of clipping or scrolling sideways. */}
-            <div className="flex w-full flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              <span className="w-full text-xs uppercase tracking-wide text-osrs-parchment-dark/50 sm:w-auto">
-                Speed:
-              </span>
-              {SPEED_OPTIONS.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setSpeed(s)}
-                  className={`osrs-bevel min-w-[3rem] px-3 py-2 text-xs font-semibold transition ${
-                    speed === s
-                      ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
-                      : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 hover:text-osrs-parchment active:osrs-bevel-inset"
-                  }`}
-                >
-                  {s}x
-                </button>
-              ))}
             </div>
 
             {kc > 0 && !running && (

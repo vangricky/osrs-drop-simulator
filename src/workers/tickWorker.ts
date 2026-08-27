@@ -1,6 +1,6 @@
 /**
  * A dedicated Web Worker whose only job is to be an accurate tick source for
- * the Pet Drop Sim's auto-roll loop. Chrome (and other browsers) throttle
+ * the Pet Drop Simulator's auto-roll loop. Chrome (and other browsers) throttle
  * setInterval/setTimeout on the main thread down to about once per second
  * once a tab is backgrounded, REGARDLESS of the requested interval — so a
  * main-thread interval auto-rolling at "20x" would silently collapse to

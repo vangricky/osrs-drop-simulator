@@ -4,7 +4,7 @@ const GHOST_BTN =
   "osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-sm font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset";
 
 /**
- * Trimmed-down header for the standalone Pet Drop Sim page — same visual
+ * Trimmed-down header for the standalone Pet Drop Simulator page — same visual
  * shell as the main Header (logo, hamburger menu), but without any of the
  * main game's state (GP, kill count, prestige, collection log, auth) since
  * none of it applies here. A visible "Drop Simulator" link is the primary
@@ -35,7 +35,7 @@ export default function PetSimHeader() {
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
           <div className="min-w-0">
-            <h1 className="sr-only">Pet Drop Sim</h1>
+            <h1 className="sr-only">Pet Drop Simulator</h1>
             <p className="hidden text-xs text-osrs-parchment-dark/80 sm:block">
               Auto-roll a boss until you get the pet.
             </p>

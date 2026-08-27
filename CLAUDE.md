@@ -131,7 +131,7 @@ as its own small static site living inside `public/`, linked from the in-game ha
 
 ### `pet-drop-sim/` is a second real page — a second Vite entry, not a route
 
-There's no router in this app (one was never needed for a single-page game), so the Pet Drop Sim
+There's no router in this app (one was never needed for a single-page game), so the Pet Drop Simulator
 (`/pet-drop-sim/`) isn't a client-side route either — it's a second, fully separate React app built via Vite's
 multi-page support: its own `pet-drop-sim/index.html` (own CSP, own meta/SEO tags, trimmed down from the main
 `index.html` since this page doesn't touch Supabase/Turnstile/accounts) mounts its own root via
@@ -151,7 +151,7 @@ which bosses have an obtainable pet (and at what rate) directly from the live dr
 hand-maintained mapping, with one special case: Abyssal Sire's pet isn't a direct drop at all (it drops
 "Unsired" at 1/100, which then converts at the Font of Consumption for a 5/128 chance at the pet) — modeled as
 an openable `unsired` container (see `containers` in `npcData.ts`) whose rate gets multiplied through into one
-effective 1/2,560 figure so the Pet Drop Sim can treat it like every other boss's flat pet chance.
+effective 1/2,560 figure so the Pet Drop Simulator can treat it like every other boss's flat pet chance.
 `rollForPet()` reuses the real `rollDrop()` engine (not a parallel probability calculation) so this simulator
 can't silently drift from the actual drop tables.
 

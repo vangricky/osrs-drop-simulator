@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
-      // Multi-page build: the Pet Drop Sim is a second real React app (own
+      // Multi-page build: the Pet Drop Simulator is a second real React app (own
       // HTML entry + own mount script, see src/pets-main.tsx), not a
       // client-side route — this repo has no router, and a real static
       // /pet-drop-sim/index.html is what lets GitHub Pages serve it
