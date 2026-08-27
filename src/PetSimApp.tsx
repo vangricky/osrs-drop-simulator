@@ -158,20 +158,20 @@ export default function PetSimApp() {
             </div>
           </div>
         ) : (
-          <div className="osrs-bevel osrs-panel flex flex-col items-center gap-5 p-6 text-center">
+          <div className="osrs-bevel osrs-panel flex flex-col items-center gap-4 p-4 text-center sm:gap-5 sm:p-6">
             <button
               onClick={changeBoss}
-              className="osrs-bevel self-start bg-osrs-panel-dark/50 px-3 py-1.5 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
+              className="osrs-bevel self-start bg-osrs-panel-dark/50 px-3 py-2 text-xs font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset"
             >
               &larr; Choose a different boss
             </button>
 
-            <div className="flex items-center gap-4">
-              <div className={`osrs-orb h-16 w-16 p-2 ${running ? "animate-pulse" : ""}`}>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className={`osrs-orb h-14 w-14 p-2 sm:h-16 sm:w-16 ${running ? "animate-pulse" : ""}`}>
                 <IconImg src={selected.npc.iconUrl} alt={selected.npc.name} className="h-full w-full" />
               </div>
               <span className="font-display text-2xl text-osrs-parchment-dark/50">&rarr;</span>
-              <div className={`osrs-orb h-16 w-16 p-2 ${running ? "animate-pulse" : ""}`}>
+              <div className={`osrs-orb h-14 w-14 p-2 sm:h-16 sm:w-16 ${running ? "animate-pulse" : ""}`}>
                 <IconImg src={selected.petIconUrl} alt={selected.petName} className="h-full w-full" />
               </div>
             </div>
@@ -209,13 +209,20 @@ export default function PetSimApp() {
               </button>
             </div>
 
-            <div className="flex w-full items-center justify-center gap-1.5">
-              <span className="text-xs uppercase tracking-wide text-osrs-parchment-dark/50">Speed:</span>
+            {/* flex-wrap so this never forces horizontal overflow on narrow
+                phones — five buttons plus the label is tight even on a
+                375px-wide screen, and genuinely doesn't fit on the
+                smallest ones (320-360px), so it wraps to a second line
+                there instead of clipping or scrolling sideways. */}
+            <div className="flex w-full flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              <span className="w-full text-xs uppercase tracking-wide text-osrs-parchment-dark/50 sm:w-auto">
+                Speed:
+              </span>
               {SPEED_OPTIONS.map((s) => (
                 <button
                   key={s}
                   onClick={() => setSpeed(s)}
-                  className={`osrs-bevel px-3 py-1.5 text-xs font-semibold transition ${
+                  className={`osrs-bevel min-w-[3rem] px-3 py-2 text-xs font-semibold transition ${
                     speed === s
                       ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
                       : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 hover:text-osrs-parchment active:osrs-bevel-inset"
