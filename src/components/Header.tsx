@@ -184,6 +184,14 @@ export default function Header({
                 </a>
 
                 <a
+                  href="/pet-drop-sim/"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  Pet Drop Sim
+                </a>
+
+                <a
                   href="https://buymeacoffee.com/osrsdropsimulation"
                   target="_blank"
                   rel="noopener noreferrer"

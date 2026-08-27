@@ -129,6 +129,32 @@ palette by hand, not by referencing the Vite build's hashed CSS output) and its 
 as its own small static site living inside `public/`, linked from the in-game hamburger menu as a plain
 `<a href="/faq/">`, not a client-side route.
 
+### `pet-drop-sim/` is a second real page — a second Vite entry, not a route
+
+There's no router in this app (one was never needed for a single-page game), so the Pet Drop Sim
+(`/pet-drop-sim/`) isn't a client-side route either — it's a second, fully separate React app built via Vite's
+multi-page support: its own `pet-drop-sim/index.html` (own CSP, own meta/SEO tags, trimmed down from the main
+`index.html` since this page doesn't touch Supabase/Turnstile/accounts) mounts its own root via
+`src/pets-main.tsx` → `src/PetSimApp.tsx`, wired up as a second `rollupOptions.input` entry in `vite.config.ts`.
+Unlike `public/faq/`, this page needs real game data (boss drop tables, which bosses have a pet, and at what
+rate), so it's genuinely React-rendered rather than hand-written static HTML — but it's otherwise the same
+"real static path GitHub Pages serves directly, no SPA-fallback trick needed" reasoning as the FAQ page.
+It reuses `GameDataProvider`/`useGameData()` (the same npc/item/container data the main game uses) but has
+none of the main game's persisted state (no GP, no inventory, no unlock costs, no localStorage) — it's a
+standalone "auto-roll a boss every 0.5s until the pet drops" tool, not tied to the incremental game's economy.
+
+`src/data/pets.ts` (`PET_ITEM_IDS`) is a hand-curated set of every pet item id actually obtainable in this
+game — verified against the item catalog by name, not slug-guessed, since a couple of pets are named
+differently as items than as their wiki page title (Shellbane Gryphon's pet is item id `gull-pet`, named
+"Gull (pet)" to disambiguate from the unrelated "Gull" NPC). `src/data/petBosses.ts`'s `getPetBosses()` derives
+which bosses have an obtainable pet (and at what rate) directly from the live drop tables rather than a second
+hand-maintained mapping, with one special case: Abyssal Sire's pet isn't a direct drop at all (it drops
+"Unsired" at 1/100, which then converts at the Font of Consumption for a 5/128 chance at the pet) — modeled as
+an openable `unsired` container (see `containers` in `npcData.ts`) whose rate gets multiplied through into one
+effective 1/2,560 figure so the Pet Drop Sim can treat it like every other boss's flat pet chance.
+`rollForPet()` reuses the real `rollDrop()` engine (not a parallel probability calculation) so this simulator
+can't silently drift from the actual drop tables.
+
 ### Deploy
 
 Static build → GitHub Pages via `.github/workflows/deploy.yml` on every push to `main` (modern

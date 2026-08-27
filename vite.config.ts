@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -10,6 +11,17 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
+      // Multi-page build: the Pet Drop Sim is a second real React app (own
+      // HTML entry + own mount script, see src/pets-main.tsx), not a
+      // client-side route — this repo has no router, and a real static
+      // /pet-drop-sim/index.html is what lets GitHub Pages serve it
+      // directly with no SPA-fallback trick needed. Same reasoning as
+      // public/faq/, just React-rendered instead of hand-written since this
+      // page needs the actual game data (boss drop tables, pet rates).
+      input: {
+        main: resolve(import.meta.dirname, 'index.html'),
+        petDropSim: resolve(import.meta.dirname, 'pet-drop-sim/index.html'),
+      },
       output: {
         // Splits large, rarely-changing vendor code into its own chunk(s) so
         // a deploy that only touches app code (which is most of them) doesn't

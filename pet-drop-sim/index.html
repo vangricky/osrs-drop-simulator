@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      Same CSP approach as the main index.html, trimmed to what this page
+      actually needs — no Supabase/Turnstile (this page doesn't touch
+      accounts, GP, or the leaderboard) and no inline script, so no sha256
+      allowance is needed either.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+    />
+    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="/brand/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3e3529" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <title>Pet Drop Sim: OSRS Boss Pet Drop Rate Simulator</title>
+    <meta
+      name="description"
+      content="Pick an OSRS boss and auto-roll its real drop rate until you get the pet. Free, in your browser."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://osrsdropsimulation.com/pet-drop-sim/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OSRS Drop Simulator" />
+    <meta property="og:title" content="Pet Drop Sim: OSRS Boss Pet Drop Rate Simulator" />
+    <meta property="og:description" content="Pick an OSRS boss and auto-roll its real drop rate until you get the pet." />
+    <meta property="og:url" content="https://osrsdropsimulation.com/pet-drop-sim/" />
+    <meta property="og:image" content="https://osrsdropsimulation.com/brand/logo.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Pet Drop Sim: OSRS Boss Pet Drop Rate Simulator" />
+    <meta name="twitter:description" content="Pick an OSRS boss and auto-roll its real drop rate until you get the pet." />
+    <meta name="twitter:image" content="https://osrsdropsimulation.com/brand/logo.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/pets-main.tsx"></script>
+  </body>
+</html>
