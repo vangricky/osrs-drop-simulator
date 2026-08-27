@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import DropLogPanel from "./components/DropLogPanel";
 import Header from "./components/Header";
 import InventoryGrid from "./components/InventoryGrid";
@@ -8,7 +8,14 @@ import NpcDetailPanel from "./components/NpcDetailPanel";
 import { useGameData } from "./hooks/useGameData";
 import type { Npc } from "./data/npcData";
 import { useAuth } from "./hooks/useAuth";
+import { useAutoTicker } from "./hooks/useAutoTicker";
 import { useGameState } from "./hooks/useGameState";
+
+// No speed picker here (unlike the Pet Drop Simulator's Auto Roll) —
+// general loot farming doesn't need the extreme speeds pet-hunting does,
+// and this pace keeps each kill's "You received" flash actually readable
+// as they stream in rather than blurring past.
+const AUTO_KILL_INTERVAL_MS = 500;
 
 // Only mounted on demand (modals/overlays) — lazy-loaded so first paint
 // doesn't have to wait on code most visitors won't need this session.
@@ -66,6 +73,21 @@ function App() {
   });
   const isSelectedUnlocked = selectedNpc ? game.unlockedNpcIds.has(selectedNpc.id) : false;
   const authModalOpen = showAuth || auth.needsUsername;
+
+  // Auto Kill: repeats simulateKill on the currently selected boss until
+  // toggled off. Stops itself (returns false) if the selection somehow
+  // becomes invalid/locked mid-run rather than erroring.
+  const { running: autoKilling, setRunning: setAutoKilling } = useAutoTicker(() => {
+    if (!selectedNpc || !isSelectedUnlocked) return false;
+    game.simulateKill(selectedNpc);
+  }, AUTO_KILL_INTERVAL_MS);
+
+  // Switching bosses (or losing the unlock somehow) should stop an
+  // in-progress auto-kill on the *previous* selection rather than silently
+  // keep killing whatever's now displayed underneath it.
+  useEffect(() => {
+    setAutoKilling(false);
+  }, [selectedNpc?.id, isSelectedUnlocked, setAutoKilling]);
 
   // Jumping to a boss from the browser should also jump straight to its kill
   // panel on mobile — otherwise picking a boss would silently do nothing
@@ -162,6 +184,8 @@ function App() {
                 gp={game.gp}
                 onKill={game.simulateKill}
                 onUnlock={handleUnlock}
+                autoKilling={autoKilling}
+                onToggleAutoKill={() => setAutoKilling((r) => !r)}
               />
             </div>
           </div>
@@ -213,6 +237,8 @@ function App() {
         gp={game.gp}
         onKill={game.simulateKill}
         onUnlock={handleUnlock}
+        autoKilling={autoKilling}
+        onToggleAutoKill={() => setAutoKilling((r) => !r)}
       />
 
       <Suspense fallback={null}>

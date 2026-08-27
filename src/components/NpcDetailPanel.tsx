@@ -21,6 +21,8 @@ interface NpcDetailPanelProps {
   gp: number;
   onKill: (npc: Npc) => void;
   onUnlock: (npc: Npc) => void;
+  autoKilling: boolean;
+  onToggleAutoKill: () => void;
 }
 
 function DropRow({ entry }: { entry: DropEntry }) {
@@ -45,7 +47,17 @@ function DropRow({ entry }: { entry: DropEntry }) {
   );
 }
 
-export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, gp, onKill, onUnlock }: NpcDetailPanelProps) {
+export default function NpcDetailPanel({
+  npc,
+  killCount,
+  lastKill,
+  isUnlocked,
+  gp,
+  onKill,
+  onUnlock,
+  autoKilling,
+  onToggleAutoKill,
+}: NpcDetailPanelProps) {
   if (!npc) {
     return (
       <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col items-center justify-center gap-3 p-8 text-center">
@@ -74,7 +86,10 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
       <div className="flex items-center gap-3.5 border-b-2 border-osrs-border-dark p-3.5">
-        <div className="osrs-orb h-16 w-16 shrink-0 p-2" style={orbGlowStyle("255,63,63")}>
+        <div
+          className={`osrs-orb h-16 w-16 shrink-0 p-2 ${autoKilling ? "animate-pulse" : ""}`}
+          style={orbGlowStyle("255,63,63")}
+        >
           <IconImg src={npc.iconUrl} alt={npc.name} className="h-full w-full" />
         </div>
         <div className="min-w-0 flex-1">
@@ -111,12 +126,27 @@ export default function NpcDetailPanel({ npc, killCount, lastKill, isUnlocked, g
             </p>
           </div>
         ) : (
-          <button
-            onClick={() => onKill(npc)}
-            className="osrs-cta hidden rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 lg:block"
-          >
-            Simulate Drop
-          </button>
+          // Below lg, the fixed MobileSimulateBar handles kill actions
+          // instead — a duplicate row here would just be redundant clutter.
+          <div className="hidden gap-2 lg:flex">
+            <button
+              onClick={() => onKill(npc)}
+              disabled={autoKilling}
+              className="osrs-cta flex-1 rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-base font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:brightness-100"
+            >
+              Simulate Drop
+            </button>
+            <button
+              onClick={onToggleAutoKill}
+              className={`osrs-cta flex-1 rounded-[10px] py-3 font-display text-base font-bold uppercase tracking-wide transition hover:brightness-110 ${
+                autoKilling
+                  ? "bg-gradient-to-b from-osrs-red to-red-800 text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)]"
+                  : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/80 hover:text-osrs-parchment"
+              }`}
+            >
+              {autoKilling ? "Stop" : "Auto Kill"}
+            </button>
+          </div>
         )}
 
         {isUnlocked && showLast && (

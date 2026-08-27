@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useGameData } from "./hooks/useGameData";
+import { useAutoTicker } from "./hooks/useAutoTicker";
 import { getPetBosses, rollForPet, type PetBossInfo } from "./data/petBosses";
 import { orbGlowStyle } from "./utils/dropLogic";
 import PetSimHeader from "./components/PetSimHeader";
@@ -23,7 +24,6 @@ export default function PetSimApp() {
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<PetBossInfo | null>(null);
   const [kc, setKc] = useState(0);
-  const [running, setRunning] = useState(false);
   const [wonAt, setWonAt] = useState<number | null>(null);
 
   const filteredBosses = useMemo(() => {
@@ -34,23 +34,19 @@ export default function PetSimApp() {
   }, [petBosses, search]);
 
   // One roll per auto-roll tick — increments kc and checks for the pet.
-  // useCallback keeps this stable across renders (only changes if items/
-  // containers actually change) so the auto-roll effect below doesn't tear
-  // down and restart its interval on every unrelated render.
-  const rollOnce = useCallback(
-    (npc: PetBossInfo) => {
-      const gotPet = rollForPet(npc, items, containers);
-      setKc((prev) => {
-        const next = prev + 1;
-        if (gotPet) {
-          setRunning(false);
-          setWonAt(next);
-        }
-        return next;
-      });
-    },
-    [items, containers],
-  );
+  // Returning false (pet obtained, or no boss selected somehow) tells
+  // useAutoTicker to stop itself; it owns "running" so this never needs to
+  // reference that state directly.
+  const { running, setRunning } = useAutoTicker(() => {
+    if (!selected) return false;
+    const gotPet = rollForPet(selected, items, containers);
+    setKc((prev) => {
+      const next = prev + 1;
+      if (gotPet) setWonAt(next);
+      return next;
+    });
+    return !gotPet;
+  }, ROLL_INTERVAL_MS / AUTO_ROLL_SPEED);
 
   // Skips the animated per-kill increment entirely: rolls in a tight
   // synchronous loop (the same rollForPet used by the animated auto-roll,
@@ -71,44 +67,8 @@ export default function PetSimApp() {
       setKc(count);
       setWonAt(count);
     },
-    [items, containers],
+    [items, containers, setRunning],
   );
-
-  // The auto-roll tick source lives in a dedicated Web Worker rather than a
-  // plain setInterval on the main thread. Browsers throttle main-thread
-  // timers down to ~once/sec once a tab is backgrounded, REGARDLESS of the
-  // requested interval — exactly the kind of thing that happens when
-  // someone tabs away while an idle auto-roller runs, and it would make
-  // every speed setting silently collapse to "1x". A worker's timers aren't
-  // subject to that same throttling, so the selected speed keeps its real
-  // rate whether or not the tab is visible. The worker only decides *when*
-  // to tick (it has none of the game data needed to actually roll) —
-  // rollOnce still runs on the main thread in response to each tick.
-  const workerRef = useRef<Worker | null>(null);
-  useEffect(() => {
-    const worker = new Worker(new URL("./workers/tickWorker.ts", import.meta.url), { type: "module" });
-    workerRef.current = worker;
-    return () => {
-      worker.terminate();
-      workerRef.current = null;
-    };
-  }, []);
-
-  useEffect(() => {
-    const worker = workerRef.current;
-    if (!worker) return;
-    if (!running || !selected) {
-      worker.onmessage = null;
-      worker.postMessage({ type: "stop" });
-      return;
-    }
-    worker.onmessage = () => rollOnce(selected);
-    worker.postMessage({ type: "start", intervalMs: ROLL_INTERVAL_MS / AUTO_ROLL_SPEED });
-    return () => {
-      worker.onmessage = null;
-      worker.postMessage({ type: "stop" });
-    };
-  }, [running, selected, rollOnce]);
 
   const selectBoss = (info: PetBossInfo) => {
     setSelected(info);

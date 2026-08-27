@@ -16,9 +16,18 @@ import { getEventCoordinates } from "@dnd-kit/utilities";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useGameData } from "../hooks/useGameData";
+import { useAutoTicker } from "../hooks/useAutoTicker";
 import type { InventorySlot } from "../hooks/useGameState";
 import { formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
+
+// Not tied to a rare-event grind like Pet Drop Sim's Auto Roll, so no need
+// for a fast/speed-picker pace here — just quick enough to clear a backlog
+// of containers in a reasonable time, without hammering the same
+// enqueueCloudMutation queue that record_kill/open_container share (that
+// queue serializes cloud writes to no faster than one per ~220ms for
+// signed-in players regardless of how fast this ticks locally).
+const AUTO_OPEN_INTERVAL_MS = 300;
 
 // How long a hold (mouse or touch) has to stay still before it toggles the
 // slot's lock — no menu in between, the hold IS the action.
@@ -187,7 +196,7 @@ export default function InventoryGrid({
   onOpen,
   onToggleLock,
 }: InventoryGridProps) {
-  const { items: allItems } = useGameData();
+  const { items: allItems, containers } = useGameData();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Where the dragged item's floating copy should render, tracked from
   // dnd-kit's own (touch-safe) coordinate stream rather than its built-in
@@ -376,6 +385,31 @@ export default function InventoryGrid({
     return sum + item.value * slot.quantity;
   }, 0);
 
+  // Auto Open: works on any openable item (clue caskets, chest keys, every
+  // container — anything with its own containers[itemId] entry), skipping
+  // locked slots the same way manual clicking already does. Stops itself
+  // (returns false) the moment there's no empty slot left, rather than
+  // opening into overflow and losing whatever the roll produced — the
+  // player has to notice and re-toggle it once they've made room (by hand,
+  // or via Auto Sell below), rather than it silently resuming on its own.
+  const { running: autoOpenEnabled, setRunning: setAutoOpenEnabled } = useAutoTicker(() => {
+    if (!inventory.some((slot) => slot === null)) return false;
+    const index = inventory.findIndex((slot) => slot && !slot.locked && containers[slot.itemId]);
+    if (index !== -1) onOpen(index);
+  }, AUTO_OPEN_INTERVAL_MS);
+
+  // Auto Sell: no interval needed — sellAll() already sells everything
+  // sellable/unlocked in one shot, so this just re-fires it whenever new
+  // sellable value appears (a kill, an auto-open's loot, a manual drag-in),
+  // via sellableValue changing. Settles itself: after selling, sellableValue
+  // recomputes to 0 on the next render, the effect re-runs once more against
+  // that 0 and no-ops (sellAll's own `gained === 0` guard is a second,
+  // redundant safety net against a wasted call either way).
+  const [autoSellEnabled, setAutoSellEnabled] = useState(false);
+  useEffect(() => {
+    if (autoSellEnabled && sellableValue > 0) onSellAll();
+  }, [autoSellEnabled, sellableValue, onSellAll]);
+
   return (
     <div className="osrs-bevel osrs-panel flex h-full min-h-0 flex-col">
       <div className="flex items-center justify-between gap-2.5 border-b-2 border-osrs-border-dark px-3.5 py-2.5">
@@ -397,6 +431,32 @@ export default function InventoryGrid({
             Discard all
           </button>
         </div>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-1.5 border-b-2 border-osrs-border-dark px-3.5 py-2">
+        <span className="text-xs uppercase tracking-wide text-osrs-parchment-dark/50">Automation:</span>
+        <button
+          onClick={() => setAutoOpenEnabled((r) => !r)}
+          title="Automatically opens any unlocked clue casket, chest key, or other container as it arrives — stops itself once your inventory is full"
+          className={`osrs-bevel px-3 py-1.5 text-xs font-semibold transition ${
+            autoOpenEnabled
+              ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
+              : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 hover:text-osrs-parchment active:osrs-bevel-inset"
+          }`}
+        >
+          Auto Open{autoOpenEnabled ? ": On" : ""}
+        </button>
+        <button
+          onClick={() => setAutoSellEnabled((r) => !r)}
+          title="Automatically sells any unlocked, tradeable item the moment it lands in your inventory"
+          className={`osrs-bevel px-3 py-1.5 text-xs font-semibold transition ${
+            autoSellEnabled
+              ? "osrs-bevel-inset bg-osrs-gold/15 text-osrs-gold"
+              : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/70 hover:text-osrs-parchment active:osrs-bevel-inset"
+          }`}
+        >
+          Auto Sell{autoSellEnabled ? ": On" : ""}
+        </button>
       </div>
 
       <div className="osrs-scrollbar min-h-0 flex-1 overflow-y-auto p-3.5">

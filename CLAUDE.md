@@ -119,6 +119,38 @@ setup (one-time SQL migrations, custom SMTP via Resend, OAuth providers) — acc
 optional; the app runs guest-only with no Supabase project configured (`src/lib/supabase.ts` exports
 `supabaseEnabled`).
 
+### Automation: Auto Kill, Auto Open, Auto Sell
+
+Three independent, session-only toggles (no persisted state, no server RPC of their own — they just call the
+same `useGameState` actions a manual click would, repeatedly) let the game largely run itself:
+
+- **Auto Kill** (`App.tsx`, surfaced in both `NpcDetailPanel` and `MobileSimulateBar`) repeats `simulateKill` on
+  whichever boss is currently selected, at a fixed 500ms pace (no speed picker — general loot farming doesn't
+  need the extreme speeds pet-hunting does). Lifted to `App.tsx` rather than owned by either panel since both
+  need to read/toggle the same running state, and stops itself the moment the selected boss changes (a
+  `useEffect` keyed on `selectedNpc?.id`) so it can't keep killing whatever's now displayed after a switch.
+- **Auto Open** (`InventoryGrid.tsx`) repeats `openContainer` against whichever inventory slot is the first
+  unlocked item with a `containers[itemId]` entry — works on every openable item uniformly (clue caskets, chest
+  keys, `unsired`, anything), not a hardcoded list, and skips locked slots the same way manual clicking already
+  does. On each tick it checks for an actual empty (`null`) inventory slot first; the moment there isn't one it
+  stops itself rather than opening into overflow and losing whatever the roll produced — the player has to
+  notice and re-toggle it once there's room again (by hand, or via Auto Sell), it doesn't silently resume on
+  its own once space frees up.
+- **Auto Sell** (`InventoryGrid.tsx`) doesn't tick at all: `sellAll()` already sells everything
+  unlocked+tradeable in one call, so this is just a `useEffect` that re-fires it whenever new sellable value
+  appears in the inventory (a kill, an Auto Open's loot, a manual drag-in) — self-settling, since selling drops
+  that value back to 0 and the effect doesn't re-fire again until it's non-zero once more.
+
+All three (plus the Pet Drop Simulator's own Auto Roll) share `src/hooks/useAutoTicker.ts` for the actual
+"repeat every N ms while toggled on" mechanics, backed by `src/workers/tickWorker.ts` — a dedicated Web Worker
+tick source rather than a plain `setInterval`, since browsers throttle main-thread timers to ~once/sec once a
+tab is backgrounded regardless of the requested interval, which would silently wreck the pace of anything left
+running unattended (exactly what an "auto-X and walk away" toggle invites). The hook's `onTick` callback signals
+"stop" by returning `false` rather than closing over the hook's own `setRunning` — a closure capturing a value
+this same hook call is about to return works fine in practice (the closure only ever runs later, well after the
+hook call finishes) but is a genuine temporal-dead-zone footgun a linter can't prove safe, so the API is shaped
+to avoid needing to write that pattern at all.
+
 ### SEO: `public/faq/` is a second, non-React static page
 
 `index.html`'s `<body>` is just `<div id="root">` — the whole game is client-rendered, so a crawler that
@@ -142,11 +174,10 @@ rate), so it's genuinely React-rendered rather than hand-written static HTML —
 It reuses `GameDataProvider`/`useGameData()` (the same npc/item/container data the main game uses) but has
 none of the main game's persisted state (no GP, no inventory, no unlock costs, no localStorage) — it's a
 standalone "roll a boss until the pet drops" tool, not tied to the incremental game's economy. Two ways to
-roll: "Auto Roll" ticks at a fixed 50x speed (500ms base interval / 50, driven by `src/workers/tickWorker.ts`
-so browser background-tab throttling can't silently slow it down — see that file's own comment) until the pet
-drops or it's stopped; "Instant Roll" skips the animated per-tick increment entirely, looping `rollForPet`
-synchronously until it succeeds and jumping straight to the final kc, for players who don't want to watch it
-count up.
+roll: "Auto Roll" ticks at a fixed 50x speed (500ms base interval / 50) via the shared `useAutoTicker` hook —
+see the "Automation" section above for why that's worker-backed rather than a plain `setInterval`; "Instant
+Roll" skips the animated per-tick increment entirely, looping `rollForPet` synchronously until it succeeds and
+jumping straight to the final kc, for players who don't want to watch it count up.
 
 `src/data/pets.ts` (`PET_ITEM_IDS`) is a hand-curated set of every pet item id actually obtainable in this
 game — verified against the item catalog by name, not slug-guessed, since a couple of pets are named

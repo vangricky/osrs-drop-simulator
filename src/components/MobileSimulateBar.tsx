@@ -7,6 +7,8 @@ interface MobileSimulateBarProps {
   gp: number;
   onKill: (npc: Npc) => void;
   onUnlock: (npc: Npc) => void;
+  autoKilling: boolean;
+  onToggleAutoKill: () => void;
 }
 
 /** Below lg, the page is a single scrolling column — the NpcDetailPanel's
@@ -15,7 +17,15 @@ interface MobileSimulateBarProps {
  * viewport bottom regardless of scroll position, so the action is always
  * one tap away. Hidden on lg+, where the 3-column layout keeps the panel
  * (and its own button) always on screen already. */
-export default function MobileSimulateBar({ npc, isUnlocked, gp, onKill, onUnlock }: MobileSimulateBarProps) {
+export default function MobileSimulateBar({
+  npc,
+  isUnlocked,
+  gp,
+  onKill,
+  onUnlock,
+  autoKilling,
+  onToggleAutoKill,
+}: MobileSimulateBarProps) {
   if (!npc) return null;
 
   return (
@@ -24,12 +34,25 @@ export default function MobileSimulateBar({ npc, isUnlocked, gp, onKill, onUnloc
       style={{ paddingBottom: "calc(0.5rem + env(safe-area-inset-bottom))" }}
     >
       {isUnlocked ? (
-        <button
-          onClick={() => onKill(npc)}
-          className="osrs-cta w-full rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition active:brightness-95"
-        >
-          Simulate Drop
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => onKill(npc)}
+            disabled={autoKilling}
+            className="osrs-cta flex-1 rounded-[10px] bg-gradient-to-b from-osrs-gold to-osrs-orange py-3 font-display text-sm font-bold uppercase tracking-wide text-osrs-panel-dark shadow-[0_10px_24px_-8px_rgba(255,183,0,0.55)] transition active:brightness-95 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            Simulate Drop
+          </button>
+          <button
+            onClick={onToggleAutoKill}
+            className={`osrs-cta flex-1 rounded-[10px] py-3 font-display text-sm font-bold uppercase tracking-wide transition active:brightness-95 ${
+              autoKilling
+                ? "bg-gradient-to-b from-osrs-red to-red-800 text-white shadow-[0_10px_24px_-8px_rgba(255,63,63,0.55)]"
+                : "bg-osrs-panel-dark/50 text-osrs-parchment-dark/80"
+            }`}
+          >
+            {autoKilling ? "Stop" : "Auto Kill"}
+          </button>
+        </div>
       ) : (
         <button
           onClick={() => onUnlock(npc)}
