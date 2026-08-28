@@ -88,8 +88,17 @@ function existingHandcraftedIds() {
 // actually free (lowest combat level) is decided once, globally, across
 // every source (hand-authored + both generator scripts' output) by
 // scripts/finalize-starter-bosses.mjs, run last in the pipeline.
+//
+// This is only a rough placeholder for a BRAND NEW boss the pipeline hasn't
+// seen before — it deliberately undershoots rather than overshoots (an
+// earlier ~10,000x-larger version of this formula produced a multi-billion
+// unlock cost for the very first paid boss, when free starter bosses earn a
+// few hundred gp/kill — effectively unplayable). The actual source of truth
+// is scripts/calibrate-unlock-costs.mjs, which derives cost from the boss's
+// real drop-table value instead of combat level alone; run it with --write
+// after any pipeline run that adds a new boss, and it'll override this.
 function unlockCostFor(combatLevel) {
-  let raw = 400 * combatLevel ** 2.5 * 40;
+  let raw = 1.6 * combatLevel ** 2.5;
   // Round to ~2 significant figures for a "chunky" number.
   const magnitude = 10 ** Math.floor(Math.log10(raw) - 1);
   return Math.round(raw / magnitude) * magnitude;

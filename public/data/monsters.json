@@ -6,7 +6,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Corporeal_Beast.png",
     "examine": "A vision of supernatural horror.",
     "category": "boss",
-    "unlockCost": 280000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -299,7 +299,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kraken.png",
     "examine": "",
     "category": "boss",
-    "unlockCost": 23000000000,
+    "unlockCost": 325842000,
     "always": [],
     "mainTable": [
       {
@@ -624,7 +624,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Thermonuclear_smoke_devil.png",
     "examine": "Woah.",
     "category": "boss",
-    "unlockCost": 25000000000,
+    "unlockCost": 325842000,
     "always": [
       {
         "itemId": "ashes",
@@ -1006,7 +1006,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_Elemental.png",
     "examine": "pUre A cHaOs of crEatuRe!",
     "category": "boss",
-    "unlockCost": 26000000000,
+    "unlockCost": 336935000,
     "always": [],
     "mainTable": [
       {
@@ -1347,7 +1347,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Commander_Zilyana.png",
     "examine": "Commander of Saradomin's forces.",
     "category": "boss",
-    "unlockCost": 140000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "bones",
@@ -1561,7 +1561,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_Supreme.png",
     "examine": "The dagannoth king responsible for the death of the Bukalla.",
     "category": "boss",
-    "unlockCost": 26000000000,
+    "unlockCost": 325842000,
     "always": [
       {
         "itemId": "dagannoth-bones",
@@ -1847,7 +1847,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_Prime.png",
     "examine": "A legendary dagannoth king, rumoured to fly on the North winds.",
     "category": "boss",
-    "unlockCost": 26000000000,
+    "unlockCost": 336935000,
     "always": [
       {
         "itemId": "dagannoth-bones",
@@ -2141,7 +2141,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Dagannoth_Rex.png",
     "examine": "Firstborn of the legendary dagannoth kings.",
     "category": "boss",
-    "unlockCost": 26000000000,
+    "unlockCost": 336935000,
     "always": [
       {
         "itemId": "dagannoth-bones",
@@ -2483,7 +2483,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/K'ril_Tsutsaroth.png",
     "examine": "A servant of the god Zamorak.",
     "category": "boss",
-    "unlockCost": 170000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "infernal-ashes",
@@ -2689,7 +2689,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Kree'arra.png",
     "examine": "Graceful avatar of Armadyl.",
     "category": "boss",
-    "unlockCost": 130000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "big-bones",
@@ -2918,7 +2918,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Abyssal_Sire.png",
     "examine": "",
     "category": "boss",
-    "unlockCost": 37000000000,
+    "unlockCost": 760984000,
     "always": [
       {
         "itemId": "abyssal-ashes",
@@ -3220,7 +3220,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Alchemical_Hydra_(serpentine).png",
     "examine": "A ferocious Alchemical Hydra!",
     "category": "boss",
-    "unlockCost": 60000000000,
+    "unlockCost": 2771029000,
     "always": [
       {
         "itemId": "hydra-bones",
@@ -3490,7 +3490,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Amoxliatl.png",
     "examine": "A powerful frost nagua.",
     "category": "boss",
-    "unlockCost": 18000000000,
+    "unlockCost": 325842000,
     "always": [],
     "mainTable": [
       {
@@ -3713,7 +3713,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Araxxor.png",
     "examine": "A seriously scary spider.",
     "category": "boss",
-    "unlockCost": 380000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -4079,7 +4079,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Artio.png",
     "examine": "She looks mad that her forest has died.",
     "category": "boss",
-    "unlockCost": 29000000000,
+    "unlockCost": 336935000,
     "always": [
       {
         "itemId": "big-bones",
@@ -4437,7 +4437,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Branda_the_Fire_Queen.png",
     "examine": "Wields the primal force of fire. Majestic and fearsome.",
     "category": "boss",
-    "unlockCost": 37000000000,
+    "unlockCost": 760984000,
     "always": [
       {
         "itemId": "desiccated-page",
@@ -4943,7 +4943,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Bryophyta.png",
     "examine": "This is what organic growth looks like!",
     "category": "boss",
-    "unlockCost": 3000000000,
+    "unlockCost": 290905000,
     "always": [
       {
         "itemId": "giant-bones",
@@ -5175,7 +5175,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Callisto.png",
     "examine": "I wouldn't want to eat his Porridge.",
     "category": "boss",
-    "unlockCost": 77000000000,
+    "unlockCost": 2771029000,
     "always": [
       {
         "itemId": "big-bones",
@@ -5581,7 +5581,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Calvar'ion.png",
     "examine": "",
     "category": "boss",
-    "unlockCost": 18000000000,
+    "unlockCost": 325842000,
     "always": [
       {
         "itemId": "big-bones",
@@ -5947,7 +5947,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Cerberus.png",
     "examine": "A three-headed gigantic hound. Guardian of the River of Souls.",
     "category": "boss",
-    "unlockCost": 29000000000,
+    "unlockCost": 336935000,
     "always": [
       {
         "itemId": "infernal-ashes",
@@ -6289,7 +6289,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_Fanatic.png",
     "examine": "Someone should get out of the lab once in a while...",
     "category": "boss",
-    "unlockCost": 9300000000,
+    "unlockCost": 290905000,
     "always": [
       {
         "itemId": "bones",
@@ -6535,7 +6535,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Crazy_archaeologist.png",
     "examine": "When academics go bad...",
     "category": "boss",
-    "unlockCost": 9500000000,
+    "unlockCost": 290905000,
     "always": [
       {
         "itemId": "bones",
@@ -6773,7 +6773,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Deranged_archaeologist.png",
     "examine": "He's seen things that people wouldn't believe.",
     "category": "boss",
-    "unlockCost": 20000000000,
+    "unlockCost": 325842000,
     "always": [
       {
         "itemId": "bones",
@@ -6980,7 +6980,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Doom_of_Mokhaiotl.png",
     "examine": "A demonic digger.",
     "category": "boss",
-    "unlockCost": 120000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -7234,7 +7234,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Duke_Sucellus.png",
     "examine": "",
     "category": "boss",
-    "unlockCost": 250000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -7335,24 +7335,24 @@
       },
       {
         "itemId": "bronze-chainbody",
-        "minQuantity": 1117,
-        "maxQuantity": 1117,
+        "minQuantity": 11,
+        "maxQuantity": 17,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-chainbody",
-        "minQuantity": 57,
-        "maxQuantity": 57,
+        "minQuantity": 5,
+        "maxQuantity": 7,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamant-chainbody",
-        "minQuantity": 610,
-        "maxQuantity": 610,
+        "minQuantity": 6,
+        "maxQuantity": 10,
         "numerator": 1,
         "denominator": 100,
         "noted": true
@@ -7367,160 +7367,160 @@
       },
       {
         "itemId": "pure-essence",
-        "minQuantity": 200300,
-        "maxQuantity": 200300,
+        "minQuantity": 200,
+        "maxQuantity": 300,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "iron-ore",
-        "minQuantity": 6395,
-        "maxQuantity": 6395,
+        "minQuantity": 63,
+        "maxQuantity": 95,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "coal",
-        "minQuantity": 216325,
-        "maxQuantity": 216325,
+        "minQuantity": 216,
+        "maxQuantity": 325,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-ore",
-        "minQuantity": 3350,
-        "maxQuantity": 3350,
+        "minQuantity": 33,
+        "maxQuantity": 50,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamantite-ore",
-        "minQuantity": 75112,
-        "maxQuantity": 75112,
+        "minQuantity": 75,
+        "maxQuantity": 112,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "runite-ore",
-        "minQuantity": 3045,
-        "maxQuantity": 3045,
+        "minQuantity": 30,
+        "maxQuantity": 45,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "sapphire",
-        "minQuantity": 2842,
-        "maxQuantity": 2842,
+        "minQuantity": 28,
+        "maxQuantity": 42,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "emerald",
-        "minQuantity": 2842,
-        "maxQuantity": 2842,
+        "minQuantity": 28,
+        "maxQuantity": 42,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "ruby",
-        "minQuantity": 2842,
-        "maxQuantity": 2842,
+        "minQuantity": 28,
+        "maxQuantity": 42,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-ruby",
-        "minQuantity": 4162,
-        "maxQuantity": 4162,
+        "minQuantity": 41,
+        "maxQuantity": 62,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-diamond",
-        "minQuantity": 4162,
-        "maxQuantity": 4162,
+        "minQuantity": 41,
+        "maxQuantity": 62,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "bronze-bar",
-        "minQuantity": 6395,
-        "maxQuantity": 6395,
+        "minQuantity": 63,
+        "maxQuantity": 95,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-arrowtips",
-        "minQuantity": 166250,
-        "maxQuantity": 166250,
+        "minQuantity": 166,
+        "maxQuantity": 250,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "rune-javelin-tips",
-        "minQuantity": 6090,
-        "maxQuantity": 6090,
+        "minQuantity": 60,
+        "maxQuantity": 90,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-javelin-tips",
-        "minQuantity": 6090,
-        "maxQuantity": 6090,
+        "minQuantity": 60,
+        "maxQuantity": 90,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "raw-sea-turtle",
-        "minQuantity": 200300,
-        "maxQuantity": 200300,
+        "minQuantity": 200,
+        "maxQuantity": 300,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "air-rune",
-        "minQuantity": 200300,
-        "maxQuantity": 200300,
+        "minQuantity": 200,
+        "maxQuantity": 300,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mist-rune",
-        "minQuantity": 100150,
-        "maxQuantity": 100150,
+        "minQuantity": 100,
+        "maxQuantity": 150,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "chaos-rune",
-        "minQuantity": 100150,
-        "maxQuantity": 100150,
+        "minQuantity": 100,
+        "maxQuantity": 150,
         "numerator": 9,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "soul-rune",
-        "minQuantity": 6661000,
-        "maxQuantity": 6661000,
+        "minQuantity": 666,
+        "maxQuantity": 1000,
         "numerator": 2,
         "denominator": 100,
         "noted": true
@@ -7577,7 +7577,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Eldric_the_Ice_King.png",
     "examine": "Wields the primal force of ice. Kingly and formidable.",
     "category": "boss",
-    "unlockCost": 37000000000,
+    "unlockCost": 760984000,
     "always": [
       {
         "itemId": "desiccated-page",
@@ -7887,7 +7887,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Gemstone_Crab.png",
     "examine": "The shiniest crustacean this side of the shoreline.",
     "category": "boss",
-    "unlockCost": 5200000000,
+    "unlockCost": 290905000,
     "always": [],
     "mainTable": [
       {
@@ -7965,7 +7965,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Hespori.png",
     "examine": "A big angry plant.",
     "category": "boss",
-    "unlockCost": 22000000000,
+    "unlockCost": 325842000,
     "always": [],
     "mainTable": [
       {
@@ -8275,7 +8275,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/The_Leviathan.png",
     "examine": "An unfathomably huge sea creature.",
     "category": "boss",
-    "unlockCost": 290000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -8376,128 +8376,128 @@
       },
       {
         "itemId": "aether-catalyst",
-        "minQuantity": 15002250,
-        "maxQuantity": 15002250,
+        "minQuantity": 1500,
+        "maxQuantity": 2250,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "iron-ore",
-        "minQuantity": 5785,
-        "maxQuantity": 5785,
+        "minQuantity": 57,
+        "maxQuantity": 85,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "silver-ore",
-        "minQuantity": 5785,
-        "maxQuantity": 5785,
+        "minQuantity": 57,
+        "maxQuantity": 85,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "coal",
-        "minQuantity": 195292,
-        "maxQuantity": 195292,
+        "minQuantity": 195,
+        "maxQuantity": 292,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "gold-ore",
-        "minQuantity": 67101,
-        "maxQuantity": 67101,
+        "minQuantity": 67,
+        "maxQuantity": 101,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamantite-ore",
-        "minQuantity": 5785,
-        "maxQuantity": 5785,
+        "minQuantity": 57,
+        "maxQuantity": 85,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "runite-ore",
-        "minQuantity": 2740,
-        "maxQuantity": 2740,
+        "minQuantity": 27,
+        "maxQuantity": 40,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "sapphire",
-        "minQuantity": 2538,
-        "maxQuantity": 2538,
+        "minQuantity": 25,
+        "maxQuantity": 38,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "emerald",
-        "minQuantity": 2538,
-        "maxQuantity": 2538,
+        "minQuantity": 25,
+        "maxQuantity": 38,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "ruby",
-        "minQuantity": 2538,
-        "maxQuantity": 2538,
+        "minQuantity": 25,
+        "maxQuantity": 38,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-ruby",
-        "minQuantity": 3756,
-        "maxQuantity": 3756,
+        "minQuantity": 37,
+        "maxQuantity": 56,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-diamond",
-        "minQuantity": 3756,
-        "maxQuantity": 3756,
+        "minQuantity": 37,
+        "maxQuantity": 56,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-javelin-tips",
-        "minQuantity": 5481,
-        "maxQuantity": 5481,
+        "minQuantity": 54,
+        "maxQuantity": 81,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-bolts-unf",
-        "minQuantity": 150225,
-        "maxQuantity": 150225,
+        "minQuantity": 150,
+        "maxQuantity": 225,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "onyx-bolt-tips",
-        "minQuantity": 90135,
-        "maxQuantity": 90135,
+        "minQuantity": 90,
+        "maxQuantity": 135,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "raw-manta-ray",
-        "minQuantity": 180270,
-        "maxQuantity": 180270,
+        "minQuantity": 180,
+        "maxQuantity": 270,
         "numerator": 1,
         "denominator": 100,
         "noted": true
@@ -8512,64 +8512,64 @@
       },
       {
         "itemId": "bronze-arrow",
-        "minQuantity": 6394,
-        "maxQuantity": 6394,
+        "minQuantity": 63,
+        "maxQuantity": 94,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-arrow",
-        "minQuantity": 6394,
-        "maxQuantity": 6394,
+        "minQuantity": 63,
+        "maxQuantity": 94,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamant-arrow",
-        "minQuantity": 6394,
-        "maxQuantity": 6394,
+        "minQuantity": 63,
+        "maxQuantity": 94,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "rune-arrow",
-        "minQuantity": 5481,
-        "maxQuantity": 5481,
+        "minQuantity": 54,
+        "maxQuantity": 81,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "body-rune",
-        "minQuantity": 180270,
-        "maxQuantity": 180270,
+        "minQuantity": 180,
+        "maxQuantity": 270,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "earth-rune",
-        "minQuantity": 180270,
-        "maxQuantity": 180270,
+        "minQuantity": 180,
+        "maxQuantity": 270,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "smoke-rune",
-        "minQuantity": 300450,
-        "maxQuantity": 300450,
+        "minQuantity": 300,
+        "maxQuantity": 450,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "soul-rune",
-        "minQuantity": 600900,
-        "maxQuantity": 600900,
+        "minQuantity": 600,
+        "maxQuantity": 900,
         "numerator": 2,
         "denominator": 100,
         "noted": true
@@ -8626,7 +8626,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Mad_Angel.png",
     "examine": "O Lord, she approaches!",
     "category": "boss",
-    "unlockCost": 19000000000,
+    "unlockCost": 325842000,
     "always": [
       {
         "itemId": "granite-dust",
@@ -8864,7 +8864,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Maggot_King.png",
     "examine": "An unthinkable horror brought to life by Vampyrium's brutality.",
     "category": "boss",
-    "unlockCost": 240000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -9073,7 +9073,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Nex.png",
     "examine": "Even the gods fear her.",
     "category": "boss",
-    "unlockCost": 510000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "big-bones",
@@ -9359,7 +9359,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/The_Nightmare.png",
     "examine": "Sweet dreams are most definitely not made of this.",
     "category": "boss",
-    "unlockCost": 300000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "big-bones",
@@ -9887,7 +9887,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Phantom_Muspah_(ranged).png",
     "examine": "Imagination gone wild.",
     "category": "boss",
-    "unlockCost": 240000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -10334,7 +10334,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/The_Nightmare.png",
     "examine": "Sweet dreams are most definitely not made of this.",
     "category": "boss",
-    "unlockCost": 540000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "big-bones",
@@ -10660,7 +10660,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Sarachnis.png",
     "examine": "I'm going to need a really big newspaper...",
     "category": "boss",
-    "unlockCost": 29000000000,
+    "unlockCost": 336935000,
     "always": [],
     "mainTable": [
       {
@@ -11067,7 +11067,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Scorpia.png",
     "examine": "Queen of the Scorpions.",
     "category": "boss",
-    "unlockCost": 12000000000,
+    "unlockCost": 290905000,
     "always": [],
     "mainTable": [
       {
@@ -11360,7 +11360,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Scurrius.png",
     "examine": "You're never more than six feet away from one.",
     "category": "boss",
-    "unlockCost": 9100000000,
+    "unlockCost": 290905000,
     "always": [
       {
         "itemId": "big-bones",
@@ -11564,7 +11564,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Shellbane_gryphon.png",
     "examine": "A calamity to all tortugan-kind.",
     "category": "boss",
-    "unlockCost": 14000000000,
+    "unlockCost": 290905000,
     "always": [
       {
         "itemId": "big-bones",
@@ -11748,7 +11748,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Skotizo.png",
     "examine": "A darkly altared demon.",
     "category": "boss",
-    "unlockCost": 30000000000,
+    "unlockCost": 336935000,
     "always": [
       {
         "itemId": "infernal-ashes",
@@ -12031,7 +12031,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Spindel.png",
     "examine": "I wonder if it's venomous...",
     "category": "boss",
-    "unlockCost": 25000000000,
+    "unlockCost": 325842000,
     "always": [
       {
         "itemId": "big-bones",
@@ -12373,7 +12373,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/The_Hueycoatl.png",
     "examine": "",
     "category": "boss",
-    "unlockCost": 170000000000,
+    "unlockCost": 3043499000,
     "always": [
       {
         "itemId": "big-bones",
@@ -12652,7 +12652,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Vardorvis.png",
     "examine": "How does he suck blood now?",
     "category": "boss",
-    "unlockCost": 280000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -12753,200 +12753,200 @@
       },
       {
         "itemId": "pure-essence",
-        "minQuantity": 120180,
-        "maxQuantity": 120180,
+        "minQuantity": 120,
+        "maxQuantity": 180,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "iron-ore",
-        "minQuantity": 3857,
-        "maxQuantity": 3857,
+        "minQuantity": 38,
+        "maxQuantity": 57,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "silver-ore",
-        "minQuantity": 3857,
-        "maxQuantity": 3857,
+        "minQuantity": 38,
+        "maxQuantity": 57,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "coal",
-        "minQuantity": 130195,
-        "maxQuantity": 130195,
+        "minQuantity": 130,
+        "maxQuantity": 195,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-ore",
-        "minQuantity": 3857,
-        "maxQuantity": 3857,
+        "minQuantity": 38,
+        "maxQuantity": 57,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamantite-ore",
-        "minQuantity": 4567,
-        "maxQuantity": 4567,
+        "minQuantity": 45,
+        "maxQuantity": 67,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "runite-ore",
-        "minQuantity": 1827,
-        "maxQuantity": 1827,
+        "minQuantity": 18,
+        "maxQuantity": 27,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "sapphire",
-        "minQuantity": 1725,
-        "maxQuantity": 1725,
+        "minQuantity": 17,
+        "maxQuantity": 25,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "emerald",
-        "minQuantity": 1725,
-        "maxQuantity": 1725,
+        "minQuantity": 17,
+        "maxQuantity": 25,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "ruby",
-        "minQuantity": 1725,
-        "maxQuantity": 1725,
+        "minQuantity": 17,
+        "maxQuantity": 25,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-ruby",
-        "minQuantity": 2537,
-        "maxQuantity": 2537,
+        "minQuantity": 25,
+        "maxQuantity": 37,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-diamond",
-        "minQuantity": 2537,
-        "maxQuantity": 2537,
+        "minQuantity": 25,
+        "maxQuantity": 37,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "rune-javelin-tips",
-        "minQuantity": 3654,
-        "maxQuantity": 3654,
+        "minQuantity": 36,
+        "maxQuantity": 54,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-javelin-tips",
-        "minQuantity": 3654,
-        "maxQuantity": 3654,
+        "minQuantity": 36,
+        "maxQuantity": 54,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-dart-tip",
-        "minQuantity": 100150,
-        "maxQuantity": 100150,
+        "minQuantity": 100,
+        "maxQuantity": 150,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "raw-shark",
-        "minQuantity": 200300,
-        "maxQuantity": 200300,
+        "minQuantity": 200,
+        "maxQuantity": 300,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "bronze-javelin",
-        "minQuantity": 4263,
-        "maxQuantity": 4263,
+        "minQuantity": 42,
+        "maxQuantity": 63,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-javelin",
-        "minQuantity": 4263,
-        "maxQuantity": 4263,
+        "minQuantity": 42,
+        "maxQuantity": 63,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamant-javelin",
-        "minQuantity": 4263,
-        "maxQuantity": 4263,
+        "minQuantity": 42,
+        "maxQuantity": 63,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "onyx-bolts-e",
-        "minQuantity": 6090,
-        "maxQuantity": 6090,
+        "minQuantity": 60,
+        "maxQuantity": 90,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mind-rune",
-        "minQuantity": 120180,
-        "maxQuantity": 120180,
+        "minQuantity": 120,
+        "maxQuantity": 180,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "fire-rune",
-        "minQuantity": 120180,
-        "maxQuantity": 120180,
+        "minQuantity": 120,
+        "maxQuantity": 180,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "lava-rune",
-        "minQuantity": 200300,
-        "maxQuantity": 200300,
+        "minQuantity": 200,
+        "maxQuantity": 300,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "blood-rune",
-        "minQuantity": 200300,
-        "maxQuantity": 200300,
+        "minQuantity": 200,
+        "maxQuantity": 300,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "soul-rune",
-        "minQuantity": 400600,
-        "maxQuantity": 400600,
+        "minQuantity": 400,
+        "maxQuantity": 600,
         "numerator": 2,
         "denominator": 100,
         "noted": true
@@ -13003,7 +13003,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Venenatis.png",
     "examine": "That'll get your arachnophobia going...",
     "category": "boss",
-    "unlockCost": 74000000000,
+    "unlockCost": 2771029000,
     "always": [
       {
         "itemId": "big-bones",
@@ -13409,7 +13409,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Vet'ion.png",
     "examine": "",
     "category": "boss",
-    "unlockCost": 70000000000,
+    "unlockCost": 2771029000,
     "always": [
       {
         "itemId": "big-bones",
@@ -13823,7 +13823,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/The_Whisperer.png",
     "examine": "Dare you face the shadows?",
     "category": "boss",
-    "unlockCost": 280000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -13924,32 +13924,32 @@
       },
       {
         "itemId": "bronze-longsword",
-        "minQuantity": 1624,
-        "maxQuantity": 1624,
+        "minQuantity": 16,
+        "maxQuantity": 24,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-longsword",
-        "minQuantity": 710,
-        "maxQuantity": 710,
+        "minQuantity": 7,
+        "maxQuantity": 10,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamant-longsword",
-        "minQuantity": 914,
-        "maxQuantity": 914,
+        "minQuantity": 9,
+        "maxQuantity": 14,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "battlestaff",
-        "minQuantity": 70105,
-        "maxQuantity": 70105,
+        "minQuantity": 70,
+        "maxQuantity": 105,
         "numerator": 2,
         "denominator": 100,
         "noted": true
@@ -13964,160 +13964,160 @@
       },
       {
         "itemId": "pure-essence",
-        "minQuantity": 1,
-        "maxQuantity": 1,
+        "minQuantity": 280,
+        "maxQuantity": 420,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "iron-ore",
-        "minQuantity": 88133,
-        "maxQuantity": 88133,
+        "minQuantity": 88,
+        "maxQuantity": 133,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "coal",
-        "minQuantity": 303455,
-        "maxQuantity": 303455,
+        "minQuantity": 303,
+        "maxQuantity": 455,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "gold-ore",
-        "minQuantity": 88133,
-        "maxQuantity": 88133,
+        "minQuantity": 88,
+        "maxQuantity": 133,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "mithril-ore",
-        "minQuantity": 88133,
-        "maxQuantity": 88133,
+        "minQuantity": 88,
+        "maxQuantity": 133,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "adamantite-ore",
-        "minQuantity": 105157,
-        "maxQuantity": 105157,
+        "minQuantity": 105,
+        "maxQuantity": 157,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "runite-ore",
-        "minQuantity": 4263,
-        "maxQuantity": 4263,
+        "minQuantity": 42,
+        "maxQuantity": 63,
         "numerator": 2,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "sapphire",
-        "minQuantity": 3959,
-        "maxQuantity": 3959,
+        "minQuantity": 39,
+        "maxQuantity": 59,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "emerald",
-        "minQuantity": 3959,
-        "maxQuantity": 3959,
+        "minQuantity": 39,
+        "maxQuantity": 59,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "ruby",
-        "minQuantity": 3959,
-        "maxQuantity": 3959,
+        "minQuantity": 39,
+        "maxQuantity": 59,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-ruby",
-        "minQuantity": 5887,
-        "maxQuantity": 5887,
+        "minQuantity": 58,
+        "maxQuantity": 87,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "uncut-diamond",
-        "minQuantity": 5887,
-        "maxQuantity": 5887,
+        "minQuantity": 58,
+        "maxQuantity": 87,
         "numerator": 5,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "dragon-javelin-tips",
-        "minQuantity": 84126,
-        "maxQuantity": 84126,
+        "minQuantity": 84,
+        "maxQuantity": 126,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "runite-bolts-unf",
-        "minQuantity": 84126,
-        "maxQuantity": 84126,
+        "minQuantity": 84,
+        "maxQuantity": 126,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "raw-monkfish",
-        "minQuantity": 7001050,
-        "maxQuantity": 7001050,
+        "minQuantity": 700,
+        "maxQuantity": 1050,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "water-rune",
-        "minQuantity": 280420,
-        "maxQuantity": 280420,
+        "minQuantity": 280,
+        "maxQuantity": 420,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "steam-rune",
-        "minQuantity": 466700,
-        "maxQuantity": 466700,
+        "minQuantity": 466,
+        "maxQuantity": 700,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "chaos-rune",
-        "minQuantity": 140210,
-        "maxQuantity": 140210,
+        "minQuantity": 140,
+        "maxQuantity": 210,
         "numerator": 1,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "death-rune",
-        "minQuantity": 466700,
-        "maxQuantity": 466700,
+        "minQuantity": 466,
+        "maxQuantity": 700,
         "numerator": 8,
         "denominator": 100,
         "noted": true
       },
       {
         "itemId": "soul-rune",
-        "minQuantity": 9331400,
-        "maxQuantity": 9331400,
+        "minQuantity": 933,
+        "maxQuantity": 1400,
         "numerator": 2,
         "denominator": 100,
         "noted": true
@@ -14174,7 +14174,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Yama.png",
     "examine": "A demon of quite obviously fathomable power. The vicious grin rarely leaves his face.",
     "category": "boss",
-    "unlockCost": 860000000000,
+    "unlockCost": 3043499000,
     "always": [],
     "mainTable": [
       {
@@ -14468,7 +14468,7 @@
     "iconUrl": "https://oldschool.runescape.wiki/images/Zalcano.png",
     "examine": "A former demon of Zamorak that has been turned to stone.",
     "category": "boss",
-    "unlockCost": 33000000000,
+    "unlockCost": 717597000,
     "always": [
       {
         "itemId": "crystal-shard",

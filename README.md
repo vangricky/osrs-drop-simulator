@@ -16,7 +16,7 @@ It's grown into a small idle/incremental game on top of that core simulator:
 
 - **65 bosses** and 700+ items, with drop rates and values sourced from real OSRS data (not guessed). Boss-only by design, no filler monsters that just drop bones
 - **A GP economy**: sell what you loot, spend GP to unlock harder bosses
-- **Progression that actually grinds**: guests get every boss unlocked to just mess around; signed-in accounts start with two and grind GP for the rest, with top-tier bosses costing *billions*
+- **Progression that actually grinds**: guests get every boss unlocked to just mess around; signed-in accounts start with two and grind GP for the rest, with top-tier bosses costing *billions of GP*
 - **Openable containers**: clue scroll caskets and chest keys you loot can be opened for their own reward rolls
 - **Accounts + a global leaderboard**: sign in and your GP total (and separately, prestige count) is ranked against everyone else who's played
 - **Prestige**: unlock every boss and reset for a permanent, ever-increasing prestige count with its own leaderboard tab
@@ -26,7 +26,7 @@ It's grown into a small idle/incremental game on top of that core simulator:
 1. **Pick a boss** from the list on the left. Playing as a guest, everything's unlocked from the start, no grinding required. Sign in and you'll start with two, then unlock the rest with GP.
 2. **Hit "Simulate Drop"** to roll its drop table. Coins go straight to your GP balance, and items land in your 28 slot inventory.
 3. **Sell, open, or lock what you get.** Click an item to sell it for GP right away, or to open it if it's a container like a clue casket, Larran's key, or Crystal key. Hold an item down for a second to lock it, so it can't be sold or discarded by accident. "Sell all" liquidates everything that isn't locked in one click.
-4. **Unlock new bosses** with GP once you can afford them. Costs scale steeply, from tens of millions for the lowest level bosses up to hundreds of billions for the true endgame. This is meant to take a while.
+4. **Unlock new bosses** with GP once you can afford them. Costs scale steeply, from a few million for the first paid boss up to a few billion for the true endgame. This is meant to take a while.
 5. **Sign in** (top right) to save your progress to the cloud instead of just this browser, and get a spot on the leaderboard.
 
 ## Climbing the leaderboard

@@ -93,7 +93,7 @@ const img = (name: string) => `https://oldschool.runescape.wiki/images/${name.re
 const handcraftedNpcs: Npc[] = [
   {
     id: 'king-black-dragon',
-    unlockCost: 20000000000,
+    unlockCost: 325842000,
     name: 'King Black Dragon',
     combatLevel: 276,
     iconUrl: img('King Black Dragon'),
@@ -136,7 +136,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'giant-mole',
-    unlockCost: 13000000000,
+    unlockCost: 290905000,
     name: 'Giant Mole',
     combatLevel: 230,
     iconUrl: img('Giant Mole'),
@@ -178,7 +178,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'kalphite-queen',
-    unlockCost: 32000000000,
+    unlockCost: 717597000,
     name: 'Kalphite Queen',
     combatLevel: 333,
     iconUrl: img('Kalphite Queen'),
@@ -219,7 +219,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'general-graardor',
-    unlockCost: 160000000000,
+    unlockCost: 3043499000,
     name: 'General Graardor',
     combatLevel: 624,
     iconUrl: img('General Graardor'),
@@ -258,7 +258,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'vorkath',
-    unlockCost: 230000000000,
+    unlockCost: 3043499000,
     name: 'Vorkath',
     combatLevel: 732,
     iconUrl: img('Vorkath'),
@@ -301,7 +301,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'zulrah',
-    unlockCost: 230000000000,
+    unlockCost: 3043499000,
     name: 'Zulrah',
     combatLevel: 725,
     iconUrl: img('Zulrah (serpentine)'),
@@ -331,7 +331,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'tztok-jad',
-    unlockCost: 210000000000,
+    unlockCost: 3043499000,
     name: 'TzTok-Jad',
     combatLevel: 702,
     iconUrl: img('TzTok-Jad'),
@@ -348,7 +348,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'tzkal-zuk',
-    unlockCost: 1200000000000,
+    unlockCost: 3043499000,
     name: 'TzKal-Zuk',
     combatLevel: 1400,
     iconUrl: img('TzKal-Zuk'),
@@ -365,7 +365,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'grotesque-guardians',
-    unlockCost: 15000000000,
+    unlockCost: 290905000,
     name: 'Grotesque Guardians',
     combatLevel: 248,
     iconUrl: img('Dusk'),
@@ -425,7 +425,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'revenant-maledictus',
-    unlockCost: 50000000000,
+    unlockCost: 2771029000,
     name: 'Revenant maledictus',
     combatLevel: 397,
     iconUrl: img('Revenant maledictus'),
@@ -494,7 +494,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'barrows-chest',
-    unlockCost: 2300000000,
+    unlockCost: 2997000,
     name: 'Barrows chest',
     combatLevel: 115,
     iconUrl: img('Chest (Barrows)'),
@@ -543,7 +543,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'lunar-chest',
-    unlockCost: 31000000000,
+    unlockCost: 663792000,
     name: 'Lunar Chest',
     combatLevel: 329,
     iconUrl: img('Lunar Chest (open)'),
@@ -582,7 +582,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'chambers-of-xeric-chest',
-    unlockCost: 90000000000,
+    unlockCost: 760984000,
     name: 'Chambers of Xeric chest',
     combatLevel: 380,
     iconUrl: img('Crystal (ancient chest)'),
@@ -647,7 +647,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'theatre-of-blood-chest',
-    unlockCost: 150000000000,
+    unlockCost: 2771029000,
     name: 'Theatre of Blood chest',
     combatLevel: 480,
     iconUrl: img('Monumental chest (teammate\'s, closed)'),
@@ -703,7 +703,7 @@ const handcraftedNpcs: Npc[] = [
   },
   {
     id: 'tombs-of-amascut-chest',
-    unlockCost: 220000000000,
+    unlockCost: 3043499000,
     name: 'Tombs of Amascut chest',
     combatLevel: 550,
     iconUrl: img('Chest (Tombs of Amascut, closed)'),

@@ -216,6 +216,21 @@ export function parseWikiQuantity(raw) {
   const cleaned = String(raw).replace(/\(\s*noted\s*\)/i, "").replace(/&nbsp;/g, "").trim();
   const range = cleaned.match(/(\d[\d,]*)\s*-\s*(\d[\d,]*)/);
   if (range) return { min: Number(range[1].replace(/,/g, "")), max: Number(range[2].replace(/,/g, "")), noted };
+  // A handful of pages (confirmed: Duke Sucellus, Vardorvis, The Whisperer,
+  // The Leviathan) write a min-max range with a single bare comma or
+  // semicolon instead of the usual dash, e.g. "216,325" or "280; 420"
+  // meaning 216-325 / 280-420 — not the huge single quantities 216325 /
+  // 280420 that naive comma-stripping would otherwise produce. Confirmed
+  // via raw wikitext that this wiki never uses a comma as a thousands
+  // separator in a genuine single quantity (large flat drops are written
+  // as e.g. "40000", not "40,000"), so a lone comma/semicolon here is
+  // unambiguously a range separator, not grouping.
+  const commaRange = cleaned.match(/^(\d+)\s*[,;]\s*(\d+)$/);
+  if (commaRange) {
+    const min = Number(commaRange[1]);
+    const max = Number(commaRange[2]);
+    if (min <= max) return { min, max, noted };
+  }
   const n = Number(cleaned.replace(/,/g, ""));
   return { min: Number.isFinite(n) ? n : 1, max: Number.isFinite(n) ? n : 1, noted };
 }
