@@ -34,7 +34,7 @@ const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 // ignored entirely — every panel is shown at once in the 3-column layout.
 const MOBILE_TABS = [
   { key: "bosses", label: "Bosses" },
-  { key: "detail", label: "Kill" },
+  { key: "detail", label: "Loot Table" },
   { key: "inventory", label: "Inventory" },
   { key: "log", label: "Log" },
 ] as const;
@@ -44,7 +44,11 @@ const LAST_NPC_STORAGE_KEY = "osrs-drop-sim-last-npc-v1";
 
 function App() {
   const { npcs } = useGameData();
-  const [mobileTab, setMobileTab] = useState<MobileTab>("detail");
+  // Land on the boss browser first, not the loot-table/kill panel — a fresh
+  // visitor (e.g. from a bio-link) needs to pick a boss before "Kill" means
+  // anything; jumping straight into a panel for whatever boss happened to be
+  // selected last is disorienting as a first screen.
+  const [mobileTab, setMobileTab] = useState<MobileTab>("bosses");
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [celebratingNpc, setCelebratingNpc] = useState<Npc | null>(null);
   const [showAuth, setShowAuth] = useState(false);
@@ -89,10 +93,10 @@ function App() {
     setAutoKilling(false);
   }, [selectedNpc?.id, isSelectedUnlocked, setAutoKilling]);
 
-  // Jumping to a boss from the browser should also jump straight to its kill
-  // panel on mobile — otherwise picking a boss would silently do nothing
-  // until the player noticed they had to switch tabs themselves. No-op cost
-  // at lg+, where the tabs aren't shown at all.
+  // Jumping to a boss from the browser should also jump straight to its loot
+  // table panel on mobile — otherwise picking a boss would silently do
+  // nothing until the player noticed they had to switch tabs themselves.
+  // No-op cost at lg+, where the tabs aren't shown at all.
   const handleSelectNpc = (npc: Npc) => {
     setSelectedNpc(npc);
     localStorage.setItem(LAST_NPC_STORAGE_KEY, npc.id);
