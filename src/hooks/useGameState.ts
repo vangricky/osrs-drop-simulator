@@ -658,22 +658,61 @@ export function useGameState(userId: string | null = null) {
     });
   }, []);
 
+  // Discarding, unlike selling, has no natural reason to touch the server at
+  // all from a GP standpoint — but it still has to tell the server ledger
+  // (user_items) the item is gone. Skipping that call used to mean a
+  // discarded non-tradeable item (pets, looting bag, unopened clue scrolls —
+  // sell_item/sell_all_items both require `tradeable`, so selling could
+  // never clear these either) looked gone locally but reappeared on the very
+  // next load: loadCloudState's reconciliation trusts user_items as the
+  // source of truth for what must be shown, and nothing had ever told it the
+  // item was gone.
   const removeItem = useCallback((index: number) => {
+    const slot = stateRef.current.inventory[index];
+    if (!slot || slot.locked) return;
     setState((prev) => {
-      const slot = prev.inventory[index];
-      if (slot?.locked) return prev;
+      const current = prev.inventory[index];
+      if (!current || current.locked) return prev;
       const next = [...prev.inventory];
       next[index] = null;
       return { ...prev, inventory: next };
     });
-  }, []);
+    if (userId && supabase) {
+      enqueueCloudMutation(
+        () => supabase!.rpc("discard_item", { p_item_id: slot.itemId, p_quantity: slot.quantity }),
+        () =>
+          setState((prev) => {
+            if (prev.inventory[index]) return prev;
+            const next = [...prev.inventory];
+            next[index] = slot;
+            return { ...prev, inventory: next };
+          }),
+      );
+    }
+  }, [userId, enqueueCloudMutation]);
 
   const clearInventory = useCallback(() => {
+    const prevInventory = stateRef.current.inventory;
+    // Same reasoning as sellAll's lockedItemIds: discard_all_items clears an
+    // item id from the account's whole ledger, not just these 28 slots, so
+    // anything locked has to be passed through as an exclusion.
+    const lockedItemIds = Array.from(
+      new Set(
+        prevInventory.filter((slot): slot is InventorySlot => Boolean(slot?.locked)).map((slot) => slot.itemId),
+      ),
+    );
+    const hadAnyToDiscard = prevInventory.some((slot) => slot && !slot.locked);
     setState((prev) => ({
       ...prev,
       inventory: prev.inventory.map((slot) => (slot?.locked ? slot : null)),
     }));
-  }, []);
+    if (hadAnyToDiscard && userId && supabase) {
+      enqueueCloudMutation(
+        () => supabase!.rpc("discard_all_items", { p_exclude_item_ids: lockedItemIds }),
+        () => setState((prev) => ({ ...prev, inventory: prevInventory })),
+      );
+    }
+  }, [userId, enqueueCloudMutation]);
 
   const toggleLock = useCallback((index: number) => {
     setState((prev) => {
