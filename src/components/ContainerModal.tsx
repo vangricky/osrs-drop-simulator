@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { useGameData } from "../hooks/useGameData";
 import type { ContainerOpenResult } from "../hooks/useGameState";
 import { consolidateDrops, formatGp } from "../utils/dropLogic";
 import IconImg from "./IconImg";
+
+const AUTO_CLOSE_MS = 10_000;
 
 interface ContainerModalProps {
   result: ContainerOpenResult;
@@ -10,6 +13,15 @@ interface ContainerModalProps {
 
 export default function ContainerModal({ result, onClose }: ContainerModalProps) {
   const { items: allItems } = useGameData();
+
+  // Auto Open can replace `result` many times a second while this modal
+  // stays mounted (no key, same JSX slot) — keying the timer on `result`
+  // means each new roll restarts the 10s clock, so it only actually closes
+  // 10s after the *last* result shown, not 10s after the modal first opened.
+  useEffect(() => {
+    const timer = setTimeout(onClose, AUTO_CLOSE_MS);
+    return () => clearTimeout(timer);
+  }, [result, onClose]);
   const coinsGained = result.drops
     .filter((d) => d.item.id === "coins")
     .reduce((sum, d) => sum + d.quantity, 0);
