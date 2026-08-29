@@ -135,7 +135,7 @@ function App() {
         onOpenCollectionLog={() => setShowCollectionLog(true)}
         prestigeCount={game.prestigeCount}
         canPrestige={game.canPrestige}
-        unlockedNpcCount={game.unlockedNpcIds.size}
+        unlockedNpcCount={game.unlockedNpcCount}
         totalNpcCount={game.totalNpcCount}
         onOpenPrestige={() => setShowPrestigeConfirm(true)}
       />

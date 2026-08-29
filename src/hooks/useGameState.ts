@@ -895,6 +895,20 @@ export function useGameState(userId: string | null = null) {
     [npcs, unlockedNpcIds],
   );
 
+  // unlockedNpcIds.size isn't safe to show directly as a progress count: an
+  // account can carry ids in its saved unlockedNpcIds that don't match any
+  // *current* npc (a boss id that got renamed by a data-pipeline change, a
+  // one-off historical bug, etc.) — those still count toward the Set's size
+  // even though they don't correspond to anything on the actual 65-boss
+  // roster anymore, inflating "X unlocked" above the player's real progress.
+  // canPrestige above is already immune to this (npcs.every only ever checks
+  // real npc ids), so intersect against npcs here the same way for the
+  // number shown next to it.
+  const unlockedNpcCount = useMemo(
+    () => npcs.filter((n) => unlockedNpcIds.has(n.id)).length,
+    [npcs, unlockedNpcIds],
+  );
+
   return {
     isCloudSynced: Boolean(userId),
     inventory: state.inventory,
@@ -906,6 +920,7 @@ export function useGameState(userId: string | null = null) {
     gp: state.gp,
     unlockedNpcIds,
     totalNpcCount: npcs.length,
+    unlockedNpcCount,
     prestigeCount: state.prestigeCount,
     canPrestige,
     totalKills,
