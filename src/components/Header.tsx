@@ -23,7 +23,7 @@ interface HeaderProps {
 const GHOST_BTN =
   "osrs-bevel bg-osrs-panel-dark/50 px-4 py-2 text-sm font-semibold text-osrs-parchment-dark/80 transition hover:text-osrs-parchment active:osrs-bevel-inset";
 const GOLD_BTN =
-  "osrs-cta rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-4 py-2 text-sm font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)]";
+  "osrs-cta rounded-[9px] bg-gradient-to-b from-osrs-gold to-osrs-orange px-4 py-2 text-sm font-bold text-osrs-panel-dark shadow-[0_8px_18px_-6px_rgba(255,183,0,0.55)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none disabled:hover:brightness-100";
 
 export default function Header({
   gp,
