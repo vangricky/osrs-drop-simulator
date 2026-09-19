@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "generate-monsters": "node scripts/generate-monsters.mjs",
     "update-prices": "node scripts/update-prices.mjs",
-    "export-reference-data": "node scripts/export-reference-data.mjs"
+    "export-reference-data": "node scripts/export-reference-data.mjs",
+    "generate-boss-pages": "node scripts/generate-boss-pages.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

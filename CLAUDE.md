@@ -21,6 +21,7 @@ node scripts/generate-bosses-from-wiki.mjs   # add current bosses missing from o
 node scripts/finalize-starter-bosses.mjs     # pick the 2 free starter bosses (lowest combat level)
 npm run update-prices          # refresh item GP values from the live GE price API
 npm run export-reference-data  # regenerate supabase/reference-data.json + a timestamped seed migration
+npm run generate-boss-pages    # regenerate public/bosses/*/index.html + public/sitemap.xml
 ```
 
 There is no test suite. Verification is: `npm run build` (typecheck) + `npm run lint`, and for
@@ -160,6 +161,32 @@ palette by hand, not by referencing the Vite build's hashed CSS output) and its 
 (`FAQPage` structured data). It is deliberately **not** wired into the React app or the Vite build — treat it
 as its own small static site living inside `public/`, linked from the in-game hamburger menu as a plain
 `<a href="/faq/">`, not a client-side route.
+
+### SEO: `public/bosses/*/` — one static, generated page per boss
+
+The React app is one URL — every boss's drop table only ever lives at `/`, behind client-side state, so none
+of the 65 bosses were individually indexable/rankable for their own name (e.g. "zulrah drop simulator"), no
+matter how good that one page's SEO was. `scripts/generate-boss-pages.mjs` closes that gap by emitting a
+genuinely static, zero-JS page per boss to `public/bosses/<id>/index.html` — same "hand-written-style static
+HTML, not part of the Vite/React build" approach as `public/faq/index.html`, not a React route. It also
+regenerates `public/sitemap.xml` from scratch (the 3 hand-authored pages plus one `<url>` per boss).
+
+Like `scripts/export-reference-data.mjs`, it transpiles `src/data/npcData.ts` (and `src/data/petBosses.ts`, for
+pet rates) with esbuild and merges them with the bulk-generated JSON the same way the browser does, so a
+boss's page can never drift out of sync with what the live simulator actually shows for that boss — **re-run
+it (`npm run generate-boss-pages`) after any change to a boss's drop table**, `generate-monsters`, or
+`update-prices`. Each page's CSP gets its own sha256 hash for that page's own JSON-LD block, computed inline in
+the script rather than via `scripts/hash-jsonld.mjs` (which only handles one fixed file at a time). The
+"Common questions" block on each page is generated content, not hand-written per boss — it always leads with
+the rarest **main-table** entry specifically (not tertiary), since tertiary is mostly clue scrolls and novelty
+jars that can be numerically rarer than a boss's actual marquee unique without being what anyone's searching
+for; tertiary is only a fallback for a boss with an empty main table.
+
+Each page's CTA links back into the real interactive simulator via `/?npc=<id>` rather than duplicating any
+gameplay — `src/App.tsx` reads that query param once (`useGameData()` is Suspense-gated, so `npcs` is already
+populated on this very first render, no effect needed to wait for it) to pick that boss directly into
+`selectedNpc`/`mobileTab`'s initial state, then a `[]`-ish effect (see the code comment on why its dep array
+isn't actually `[]`) persists that pick like a normal selection and strips `?npc=` back off the URL.
 
 ### `pet-drop-sim/` is a second real page — a second Vite entry, not a route
 
