@@ -113,8 +113,14 @@ export default function Header({
           </div>
         </div>
 
-        {/* RIGHT: actions, with everything else tucked behind the hamburger. */}
-        <div className="flex shrink-0 items-center gap-2">
+        {/* RIGHT: actions, with everything else tucked behind the hamburger.
+            No shrink-0 here (unlike before) — that forced this whole group's
+            width to its unwrapped max-content size even with flex-wrap set,
+            which is exactly what let it overflow past the viewport edge on
+            narrow phones ("Leaderboard" and the hamburger button used to get
+            clipped off-screen below ~390px). Letting it shrink lets flex-wrap
+            actually drop these buttons to their own row(s) instead. */}
+        <div className="flex flex-wrap items-center justify-end gap-2">
           <button onClick={onOpenCollectionLog} className={GHOST_BTN}>
             Collection log
           </button>

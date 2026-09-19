@@ -64,6 +64,11 @@ const TurnstileWidget = forwardRef<TurnstileHandle, TurnstileWidgetProps>(functi
       widgetIdRef.current = window.turnstile.render(`#${containerId}`, {
         sitekey: SITE_KEY,
         theme: "dark",
+        // The default "normal" size is a fixed 300x65px box that doesn't
+        // shrink — on phones narrower than ~370px (with the auth modal's
+        // padding) it overflowed past the modal's rounded edges. "flexible"
+        // fills the container's actual width instead.
+        size: "flexible",
         callback: (token: string) => onTokenRef.current(token),
         "expired-callback": () => onTokenRef.current(null),
         "error-callback": () => onTokenRef.current(null),
@@ -77,7 +82,9 @@ const TurnstileWidget = forwardRef<TurnstileHandle, TurnstileWidgetProps>(functi
 
   if (!SITE_KEY) return null;
 
-  return <div id={containerId} className="mt-2 flex justify-center" />;
+  // No flex/justify-center here anymore — a "flexible"-size widget already
+  // fills 100% of this container's width itself.
+  return <div id={containerId} className="mt-2 w-full" />;
 });
 
 export default TurnstileWidget;

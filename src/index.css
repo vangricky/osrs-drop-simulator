@@ -249,6 +249,15 @@ body::after {
   }
 }
 
+/* Firefox has no ::-webkit-scrollbar support at all (a WebKit/Blink-only
+   API) — without this it would just fall back to the OS's plain default
+   scrollbar instead of this dark/gold themed one. scrollbar-color's two
+   values are thumb then track, matching the -webkit- rules below. */
+.osrs-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-osrs-border-light) var(--color-osrs-panel-dark);
+}
+
 .osrs-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
