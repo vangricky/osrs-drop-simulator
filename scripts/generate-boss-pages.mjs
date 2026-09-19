@@ -266,12 +266,14 @@ function pageHtml(npc, items, allNpcs, petInfo) {
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:image" content="${SITE_URL}/brand/logo.png" />
+    <meta property="og:image" content="${SITE_URL}/brand/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
-    <meta name="twitter:image" content="${SITE_URL}/brand/logo.png" />
+    <meta name="twitter:image" content="${SITE_URL}/brand/og-image.jpg" />
 
     <script type="application/ld+json">
 ${jsonLdContent}
