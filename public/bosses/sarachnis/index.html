@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-XEL4mPYOOohkL0XsQtno2fDFAwBQHzUuW6zKG2l4+7c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-HlDY+zzbxSqSk+w8V7UsNAQyyXR7AG6inO7oHuB8nDA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,39 +43,66 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Sarachnis cudgel from Sarachnis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sarachnis cudgel drops at 1/384 per main-table roll."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Sarachnis cudgel from Sarachnis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sarachnis cudgel drops at 1/384 per main-table roll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Sarachnis kills for the pet on average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Sraracha pet drops at 1/3,000, independent of every other roll — so on average, 3,000 kills, though it can drop on kill one or take far longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Sarachnis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "49 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 8 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Sarachnis's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Sarachnis's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many Sarachnis kills for the pet on average?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Sraracha pet drops at 1/3,000, independent of every other roll — so on average, 3,000 kills, though it can drop on kill one or take far longer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many different items can drop from Sarachnis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "49 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 8 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Sarachnis's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Sarachnis's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sarachnis",
+          "item": "https://osrsdropsimulation.com/bosses/sarachnis/"
+        }
+      ]
     }
   ]
 }
@@ -187,6 +214,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Sarachnis</span>
       </nav>
     </header>

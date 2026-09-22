@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-BvDkZVRNJql59ET6xGmE7WFWcY0wZZnc4rv0PZ99dYc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-qTcDwh78tQQPQK8kWjz0b/k0wlVA/Nv//2gYEfgcfMA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,31 +43,58 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Uncut dragonstone from Gemstone Crab?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Uncut dragonstone drops at 1/500 per main-table roll. Gemstone Crab rolls its main table 3 times per kill, so the effective rate works out to roughly 1/167 kills."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Uncut dragonstone from Gemstone Crab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uncut dragonstone drops at 1/500 per main-table roll. Gemstone Crab rolls its main table 3 times per kill, so the effective rate works out to roughly 1/167 kills."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Gemstone Crab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "8 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 0 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Gemstone Crab's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Gemstone Crab's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many different items can drop from Gemstone Crab?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "8 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 0 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Gemstone Crab's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Gemstone Crab's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Gemstone Crab",
+          "item": "https://osrsdropsimulation.com/bosses/gemstone-crab/"
+        }
+      ]
     }
   ]
 }
@@ -179,6 +206,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Gemstone Crab</span>
       </nav>
     </header>

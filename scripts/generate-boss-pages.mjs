@@ -31,6 +31,56 @@ const SITE_URL = "https://osrsdropsimulation.com";
 const BOSSES_DIR = path.join(ROOT, "public/bosses");
 const today = new Date().toISOString().slice(0, 10);
 
+/** Design tokens + page chrome shared by every generated page (the per-boss
+ * pages and the /bosses/ hub index). Page-specific rules stay inline in each
+ * page's own <style> block after this. */
+const BASE_CSS = `      :root {
+        --ink: #0c0a08; --ink-2: #1c1712; --ink-3: #241d15;
+        --parchment: #d9c8a0; --parchment-dim: #c3ac7e; --parchment-faint: rgba(217, 200, 160, 0.55);
+        --gold: #ffb700; --orange: #ff981f; --text: #ffe4a3;
+        --border-light: rgba(156, 138, 99, 0.55); --border-hair: rgba(255, 201, 77, 0.28);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--ink);
+        background:
+          radial-gradient(ellipse 900px 480px at 50% -10%, rgba(255, 183, 0, 0.14) 0%, transparent 60%),
+          radial-gradient(ellipse 1000px 700px at 100% 110%, rgba(79, 143, 255, 0.06) 0%, transparent 55%),
+          linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 55%, var(--ink-3) 100%);
+        color: var(--text);
+        font-family: "Cabin", ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        padding-inline: 20px;
+      }
+      a { color: inherit; }
+      .display { font-family: "Cinzel", serif; }
+      .gold-leaf {
+        background: linear-gradient(180deg, #ffe9ab, var(--gold) 70%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 12px rgba(255, 183, 0, 0.35));
+      }
+      header.site {
+        max-width: 760px; margin: 14px auto 0; display: flex; align-items: center;
+        justify-content: space-between; gap: 12px; padding-block: 10px; flex-wrap: wrap;
+      }
+      .brand { display: flex; align-items: center; gap: 8px; font-family: "Cinzel", serif; font-weight: 700; font-size: 15px; color: var(--parchment); text-decoration: none; }
+      .brand img { height: 24px; width: auto; }
+      nav.crumbs { font-size: 12px; color: var(--parchment-faint); }
+      nav.crumbs a { text-decoration: none; }
+      nav.crumbs a:hover { color: var(--gold); }
+      main { max-width: 760px; margin: 0 auto; padding-bottom: 64px; }
+      .panel {
+        position: relative; border-radius: 14px; border: 1px solid var(--border-hair);
+        background-image: linear-gradient(165deg, rgba(74, 65, 54, 0.5) 0%, rgba(18, 14, 9, 0.72) 100%);
+        box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      }
+      .panel::before {
+        content: ""; position: absolute; inset: 0 0 auto 0; height: 40%; border-radius: inherit;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent); pointer-events: none;
+      }`;
+
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
@@ -40,6 +90,22 @@ function escapeHtml(s) {
 function formatRate(numerator, denominator) {
   const n = numerator === 1 ? "1" : String(numerator);
   return `${n}/${denominator.toLocaleString("en-US")}`;
+}
+
+/**
+ * Pet rates only — mirrors src/PetSimApp.tsx's own formatRate, normalising to
+ * a plain "1 in N". Pet chances reach here either as a two-step rate already
+ * multiplied through (Abyssal Sire's Unsired -> Font conversion, so the
+ * numerator isn't 1), or straight off a wiki-scraped table where the
+ * denominator can be fractional (Scorpia's offspring is stored as 1/2015.75,
+ * and 60 entries across the dataset are like it). Printing those raw gives
+ * "1/2,015.75", so pet figures get rounded to the whole number a player would
+ * actually recognise. Drop TABLE rows deliberately keep formatRate's
+ * unrounded output instead — those have to agree with the live simulator's
+ * own table exactly, fractions included.
+ */
+function formatPetRate(numerator, denominator) {
+  return `1/${Math.round(denominator / numerator).toLocaleString("en-US")}`;
 }
 
 function formatPercent(numerator, denominator) {
@@ -107,12 +173,20 @@ async function loadDataModule() {
   return import(`file://${outfile}`);
 }
 
-function jsonLdBlock(data) {
-  return JSON.stringify(data, null, 2);
-}
-
-function cspHashFor(jsonLdContent) {
-  return `sha256-${createHash("sha256").update(jsonLdContent).digest("base64")}`;
+/**
+ * Renders a JSON-LD graph as the exact text that will sit BETWEEN the
+ * <script type="application/ld+json"> tags, and the CSP hash of that same
+ * text. Returning both from one place is the point: a CSP hash has to cover
+ * the script element's content byte for byte, surrounding newlines and
+ * indentation included, so computing it from the bare JSON while the template
+ * interpolates it with a leading newline and trailing indent silently yields
+ * a hash that matches nothing (which is what this file did before). Callers
+ * must interpolate `body` with no extra whitespace of their own:
+ * `<script ...>${body}</script>`.
+ */
+function jsonLdScript(data) {
+  const body = `\n${JSON.stringify(data, null, 2)}\n    `;
+  return { body, cspHash: `sha256-${createHash("sha256").update(body).digest("base64")}` };
 }
 
 function buildFaq(npc, items, petInfo, stats) {
@@ -141,7 +215,7 @@ function buildFaq(npc, items, petInfo, stats) {
   if (petInfo) {
     faqs.push({
       q: `How many ${npc.name} kills for the pet on average?`,
-      a: `The ${petInfo.petName} pet drops at ${formatRate(petInfo.numerator, petInfo.denominator)}, independent of every other roll — so on average, ${petInfo.denominator.toLocaleString("en-US")} kills, though it can drop on kill one or take far longer.`,
+      a: `The ${petInfo.petName} pet drops at ${formatPetRate(petInfo.numerator, petInfo.denominator)}, independent of every other roll — so on average, ${Math.round(petInfo.denominator / petInfo.numerator).toLocaleString("en-US")} kills, though it can drop on kill one or take far longer.`,
     });
   }
 
@@ -208,28 +282,43 @@ function pageHtml(npc, items, allNpcs, petInfo) {
   const faqs = buildFaq(npc, items, petInfo, stats);
   const related = pickRelated(npc, allNpcs);
 
+  // Two graphs in one block (an @graph array), so the page still only needs a
+  // single inline <script> — and therefore a single CSP hash. BreadcrumbList
+  // is what lets Google render "Home › Bosses › <name>" in the result snippet
+  // instead of a bare URL, and it mirrors the visible <nav class="crumbs">.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Bosses", item: `${SITE_URL}/bosses/` },
+          { "@type": "ListItem", position: 3, name: npc.name, item: canonical },
+        ],
+      },
+    ],
   };
-  const jsonLdContent = jsonLdBlock(jsonLd);
-  const cspHash = cspHashFor(jsonLdContent);
+  const { body: jsonLdBody, cspHash } = jsonLdScript(jsonLd);
 
   const metaChips = [`Combat level <b>${npc.combatLevel.toLocaleString("en-US")}</b>`];
   if (rolls > 1) metaChips.push(`${rolls} main-table rolls per kill`);
-  if (petInfo) metaChips.push(`Pet rate <b>${formatRate(petInfo.numerator, petInfo.denominator)}</b>`);
+  if (petInfo) metaChips.push(`Pet rate <b>${formatPetRate(petInfo.numerator, petInfo.denominator)}</b>`);
 
   const factList = [
     { label: "Combat level", value: `${npc.combatLevel.toLocaleString("en-US")} (#${rank} of ${allNpcs.length} bosses)` },
     { label: "Unique droppable items", value: `${stats.total} (${stats.guaranteed} guaranteed)` },
     { label: "Tradeable / untradeable", value: `${stats.tradeable} / ${stats.untradeable}` },
     { label: "Main-table rolls per kill", value: `${rolls}` },
-    ...(petInfo ? [{ label: "Pet rate", value: formatRate(petInfo.numerator, petInfo.denominator) }] : []),
+    ...(petInfo ? [{ label: "Pet rate", value: formatPetRate(petInfo.numerator, petInfo.denominator) }] : []),
     { label: "Unlock cost in the simulator", value: npc.unlockCost > 0 ? `${formatGp(npc.unlockCost)} gp` : "Free" },
   ];
 
@@ -275,57 +364,10 @@ function pageHtml(npc, items, allNpcs, petInfo) {
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${SITE_URL}/brand/og-image.jpg" />
 
-    <script type="application/ld+json">
-${jsonLdContent}
-    </script>
+    <script type="application/ld+json">${jsonLdBody}</script>
 
     <style>
-      :root {
-        --ink: #0c0a08; --ink-2: #1c1712; --ink-3: #241d15;
-        --parchment: #d9c8a0; --parchment-dim: #c3ac7e; --parchment-faint: rgba(217, 200, 160, 0.55);
-        --gold: #ffb700; --orange: #ff981f; --text: #ffe4a3;
-        --border-light: rgba(156, 138, 99, 0.55); --border-hair: rgba(255, 201, 77, 0.28);
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        background: var(--ink);
-        background:
-          radial-gradient(ellipse 900px 480px at 50% -10%, rgba(255, 183, 0, 0.14) 0%, transparent 60%),
-          radial-gradient(ellipse 1000px 700px at 100% 110%, rgba(79, 143, 255, 0.06) 0%, transparent 55%),
-          linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 55%, var(--ink-3) 100%);
-        color: var(--text);
-        font-family: "Cabin", ui-sans-serif, system-ui, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        padding-inline: 20px;
-      }
-      a { color: inherit; }
-      .display { font-family: "Cinzel", serif; }
-      .gold-leaf {
-        background: linear-gradient(180deg, #ffe9ab, var(--gold) 70%);
-        -webkit-background-clip: text; background-clip: text; color: transparent;
-        filter: drop-shadow(0 0 12px rgba(255, 183, 0, 0.35));
-      }
-      header.site {
-        max-width: 760px; margin: 14px auto 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 12px; padding-block: 10px; flex-wrap: wrap;
-      }
-      .brand { display: flex; align-items: center; gap: 8px; font-family: "Cinzel", serif; font-weight: 700; font-size: 15px; color: var(--parchment); text-decoration: none; }
-      .brand img { height: 24px; width: auto; }
-      nav.crumbs { font-size: 12px; color: var(--parchment-faint); }
-      nav.crumbs a { text-decoration: none; }
-      nav.crumbs a:hover { color: var(--gold); }
-      main { max-width: 760px; margin: 0 auto; padding-bottom: 64px; }
-      .panel {
-        position: relative; border-radius: 14px; border: 1px solid var(--border-hair);
-        background-image: linear-gradient(165deg, rgba(74, 65, 54, 0.5) 0%, rgba(18, 14, 9, 0.72) 100%);
-        box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      }
-      .panel::before {
-        content: ""; position: absolute; inset: 0 0 auto 0; height: 40%; border-radius: inherit;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent); pointer-events: none;
-      }
+${BASE_CSS}
       .hero { margin-top: 18px; padding: 28px 28px 26px; display: flex; gap: 22px; align-items: center; }
       .boss-orb {
         width: 92px; height: 92px; border-radius: 50%; flex-shrink: 0; position: relative;
@@ -385,6 +427,7 @@ ${jsonLdContent}
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">${escapeHtml(npc.name)}</span>
       </nav>
     </header>
@@ -492,11 +535,197 @@ ${jsonLdContent}
 `;
 }
 
+/**
+ * The /bosses/ hub: a plain, static index linking to all 65 boss pages.
+ *
+ * Without this the per-boss pages are orphans — nothing on the site links to
+ * them, they only cross-link to each other, and the sitemap is their sole
+ * entry point. Google treats "in the sitemap but zero internal links" as a
+ * strong low-importance signal and routinely leaves such URLs at
+ * "Discovered - currently not indexed" (which is exactly what Search Console
+ * reported for them). This gives every boss page a real inbound link from a
+ * page that is itself linked from the FAQ and the in-game menu, so there's a
+ * crawlable path from the site root down to each boss.
+ */
+function hubHtml(bosses, petByNpcId) {
+  const title = "All OSRS Boss Drop Tables — Drop Rate Simulator Index";
+  const description = `Browse real OSRS drop tables for all ${bosses.length} bosses, from Obor and Bryophyta up to Nex, Yama and the raids. Every boss has exact drop rates and a free simulator you can roll instantly.`;
+  const canonical = `${SITE_URL}/bosses/`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Bosses", item: canonical },
+        ],
+      },
+      {
+        // A real ItemList of every boss page — another machine-readable route
+        // into the set, independent of the sitemap.
+        "@type": "ItemList",
+        name: "OSRS bosses with simulated drop tables",
+        numberOfItems: bosses.length,
+        itemListElement: bosses.map((npc, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: npc.name,
+          url: `${SITE_URL}/bosses/${npc.id}/`,
+        })),
+      },
+    ],
+  };
+  const { body: jsonLdBody, cspHash } = jsonLdScript(jsonLd);
+
+  // Ascending combat level — the same order the in-game boss browser lists
+  // them in, so the page reads as a natural progression rather than an
+  // arbitrary dump.
+  const ordered = [...bosses].sort((a, b) => a.combatLevel - b.combatLevel);
+  const rows = ordered
+    .map((npc, i) => {
+      const pet = petByNpcId.get(npc.id);
+      const petBit = pet ? `<span class="pet">pet ${formatPetRate(pet.numerator, pet.denominator)}</span>` : "";
+      // The wiki serves these icons at full size (often >1500px wide) for a
+      // 28px slot, so eagerly fetching all 65 would be a lot of bytes for a
+      // page whose speed is itself a ranking signal. Only the rows that are
+      // plausibly above the fold load eagerly; the rest stay lazy. Eager also
+      // sidesteps lazy-loading never triggering where a page is rendered
+      // without a real visible viewport (thumbnailers, some crawlers).
+      const eager = i < 12;
+      return `<a class="boss-card" href="/bosses/${npc.id}/">
+            <span class="thumb"><img src="${npc.iconUrl}" alt="${escapeHtml(npc.name)} drop table" width="28" height="28" loading="${eager ? "eager" : "lazy"}" decoding="async" /></span>
+            <span class="meta">
+              <span class="name">${escapeHtml(npc.name)}</span>
+              <span class="lvl">Combat level ${npc.combatLevel.toLocaleString("en-US")}${petBit ? " · " : ""}${petBit}</span>
+            </span>
+          </a>`;
+    })
+    .join("\n          ");
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      Generated by scripts/generate-boss-pages.mjs — do not hand-edit.
+      Static, zero-JS index of every per-boss page (see hubHtml() for why this
+      page exists at all).
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' '${cspHash}'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+    />
+    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="/brand/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3e3529" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="${canonical}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OSRS Drop Simulator" />
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:url" content="${canonical}" />
+    <meta property="og:image" content="${SITE_URL}/brand/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
+    <meta name="twitter:image" content="${SITE_URL}/brand/og-image.jpg" />
+
+    <script type="application/ld+json">${jsonLdBody}</script>
+
+    <style>
+${BASE_CSS}
+      main { max-width: 980px; }
+      .intro { margin-top: 18px; padding: 26px 28px 24px; }
+      h1 { font-family: "Cinzel", serif; font-weight: 900; font-size: clamp(25px, 4vw, 33px); line-height: 1.15; margin: 0 0 10px; text-wrap: balance; }
+      .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--parchment-faint); margin: 0 0 6px; }
+      .sub { margin: 0; color: var(--parchment); font-size: 15px; line-height: 1.55; max-width: 68ch; }
+      section { margin-top: 20px; padding: 24px 28px 28px; }
+      h2 { font-family: "Cinzel", serif; font-weight: 700; font-size: 17px; letter-spacing: 0.02em; text-transform: uppercase; margin: 0 0 4px; }
+      .section-note { margin: 0 0 18px; font-size: 13.5px; color: var(--parchment-faint); }
+      .boss-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .boss-card {
+        display: flex; align-items: center; gap: 12px; padding: 11px 13px; border-radius: 10px;
+        border: 1px solid var(--border-light); background: rgba(0, 0, 0, 0.2); text-decoration: none;
+        transition: border-color 150ms ease, background 150ms ease;
+      }
+      .boss-card:hover { border-color: var(--border-hair); background: rgba(255, 183, 0, 0.06); }
+      .thumb {
+        width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+        background: radial-gradient(circle at 38% 32%, rgba(255,255,255,0.08), rgba(0,0,0,0.3) 70%);
+        box-shadow: 0 0 0 1px var(--border-light);
+      }
+      /* Explicit box, not a max-width percentage: these are loading="lazy",
+         and an unloaded image with only percentage caps lays out at 0x0 —
+         which the lazy-loading heuristic then reads as "not visible", so it
+         never loads and never gains a size. Fixing the box breaks that
+         deadlock and keeps layout stable (no shift) while icons stream in. */
+      .thumb img { width: 28px; height: 28px; object-fit: contain; }
+      .meta { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+      .name { font-size: 14px; font-weight: 600; color: var(--text); }
+      .lvl { font-size: 11.5px; color: var(--parchment-faint); font-variant-numeric: tabular-nums; }
+      .pet { color: var(--parchment-dim); }
+      footer { max-width: 980px; margin: 30px auto 0; padding-block: 18px; text-align: center; font-size: 11.5px; color: rgba(217, 200, 160, 0.4); }
+      @media (max-width: 860px) { .boss-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 560px) { .boss-grid { grid-template-columns: 1fr; } section, .intro { padding: 22px 18px 24px; } }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> ›
+        <span style="color:var(--parchment)">Bosses</span>
+      </nav>
+    </header>
+
+    <main>
+      <div class="panel intro">
+        <p class="eyebrow">Boss index</p>
+        <h1><span class="gold-leaf">All OSRS Boss Drop Tables</span></h1>
+        <p class="sub">Every boss in OSRS Drop Simulator, ordered by combat level. Each one has its real drop table with exact rates, and a free simulator you can roll as many times as you want — no login, straight in your browser.</p>
+      </div>
+
+      <section class="panel">
+        <h2>${bosses.length} bosses</h2>
+        <p class="section-note">From the earliest low-level fights up to end-game bosses and raids.</p>
+        <div class="boss-grid">
+          ${rows}
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Created using intellectual property belonging to Jagex Limited under the terms of Jagex's Fan Content Policy.
+      This content is not endorsed by or affiliated with Jagex.
+    </footer>
+  </body>
+</html>
+`;
+}
+
 function buildSitemap(npcs) {
   const staticUrls = [
     { loc: `${SITE_URL}/`, lastmod: today, changefreq: "daily", priority: "1.0" },
     { loc: `${SITE_URL}/faq/`, lastmod: today, changefreq: "monthly", priority: "0.7" },
     { loc: `${SITE_URL}/pet-drop-sim/`, lastmod: today, changefreq: "monthly", priority: "0.7" },
+    // Above the individual boss pages: it's the hub they all hang off, so it
+    // should be crawled before (and more often than) any one of them.
+    { loc: `${SITE_URL}/bosses/`, lastmod: today, changefreq: "weekly", priority: "0.8" },
   ];
   const bossUrls = npcs.map((npc) => ({
     loc: `${SITE_URL}/bosses/${npc.id}/`,
@@ -531,9 +760,12 @@ async function main() {
     writeFileSync(path.join(dir, "index.html"), html);
   }
 
+  writeFileSync(path.join(BOSSES_DIR, "index.html"), hubHtml(bosses, petByNpcId));
   writeFileSync(path.join(ROOT, "public/sitemap.xml"), buildSitemap(bosses));
 
-  console.log(`Generated ${bosses.length} boss pages in public/bosses/, plus sitemap.xml (${bosses.length + 3} URLs).`);
+  console.log(
+    `Generated ${bosses.length} boss pages + the /bosses/ hub in public/bosses/, plus sitemap.xml (${bosses.length + 4} URLs).`,
+  );
 }
 
 main().catch((err) => {

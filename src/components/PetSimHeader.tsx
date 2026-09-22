@@ -91,6 +91,14 @@ export default function PetSimHeader() {
                 </a>
 
                 <a
+                  href="/bosses/"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  Boss drop tables
+                </a>
+
+                <a
                   href="/faq/"
                   onClick={() => setMenuOpen(false)}
                   className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"

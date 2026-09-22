@@ -78,6 +78,29 @@
   </head>
   <body>
     <div id="root"></div>
+    <!--
+      The game itself is client-rendered, so with JavaScript off this page
+      would otherwise be blank. This gives a non-JS visitor something real:
+      what the site is, and links to the parts that ARE static HTML and work
+      without JavaScript (the boss drop tables and the FAQ). It also gives a
+      crawler a link path into the rest of the site on its first, pre-render
+      pass — every link here is a genuine, visible navigation option, not
+      hidden text.
+    -->
+    <noscript>
+      <div style="max-width: 640px; margin: 0 auto; padding: 32px 20px; font-family: system-ui, sans-serif; color: #ffe4a3;">
+        <h1 style="font-size: 22px; margin: 0 0 12px;">OSRS Drop Simulator</h1>
+        <p style="line-height: 1.6; color: #d9c8a0;">
+          A free Old School RuneScape drop-rate simulator: pick a boss, roll its real drop table, and fill a
+          28-slot inventory with loot. The simulator itself needs JavaScript, but these pages work without it:
+        </p>
+        <ul style="line-height: 2;">
+          <li><a href="/bosses/" style="color: #ffb700;">All boss drop tables</a> — every boss, with exact drop rates</li>
+          <li><a href="/faq/" style="color: #ffb700;">FAQ</a> — how the drop rates, GP and unlocks work</li>
+          <li><a href="/pet-drop-sim/" style="color: #ffb700;">Pet Drop Simulator</a></li>
+        </ul>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

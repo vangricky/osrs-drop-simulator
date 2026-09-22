@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-OnSeU7JgmIc+Yy7N+se4iIm6se9AUxwBLYAZWimuIak='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-nq9E3YfNrUdRiKqh8qYC7rZi5kRgPyCSNCOZgdzpFlo='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,39 +43,66 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Grimy lantadyme from Abyssal Sire?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Grimy lantadyme drops at 15/2,224 per main-table roll."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Grimy lantadyme from Abyssal Sire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Grimy lantadyme drops at 15/2,224 per main-table roll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Abyssal Sire kills for the pet on average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Abyssal orphan pet drops at 1/2,560, independent of every other roll — so on average, 2,560 kills, though it can drop on kill one or take far longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Abyssal Sire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "36 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 3 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Abyssal Sire's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Abyssal Sire's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many Abyssal Sire kills for the pet on average?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Abyssal orphan pet drops at 5/12,800, independent of every other roll — so on average, 12,800 kills, though it can drop on kill one or take far longer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many different items can drop from Abyssal Sire?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "36 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 3 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Abyssal Sire's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Abyssal Sire's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Abyssal Sire",
+          "item": "https://osrsdropsimulation.com/bosses/abyssal-sire/"
+        }
+      ]
     }
   ]
 }
@@ -187,6 +214,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Abyssal Sire</span>
       </nav>
     </header>
@@ -198,7 +226,7 @@
           <p class="eyebrow">Boss drop simulator</p>
           <h1><span class="gold-leaf">Abyssal Sire</span> Drop Simulator — OSRS Drop Rates</h1>
           <p class="sub"> At combat level 350, Abyssal Sire ranks #31 of 65 bosses in OSRS Drop Simulator by difficulty, with 36 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
-          <div class="meta-row"><span class="chip">Combat level <b>350</b></span><span class="chip">Pet rate <b>5/12,800</b></span></div>
+          <div class="meta-row"><span class="chip">Combat level <b>350</b></span><span class="chip">Pet rate <b>1/2,560</b></span></div>
           <a class="cta" href="/?npc=abyssal-sire">Simulate Abyssal Sire now <span class="arrow">→</span></a>
         </div>
       </div>
@@ -211,7 +239,7 @@
           <div><dt>Unique droppable items</dt><dd>36 (1 guaranteed)</dd></div>
           <div><dt>Tradeable / untradeable</dt><dd>33 / 3</dd></div>
           <div><dt>Main-table rolls per kill</dt><dd>1</dd></div>
-          <div><dt>Pet rate</dt><dd>5/12,800</dd></div>
+          <div><dt>Pet rate</dt><dd>1/2,560</dd></div>
           <div><dt>Unlock cost in the simulator</dt><dd>761.0M gp</dd></div>
         </dl>
       </section>
@@ -294,7 +322,7 @@
         </div>
         <div class="qa">
           <h3>How many Abyssal Sire kills for the pet on average?</h3>
-          <p>The Abyssal orphan pet drops at 5/12,800, independent of every other roll — so on average, 12,800 kills, though it can drop on kill one or take far longer.</p>
+          <p>The Abyssal orphan pet drops at 1/2,560, independent of every other roll — so on average, 2,560 kills, though it can drop on kill one or take far longer.</p>
         </div>
         <div class="qa">
           <h3>How many different items can drop from Abyssal Sire?</h3>

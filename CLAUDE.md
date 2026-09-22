@@ -162,7 +162,20 @@ palette by hand, not by referencing the Vite build's hashed CSS output) and its 
 as its own small static site living inside `public/`, linked from the in-game hamburger menu as a plain
 `<a href="/faq/">`, not a client-side route.
 
-### SEO: `public/bosses/*/` — one static, generated page per boss
+### SEO: `public/bosses/*/` — one static, generated page per boss, plus a hub
+
+`public/bosses/index.html` (the `/bosses/` hub) is not optional decoration — it's what stops the 65 boss
+pages from being **orphans**. They cross-link to each other but nothing else on the site linked *in*, so
+their only entry point was the sitemap, and Google reads "in the sitemap, zero internal links" as a
+low-importance signal: every one of them sat at *"Discovered - currently not indexed"* in Search Console.
+The hub is linked from the FAQ, from both hamburger menus (`Header.tsx`, `PetSimHeader.tsx`), and from every
+boss page's breadcrumb, so there's a real crawlable path from the site root down to each boss. Don't remove
+those links without replacing the path some other way.
+
+Relatedly, `index.html`/`pet-drop-sim/index.html` have a `<noscript>` block with the same links. The app is
+client-rendered, so a crawler's first (pre-render) pass otherwise sees a `<body>` containing nothing but
+`<div id="root">` — no links at all. These are genuine, visible-without-JS navigation, not hidden text.
+
 
 The React app is one URL — every boss's drop table only ever lives at `/`, behind client-side state, so none
 of the 65 bosses were individually indexable/rankable for their own name (e.g. "zulrah drop simulator"), no

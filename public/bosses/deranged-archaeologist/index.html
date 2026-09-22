@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-ZEejFg8mFriWnNlqDPiFhB/uftGbPpT1gfU9oX3ZnxA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-MAYK5gIems+k0Tk1pRfwR7bI1PH8ggwe5FGLZNhXsU4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,31 +43,58 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Dragon arrow from Deranged archaeologist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dragon arrow drops at 1/131 per main-table roll."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Dragon arrow from Deranged archaeologist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dragon arrow drops at 1/131 per main-table roll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Deranged archaeologist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "24 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 1 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Deranged archaeologist's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Deranged archaeologist's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many different items can drop from Deranged archaeologist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "24 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 1 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Deranged archaeologist's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Deranged archaeologist's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Deranged archaeologist",
+          "item": "https://osrsdropsimulation.com/bosses/deranged-archaeologist/"
+        }
+      ]
     }
   ]
 }
@@ -179,6 +206,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Deranged archaeologist</span>
       </nav>
     </header>

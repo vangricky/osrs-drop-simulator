@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-1IA2KvoWojb41U2bqwN9ItaGdgBTGuQYV+vQZ0MOzcU='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-8lL5cWsMe/tEAgERer0eLNBN4JtAqx2pEYt7qQppsR0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,39 +43,66 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Odium shard 3 from Scorpia?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Odium shard 3 drops at 1/256 per main-table roll."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Odium shard 3 from Scorpia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Odium shard 3 drops at 1/256 per main-table roll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Scorpia kills for the pet on average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Scorpia's offspring pet drops at 1/2,016, independent of every other roll — so on average, 2,016 kills, though it can drop on kill one or take far longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Scorpia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "35 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 4 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Scorpia's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Scorpia's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many Scorpia kills for the pet on average?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Scorpia's offspring pet drops at 1/2,015.75, independent of every other roll — so on average, 2,015.75 kills, though it can drop on kill one or take far longer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many different items can drop from Scorpia?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "35 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 4 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Scorpia's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Scorpia's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Scorpia",
+          "item": "https://osrsdropsimulation.com/bosses/scorpia/"
+        }
+      ]
     }
   ]
 }
@@ -187,6 +214,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Scorpia</span>
       </nav>
     </header>
@@ -198,7 +226,7 @@
           <p class="eyebrow">Boss drop simulator</p>
           <h1><span class="gold-leaf">Scorpia</span> Drop Simulator — OSRS Drop Rates</h1>
           <p class="sub">Queen of the Scorpions. At combat level 225, Scorpia ranks #57 of 65 bosses in OSRS Drop Simulator by difficulty, with 35 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
-          <div class="meta-row"><span class="chip">Combat level <b>225</b></span><span class="chip">Pet rate <b>1/2,015.75</b></span></div>
+          <div class="meta-row"><span class="chip">Combat level <b>225</b></span><span class="chip">Pet rate <b>1/2,016</b></span></div>
           <a class="cta" href="/?npc=scorpia">Simulate Scorpia now <span class="arrow">→</span></a>
         </div>
       </div>
@@ -211,7 +239,7 @@
           <div><dt>Unique droppable items</dt><dd>35 (0 guaranteed)</dd></div>
           <div><dt>Tradeable / untradeable</dt><dd>31 / 4</dd></div>
           <div><dt>Main-table rolls per kill</dt><dd>1</dd></div>
-          <div><dt>Pet rate</dt><dd>1/2,015.75</dd></div>
+          <div><dt>Pet rate</dt><dd>1/2,016</dd></div>
           <div><dt>Unlock cost in the simulator</dt><dd>290.9M gp</dd></div>
         </dl>
       </section>
@@ -286,7 +314,7 @@
         </div>
         <div class="qa">
           <h3>How many Scorpia kills for the pet on average?</h3>
-          <p>The Scorpia&#39;s offspring pet drops at 1/2,015.75, independent of every other roll — so on average, 2,015.75 kills, though it can drop on kill one or take far longer.</p>
+          <p>The Scorpia&#39;s offspring pet drops at 1/2,016, independent of every other roll — so on average, 2,016 kills, though it can drop on kill one or take far longer.</p>
         </div>
         <div class="qa">
           <h3>How many different items can drop from Scorpia?</h3>

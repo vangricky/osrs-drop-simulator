@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-XXF+Y33Dngo/wfEbLu4upCSRvzZeJJSt+XiO1Cm6Dfc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-XuMG9HyhZu9N5SOijUWAN720+xLs1kqkuSdbZrZdKPs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,31 +43,58 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Steel kiteshield from Bryophyta?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Steel kiteshield drops at 1/128 per main-table roll."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Steel kiteshield from Bryophyta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Steel kiteshield drops at 1/128 per main-table roll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Bryophyta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "28 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 5 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Bryophyta's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Bryophyta's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many different items can drop from Bryophyta?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "28 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 5 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Bryophyta's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Bryophyta's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bryophyta",
+          "item": "https://osrsdropsimulation.com/bosses/bryophyta/"
+        }
+      ]
     }
   ]
 }
@@ -179,6 +206,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Bryophyta</span>
       </nav>
     </header>

@@ -181,6 +181,17 @@ export default function Header({
                   How to play
                 </button>
 
+                {/* Plain <a>, not a client-side route — /bosses/ is its own
+                    generated static page set (see scripts/generate-boss-pages.mjs),
+                    same as /faq/ and /pet-drop-sim/. */}
+                <a
+                  href="/bosses/"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  Boss drop tables
+                </a>
+
                 <a
                   href="/faq/"
                   onClick={() => setMenuOpen(false)}

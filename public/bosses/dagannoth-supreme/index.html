@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-539JiF/PneGy7PsR9HqyAGi5KwBu5Epz5NlYh1nJppc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-1ujs3FJU2vjAltjsVCPotpfwgIIa6U0FCnr2/v+NjMs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -43,39 +43,66 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How rare is the Fremennik blade from Dagannoth Supreme?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fremennik blade drops at 1/128 per main-table roll."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How rare is the Fremennik blade from Dagannoth Supreme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fremennik blade drops at 1/128 per main-table roll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Dagannoth Supreme kills for the pet on average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Pet dagannoth supreme pet drops at 1/5,000, independent of every other roll — so on average, 5,000 kills, though it can drop on kill one or take far longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many different items can drop from Dagannoth Supreme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "34 different items in total — 2 guaranteed every kill, the rest from the main and tertiary tables. 9 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the fastest way to see Dagannoth Supreme's real drop odds without grinding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate it — roll Dagannoth Supreme's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "How many Dagannoth Supreme kills for the pet on average?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Pet dagannoth supreme pet drops at 1/5,000, independent of every other roll — so on average, 5,000 kills, though it can drop on kill one or take far longer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many different items can drop from Dagannoth Supreme?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "34 different items in total — 2 guaranteed every kill, the rest from the main and tertiary tables. 9 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the fastest way to see Dagannoth Supreme's real drop odds without grinding?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simulate it — roll Dagannoth Supreme's actual drop table hundreds of times instantly in OSRS Drop Simulator and watch the real long-run rates play out, free and in your browser."
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://osrsdropsimulation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bosses",
+          "item": "https://osrsdropsimulation.com/bosses/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dagannoth Supreme",
+          "item": "https://osrsdropsimulation.com/bosses/dagannoth-supreme/"
+        }
+      ]
     }
   ]
 }
@@ -187,6 +214,7 @@
       <a class="brand" href="/"><img src="/brand/logo.png" alt="OSRS Drop Simulator" />OSRS Drop Simulator</a>
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> ›
+        <a href="/bosses/">Bosses</a> ›
         <span style="color:var(--parchment)">Dagannoth Supreme</span>
       </nav>
     </header>
