@@ -25,12 +25,23 @@
     <meta name="theme-color" content="#3e3529" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Every boss/item icon on the site loads from here — dozens of
+         requests per page load — so the DNS+TLS handshake is worth paying
+         for before the first icon is actually requested rather than at it. -->
+    <link rel="preconnect" href="https://oldschool.runescape.wiki" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <title>OSRS Drop Simulator: Free Old School RuneScape Drop Rate Simulator</title>
+    <!--
+      Title and description are sized to Google's SERP snippet budget
+      (roughly 60 chars / 155-160 chars before truncation) — the previous
+      title ran to 66 and got cut off mid-word in search results. Both still
+      carry the two phrases people actually search ("OSRS" and "Old School
+      RuneScape"), just without repeating "Drop ... Simulator" twice.
+    -->
+    <title>OSRS Drop Simulator — Old School RuneScape Drop Rates</title>
     <meta
       name="description"
-      content="Simulate real Old School RuneScape boss drop tables for 65 bosses. Grind GP, unlock new bosses, open clue caskets, and climb the global leaderboard. Free, in your browser."
+      content="Simulate real OSRS boss drop tables for 65 bosses. Grind GP, unlock new bosses, open clue caskets, and climb the global leaderboard. Free, in your browser."
     />
     <meta name="keywords" content="OSRS, Old School RuneScape, drop simulator, drop rate calculator, OSRS bosses, OSRS drop table, RuneScape simulator, loot simulator" />
     <meta name="robots" content="index, follow" />
@@ -40,7 +51,7 @@
     <!-- Open Graph / Discord / Facebook link previews -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OSRS Drop Simulator" />
-    <meta property="og:title" content="OSRS Drop Simulator: Free Old School RuneScape Drop Rate Simulator" />
+    <meta property="og:title" content="OSRS Drop Simulator — Old School RuneScape Drop Rates" />
     <meta
       property="og:description"
       content="Simulate real OSRS boss drop tables for 65 bosses. Grind GP, unlock new bosses, open clue caskets, and climb the global leaderboard. Free, in your browser."
@@ -52,7 +63,7 @@
 
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OSRS Drop Simulator: Free Old School RuneScape Drop Rate Simulator" />
+    <meta name="twitter:title" content="OSRS Drop Simulator — Old School RuneScape Drop Rates" />
     <meta
       name="twitter:description"
       content="Simulate real OSRS boss drop tables for 65 bosses. Grind GP, unlock new bosses, and climb the global leaderboard."

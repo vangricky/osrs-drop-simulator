@@ -176,6 +176,18 @@ Relatedly, `index.html`/`pet-drop-sim/index.html` have a `<noscript>` block with
 client-rendered, so a crawler's first (pre-render) pass otherwise sees a `<body>` containing nothing but
 `<div id="root">` — no links at all. These are genuine, visible-without-JS navigation, not hidden text.
 
+**`sitemap.xml`'s `<lastmod>` is diffed, not stamped.** `generate-boss-pages.mjs` regenerates every boss
+page from scratch on every run (including ones triggered by `update-prices`/`generate-monsters` refreshes
+that don't touch a given boss's actual data at all) — stamping every URL with today's date regardless would
+be exactly the untrustworthy-lastmod pattern Google's sitemap docs say gets the whole field discounted.
+Before wiping `public/bosses/`, the script snapshots what's already on disk and the previous `sitemap.xml`;
+each URL then only gets today's date if its newly generated HTML actually differs from what was there
+before, otherwise its old `lastmod` carries forward untouched. Boss pages never embed live GE prices (only
+`unlockCost`, which is static in `npcData.ts`), so a page that's truly unchanged stays byte-identical across
+runs and this correctly holds `lastmod` steady rather than bumping it on every regenerate. The 3 hand-authored
+static pages (`/`, `/faq/`, `/pet-drop-sim/`) aren't written by this script, so their `lastmod` always just
+carries forward from the previous sitemap — bump it by hand if you edit one of those pages' actual content.
+
 
 The React app is one URL — every boss's drop table only ever lives at `/`, behind client-side state, so none
 of the 65 bosses were individually indexable/rankable for their own name (e.g. "zulrah drop simulator"), no

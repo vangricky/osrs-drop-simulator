@@ -108,6 +108,19 @@ function formatPetRate(numerator, denominator) {
   return `1/${Math.round(denominator / numerator).toLocaleString("en-US")}`;
 }
 
+/**
+ * Some in-game pet item names are literally "Pet <name>" (Pet chaos
+ * elemental, Pet kraken, Pet snakeling, ...) rather than a standalone name —
+ * 13 of the ~40 pet-having bosses. Used as-is in a sentence that already
+ * supplies the word "pet" ("the Pet snakeling pet drops at...", "plus the
+ * Pet kraken pet rate") reads as a stutter. This is ONLY for sentence
+ * contexts that already say "pet" themselves — the raw name (with "Pet "
+ * intact) is correct everywhere else, since it's the item's actual name.
+ */
+function petNameForSentence(petName) {
+  return petName.replace(/^Pet /, "");
+}
+
 function formatPercent(numerator, denominator) {
   const p = (numerator / denominator) * 100;
   if (p >= 10) return `${p.toFixed(1)}%`;
@@ -215,7 +228,7 @@ function buildFaq(npc, items, petInfo, stats) {
   if (petInfo) {
     faqs.push({
       q: `How many ${npc.name} kills for the pet on average?`,
-      a: `The ${petInfo.petName} pet drops at ${formatPetRate(petInfo.numerator, petInfo.denominator)}, independent of every other roll — so on average, ${Math.round(petInfo.denominator / petInfo.numerator).toLocaleString("en-US")} kills, though it can drop on kill one or take far longer.`,
+      a: `The ${petNameForSentence(petInfo.petName)} pet drops at ${formatPetRate(petInfo.numerator, petInfo.denominator)}, independent of every other roll — so on average, ${Math.round(petInfo.denominator / petInfo.numerator).toLocaleString("en-US")} kills, though it can drop on kill one or take far longer.`,
     });
   }
 
@@ -274,7 +287,16 @@ function pickRelated(npc, allNpcs) {
 function pageHtml(npc, items, allNpcs, petInfo) {
   const slug = npc.id;
   const title = `${npc.name} Drop Simulator — OSRS Drop Rates`;
-  const description = `Simulate ${npc.name}'s real OSRS drop table for free. See exact drop rates for every item${petInfo ? `, including the ${petInfo.petName} pet,` : ""} and roll as many kills as you want instantly in your browser.`;
+  // Google truncates meta descriptions at roughly 155-160 characters, and the
+  // previous wording ran past that for 59 of the 65 bosses once a long name
+  // and/or a pet clause were in play — a mid-sentence cutoff in every one of
+  // those search snippets. possessive() avoids "Guardians's" for names that
+  // already end in s (Grotesque Guardians, Dagannoth Rex, ...). Verified via
+  // scripts/generate-boss-pages.mjs's own dev-time check against the real
+  // dataset that this stays under budget for every boss + pet combination,
+  // not just the ones sampled while drafting it.
+  const possessive = npc.name.endsWith("s") ? `${npc.name}'` : `${npc.name}'s`;
+  const description = `Simulate ${possessive} real OSRS drop table for free — exact rates for every item${petInfo ? `, plus the ${petNameForSentence(petInfo.petName)} pet rate` : ""}. Roll instantly, no login.`;
   const canonical = `${SITE_URL}/bosses/${slug}/`;
   const rolls = npc.mainRolls ?? 1;
   const stats = uniqueDropStats(npc, items);
@@ -343,6 +365,7 @@ function pageHtml(npc, items, allNpcs, petInfo) {
     <meta name="theme-color" content="#3e3529" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://oldschool.runescape.wiki" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <title>${escapeHtml(title)}</title>
@@ -434,7 +457,7 @@ ${BASE_CSS}
 
     <main>
       <div class="panel hero">
-        <div class="boss-orb"><img src="${npc.iconUrl}" alt="${escapeHtml(npc.name)}" loading="eager" /></div>
+        <div class="boss-orb"><img src="${npc.iconUrl}" alt="${escapeHtml(npc.name)}" width="64" height="64" loading="eager" /></div>
         <div class="hero-copy">
           <p class="eyebrow">Boss drop simulator</p>
           <h1><span class="gold-leaf">${escapeHtml(npc.name)}</span> Drop Simulator — OSRS Drop Rates</h1>
@@ -549,7 +572,7 @@ ${BASE_CSS}
  */
 function hubHtml(bosses, petByNpcId) {
   const title = "All OSRS Boss Drop Tables — Drop Rate Simulator Index";
-  const description = `Browse real OSRS drop tables for all ${bosses.length} bosses, from Obor and Bryophyta up to Nex, Yama and the raids. Every boss has exact drop rates and a free simulator you can roll instantly.`;
+  const description = `Every OSRS boss's real drop table in one place — ${bosses.length} bosses, exact drop rates, free instant simulator. From Obor to Nex, Yama and the raids.`;
   const canonical = `${SITE_URL}/bosses/`;
 
   const jsonLd = {
@@ -623,6 +646,7 @@ function hubHtml(bosses, petByNpcId) {
     <meta name="theme-color" content="#3e3529" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://oldschool.runescape.wiki" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <title>${escapeHtml(title)}</title>
@@ -718,21 +742,75 @@ ${BASE_CSS}
 `;
 }
 
-function buildSitemap(npcs) {
+/**
+ * Reads an existing sitemap.xml (if any) into { loc -> lastmod }. Used so a
+ * regenerate that doesn't actually change a URL's content can keep that
+ * URL's real last-changed date instead of stamping "today" on all 69 URLs
+ * every single run — see the comment on `lastmodFor` for why that matters.
+ */
+function readOldLastmods(sitemapPath) {
+  const map = new Map();
+  if (!existsSync(sitemapPath)) return map;
+  const xml = readFileSync(sitemapPath, "utf8");
+  const urlBlockRe = /<url>([\s\S]*?)<\/url>/g;
+  let m;
+  while ((m = urlBlockRe.exec(xml))) {
+    const loc = m[1].match(/<loc>(.*?)<\/loc>/)?.[1];
+    const lastmod = m[1].match(/<lastmod>(.*?)<\/lastmod>/)?.[1];
+    if (loc && lastmod) map.set(loc, lastmod);
+  }
+  return map;
+}
+
+/**
+ * A sitemap's <lastmod> is a signal Google uses to decide whether a URL is
+ * worth re-crawling — but only while it trusts the field. Regenerating every
+ * boss page from scratch on every run (after any generate-monsters/
+ * update-prices refresh, even ones that touch zero boss data) and stamping
+ * `today` on all of them regardless of whether their content actually
+ * changed is exactly the pattern Google's own sitemap docs warn produces an
+ * untrustworthy signal, which then gets discounted entirely — silently
+ * losing whatever re-crawl-scheduling benefit an accurate lastmod would earn
+ * the URLs that DID genuinely change. Comparing newly generated HTML against
+ * what was already on disk keeps lastmod truthful without hand-tracking
+ * per-boss change history.
+ */
+function lastmodFor(loc, newContent, oldContentByLoc, oldLastmods) {
+  const oldContent = oldContentByLoc.get(loc);
+  if (oldContent !== undefined && oldContent === newContent) {
+    return oldLastmods.get(loc) ?? today;
+  }
+  return today;
+}
+
+function buildSitemap(npcs, oldContentByLoc, oldLastmods, hubContent, bossPageContent) {
+  // The 3 hand-authored pages aren't written by this script, so there's no
+  // "new content" to diff for them — carry their previous lastmod forward
+  // unconditionally (a real edit to one of those files is on whoever makes
+  // it to also bump this, same as any hand-maintained metadata).
+  const carry = (loc) => oldLastmods.get(loc) ?? today;
   const staticUrls = [
-    { loc: `${SITE_URL}/`, lastmod: today, changefreq: "daily", priority: "1.0" },
-    { loc: `${SITE_URL}/faq/`, lastmod: today, changefreq: "monthly", priority: "0.7" },
-    { loc: `${SITE_URL}/pet-drop-sim/`, lastmod: today, changefreq: "monthly", priority: "0.7" },
+    { loc: `${SITE_URL}/`, lastmod: carry(`${SITE_URL}/`), changefreq: "daily", priority: "1.0" },
+    { loc: `${SITE_URL}/faq/`, lastmod: carry(`${SITE_URL}/faq/`), changefreq: "monthly", priority: "0.7" },
+    { loc: `${SITE_URL}/pet-drop-sim/`, lastmod: carry(`${SITE_URL}/pet-drop-sim/`), changefreq: "monthly", priority: "0.7" },
     // Above the individual boss pages: it's the hub they all hang off, so it
     // should be crawled before (and more often than) any one of them.
-    { loc: `${SITE_URL}/bosses/`, lastmod: today, changefreq: "weekly", priority: "0.8" },
+    {
+      loc: `${SITE_URL}/bosses/`,
+      lastmod: lastmodFor(`${SITE_URL}/bosses/`, hubContent, oldContentByLoc, oldLastmods),
+      changefreq: "weekly",
+      priority: "0.8",
+    },
   ];
-  const bossUrls = npcs.map((npc) => ({
-    loc: `${SITE_URL}/bosses/${npc.id}/`,
-    lastmod: today,
-    changefreq: "monthly",
-    priority: "0.6",
-  }));
+  const bossUrls = npcs.map((npc) => {
+    const loc = `${SITE_URL}/bosses/${npc.id}/`;
+    return {
+      loc,
+      lastmod: lastmodFor(loc, bossPageContent.get(npc.id), oldContentByLoc, oldLastmods),
+      changefreq: "monthly",
+      priority: "0.6",
+    };
+  });
   const all = [...staticUrls, ...bossUrls];
   const body = all
     .map((u) => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`)
@@ -750,18 +828,35 @@ async function main() {
   const petBosses = getPetBosses(npcs, containers, items);
   const petByNpcId = new Map(petBosses.map((p) => [p.npc.id, p]));
 
+  // Snapshot what's already on disk BEFORE wiping it, so the sitemap can
+  // tell which URLs actually changed this run — see lastmodFor().
+  const oldContentByLoc = new Map();
+  for (const npc of bosses) {
+    const p = path.join(BOSSES_DIR, npc.id, "index.html");
+    if (existsSync(p)) oldContentByLoc.set(`${SITE_URL}/bosses/${npc.id}/`, readFileSync(p, "utf8"));
+  }
+  const oldHubPath = path.join(BOSSES_DIR, "index.html");
+  if (existsSync(oldHubPath)) oldContentByLoc.set(`${SITE_URL}/bosses/`, readFileSync(oldHubPath, "utf8"));
+  const oldLastmods = readOldLastmods(path.join(ROOT, "public/sitemap.xml"));
+
   if (existsSync(BOSSES_DIR)) rmSync(BOSSES_DIR, { recursive: true });
   mkdirSync(BOSSES_DIR, { recursive: true });
 
+  const bossPageContent = new Map();
   for (const npc of bosses) {
     const dir = path.join(BOSSES_DIR, npc.id);
     mkdirSync(dir, { recursive: true });
     const html = pageHtml(npc, items, bosses, petByNpcId.get(npc.id) ?? null);
+    bossPageContent.set(npc.id, html);
     writeFileSync(path.join(dir, "index.html"), html);
   }
 
-  writeFileSync(path.join(BOSSES_DIR, "index.html"), hubHtml(bosses, petByNpcId));
-  writeFileSync(path.join(ROOT, "public/sitemap.xml"), buildSitemap(bosses));
+  const hubContent = hubHtml(bosses, petByNpcId);
+  writeFileSync(path.join(BOSSES_DIR, "index.html"), hubContent);
+  writeFileSync(
+    path.join(ROOT, "public/sitemap.xml"),
+    buildSitemap(bosses, oldContentByLoc, oldLastmods, hubContent, bossPageContent),
+  );
 
   console.log(
     `Generated ${bosses.length} boss pages + the /bosses/ hub in public/bosses/, plus sitemap.xml (${bosses.length + 4} URLs).`,
