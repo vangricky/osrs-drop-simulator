@@ -381,6 +381,7 @@ function pageHtml(npc, items, allNpcs, petInfo) {
     <meta property="og:image" content="${SITE_URL}/brand/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OSRS Drop Simulator — free browser drop-rate simulator for 65 Old School RuneScape bosses" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
@@ -662,6 +663,7 @@ function hubHtml(bosses, petByNpcId) {
     <meta property="og:image" content="${SITE_URL}/brand/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OSRS Drop Simulator — free browser drop-rate simulator for 65 Old School RuneScape bosses" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />

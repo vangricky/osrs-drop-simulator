@@ -152,6 +152,19 @@ this same hook call is about to return works fine in practice (the closure only 
 hook call finishes) but is a genuine temporal-dead-zone footgun a linter can't prove safe, so the API is shaped
 to avoid needing to write that pattern at all.
 
+### SEO: JSON-LD is deliberately rich, and every claim in it has to be true
+
+The `WebApplication` structured data on `index.html` and `pet-drop-sim/index.html` carries a `featureList`,
+a `keywords` string, a `creator`, and a `description` that names specific bosses (Zulrah, Vorkath, Nex,
+Yama, the raids) — this is denser than the bare `name`/`description`/`offers` shape it used to be. That's
+deliberate, benchmarked against how competing OSRS drop-simulator sites structure their own equivalent
+schema — but every `featureList` entry and every named boss must correspond to something the site actually
+does, matching how the page's own visible copy already reads. Don't add a feature or boss name here that
+isn't real — fabricated structured data is both a Google guidelines violation and, if anyone actually checks
+it against the live app, worse for trust than staying generic. Editing this block changes its CSP hash —
+recompute with `node scripts/hash-jsonld.mjs <file>` (see the comment above the CSP meta tag in each file)
+or the structured data silently stops loading.
+
 ### SEO: `public/faq/` is a second, non-React static page
 
 `index.html`'s `<body>` is just `<div id="root">` — the whole game is client-rendered, so a crawler that

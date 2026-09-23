@@ -17,7 +17,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-xAwbvMO1d+EoW3wYhNJTFpESkmkLdMaxJ90UdgfLkxI=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-VERqmIfnJFE2G9XiI18BNVqNj8HXodAtxQL3rBuh+iI=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -39,9 +39,13 @@
       RuneScape"), just without repeating "Drop ... Simulator" twice.
     -->
     <title>OSRS Drop Simulator — Old School RuneScape Drop Rates</title>
+    <!-- Names a few of the highest-recognition bosses (real per-boss pages
+         back every one of them at /bosses/<id>/) rather than staying purely
+         generic — matches how competing tools' descriptions read, while
+         staying inside the ~155-160 char SERP snippet budget. -->
     <meta
       name="description"
-      content="Simulate real OSRS boss drop tables for 65 bosses. Grind GP, unlock new bosses, open clue caskets, and climb the global leaderboard. Free, in your browser."
+      content="Simulate real OSRS drop tables for 65 bosses — Zulrah, Vorkath, Nex, Yama and more. Grind GP, unlock bosses, and climb the leaderboard. Free, in your browser."
     />
     <meta name="keywords" content="OSRS, Old School RuneScape, drop simulator, drop rate calculator, OSRS bosses, OSRS drop table, RuneScape simulator, loot simulator" />
     <meta name="robots" content="index, follow" />
@@ -54,12 +58,13 @@
     <meta property="og:title" content="OSRS Drop Simulator — Old School RuneScape Drop Rates" />
     <meta
       property="og:description"
-      content="Simulate real OSRS boss drop tables for 65 bosses. Grind GP, unlock new bosses, open clue caskets, and climb the global leaderboard. Free, in your browser."
+      content="Simulate real OSRS drop tables for 65 bosses — Zulrah, Vorkath, Nex, Yama and more. Grind GP, unlock bosses, and climb the leaderboard. Free, in your browser."
     />
     <meta property="og:url" content="https://osrsdropsimulation.com/" />
     <meta property="og:image" content="https://osrsdropsimulation.com/brand/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OSRS Drop Simulator — free browser drop-rate simulator for 65 Old School RuneScape bosses" />
 
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -76,13 +81,35 @@
         "@type": "WebApplication",
         "name": "OSRS Drop Simulator",
         "url": "https://osrsdropsimulation.com/",
-        "description": "A free browser-based drop rate simulator for Old School RuneScape bosses, covering 65 bosses with real drop tables, a GP economy, and a global leaderboard.",
+        "description": "A free browser-based drop rate simulator for Old School RuneScape, covering 65 bosses from Obor and Bryophyta up to Zulrah, Vorkath, Nex, Yama, and the Chambers of Xeric, Theatre of Blood, and Tombs of Amascut raids. Roll each boss's real published drop table, manage a 28-slot inventory, sell loot for GP, unlock harder bosses, open clue caskets, track a collection log, and climb the global leaderboard.",
         "applicationCategory": "GameApplication",
         "operatingSystem": "Any (web browser)",
+        "creator": {
+          "@type": "Organization",
+          "name": "OSRS Drop Simulator"
+        },
+        "keywords": "OSRS, Old School RuneScape, drop simulator, drop rate calculator, boss drop table, loot simulator, Zulrah, Vorkath, Nex, Yama, Chambers of Xeric, Theatre of Blood, Tombs of Amascut, clue scroll simulator, pet drop rate, collection log",
+        "featureList": [
+          "65 real OSRS boss drop tables with published drop rates",
+          "28-slot inventory with sell, discard, and container-opening mechanics",
+          "GP economy: sell loot, unlock harder bosses",
+          "Clue caskets and other openable containers",
+          "Collection log tracking",
+          "Global leaderboard, ranked by GP and by prestige count",
+          "Prestige system for repeat runs",
+          "Auto Kill, Auto Open, and Auto Sell automation",
+          "Guest play with local progress, or an optional cloud-synced account",
+          "Free, no download, runs entirely in the browser"
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
+        },
+        "hasPart": {
+          "@type": "WebApplication",
+          "name": "OSRS Pet Drop Simulator",
+          "url": "https://osrsdropsimulation.com/pet-drop-sim/"
         }
       }
     </script>
