@@ -82,40 +82,57 @@ export default function Header({
     // under the pinned button, however many lines it wraps to.
     <header className="osrs-bevel osrs-panel sticky top-0 inset-x-0 z-20 shadow-lg relative" style={{ borderRadius: 0 }}>
       <div className="relative shrink-0" ref={menuRef}>
-        <button
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label="Open menu"
-          aria-expanded={menuOpen}
-          className="osrs-bevel absolute right-4 top-3 flex h-9 w-9 shrink-0 items-center justify-center bg-osrs-panel-dark/50 text-osrs-parchment-dark/80 transition active:osrs-bevel-inset sm:right-6 sm:top-3.5"
-        >
-          <span className="relative flex h-4 w-4 items-center justify-center">
-            <span
-              className={`absolute block h-[2px] w-4 rounded-full bg-current transition-transform duration-200 ease-out ${
-                menuOpen ? "translate-y-0 rotate-45" : "-translate-y-[5px] rotate-0"
-              }`}
-            />
-            <span
-              className={`absolute block h-[2px] w-4 rounded-full bg-current transition-opacity duration-150 ease-out ${
-                menuOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute block h-[2px] w-4 rounded-full bg-current transition-transform duration-200 ease-out ${
-                menuOpen ? "translate-y-0 -rotate-45" : "translate-y-[5px] rotate-0"
-              }`}
-            />
-          </span>
-        </button>
+        {/* This inner div, not the button itself, carries the absolute
+            positioning — sized to exactly match the logo's own height
+            (h-8/sm:h-10, see the logo img below), which is what actually
+            sets the flowing row's line-box height that Collection
+            log/Prestige/Leaderboard get vertically centered within via that
+            row's `items-center`. The button is a plain flex child centered
+            inside this div. Positioning the button directly with a guessed
+            top offset (the previous version) put its own center ~3px above
+            that shared centerline — right, but not verified against it, so
+            it silently drifted from anything the row's height happened to
+            do. Matching the same height value the row is actually driven by
+            makes the two centerlines equal by construction instead of by
+            coincidence. */}
+        <div className="absolute right-4 top-3 flex h-8 items-center sm:right-6 sm:top-3.5 sm:h-10">
+          <button
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            className="osrs-bevel flex h-9 w-9 shrink-0 items-center justify-center bg-osrs-panel-dark/50 text-osrs-parchment-dark/80 transition active:osrs-bevel-inset"
+          >
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <span
+                className={`absolute block h-[2px] w-4 rounded-full bg-current transition-transform duration-200 ease-out ${
+                  menuOpen ? "translate-y-0 rotate-45" : "-translate-y-[5px] rotate-0"
+                }`}
+              />
+              <span
+                className={`absolute block h-[2px] w-4 rounded-full bg-current transition-opacity duration-150 ease-out ${
+                  menuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute block h-[2px] w-4 rounded-full bg-current transition-transform duration-200 ease-out ${
+                  menuOpen ? "translate-y-0 -rotate-45" : "translate-y-[5px] rotate-0"
+                }`}
+              />
+            </span>
+          </button>
+        </div>
 
         {/* Always mounted (not conditionally rendered) so opening and
             closing both animate — closed state fades/scales/slides out via
-            CSS transition instead of the menu just popping away. Both this
-            and the button above are absolutely positioned against the same
-            wrapper div, with matching right offsets (right-4/right-6) and a
-            top offset computed from the button's own top + height + an 8px
-            gap (12+36+8=56px → top-14; 14+36+8=58px → top-[58px] at sm+) —
-            they line up because the numbers agree, not because one is
-            nested inside the other. */}
+            CSS transition instead of the menu just popping away. Positioned
+            against the same outer wrapper as the button-sizing div above,
+            independently of it (this is not nested inside that div) — its
+            right offset matches the button's (right-4/right-6) and its top
+            offset (top-14/top-[58px]) is set to clear the button's actual
+            rendered bottom edge with a small visible gap, verified against
+            real layout rather than computed from the button's nominal
+            height, since the button now sits centered inside a slightly
+            taller sizing div (see above) rather than at a raw top offset. */}
         <div
           aria-hidden={!menuOpen}
           className={`osrs-bevel osrs-panel absolute right-4 top-14 z-30 w-56 origin-top-right shadow-xl transition duration-150 ease-out sm:right-6 sm:top-[58px] ${
