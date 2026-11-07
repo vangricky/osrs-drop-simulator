@@ -79,6 +79,9 @@ export function useAuth() {
     async (chosen: string) => {
       if (!supabase || !session) throw new Error("not signed in");
       const { error } = await supabase.rpc("create_profile_and_state", { p_username: chosen });
+      // 23505 = unique violation. Usernames are unique ignoring case, so
+      // "RIMPREX" is taken once "Rimprex" exists.
+      if (error?.code === "23505") throw new Error("That username is taken (names are not case-sensitive). Try another.");
       if (error) throw error;
       setUsername(chosen);
       setNeedsUsername(false);
