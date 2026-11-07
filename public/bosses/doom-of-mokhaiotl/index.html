@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-RdvFnS4s6GKKQnW6TKOp5HZB3GMBlpt1vjDU1SJolB0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-7R8EzHcfSQrAFnLNYQW3Kr6kavq5d/usHFN4OtcEk6A='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -70,7 +70,7 @@
           "name": "How many different items can drop from Doom of Mokhaiotl?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "29 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 6 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+            "text": "30 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 7 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
           }
         },
         {
@@ -227,7 +227,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Boss drop simulator</p>
           <h1><span class="gold-leaf">Doom of Mokhaiotl</span> Drop Simulator — OSRS Drop Rates</h1>
-          <p class="sub">A demonic digger. At combat level 558, Doom of Mokhaiotl ranks #22 of 65 bosses in OSRS Drop Simulator by difficulty, with 29 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
+          <p class="sub">A demonic digger. At combat level 558, Doom of Mokhaiotl ranks #22 of 65 bosses in OSRS Drop Simulator by difficulty, with 30 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
           <div class="meta-row"><span class="chip">Combat level <b>558</b></span><span class="chip">Pet rate <b>1/1,000</b></span></div>
           <a class="cta" href="/?npc=doom-of-mokhaiotl">Simulate Doom of Mokhaiotl now <span class="arrow">→</span></a>
         </div>
@@ -238,8 +238,8 @@
         <p class="section-note">Everything below is derived straight from Doom of Mokhaiotl's real drop table — the same data the live simulator rolls against.</p>
         <dl class="fact-list">
           <div><dt>Combat level</dt><dd>558 (#22 of 65 bosses)</dd></div>
-          <div><dt>Unique droppable items</dt><dd>29 (0 guaranteed)</dd></div>
-          <div><dt>Tradeable / untradeable</dt><dd>23 / 6</dd></div>
+          <div><dt>Unique droppable items</dt><dd>30 (1 guaranteed)</dd></div>
+          <div><dt>Tradeable / untradeable</dt><dd>23 / 7</dd></div>
           <div><dt>Main-table rolls per kill</dt><dd>1</dd></div>
           <div><dt>Pet rate</dt><dd>1/1,000</dd></div>
           <div><dt>Unlock cost in the simulator</dt><dd>3.0B gp</dd></div>
@@ -250,7 +250,15 @@
         <h2>Doom of Mokhaiotl drop table</h2>
         <p class="section-note">Real published rates.</p>
 
-        
+        <div class="tbl-block table-wrap">
+          <table>
+            <caption>100% drop — every kill</caption>
+            <thead><tr><th>Item</th><th class="rate">Rate</th></tr></thead>
+            <tbody>
+          <tr><td class="item">Demon tear ×50</td><td class="rate">1/1</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="tbl-block table-wrap">
           <table>
@@ -273,9 +281,6 @@
           <tr><td class="item">Coal (15–50)</td><td class="rate">5/104</td><td class="pct">4.81%</td></tr>
           <tr><td class="item">Gold ore (20–60)</td><td class="rate">5/104</td><td class="pct">4.81%</td></tr>
           <tr><td class="item">Runite ore (3–6)</td><td class="rate">5/104</td><td class="pct">4.81%</td></tr>
-          <tr><td class="item">Celastrus seed</td><td class="rate">3/104</td><td class="pct">2.88%</td></tr>
-          <tr><td class="item">Ranarr seed (1–3)</td><td class="rate">2/104</td><td class="pct">1.92%</td></tr>
-          <tr><td class="item">Spirit seed</td><td class="rate">3/104</td><td class="pct">2.88%</td></tr>
           <tr><td class="item">Aether catalyst (151–400)</td><td class="rate">5/104</td><td class="pct">4.81%</td></tr>
           <tr><td class="item">Dragon dart tip (30–90)</td><td class="rate">5/104</td><td class="pct">4.81%</td></tr>
           <tr><td class="item">Raw shark (20–35)</td><td class="rate">10/312</td><td class="pct">3.21%</td></tr>
@@ -286,6 +291,7 @@
           <tr><td class="item">Mokhaiotl waystone (1–2)</td><td class="rate">7/104</td><td class="pct">6.73%</td></tr>
           <tr><td class="item">Clue scroll (elite)</td><td class="rate">1/75</td><td class="pct">1.33%</td></tr>
           <tr><td class="item">Dom</td><td class="rate">1/1,000</td><td class="pct">0.10%</td></tr>
+          <tr><td class="item">Nothing</td><td class="rate">0.060949/1</td><td class="pct">6.09%</td></tr>
             </tbody>
           </table>
         </div>
@@ -297,7 +303,9 @@
             <caption>Tertiary drops — independent rolls</caption>
             <thead><tr><th>Item</th><th class="rate">Rate</th></tr></thead>
             <tbody>
-          <tr><td class="item">Demon tear ×50</td><td class="rate">1/1</td></tr>
+          <tr><td class="item">Celastrus seed</td><td class="rate">3/104</td></tr>
+          <tr><td class="item">Ranarr seed (1–3)</td><td class="rate">2/104</td></tr>
+          <tr><td class="item">Spirit seed</td><td class="rate">3/104</td></tr>
             </tbody>
           </table>
         </div>
@@ -315,7 +323,7 @@
         </div>
         <div class="qa">
           <h3>How many different items can drop from Doom of Mokhaiotl?</h3>
-          <p>29 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 6 of them can&#39;t be sold for GP (clue scrolls, pets, and other untradeables).</p>
+          <p>30 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 7 of them can&#39;t be sold for GP (clue scrolls, pets, and other untradeables).</p>
         </div>
         <div class="qa">
           <h3>What&#39;s the fastest way to see Doom of Mokhaiotl&#39;s real drop odds without grinding?</h3>

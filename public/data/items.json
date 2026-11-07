@@ -11923,5 +11923,2012 @@
     "stackable": false,
     "value": 0,
     "tradeable": false
+  },
+  "dragon-bones": {
+    "id": "dragon-bones",
+    "name": "Dragon bones",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_bones.png",
+    "members": true,
+    "value": 3511,
+    "tradeable": true,
+    "stackable": false
+  },
+  "black-dragonhide": {
+    "id": "black-dragonhide",
+    "name": "Black dragonhide",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Black_dragonhide.png",
+    "members": true,
+    "value": 3046,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-pickaxe": {
+    "id": "dragon-pickaxe",
+    "name": "Dragon pickaxe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_pickaxe.png",
+    "members": true,
+    "value": 582391,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-longsword": {
+    "id": "rune-longsword",
+    "name": "Rune longsword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_longsword.png",
+    "members": false,
+    "value": 18813,
+    "tradeable": true,
+    "stackable": false
+  },
+  "adamant-platebody": {
+    "id": "adamant-platebody",
+    "name": "Adamant platebody",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_platebody.png",
+    "members": false,
+    "value": 9225,
+    "tradeable": true,
+    "stackable": false
+  },
+  "adamant-kiteshield": {
+    "id": "adamant-kiteshield",
+    "name": "Adamant kiteshield",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_kiteshield.png",
+    "members": false,
+    "value": 2857,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-med-helm": {
+    "id": "dragon-med-helm",
+    "name": "Dragon med helm",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_med_helm.png",
+    "members": true,
+    "value": 59596,
+    "tradeable": true,
+    "stackable": false
+  },
+  "fire-rune": {
+    "id": "fire-rune",
+    "name": "Fire rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Fire_rune.png",
+    "members": false,
+    "value": 6,
+    "tradeable": true,
+    "stackable": true
+  },
+  "air-rune": {
+    "id": "air-rune",
+    "name": "Air rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Air_rune.png",
+    "members": false,
+    "value": 6,
+    "tradeable": true,
+    "stackable": true
+  },
+  "iron-arrow": {
+    "id": "iron-arrow",
+    "name": "Iron arrow",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Iron_arrow_5.png",
+    "members": false,
+    "value": 4,
+    "tradeable": true,
+    "stackable": true
+  },
+  "runite-bolts": {
+    "id": "runite-bolts",
+    "name": "Runite bolts",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Runite_bolts_5.png",
+    "members": true,
+    "value": 78,
+    "tradeable": true,
+    "stackable": true
+  },
+  "law-rune": {
+    "id": "law-rune",
+    "name": "Law rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Law_rune.png",
+    "members": false,
+    "value": 116,
+    "tradeable": true,
+    "stackable": true
+  },
+  "blood-rune": {
+    "id": "blood-rune",
+    "name": "Blood rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Blood_rune.png",
+    "members": true,
+    "value": 341,
+    "tradeable": true,
+    "stackable": true
+  },
+  "yew-logs": {
+    "id": "yew-logs",
+    "name": "Yew logs",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Yew_logs.png",
+    "members": false,
+    "value": 89,
+    "tradeable": true,
+    "stackable": false
+  },
+  "runite-bar": {
+    "id": "runite-bar",
+    "name": "Runite bar",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Runite_bar.png",
+    "members": false,
+    "value": 12012,
+    "tradeable": true,
+    "stackable": false
+  },
+  "gold-ore": {
+    "id": "gold-ore",
+    "name": "Gold ore",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Gold_ore.png",
+    "members": false,
+    "value": 109,
+    "tradeable": true,
+    "stackable": false
+  },
+  "amulet-of-power": {
+    "id": "amulet-of-power",
+    "name": "Amulet of power",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Amulet_of_power.png",
+    "members": false,
+    "value": 2329,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-arrowtips": {
+    "id": "dragon-arrowtips",
+    "name": "Dragon arrowtips",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_arrowtips.png",
+    "members": true,
+    "value": 2537,
+    "tradeable": true,
+    "stackable": true
+  },
+  "dragon-javelin-tips": {
+    "id": "dragon-javelin-tips",
+    "name": "Dragon javelin tips",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_javelin_tips_5.png",
+    "members": true,
+    "value": 694,
+    "tradeable": true,
+    "stackable": true
+  },
+  "runite-limbs": {
+    "id": "runite-limbs",
+    "name": "Runite limbs",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Runite_limbs.png",
+    "members": true,
+    "value": 10077,
+    "tradeable": true,
+    "stackable": false
+  },
+  "shark": {
+    "id": "shark",
+    "name": "Shark",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Shark.png",
+    "members": true,
+    "value": 726,
+    "tradeable": true,
+    "stackable": false
+  },
+  "uncut-sapphire": {
+    "id": "uncut-sapphire",
+    "name": "Uncut sapphire",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_sapphire.png",
+    "members": false,
+    "value": 166,
+    "tradeable": true,
+    "stackable": false
+  },
+  "uncut-emerald": {
+    "id": "uncut-emerald",
+    "name": "Uncut emerald",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_emerald.png",
+    "members": false,
+    "value": 328,
+    "tradeable": true,
+    "stackable": false
+  },
+  "uncut-ruby": {
+    "id": "uncut-ruby",
+    "name": "Uncut ruby",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_ruby.png",
+    "members": false,
+    "value": 809,
+    "tradeable": true,
+    "stackable": false
+  },
+  "nature-rune": {
+    "id": "nature-rune",
+    "name": "Nature rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Nature_rune.png",
+    "members": false,
+    "value": 161,
+    "tradeable": true,
+    "stackable": true
+  },
+  "rune-2h-sword": {
+    "id": "rune-2h-sword",
+    "name": "Rune 2h sword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_2h_sword.png",
+    "members": false,
+    "value": 37784,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-battleaxe": {
+    "id": "rune-battleaxe",
+    "name": "Rune battleaxe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_battleaxe.png",
+    "members": false,
+    "value": 24282,
+    "tradeable": true,
+    "stackable": false
+  },
+  "death-rune": {
+    "id": "death-rune",
+    "name": "Death rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Death_rune.png",
+    "members": false,
+    "value": 189,
+    "tradeable": true,
+    "stackable": true
+  },
+  "steel-arrow": {
+    "id": "steel-arrow",
+    "name": "Steel arrow",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Steel_arrow_5.png",
+    "members": false,
+    "value": 9,
+    "tradeable": true,
+    "stackable": true
+  },
+  "rune-arrow": {
+    "id": "rune-arrow",
+    "name": "Rune arrow",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_arrow_5.png",
+    "members": true,
+    "value": 37,
+    "tradeable": true,
+    "stackable": true
+  },
+  "adamant-javelin": {
+    "id": "adamant-javelin",
+    "name": "Adamant javelin",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_javelin.png",
+    "members": true,
+    "value": 73,
+    "tradeable": true,
+    "stackable": true
+  },
+  "uncut-diamond": {
+    "id": "uncut-diamond",
+    "name": "Uncut diamond",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_diamond.png",
+    "members": false,
+    "value": 2103,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-kiteshield": {
+    "id": "rune-kiteshield",
+    "name": "Rune kiteshield",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_kiteshield.png",
+    "members": false,
+    "value": 31425,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-javelin": {
+    "id": "rune-javelin",
+    "name": "Rune javelin",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_javelin.png",
+    "members": true,
+    "value": 133,
+    "tradeable": true,
+    "stackable": true
+  },
+  "dragon-spear": {
+    "id": "dragon-spear",
+    "name": "Dragon spear",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_spear.png",
+    "members": true,
+    "value": 37417,
+    "tradeable": true,
+    "stackable": false
+  },
+  "brimstone-key": {
+    "id": "brimstone-key",
+    "name": "Brimstone key",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Brimstone_key.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": true
+  },
+  "kbd-heads": {
+    "id": "kbd-heads",
+    "name": "Kbd heads",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Kbd_heads.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "clue-scroll-elite": {
+    "id": "clue-scroll-elite",
+    "name": "Clue scroll (elite)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Clue_scroll_(elite).png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "prince-black-dragon": {
+    "id": "prince-black-dragon",
+    "name": "Prince Black Dragon",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Prince_Black_Dragon.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "draconic-visage": {
+    "id": "draconic-visage",
+    "name": "Draconic visage",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Draconic_visage.png",
+    "members": true,
+    "value": 2271422,
+    "tradeable": true,
+    "stackable": false
+  },
+  "big-bones": {
+    "id": "big-bones",
+    "name": "Big bones",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Big_bones.png",
+    "members": false,
+    "value": 295,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mole-claw": {
+    "id": "mole-claw",
+    "name": "Mole claw",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mole_claw.png",
+    "members": true,
+    "value": 4551,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mole-skin": {
+    "id": "mole-skin",
+    "name": "Mole skin",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mole_skin.png",
+    "members": true,
+    "value": 4235,
+    "tradeable": true,
+    "stackable": false
+  },
+  "adamant-longsword": {
+    "id": "adamant-longsword",
+    "name": "Adamant longsword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_longsword.png",
+    "members": false,
+    "value": 1614,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-platebody": {
+    "id": "mithril-platebody",
+    "name": "Mithril platebody",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_platebody.png",
+    "members": false,
+    "value": 2756,
+    "tradeable": true,
+    "stackable": false
+  },
+  "amulet-of-strength": {
+    "id": "amulet-of-strength",
+    "name": "Amulet of strength",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Amulet_of_strength.png",
+    "members": false,
+    "value": 1352,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-axe": {
+    "id": "mithril-axe",
+    "name": "Mithril axe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_axe.png",
+    "members": false,
+    "value": 166,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-battleaxe": {
+    "id": "mithril-battleaxe",
+    "name": "Mithril battleaxe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_battleaxe.png",
+    "members": false,
+    "value": 835,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-med-helm": {
+    "id": "rune-med-helm",
+    "name": "Rune med helm",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_med_helm.png",
+    "members": false,
+    "value": 10902,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-bar": {
+    "id": "mithril-bar",
+    "name": "Mithril bar",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_bar.png",
+    "members": false,
+    "value": 842,
+    "tradeable": true,
+    "stackable": false
+  },
+  "ranarr-seed": {
+    "id": "ranarr-seed",
+    "name": "Ranarr seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ranarr_seed_5.png",
+    "members": true,
+    "value": 22898,
+    "tradeable": true,
+    "stackable": true
+  },
+  "iron-ore": {
+    "id": "iron-ore",
+    "name": "Iron ore",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Iron_ore.png",
+    "members": false,
+    "value": 45,
+    "tradeable": true,
+    "stackable": false
+  },
+  "oyster-pearls": {
+    "id": "oyster-pearls",
+    "name": "Oyster pearls",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Oyster_pearls.png",
+    "members": true,
+    "value": 516,
+    "tradeable": true,
+    "stackable": false
+  },
+  "immaculate-mole-skin": {
+    "id": "immaculate-mole-skin",
+    "name": "Immaculate mole skin",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Immaculate_mole_skin.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "long-bone": {
+    "id": "long-bone",
+    "name": "Long bone",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Long_bone.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "baby-mole": {
+    "id": "baby-mole",
+    "name": "Baby Mole",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Baby_Mole.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "curved-bone": {
+    "id": "curved-bone",
+    "name": "Curved bone",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Curved_bone.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "monkfish": {
+    "id": "monkfish",
+    "name": "Monkfish",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Monkfish.png",
+    "members": true,
+    "value": 130,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dark-crab": {
+    "id": "dark-crab",
+    "name": "Dark crab",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dark_crab.png",
+    "members": true,
+    "value": 1011,
+    "tradeable": true,
+    "stackable": false
+  },
+  "superantipoison-2": {
+    "id": "superantipoison-2",
+    "name": "Superantipoison(2)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Superantipoison(2).png",
+    "members": true,
+    "value": 564,
+    "tradeable": true,
+    "stackable": false
+  },
+  "battlestaff": {
+    "id": "battlestaff",
+    "name": "Battlestaff",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Battlestaff.png",
+    "members": true,
+    "value": 7788,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-chainbody": {
+    "id": "rune-chainbody",
+    "name": "Rune chainbody",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_chainbody.png",
+    "members": false,
+    "value": 29502,
+    "tradeable": true,
+    "stackable": false
+  },
+  "lava-battlestaff": {
+    "id": "lava-battlestaff",
+    "name": "Lava battlestaff",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Lava_battlestaff.png",
+    "members": true,
+    "value": 9574,
+    "tradeable": true,
+    "stackable": false
+  },
+  "grimy-toadflax": {
+    "id": "grimy-toadflax",
+    "name": "Grimy toadflax",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_toadflax.png",
+    "members": true,
+    "value": 1747,
+    "tradeable": true,
+    "stackable": false
+  },
+  "grimy-ranarr-weed": {
+    "id": "grimy-ranarr-weed",
+    "name": "Grimy ranarr weed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_ranarr_weed.png",
+    "members": true,
+    "value": 4760,
+    "tradeable": true,
+    "stackable": false
+  },
+  "grimy-snapdragon": {
+    "id": "grimy-snapdragon",
+    "name": "Grimy snapdragon",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Grimy_snapdragon.png",
+    "members": true,
+    "value": 6285,
+    "tradeable": true,
+    "stackable": false
+  },
+  "torstol-seed": {
+    "id": "torstol-seed",
+    "name": "Torstol seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Torstol_seed_5.png",
+    "members": true,
+    "value": 11967,
+    "tradeable": true,
+    "stackable": true
+  },
+  "bucket-of-sand": {
+    "id": "bucket-of-sand",
+    "name": "Bucket of sand",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bucket_of_sand.png",
+    "members": true,
+    "value": 7,
+    "tradeable": true,
+    "stackable": false
+  },
+  "magic-logs": {
+    "id": "magic-logs",
+    "name": "Magic logs",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Magic_logs.png",
+    "members": true,
+    "value": 594,
+    "tradeable": true,
+    "stackable": false
+  },
+  "ensouled-kalphite-head": {
+    "id": "ensouled-kalphite-head",
+    "name": "Ensouled kalphite head",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ensouled_kalphite_head.png",
+    "members": true,
+    "value": 1443,
+    "tradeable": true,
+    "stackable": false
+  },
+  "kq-head": {
+    "id": "kq-head",
+    "name": "Kq head",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Kq_head.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "dragon-chainbody": {
+    "id": "dragon-chainbody",
+    "name": "Dragon chainbody",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_chainbody.png",
+    "members": true,
+    "value": 176083,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-2h-sword": {
+    "id": "dragon-2h-sword",
+    "name": "Dragon 2h sword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_2h_sword.png",
+    "members": true,
+    "value": 150374,
+    "tradeable": true,
+    "stackable": false
+  },
+  "jar-of-sand": {
+    "id": "jar-of-sand",
+    "name": "Jar of Sand",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Jar_of_Sand.png",
+    "members": true,
+    "value": 470021,
+    "tradeable": true,
+    "stackable": false
+  },
+  "kalphite-princess": {
+    "id": "kalphite-princess",
+    "name": "Kalphite Princess",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Kalphite_Princess.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "frozen-key-piece-bandos": {
+    "id": "frozen-key-piece-bandos",
+    "name": "Frozen key piece (Bandos)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Frozen_key_piece_(Bandos).png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "bandos-chestplate": {
+    "id": "bandos-chestplate",
+    "name": "Bandos chestplate",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bandos_chestplate.png",
+    "members": true,
+    "value": 17057990,
+    "tradeable": true,
+    "stackable": false
+  },
+  "bandos-tassets": {
+    "id": "bandos-tassets",
+    "name": "Bandos tassets",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bandos_tassets.png",
+    "members": true,
+    "value": 11108143,
+    "tradeable": true,
+    "stackable": false
+  },
+  "bandos-boots": {
+    "id": "bandos-boots",
+    "name": "Bandos boots",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bandos_boots.png",
+    "members": true,
+    "value": 607972,
+    "tradeable": true,
+    "stackable": false
+  },
+  "bandos-hilt": {
+    "id": "bandos-hilt",
+    "name": "Bandos hilt",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bandos_hilt.png",
+    "members": true,
+    "value": 10222500,
+    "tradeable": true,
+    "stackable": false
+  },
+  "godsword-shard-1": {
+    "id": "godsword-shard-1",
+    "name": "Godsword shard 1",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Godsword_shard_1.png",
+    "members": true,
+    "value": 150162,
+    "tradeable": true,
+    "stackable": false
+  },
+  "godsword-shard-2": {
+    "id": "godsword-shard-2",
+    "name": "Godsword shard 2",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Godsword_shard_2.png",
+    "members": true,
+    "value": 148505,
+    "tradeable": true,
+    "stackable": false
+  },
+  "godsword-shard-3": {
+    "id": "godsword-shard-3",
+    "name": "Godsword shard 3",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Godsword_shard_3.png",
+    "members": true,
+    "value": 149330,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-platebody": {
+    "id": "rune-platebody",
+    "name": "Rune platebody",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_platebody.png",
+    "members": false,
+    "value": 38525,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-pickaxe": {
+    "id": "rune-pickaxe",
+    "name": "Rune pickaxe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_pickaxe.png",
+    "members": false,
+    "value": 18567,
+    "tradeable": true,
+    "stackable": false
+  },
+  "snapdragon-seed": {
+    "id": "snapdragon-seed",
+    "name": "Snapdragon seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Snapdragon_seed_5.png",
+    "members": true,
+    "value": 35815,
+    "tradeable": true,
+    "stackable": true
+  },
+  "coal": {
+    "id": "coal",
+    "name": "Coal",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Coal.png",
+    "members": false,
+    "value": 134,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-shortsword": {
+    "id": "rune-shortsword",
+    "name": "Rune shortsword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_shortsword.png",
+    "members": false,
+    "value": 11725,
+    "tradeable": true,
+    "stackable": false
+  },
+  "pet-general-graardor": {
+    "id": "pet-general-graardor",
+    "name": "Pet General Graardor",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Pet_General_Graardor.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "superior-dragon-bones": {
+    "id": "superior-dragon-bones",
+    "name": "Superior dragon bones",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Superior_dragon_bones.png",
+    "members": true,
+    "value": 19605,
+    "tradeable": true,
+    "stackable": false
+  },
+  "blue-dragonhide": {
+    "id": "blue-dragonhide",
+    "name": "Blue dragonhide",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Blue_dragonhide.png",
+    "members": true,
+    "value": 1594,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-battleaxe": {
+    "id": "dragon-battleaxe",
+    "name": "Dragon battleaxe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_battleaxe.png",
+    "members": true,
+    "value": 119115,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-longsword": {
+    "id": "dragon-longsword",
+    "name": "Dragon longsword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_longsword.png",
+    "members": true,
+    "value": 59349,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-platelegs": {
+    "id": "dragon-platelegs",
+    "name": "Dragon platelegs",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_platelegs.png",
+    "members": true,
+    "value": 161943,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-plateskirt": {
+    "id": "dragon-plateskirt",
+    "name": "Dragon plateskirt",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_plateskirt.png",
+    "members": true,
+    "value": 161550,
+    "tradeable": true,
+    "stackable": false
+  },
+  "chaos-rune": {
+    "id": "chaos-rune",
+    "name": "Chaos rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Chaos_rune.png",
+    "members": false,
+    "value": 86,
+    "tradeable": true,
+    "stackable": true
+  },
+  "wrath-rune": {
+    "id": "wrath-rune",
+    "name": "Wrath rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Wrath_rune.png",
+    "members": true,
+    "value": 320,
+    "tradeable": true,
+    "stackable": true
+  },
+  "green-dragonhide": {
+    "id": "green-dragonhide",
+    "name": "Green dragonhide",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Green_dragonhide.png",
+    "members": true,
+    "value": 1341,
+    "tradeable": true,
+    "stackable": false
+  },
+  "red-dragonhide": {
+    "id": "red-dragonhide",
+    "name": "Red dragonhide",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Red_dragonhide.png",
+    "members": true,
+    "value": 1963,
+    "tradeable": true,
+    "stackable": false
+  },
+  "emerald-bolt-tips": {
+    "id": "emerald-bolt-tips",
+    "name": "Emerald bolt tips",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Emerald_bolt_tips_5.png",
+    "members": true,
+    "value": 51,
+    "tradeable": true,
+    "stackable": true
+  },
+  "ruby-bolt-tips": {
+    "id": "ruby-bolt-tips",
+    "name": "Ruby bolt tips",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ruby_bolt_tips_5.png",
+    "members": true,
+    "value": 82,
+    "tradeable": true,
+    "stackable": true
+  },
+  "sapphire-bolt-tips": {
+    "id": "sapphire-bolt-tips",
+    "name": "Sapphire bolt tips",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Sapphire_bolt_tips_5.png",
+    "members": true,
+    "value": 8,
+    "tradeable": true,
+    "stackable": true
+  },
+  "wrath-talisman": {
+    "id": "wrath-talisman",
+    "name": "Wrath talisman",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Wrath_talisman.png",
+    "members": true,
+    "value": 297,
+    "tradeable": true,
+    "stackable": false
+  },
+  "scaly-blue-dragonhide": {
+    "id": "scaly-blue-dragonhide",
+    "name": "Scaly blue dragonhide",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Scaly_blue_dragonhide.png",
+    "members": true,
+    "value": 171,
+    "tradeable": true,
+    "stackable": false
+  },
+  "vorkaths-head": {
+    "id": "vorkaths-head",
+    "name": "Vorkath's head",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Vorkath's_head.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "dragonbone-necklace": {
+    "id": "dragonbone-necklace",
+    "name": "Dragonbone necklace",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragonbone_necklace.png",
+    "members": true,
+    "value": 91589,
+    "tradeable": true,
+    "stackable": false
+  },
+  "jar-of-decay": {
+    "id": "jar-of-decay",
+    "name": "Jar of Decay",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Jar_of_Decay.png",
+    "members": true,
+    "value": 46450,
+    "tradeable": true,
+    "stackable": false
+  },
+  "vorki": {
+    "id": "vorki",
+    "name": "Vorki",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Vorki.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "skeletal-visage": {
+    "id": "skeletal-visage",
+    "name": "Skeletal visage",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Skeletal_visage.png",
+    "members": true,
+    "value": 8838000,
+    "tradeable": true,
+    "stackable": false
+  },
+  "zulrahs-scales": {
+    "id": "zulrahs-scales",
+    "name": "Zulrah's scales",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zulrah's_scales_5.png",
+    "members": true,
+    "value": 126,
+    "tradeable": true,
+    "stackable": true
+  },
+  "tanzanite-fang": {
+    "id": "tanzanite-fang",
+    "name": "Tanzanite fang",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Tanzanite_fang.png",
+    "members": true,
+    "value": 7862500,
+    "tradeable": true,
+    "stackable": false
+  },
+  "magic-fang": {
+    "id": "magic-fang",
+    "name": "Magic fang",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Magic_fang.png",
+    "members": true,
+    "value": 2485397,
+    "tradeable": true,
+    "stackable": false
+  },
+  "serpentine-visage": {
+    "id": "serpentine-visage",
+    "name": "Serpentine visage",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Serpentine_visage.png",
+    "members": true,
+    "value": 2631561,
+    "tradeable": true,
+    "stackable": false
+  },
+  "uncut-onyx": {
+    "id": "uncut-onyx",
+    "name": "Uncut onyx",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_onyx.png",
+    "members": true,
+    "value": 1973152,
+    "tradeable": true,
+    "stackable": false
+  },
+  "flax": {
+    "id": "flax",
+    "name": "Flax",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Flax.png",
+    "members": true,
+    "value": 3,
+    "tradeable": true,
+    "stackable": false
+  },
+  "tanzanite-mutagen": {
+    "id": "tanzanite-mutagen",
+    "name": "Tanzanite mutagen",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Tanzanite_mutagen.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "magma-mutagen": {
+    "id": "magma-mutagen",
+    "name": "Magma mutagen",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Magma_mutagen.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "dragon-halberd": {
+    "id": "dragon-halberd",
+    "name": "Dragon halberd",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_halberd.png",
+    "members": true,
+    "value": 148853,
+    "tradeable": true,
+    "stackable": false
+  },
+  "snapdragon": {
+    "id": "snapdragon",
+    "name": "Snapdragon",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Snapdragon.png",
+    "members": true,
+    "value": 6450,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dwarf-weed": {
+    "id": "dwarf-weed",
+    "name": "Dwarf weed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dwarf_weed.png",
+    "members": true,
+    "value": 1168,
+    "tradeable": true,
+    "stackable": false
+  },
+  "toadflax": {
+    "id": "toadflax",
+    "name": "Toadflax",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Toadflax.png",
+    "members": true,
+    "value": 1842,
+    "tradeable": true,
+    "stackable": false
+  },
+  "calquat-tree-seed": {
+    "id": "calquat-tree-seed",
+    "name": "Calquat tree seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Calquat_tree_seed_5.png",
+    "members": true,
+    "value": 312,
+    "tradeable": true,
+    "stackable": true
+  },
+  "snakeskin": {
+    "id": "snakeskin",
+    "name": "Snakeskin",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Snakeskin.png",
+    "members": true,
+    "value": 12,
+    "tradeable": true,
+    "stackable": false
+  },
+  "runite-ore": {
+    "id": "runite-ore",
+    "name": "Runite ore",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Runite_ore.png",
+    "members": false,
+    "value": 9974,
+    "tradeable": true,
+    "stackable": false
+  },
+  "pure-essence": {
+    "id": "pure-essence",
+    "name": "Pure essence",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Pure_essence.png",
+    "members": false,
+    "value": 2,
+    "tradeable": true,
+    "stackable": false
+  },
+  "zul-andra-teleport": {
+    "id": "zul-andra-teleport",
+    "name": "Zul-andra teleport",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Zul-andra_teleport.png",
+    "members": true,
+    "value": 14096,
+    "tradeable": true,
+    "stackable": true
+  },
+  "jar-of-swamp": {
+    "id": "jar-of-swamp",
+    "name": "Jar of Swamp",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Jar_of_Swamp.png",
+    "members": true,
+    "value": 35635,
+    "tradeable": true,
+    "stackable": false
+  },
+  "pet-snakeling": {
+    "id": "pet-snakeling",
+    "name": "Pet Snakeling",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Pet_Snakeling.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "rune-full-helm": {
+    "id": "rune-full-helm",
+    "name": "Rune full helm",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_full_helm.png",
+    "members": false,
+    "value": 20568,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-platelegs": {
+    "id": "rune-platelegs",
+    "name": "Rune platelegs",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_platelegs.png",
+    "members": false,
+    "value": 37712,
+    "tradeable": true,
+    "stackable": false
+  },
+  "crystal-key": {
+    "id": "crystal-key",
+    "name": "Crystal key",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Crystal_key.png",
+    "members": true,
+    "value": 17790,
+    "tradeable": true,
+    "stackable": false
+  },
+  "soul-rune": {
+    "id": "soul-rune",
+    "name": "Soul rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Soul_rune.png",
+    "members": true,
+    "value": 302,
+    "tradeable": true,
+    "stackable": true
+  },
+  "adamant-arrow": {
+    "id": "adamant-arrow",
+    "name": "Adamant arrow",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_arrow_5.png",
+    "members": false,
+    "value": 21,
+    "tradeable": true,
+    "stackable": true
+  },
+  "water-rune": {
+    "id": "water-rune",
+    "name": "Water rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Water_rune.png",
+    "members": false,
+    "value": 5,
+    "tradeable": true,
+    "stackable": true
+  },
+  "rune-dagger": {
+    "id": "rune-dagger",
+    "name": "Rune dagger",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_dagger.png",
+    "members": false,
+    "value": 4341,
+    "tradeable": true,
+    "stackable": false
+  },
+  "clue-scroll-hard": {
+    "id": "clue-scroll-hard",
+    "name": "Clue scroll (hard)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Clue_scroll_(hard).png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "dragon-dagger": {
+    "id": "dragon-dagger",
+    "name": "Dragon dagger",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_dagger.png",
+    "members": true,
+    "value": 17136,
+    "tradeable": true,
+    "stackable": false
+  },
+  "looting-bag": {
+    "id": "looting-bag",
+    "name": "Looting bag",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Looting_bag.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "larrans-key": {
+    "id": "larrans-key",
+    "name": "Larran's key",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Larran's_key_5.png",
+    "members": true,
+    "value": 116033,
+    "tradeable": true,
+    "stackable": true
+  },
+  "slayers-enchantment": {
+    "id": "slayers-enchantment",
+    "name": "Slayer's enchantment",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Slayer's_enchantment.png",
+    "members": true,
+    "value": 206,
+    "tradeable": true,
+    "stackable": true
+  },
+  "bones": {
+    "id": "bones",
+    "name": "Bones",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bones.png",
+    "members": false,
+    "value": 41,
+    "tradeable": true,
+    "stackable": false
+  },
+  "red-dhide-vambraces": {
+    "id": "red-dhide-vambraces",
+    "name": "Red d'hide vambraces",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Red_d'hide_vambraces.png",
+    "members": true,
+    "value": 1546,
+    "tradeable": true,
+    "stackable": false
+  },
+  "body-talisman": {
+    "id": "body-talisman",
+    "name": "Body talisman",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Body_talisman.png",
+    "members": false,
+    "value": 1405,
+    "tradeable": true,
+    "stackable": false
+  },
+  "feather": {
+    "id": "feather",
+    "name": "Feather",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Feather.png",
+    "members": false,
+    "value": 3,
+    "tradeable": true,
+    "stackable": true
+  },
+  "air-battlestaff": {
+    "id": "air-battlestaff",
+    "name": "Air battlestaff",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Air_battlestaff.png",
+    "members": true,
+    "value": 8662,
+    "tradeable": true,
+    "stackable": false
+  },
+  "earth-rune": {
+    "id": "earth-rune",
+    "name": "Earth rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Earth_rune.png",
+    "members": false,
+    "value": 6,
+    "tradeable": true,
+    "stackable": true
+  },
+  "steel-kiteshield": {
+    "id": "steel-kiteshield",
+    "name": "Steel kiteshield",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Steel_kiteshield.png",
+    "members": false,
+    "value": 281,
+    "tradeable": true,
+    "stackable": false
+  },
+  "adamant-axe": {
+    "id": "adamant-axe",
+    "name": "Adamant axe",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Adamant_axe.png",
+    "members": false,
+    "value": 517,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-2h-sword": {
+    "id": "mithril-2h-sword",
+    "name": "Mithril 2h sword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_2h_sword.png",
+    "members": false,
+    "value": 1290,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-ore": {
+    "id": "mithril-ore",
+    "name": "Mithril ore",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_ore.png",
+    "members": false,
+    "value": 106,
+    "tradeable": true,
+    "stackable": false
+  },
+  "steel-bar": {
+    "id": "steel-bar",
+    "name": "Steel bar",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Steel_bar.png",
+    "members": false,
+    "value": 515,
+    "tradeable": true,
+    "stackable": false
+  },
+  "rune-crossbow": {
+    "id": "rune-crossbow",
+    "name": "Rune crossbow",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rune_crossbow.png",
+    "members": true,
+    "value": 9292,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mind-rune": {
+    "id": "mind-rune",
+    "name": "Mind rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mind_rune.png",
+    "members": false,
+    "value": 3,
+    "tradeable": true,
+    "stackable": true
+  },
+  "abyssal-ashes": {
+    "id": "abyssal-ashes",
+    "name": "Abyssal ashes",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Abyssal_ashes.png",
+    "members": true,
+    "value": 2038,
+    "tradeable": true,
+    "stackable": false
+  },
+  "hydras-eye": {
+    "id": "hydras-eye",
+    "name": "Hydra's eye",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hydra's_eye.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "hydras-fang": {
+    "id": "hydras-fang",
+    "name": "Hydra's fang",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hydra's_fang.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "hydras-heart": {
+    "id": "hydras-heart",
+    "name": "Hydra's heart",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hydra's_heart.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "hydra-tail": {
+    "id": "hydra-tail",
+    "name": "Hydra tail",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hydra_tail.png",
+    "members": true,
+    "value": 72075,
+    "tradeable": true,
+    "stackable": false
+  },
+  "hydra-leather": {
+    "id": "hydra-leather",
+    "name": "Hydra leather",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hydra_leather.png",
+    "members": true,
+    "value": 9000561,
+    "tradeable": true,
+    "stackable": false
+  },
+  "hydras-claw": {
+    "id": "hydras-claw",
+    "name": "Hydra's claw",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hydra's_claw.png",
+    "members": true,
+    "value": 37106003,
+    "tradeable": true,
+    "stackable": false
+  },
+  "dragon-knife": {
+    "id": "dragon-knife",
+    "name": "Dragon knife",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dragon_knife.png",
+    "members": true,
+    "value": 2857,
+    "tradeable": true,
+    "stackable": true
+  },
+  "pendant-of-ates-inert": {
+    "id": "pendant-of-ates-inert",
+    "name": "Pendant of Ates (inert)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Pendant_of_Ates#Inert.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "uncut-dragonstone": {
+    "id": "uncut-dragonstone",
+    "name": "Uncut dragonstone",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Uncut_dragonstone.png",
+    "members": true,
+    "value": 13571,
+    "tradeable": true,
+    "stackable": false
+  },
+  "limpwurt-root": {
+    "id": "limpwurt-root",
+    "name": "Limpwurt root",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Limpwurt_root.png",
+    "members": false,
+    "value": 148,
+    "tradeable": true,
+    "stackable": false
+  },
+  "blighted-super-restore-3": {
+    "id": "blighted-super-restore-3",
+    "name": "Blighted super restore(3)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Blighted_super_restore(3).png",
+    "members": true,
+    "value": 0,
+    "tradeable": true,
+    "stackable": false
+  },
+  "bottomless-milk-bucket-empty": {
+    "id": "bottomless-milk-bucket-empty",
+    "name": "Bottomless milk bucket (empty)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Bottomless_milk_bucket_(empty).png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "iron-full-helm": {
+    "id": "iron-full-helm",
+    "name": "Iron full helm",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Iron_full_helm.png",
+    "members": false,
+    "value": 110,
+    "tradeable": true,
+    "stackable": false
+  },
+  "cowhide": {
+    "id": "cowhide",
+    "name": "Cowhide",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cowhide.png",
+    "members": false,
+    "value": 121,
+    "tradeable": true,
+    "stackable": false
+  },
+  "clue-scroll-beginner": {
+    "id": "clue-scroll-beginner",
+    "name": "Clue scroll (beginner)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Clue_scroll_(beginner).png",
+    "members": false,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "clue-scroll-easy": {
+    "id": "clue-scroll-easy",
+    "name": "Clue scroll (easy)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Clue_scroll_(easy).png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "black-sq-shield": {
+    "id": "black-sq-shield",
+    "name": "Black sq shield",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Black_sq_shield.png",
+    "members": false,
+    "value": 431,
+    "tradeable": true,
+    "stackable": false
+  },
+  "magic-staff": {
+    "id": "magic-staff",
+    "name": "Magic staff",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Magic_staff.png",
+    "members": false,
+    "value": 106,
+    "tradeable": true,
+    "stackable": false
+  },
+  "steel-med-helm": {
+    "id": "steel-med-helm",
+    "name": "Steel med helm",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Steel_med_helm.png",
+    "members": false,
+    "value": 39,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-shortsword": {
+    "id": "mithril-shortsword",
+    "name": "Mithril shortsword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_shortsword.png",
+    "members": false,
+    "value": 199,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mithril-spear": {
+    "id": "mithril-spear",
+    "name": "Mithril spear",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_spear.png",
+    "members": true,
+    "value": 235,
+    "tradeable": true,
+    "stackable": false
+  },
+  "limpwurt-seed": {
+    "id": "limpwurt-seed",
+    "name": "Limpwurt seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Limpwurt_seed_5.png",
+    "members": true,
+    "value": 14,
+    "tradeable": true,
+    "stackable": true
+  },
+  "strawberry-seed": {
+    "id": "strawberry-seed",
+    "name": "Strawberry seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Strawberry_seed_5.png",
+    "members": true,
+    "value": 9,
+    "tradeable": true,
+    "stackable": true
+  },
+  "marrentill-seed": {
+    "id": "marrentill-seed",
+    "name": "Marrentill seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Marrentill_seed_5.png",
+    "members": true,
+    "value": 30,
+    "tradeable": true,
+    "stackable": true
+  },
+  "jangerberry-seed": {
+    "id": "jangerberry-seed",
+    "name": "Jangerberry seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Jangerberry_seed_5.png",
+    "members": true,
+    "value": 25,
+    "tradeable": true,
+    "stackable": true
+  },
+  "tarromin-seed": {
+    "id": "tarromin-seed",
+    "name": "Tarromin seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Tarromin_seed_5.png",
+    "members": true,
+    "value": 31,
+    "tradeable": true,
+    "stackable": true
+  },
+  "harralander-seed": {
+    "id": "harralander-seed",
+    "name": "Harralander seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Harralander_seed_5.png",
+    "members": true,
+    "value": 24,
+    "tradeable": true,
+    "stackable": true
+  },
+  "mushroom-spore": {
+    "id": "mushroom-spore",
+    "name": "Mushroom spore",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mushroom_spore_5.png",
+    "members": true,
+    "value": 121,
+    "tradeable": true,
+    "stackable": true
+  },
+  "ensouled-giant-head": {
+    "id": "ensouled-giant-head",
+    "name": "Ensouled giant head",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ensouled_giant_head.png",
+    "members": true,
+    "value": 473,
+    "tradeable": true,
+    "stackable": false
+  },
+  "mossy-key": {
+    "id": "mossy-key",
+    "name": "Mossy key",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mossy_key.png",
+    "members": false,
+    "value": 0,
+    "tradeable": false,
+    "stackable": true
+  },
+  "giant-champion-scroll": {
+    "id": "giant-champion-scroll",
+    "name": "Giant champion scroll",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_champion_scroll.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "smouldering-stone": {
+    "id": "smouldering-stone",
+    "name": "Smouldering stone",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Smouldering_stone.png",
+    "members": true,
+    "value": 2779465,
+    "tradeable": true,
+    "stackable": false
+  },
+  "ensouled-hellhound-head": {
+    "id": "ensouled-hellhound-head",
+    "name": "Ensouled hellhound head",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ensouled_hellhound_head.png",
+    "members": true,
+    "value": 4120,
+    "tradeable": true,
+    "stackable": false
+  },
+  "hellpuppy": {
+    "id": "hellpuppy",
+    "name": "Hellpuppy",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hellpuppy.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "numulite": {
+    "id": "numulite",
+    "name": "Numulite",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Numulite_5.png",
+    "members": true,
+    "value": 36,
+    "tradeable": true,
+    "stackable": true
+  },
+  "unidentified-small-fossil": {
+    "id": "unidentified-small-fossil",
+    "name": "Unidentified small fossil",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Unidentified_small_fossil.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "unidentified-medium-fossil": {
+    "id": "unidentified-medium-fossil",
+    "name": "Unidentified medium fossil",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Unidentified_medium_fossil.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "unidentified-large-fossil": {
+    "id": "unidentified-large-fossil",
+    "name": "Unidentified large fossil",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Unidentified_large_fossil.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "unidentified-rare-fossil": {
+    "id": "unidentified-rare-fossil",
+    "name": "Unidentified rare fossil",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Unidentified_rare_fossil.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "mithril-chainbody": {
+    "id": "mithril-chainbody",
+    "name": "Mithril chainbody",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Mithril_chainbody.png",
+    "members": false,
+    "value": 903,
+    "tradeable": true,
+    "stackable": false
+  },
+  "anglerfish": {
+    "id": "anglerfish",
+    "name": "Anglerfish",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Anglerfish.png",
+    "members": true,
+    "value": 1474,
+    "tradeable": true,
+    "stackable": false
+  },
+  "body-rune": {
+    "id": "body-rune",
+    "name": "Body rune",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Body_rune.png",
+    "members": false,
+    "value": 4,
+    "tradeable": true,
+    "stackable": true
+  },
+  "clue-scroll-medium": {
+    "id": "clue-scroll-medium",
+    "name": "Clue scroll (medium)",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Clue_scroll_(medium).png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": false
+  },
+  "giant-key": {
+    "id": "giant-key",
+    "name": "Giant key",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Giant_key.png",
+    "members": false,
+    "value": 0,
+    "tradeable": false,
+    "stackable": true
+  },
+  "iron-dagger": {
+    "id": "iron-dagger",
+    "name": "Iron dagger",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Iron_dagger.png",
+    "members": false,
+    "value": 14,
+    "tradeable": true,
+    "stackable": false
+  },
+  "iron-kiteshield": {
+    "id": "iron-kiteshield",
+    "name": "Iron kiteshield",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Iron_kiteshield.png",
+    "members": false,
+    "value": 69,
+    "tradeable": true,
+    "stackable": false
+  },
+  "steel-longsword": {
+    "id": "steel-longsword",
+    "name": "Steel longsword",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Steel_longsword.png",
+    "members": false,
+    "value": 70,
+    "tradeable": true,
+    "stackable": false
+  },
+  "onion-seed": {
+    "id": "onion-seed",
+    "name": "Onion seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Onion_seed_5.png",
+    "members": true,
+    "value": 3,
+    "tradeable": true,
+    "stackable": true
+  },
+  "cabbage-seed": {
+    "id": "cabbage-seed",
+    "name": "Cabbage seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cabbage_seed_5.png",
+    "members": true,
+    "value": 7,
+    "tradeable": true,
+    "stackable": true
+  },
+  "tomato-seed": {
+    "id": "tomato-seed",
+    "name": "Tomato seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Tomato_seed_5.png",
+    "members": true,
+    "value": 10,
+    "tradeable": true,
+    "stackable": true
+  },
+  "sweetcorn-seed": {
+    "id": "sweetcorn-seed",
+    "name": "Sweetcorn seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Sweetcorn_seed_5.png",
+    "members": true,
+    "value": 8,
+    "tradeable": true,
+    "stackable": true
+  },
+  "barley-seed": {
+    "id": "barley-seed",
+    "name": "Barley seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Barley_seed_5.png",
+    "members": true,
+    "value": 5,
+    "tradeable": true,
+    "stackable": true
+  },
+  "hammerstone-seed": {
+    "id": "hammerstone-seed",
+    "name": "Hammerstone seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Hammerstone_seed_5.png",
+    "members": true,
+    "value": 9,
+    "tradeable": true,
+    "stackable": true
+  },
+  "asgarnian-seed": {
+    "id": "asgarnian-seed",
+    "name": "Asgarnian seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Asgarnian_seed_5.png",
+    "members": true,
+    "value": 4,
+    "tradeable": true,
+    "stackable": true
+  },
+  "jute-seed": {
+    "id": "jute-seed",
+    "name": "Jute seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Jute_seed_5.png",
+    "members": true,
+    "value": 3,
+    "tradeable": true,
+    "stackable": true
+  },
+  "yanillian-seed": {
+    "id": "yanillian-seed",
+    "name": "Yanillian seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Yanillian_seed_5.png",
+    "members": true,
+    "value": 11,
+    "tradeable": true,
+    "stackable": true
+  },
+  "krandorian-seed": {
+    "id": "krandorian-seed",
+    "name": "Krandorian seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Krandorian_seed_5.png",
+    "members": true,
+    "value": 4,
+    "tradeable": true,
+    "stackable": true
+  },
+  "marigold-seed": {
+    "id": "marigold-seed",
+    "name": "Marigold seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Marigold_seed_5.png",
+    "members": true,
+    "value": 15,
+    "tradeable": true,
+    "stackable": true
+  },
+  "nasturtium-seed": {
+    "id": "nasturtium-seed",
+    "name": "Nasturtium seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Nasturtium_seed_5.png",
+    "members": true,
+    "value": 110,
+    "tradeable": true,
+    "stackable": true
+  },
+  "rosemary-seed": {
+    "id": "rosemary-seed",
+    "name": "Rosemary seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Rosemary_seed_5.png",
+    "members": true,
+    "value": 21,
+    "tradeable": true,
+    "stackable": true
+  },
+  "woad-seed": {
+    "id": "woad-seed",
+    "name": "Woad seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Woad_seed_5.png",
+    "members": true,
+    "value": 12,
+    "tradeable": true,
+    "stackable": true
+  },
+  "redberry-seed": {
+    "id": "redberry-seed",
+    "name": "Redberry seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Redberry_seed_5.png",
+    "members": true,
+    "value": 14,
+    "tradeable": true,
+    "stackable": true
+  },
+  "cadavaberry-seed": {
+    "id": "cadavaberry-seed",
+    "name": "Cadavaberry seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Cadavaberry_seed_5.png",
+    "members": true,
+    "value": 12,
+    "tradeable": true,
+    "stackable": true
+  },
+  "dwellberry-seed": {
+    "id": "dwellberry-seed",
+    "name": "Dwellberry seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Dwellberry_seed_5.png",
+    "members": true,
+    "value": 21,
+    "tradeable": true,
+    "stackable": true
+  },
+  "guam-seed": {
+    "id": "guam-seed",
+    "name": "Guam seed",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Guam_seed_5.png",
+    "members": true,
+    "value": 13,
+    "tradeable": true,
+    "stackable": true
+  },
+  "raw-rat-meat": {
+    "id": "raw-rat-meat",
+    "name": "Raw rat meat",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Raw_rat_meat.png",
+    "members": false,
+    "value": 44,
+    "tradeable": true,
+    "stackable": false
+  },
+  "ancient-shard": {
+    "id": "ancient-shard",
+    "name": "Ancient shard",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ancient_shard.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": true
+  },
+  "ensouled-demon-head": {
+    "id": "ensouled-demon-head",
+    "name": "Ensouled demon head",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Ensouled_demon_head.png",
+    "members": true,
+    "value": 3521,
+    "tradeable": true,
+    "stackable": false
+  },
+  "crystal-shard": {
+    "id": "crystal-shard",
+    "name": "Crystal shard",
+    "iconUrl": "https://oldschool.runescape.wiki/images/Crystal_shard.png",
+    "members": true,
+    "value": 0,
+    "tradeable": false,
+    "stackable": true
   }
 }

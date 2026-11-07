@@ -249,7 +249,7 @@ function renderTableRows(entries, items, { showPercent } = {}) {
   return entries
     .map((e) => {
       const item = items[e.itemId];
-      const name = escapeHtml(item?.name ?? e.itemId);
+      const name = escapeHtml(item?.name ?? (e.itemId === "nothing" ? "Nothing" : e.itemId));
       const qty = e.minQuantity === e.maxQuantity ? (e.minQuantity > 1 ? ` ×${e.minQuantity.toLocaleString("en-US")}` : "") : ` (${e.minQuantity.toLocaleString("en-US")}–${e.maxQuantity.toLocaleString("en-US")})`;
       const cells = [`<td class="item">${name}${qty}</td>`, `<td class="rate">${formatRate(e.numerator, e.denominator)}</td>`];
       if (showPercent) cells.push(`<td class="pct">${formatPercent(e.numerator, e.denominator)}</td>`);

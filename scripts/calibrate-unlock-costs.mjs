@@ -133,6 +133,7 @@ const newCostById = new Map(out.map((r) => [r.id, r.newCost]));
 
 let monstersChanged = 0;
 for (const m of monsters) {
+  if (m.lootOnly) continue; // drop-table override for a hand-authored boss
   const newCost = newCostById.get(m.id);
   if (newCost !== undefined && m.unlockCost !== newCost) {
     m.unlockCost = newCost;

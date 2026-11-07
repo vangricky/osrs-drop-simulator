@@ -30,7 +30,7 @@ function main() {
   ].map((m) => ({ id: m[1], unlockCost: Number(m[2]), combatLevel: Number(m[3]) }));
 
   const all = [
-    ...monsters.map((m) => ({ id: m.id, combatLevel: m.combatLevel, source: "generated" })),
+    ...monsters.filter((m) => !m.lootOnly).map((m) => ({ id: m.id, combatLevel: m.combatLevel, source: "generated" })),
     ...handcrafted.map((h) => ({ id: h.id, combatLevel: h.combatLevel, source: "handcrafted" })),
   ].sort((a, b) => a.combatLevel - b.combatLevel);
 
@@ -42,6 +42,7 @@ function main() {
 
   let changed = 0;
   for (const m of monsters) {
+    if (m.lootOnly) continue; // drop-table override for a hand-authored boss
     const shouldBeFree = freeGeneratedIds.has(m.id);
     if (shouldBeFree && m.unlockCost !== 0) {
       m.unlockCost = 0;

@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-4NjXnuVFUrbyOr/vn0AWS6C49Dtch3cJbbhdF95Offg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-A58nAjB2UnmjM3bh2mCSZI6eTlFcs5TmgGKnj0f22KE='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -51,10 +51,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How rare is the Jar of Light from Mad Angel?",
+          "name": "How rare is the Rune javelin from Mad Angel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Jar of Light drops at 1/1,000 per main-table roll."
+            "text": "Rune javelin drops at 1/61,440 per main-table roll."
           }
         },
         {
@@ -70,7 +70,7 @@
           "name": "How many different items can drop from Mad Angel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "28 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 6 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+            "text": "50 different items in total — 2 guaranteed every kill, the rest from the main and tertiary tables. 7 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
           }
         },
         {
@@ -227,7 +227,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Boss drop simulator</p>
           <h1><span class="gold-leaf">Mad Angel</span> Drop Simulator — OSRS Drop Rates</h1>
-          <p class="sub">O Lord, she approaches! At combat level 270, Mad Angel ranks #51 of 65 bosses in OSRS Drop Simulator by difficulty, with 28 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
+          <p class="sub">O Lord, she approaches! At combat level 270, Mad Angel ranks #51 of 65 bosses in OSRS Drop Simulator by difficulty, with 50 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
           <div class="meta-row"><span class="chip">Combat level <b>270</b></span><span class="chip">Pet rate <b>1/2,000</b></span></div>
           <a class="cta" href="/?npc=mad-angel">Simulate Mad Angel now <span class="arrow">→</span></a>
         </div>
@@ -238,8 +238,8 @@
         <p class="section-note">Everything below is derived straight from Mad Angel's real drop table — the same data the live simulator rolls against.</p>
         <dl class="fact-list">
           <div><dt>Combat level</dt><dd>270 (#51 of 65 bosses)</dd></div>
-          <div><dt>Unique droppable items</dt><dd>28 (1 guaranteed)</dd></div>
-          <div><dt>Tradeable / untradeable</dt><dd>22 / 6</dd></div>
+          <div><dt>Unique droppable items</dt><dd>50 (2 guaranteed)</dd></div>
+          <div><dt>Tradeable / untradeable</dt><dd>43 / 7</dd></div>
           <div><dt>Main-table rolls per kill</dt><dd>1</dd></div>
           <div><dt>Pet rate</dt><dd>1/2,000</dd></div>
           <div><dt>Unlock cost in the simulator</dt><dd>325.8M gp</dd></div>
@@ -256,6 +256,7 @@
             <thead><tr><th>Item</th><th class="rate">Rate</th></tr></thead>
             <tbody>
           <tr><td class="item">Granite dust (25–35)</td><td class="rate">1/1</td></tr>
+          <tr><td class="item">Sunstone crystal</td><td class="rate">1/1</td></tr>
             </tbody>
           </table>
         </div>
@@ -265,14 +266,6 @@
             <caption>Main table — one roll per kill</caption>
             <thead><tr><th>Item</th><th class="rate">Rate</th><th class="pct">Chance</th></tr></thead>
             <tbody>
-          <tr><td class="item">Ardeaglais teleport ×2</td><td class="rate">1/25</td><td class="pct">4.00%</td></tr>
-          <tr><td class="item">Hallowfell</td><td class="rate">1/127</td><td class="pct">0.79%</td></tr>
-          <tr><td class="item">Jar of Light</td><td class="rate">1/1,000</td><td class="pct">0.10%</td></tr>
-          <tr><td class="item">Rune kiteshield</td><td class="rate">12/150</td><td class="pct">8.00%</td></tr>
-          <tr><td class="item">Rune full helm</td><td class="rate">12/150</td><td class="pct">8.00%</td></tr>
-          <tr><td class="item">Adamant longsword</td><td class="rate">6/150</td><td class="pct">4.00%</td></tr>
-          <tr><td class="item">Dragon med helm</td><td class="rate">2/150</td><td class="pct">1.33%</td></tr>
-          <tr><td class="item">Dragon battleaxe</td><td class="rate">2/150</td><td class="pct">1.33%</td></tr>
           <tr><td class="item">Steel cannonball (90–100)</td><td class="rate">16/150</td><td class="pct">10.7%</td></tr>
           <tr><td class="item">Law rune (28–30)</td><td class="rate">12/150</td><td class="pct">8.00%</td></tr>
           <tr><td class="item">Nature rune (20–25)</td><td class="rate">8/150</td><td class="pct">5.33%</td></tr>
@@ -290,6 +283,33 @@
           <tr><td class="item">Sapphire (7–8)</td><td class="rate">6/150</td><td class="pct">4.00%</td></tr>
           <tr><td class="item">Cupronickel bar</td><td class="rate">1/150</td><td class="pct">0.67%</td></tr>
           <tr><td class="item">Papyrus</td><td class="rate">1/150</td><td class="pct">0.67%</td></tr>
+          <tr><td class="item">Coins ×3,000</td><td class="rate">1/457.14</td><td class="pct">0.22%</td></tr>
+          <tr><td class="item">Uncut sapphire</td><td class="rate">1/1,920</td><td class="pct">0.052%</td></tr>
+          <tr><td class="item">Loop half of key</td><td class="rate">1/476.28</td><td class="pct">0.21%</td></tr>
+          <tr><td class="item">Tooth half of key</td><td class="rate">1/476.28</td><td class="pct">0.21%</td></tr>
+          <tr><td class="item">Uncut emerald</td><td class="rate">1/3,840</td><td class="pct">0.026%</td></tr>
+          <tr><td class="item">Uncut ruby</td><td class="rate">1/7,680</td><td class="pct">0.013%</td></tr>
+          <tr><td class="item">Runite bar</td><td class="rate">1/1,920</td><td class="pct">0.052%</td></tr>
+          <tr><td class="item">Nature rune ×67</td><td class="rate">1/3,200</td><td class="pct">0.031%</td></tr>
+          <tr><td class="item">Rune 2h sword</td><td class="rate">1/3,200</td><td class="pct">0.031%</td></tr>
+          <tr><td class="item">Rune battleaxe</td><td class="rate">1/3,200</td><td class="pct">0.031%</td></tr>
+          <tr><td class="item">Law rune ×45</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Death rune ×45</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Steel arrow ×150</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Rune arrow ×42</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Adamant javelin ×20</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Rune sq shield</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Dragonstone</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Silver ore ×100</td><td class="rate">1/4,800</td><td class="pct">0.021%</td></tr>
+          <tr><td class="item">Nature talisman</td><td class="rate">1/20,480</td><td class="pct">0.0049%</td></tr>
+          <tr><td class="item">Uncut diamond</td><td class="rate">1/30,720</td><td class="pct">0.0033%</td></tr>
+          <tr><td class="item">Rune kiteshield</td><td class="rate">1/9,600</td><td class="pct">0.010%</td></tr>
+          <tr><td class="item">Dragon med helm</td><td class="rate">1/9,600</td><td class="pct">0.010%</td></tr>
+          <tr><td class="item">Rune spear</td><td class="rate">1/10,134.43</td><td class="pct">0.0099%</td></tr>
+          <tr><td class="item">Rune javelin ×5</td><td class="rate">1/61,440</td><td class="pct">0.0016%</td></tr>
+          <tr><td class="item">Shield left half</td><td class="rate">1/20,268.87</td><td class="pct">0.0049%</td></tr>
+          <tr><td class="item">Dragon spear</td><td class="rate">1/27,025.15</td><td class="pct">0.0037%</td></tr>
+          <tr><td class="item">Nothing</td><td class="rate">0.01575248/1</td><td class="pct">1.58%</td></tr>
             </tbody>
           </table>
         </div>
@@ -303,6 +323,14 @@
             <tbody>
           <tr><td class="item">Clue scroll (medium)</td><td class="rate">1/25</td></tr>
           <tr><td class="item">Aggy</td><td class="rate">1/2,000</td></tr>
+          <tr><td class="item">Ardeaglais teleport ×2</td><td class="rate">1/25</td></tr>
+          <tr><td class="item">Hallowfell</td><td class="rate">1/127</td></tr>
+          <tr><td class="item">Jar of Light</td><td class="rate">1/1,000</td></tr>
+          <tr><td class="item">Rune kiteshield</td><td class="rate">12/150</td></tr>
+          <tr><td class="item">Rune full helm</td><td class="rate">12/150</td></tr>
+          <tr><td class="item">Adamant longsword</td><td class="rate">6/150</td></tr>
+          <tr><td class="item">Dragon med helm</td><td class="rate">2/150</td></tr>
+          <tr><td class="item">Dragon battleaxe</td><td class="rate">2/150</td></tr>
             </tbody>
           </table>
         </div>
@@ -311,8 +339,8 @@
       <section class="panel">
         <h2>Common questions</h2>
         <div class="qa">
-          <h3>How rare is the Jar of Light from Mad Angel?</h3>
-          <p>Jar of Light drops at 1/1,000 per main-table roll.</p>
+          <h3>How rare is the Rune javelin from Mad Angel?</h3>
+          <p>Rune javelin drops at 1/61,440 per main-table roll.</p>
         </div>
         <div class="qa">
           <h3>How many Mad Angel kills for the pet on average?</h3>
@@ -320,7 +348,7 @@
         </div>
         <div class="qa">
           <h3>How many different items can drop from Mad Angel?</h3>
-          <p>28 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 6 of them can&#39;t be sold for GP (clue scrolls, pets, and other untradeables).</p>
+          <p>50 different items in total — 2 guaranteed every kill, the rest from the main and tertiary tables. 7 of them can&#39;t be sold for GP (clue scrolls, pets, and other untradeables).</p>
         </div>
         <div class="qa">
           <h3>What&#39;s the fastest way to see Mad Angel&#39;s real drop odds without grinding?</h3>

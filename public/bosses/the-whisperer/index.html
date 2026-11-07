@@ -11,7 +11,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'sha256-U/XWFEc6wTvZ6DKufKNiNd/TQtutJ0VOjZiyHsPd1ck='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
+      content="default-src 'self'; script-src 'self' 'sha256-eQ/pkNFROtRNZyrKqhsNlQ+HxmWBMAKgri3i/MVo4oM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://oldschool.runescape.wiki data:; font-src https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'"
     />
     <link rel="icon" type="image/png" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
@@ -70,7 +70,7 @@
           "name": "How many different items can drop from The Whisperer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "42 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 9 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
+            "text": "45 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 12 of them can't be sold for GP (clue scrolls, pets, and other untradeables)."
           }
         },
         {
@@ -227,7 +227,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Boss drop simulator</p>
           <h1><span class="gold-leaf">The Whisperer</span> Drop Simulator — OSRS Drop Rates</h1>
-          <p class="sub">Dare you face the shadows? At combat level 791, The Whisperer ranks #8 of 65 bosses in OSRS Drop Simulator by difficulty, with 42 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
+          <p class="sub">Dare you face the shadows? At combat level 791, The Whisperer ranks #8 of 65 bosses in OSRS Drop Simulator by difficulty, with 45 different items across its drop table. Roll it as many times as you want and see exactly what each item actually costs in kills — free, instantly, no login.</p>
           <div class="meta-row"><span class="chip">Combat level <b>791</b></span><span class="chip">Pet rate <b>1/2,000</b></span></div>
           <a class="cta" href="/?npc=the-whisperer">Simulate The Whisperer now <span class="arrow">→</span></a>
         </div>
@@ -238,8 +238,8 @@
         <p class="section-note">Everything below is derived straight from The Whisperer's real drop table — the same data the live simulator rolls against.</p>
         <dl class="fact-list">
           <div><dt>Combat level</dt><dd>791 (#8 of 65 bosses)</dd></div>
-          <div><dt>Unique droppable items</dt><dd>42 (0 guaranteed)</dd></div>
-          <div><dt>Tradeable / untradeable</dt><dd>33 / 9</dd></div>
+          <div><dt>Unique droppable items</dt><dd>45 (1 guaranteed)</dd></div>
+          <div><dt>Tradeable / untradeable</dt><dd>33 / 12</dd></div>
           <div><dt>Main-table rolls per kill</dt><dd>1</dd></div>
           <div><dt>Pet rate</dt><dd>1/2,000</dd></div>
           <div><dt>Unlock cost in the simulator</dt><dd>3.0B gp</dd></div>
@@ -250,7 +250,15 @@
         <h2>The Whisperer drop table</h2>
         <p class="section-note">Real published rates.</p>
 
-        
+        <div class="tbl-block table-wrap">
+          <table>
+            <caption>100% drop — every kill</caption>
+            <thead><tr><th>Item</th><th class="rate">Rate</th></tr></thead>
+            <tbody>
+          <tr><td class="item">Ancient blood ornament kit</td><td class="rate">1/1</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="tbl-block table-wrap">
           <table>
@@ -273,27 +281,13 @@
           <tr><td class="item">Mithril longsword (7–10)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
           <tr><td class="item">Adamant longsword (9–14)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
           <tr><td class="item">Battlestaff (70–105)</td><td class="rate">2/100</td><td class="pct">2.00%</td></tr>
-          <tr><td class="item">Dragon plateskirt ×710</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Pure essence (280–420)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Iron ore (88–133)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Coal (303–455)</td><td class="rate">8/100</td><td class="pct">8.00%</td></tr>
-          <tr><td class="item">Gold ore (88–133)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Mithril ore (88–133)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Adamantite ore (105–157)</td><td class="rate">8/100</td><td class="pct">8.00%</td></tr>
-          <tr><td class="item">Runite ore (42–63)</td><td class="rate">2/100</td><td class="pct">2.00%</td></tr>
-          <tr><td class="item">Sapphire (39–59)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Emerald (39–59)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Ruby (39–59)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
-          <tr><td class="item">Uncut ruby (58–87)</td><td class="rate">5/100</td><td class="pct">5.00%</td></tr>
-          <tr><td class="item">Uncut diamond (58–87)</td><td class="rate">5/100</td><td class="pct">5.00%</td></tr>
-          <tr><td class="item">Dragon javelin heads (84–126)</td><td class="rate">8/100</td><td class="pct">8.00%</td></tr>
-          <tr><td class="item">Runite bolts (unf) (84–126)</td><td class="rate">8/100</td><td class="pct">8.00%</td></tr>
-          <tr><td class="item">Raw monkfish (700–1,050)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
+          <tr><td class="item">Dragon plateskirt (7–10)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
           <tr><td class="item">Water rune (280–420)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
           <tr><td class="item">Steam rune (466–700)</td><td class="rate">8/100</td><td class="pct">8.00%</td></tr>
           <tr><td class="item">Chaos rune (140–210)</td><td class="rate">1/100</td><td class="pct">1.00%</td></tr>
           <tr><td class="item">Death rune (466–700)</td><td class="rate">8/100</td><td class="pct">8.00%</td></tr>
           <tr><td class="item">Soul rune (933–1,400)</td><td class="rate">2/100</td><td class="pct">2.00%</td></tr>
+          <tr><td class="item">Nothing</td><td class="rate">0.11089543/1</td><td class="pct">11.1%</td></tr>
             </tbody>
           </table>
         </div>
@@ -314,7 +308,23 @@
             <caption>Tertiary drops — independent rolls</caption>
             <thead><tr><th>Item</th><th class="rate">Rate</th></tr></thead>
             <tbody>
+          <tr><td class="item">Brimstone key</td><td class="rate">1/50</td></tr>
           <tr><td class="item">Wisp</td><td class="rate">1/2,000</td></tr>
+          <tr><td class="item">Pure essence (280–420)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Iron ore (88–133)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Coal (303–455)</td><td class="rate">8/100</td></tr>
+          <tr><td class="item">Gold ore (88–133)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Mithril ore (88–133)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Adamantite ore (105–157)</td><td class="rate">8/100</td></tr>
+          <tr><td class="item">Runite ore (42–63)</td><td class="rate">2/100</td></tr>
+          <tr><td class="item">Sapphire (39–59)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Emerald (39–59)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Ruby (39–59)</td><td class="rate">1/100</td></tr>
+          <tr><td class="item">Uncut ruby (58–87)</td><td class="rate">5/100</td></tr>
+          <tr><td class="item">Uncut diamond (58–87)</td><td class="rate">5/100</td></tr>
+          <tr><td class="item">Dragon javelin tips (84–126)</td><td class="rate">8/100</td></tr>
+          <tr><td class="item">Runite bolts (unf) (84–126)</td><td class="rate">8/100</td></tr>
+          <tr><td class="item">Raw monkfish (700–1,050)</td><td class="rate">1/100</td></tr>
             </tbody>
           </table>
         </div>
@@ -332,7 +342,7 @@
         </div>
         <div class="qa">
           <h3>How many different items can drop from The Whisperer?</h3>
-          <p>42 different items in total — 0 guaranteed every kill, the rest from the main and tertiary tables. 9 of them can&#39;t be sold for GP (clue scrolls, pets, and other untradeables).</p>
+          <p>45 different items in total — 1 guaranteed every kill, the rest from the main and tertiary tables. 12 of them can&#39;t be sold for GP (clue scrolls, pets, and other untradeables).</p>
         </div>
         <div class="qa">
           <h3>What&#39;s the fastest way to see The Whisperer&#39;s real drop odds without grinding?</h3>

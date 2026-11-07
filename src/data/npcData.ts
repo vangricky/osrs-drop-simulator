@@ -82,6 +82,15 @@ export interface Npc extends LootTable {
   unlockCost: number;
 }
 
+/** A monsters.json entry that only carries a refreshed drop table for a
+ * hand-authored boss (written by scripts/refresh-boss-drops-from-wiki.mjs).
+ * mergeNpcs() applies it over the npcData.ts definition, which keeps its
+ * name, icon, combat level and unlock cost. */
+interface LootOnlyEntry extends LootTable {
+  id: string;
+  lootOnly: true;
+}
+
 /** An inventory item that can be opened/rolled for its own loot table (clue caskets, chest keys). */
 export interface ContainerDef extends LootTable {
   itemId: string;
@@ -764,7 +773,22 @@ const handcraftedNpcs: Npc[] = [
  * data was fetched at runtime (browser) or read from disk (Node scripts).
  */
 export function mergeNpcs(generatedMonsters: Npc[]): Npc[] {
-  return [...handcraftedNpcs, ...generatedMonsters];
+  const isLootOnly = (m: Npc | LootOnlyEntry): m is LootOnlyEntry => (m as LootOnlyEntry).lootOnly === true;
+  const lootOnly = new Map((generatedMonsters as (Npc | LootOnlyEntry)[]).filter(isLootOnly).map((m) => [m.id, m]));
+  const handcrafted = handcraftedNpcs.map((npc) => {
+    const wiki = lootOnly.get(npc.id);
+    if (!wiki) return npc;
+    // Drop table from the wiki; the hand-authored tertiaryGroups (if any) stay.
+    return {
+      ...npc,
+      always: wiki.always,
+      mainTable: wiki.mainTable,
+      mainRolls: wiki.mainRolls,
+      tertiary: wiki.tertiary,
+      tertiaryGroups: npc.tertiaryGroups ?? wiki.tertiaryGroups,
+    };
+  });
+  return [...handcrafted, ...generatedMonsters.filter((m) => !isLootOnly(m))];
 }
 
 function makeItems(
