@@ -348,10 +348,9 @@ export interface ContainerOpenResult extends KillResult {
 // Slightly above the server's own anti-cheat cooldown between minting
 // actions (see check_and_touch_mint_cooldown in
 // supabase/migrations/0004_security_hardening.sql, 200ms). Calling
-// record_kill/open_container faster than that gets silently rejected
-// server-side ("too many requests") while the client had already credited
-// gp locally — the gp shown would then only revert once a reload re-fetched
-// the (lower) authoritative cloud value. Serializing every cloud mutation
+// kill/open_container_v2 faster than the server allows gets rejected
+// ("too many requests"); kills also draw from a server-side token bucket
+// (2/s, burst 20, see public._kill). Serializing every cloud mutation
 // through one queue with this minimum spacing keeps normal clicking from
 // ever outrunning what the server will actually accept.
 const MIN_MUTATION_GAP_MS = 220;
@@ -474,180 +473,152 @@ export function useGameState(userId: string | null = null) {
     return () => clearTimeout(timer);
   }, [state.inventory, userId]);
 
-  // Debounced cloud save of the collection log's "first obtained" records —
-  // informational only, same trust model as the inventory cache above.
-  useEffect(() => {
-    if (!userId || !cloudLoadedRef.current || !supabase) return;
-    const timer = setTimeout(() => {
-      supabase!.rpc("sync_collection_log_firsts", { p_data: state.collectionLogFirsts }).then(({ error }) => {
-        if (error) console.error("collection log sync failed", error);
+  // Collection-log "firsts" are now written by the server itself, inside the
+  // kill/open_container_v2 RPCs (they used to be a client-synced, unvalidated
+  // cache). Realtime (above) carries the server's copy back here.
+
+  // Credits one roll's drops to local state: coins to gp, items into the
+  // grid (overflow returned), log entry, collection log. Used for both the
+  // guest path (locally rolled) and the signed-in path (rolled by the server).
+  const creditDrops = useCallback(
+    (
+      source: { type: "kill" | "container"; id: string; name: string },
+      drops: RolledDrop[],
+      sourceCount: number | null,
+      consumeSlot?: number,
+    ): RolledDrop[] => {
+      // Coin drops go straight to the GP balance rather than taking an inventory slot.
+      const itemDrops = drops.filter((d) => d.item.id !== "coins");
+      const coinsGained = drops.filter((d) => d.item.id === "coins").reduce((sum, d) => sum + d.quantity, 0);
+      let overflow: RolledDrop[] = [];
+
+      setState((prev) => {
+        let baseInventory = prev.inventory;
+        if (consumeSlot !== undefined) {
+          const slot = prev.inventory[consumeSlot];
+          if (!slot || slot.itemId !== source.id) return prev;
+          baseInventory = [...prev.inventory];
+          baseInventory[consumeSlot] = slot.quantity > 1 ? { ...slot, quantity: slot.quantity - 1 } : null;
+        }
+        const { inventory, overflow: ov } = addDropsToInventory(baseInventory, itemDrops);
+        overflow = ov;
+
+        const counts = source.type === "kill" ? prev.killCounts : prev.containerOpenCounts;
+        const count = sourceCount ?? (counts[source.id] ?? 0) + 1;
+        const logEntry: LogEntry = {
+          id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+          timestamp: Date.now(),
+          npcId: source.id,
+          npcName: source.name,
+          sourceType: source.type,
+          sourceCount: count,
+          drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
+        };
+
+        const collectionLog = { ...prev.collectionLog };
+        const collectionLogFirsts = { ...prev.collectionLogFirsts };
+        for (const d of drops) {
+          const isFirst = !(d.item.id in collectionLogFirsts);
+          collectionLog[d.item.id] = (collectionLog[d.item.id] ?? 0) + d.quantity;
+          // Coins aren't a collectible (they go straight to gp, same as the
+          // real game's collection log not listing plain coin drops).
+          if (isFirst && d.item.id !== "coins") {
+            collectionLogFirsts[d.item.id] = {
+              itemId: d.item.id,
+              sourceType: source.type,
+              sourceId: source.id,
+              sourceName: source.name,
+              sourceCount: count,
+              timestamp: Date.now(),
+            };
+          }
+        }
+
+        return {
+          ...prev,
+          inventory,
+          gp: prev.gp + coinsGained,
+          log: [logEntry, ...prev.log].slice(0, MAX_LOG_ENTRIES),
+          killCounts: source.type === "kill" ? { ...prev.killCounts, [source.id]: count } : prev.killCounts,
+          containerOpenCounts:
+            source.type === "container" ? { ...prev.containerOpenCounts, [source.id]: count } : prev.containerOpenCounts,
+          collectionLog,
+          collectionLogFirsts,
+        };
       });
-    }, 800);
-    return () => clearTimeout(timer);
-  }, [state.collectionLogFirsts, userId]);
+      return overflow;
+    },
+    [],
+  );
 
-  const simulateKill = useCallback((npc: Npc): KillResult => {
-    const drops = rollDrop(npc, allItems, stateRef.current.collectionLog);
-    // Coin drops go straight to the GP balance rather than taking an inventory slot.
-    const coinDrops = drops.filter((d) => d.item.id === "coins");
-    const itemDrops = drops.filter((d) => d.item.id !== "coins");
-    const coinsGained = coinDrops.reduce((sum, d) => sum + d.quantity, 0);
-    let overflow: RolledDrop[] = [];
+  /** Server drops ({item_id, quantity, source, noted}) -> the client's RolledDrop shape. */
+  const fromServerDrops = useCallback(
+    (raw: unknown): RolledDrop[] =>
+      (Array.isArray(raw) ? raw : []).flatMap((d: { item_id: string; quantity: number; source: RolledDrop["source"]; noted?: boolean }) => {
+        const item = allItems[d.item_id];
+        return item ? [{ item, quantity: Number(d.quantity), source: d.source, noted: d.noted }] : [];
+      }),
+    [allItems],
+  );
 
-    setState((prev) => {
-      const { inventory, overflow: ov } = addDropsToInventory(prev.inventory, itemDrops);
-      overflow = ov;
+  // Signed-in kills wait for the server's roll. Auto Kill ticks every 500ms;
+  // if the network is slower than that, skip ticks instead of queueing an
+  // ever-growing backlog of kills.
+  const killsInFlightRef = useRef(0);
 
-      const killNumber = (prev.killCounts[npc.id] ?? 0) + 1;
-      const logEntry: LogEntry = {
-        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        timestamp: Date.now(),
-        npcId: npc.id,
-        npcName: npc.name,
-        sourceType: "kill",
-        sourceCount: killNumber,
-        drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
-      };
+  const simulateKill = useCallback((npc: Npc): void => {
+    const source = { type: "kill" as const, id: npc.id, name: npc.name };
 
-      const collectionLog = { ...prev.collectionLog };
-      const collectionLogFirsts = { ...prev.collectionLogFirsts };
-      for (const d of drops) {
-        const isFirst = !(d.item.id in collectionLog);
-        collectionLog[d.item.id] = (collectionLog[d.item.id] ?? 0) + d.quantity;
-        // Coins aren't a collectible (they go straight to gp, same as the
-        // real game's collection log not listing plain coin drops).
-        if (isFirst && d.item.id !== "coins") {
-          collectionLogFirsts[d.item.id] = {
-            itemId: d.item.id,
-            sourceType: "kill",
-            sourceId: npc.id,
-            sourceName: npc.name,
-            sourceCount: killNumber,
-            timestamp: Date.now(),
-          };
-        }
-      }
-
-      return {
-        ...prev,
-        inventory,
-        gp: prev.gp + coinsGained,
-        log: [logEntry, ...prev.log].slice(0, MAX_LOG_ENTRIES),
-        killCounts: { ...prev.killCounts, [npc.id]: killNumber },
-        collectionLog,
-        collectionLogFirsts,
-      };
-    });
-
-    if (userId && supabase) {
-      enqueueCloudMutation(
-        () =>
-          supabase!.rpc("record_kill", {
-            p_npc_id: npc.id,
-            p_gp_gained: coinsGained,
-            p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
-          }),
-        () => {
-          setState((prev) => ({
-            ...prev,
-            gp: prev.gp - coinsGained,
-            killCounts: { ...prev.killCounts, [npc.id]: Math.max(0, (prev.killCounts[npc.id] ?? 1) - 1) },
-          }));
-        },
-      );
+    if (!userId || !supabase) {
+      const drops = rollDrop(npc, allItems, stateRef.current.collectionLog);
+      const overflow = creditDrops(source, drops, null);
+      setLastKill({ drops, overflow });
+      return;
     }
 
-    const result: KillResult = { drops, overflow };
-    setLastKill(result);
-    return result;
-  }, [userId, allItems, enqueueCloudMutation]);
+    if (killsInFlightRef.current >= 2) return;
+    killsInFlightRef.current += 1;
+    enqueueCloudMutation(async () => {
+      try {
+        const { data, error } = await supabase!.rpc("kill", { p_npc_id: npc.id, p_count: 1 });
+        if (!error && data) {
+          const drops = fromServerDrops(data.kills?.[0]);
+          const overflow = creditDrops(source, drops, Number(data.kill_count));
+          setState((prev) => ({ ...prev, gp: Number(data.gp) }));
+          setLastKill({ drops, overflow });
+        }
+        return { error };
+      } finally {
+        killsInFlightRef.current -= 1;
+      }
+    });
+  }, [userId, allItems, creditDrops, fromServerDrops, enqueueCloudMutation]);
 
-  const openContainer = useCallback((index: number): ContainerOpenResult | null => {
+  const openContainer = useCallback((index: number): void => {
     const slot0 = stateRef.current.inventory[index];
-    if (!slot0) return null;
+    if (!slot0) return;
     const container = containers[slot0.itemId];
-    if (!container) return null;
+    if (!container) return;
+    const source = { type: "container" as const, id: container.itemId, name: container.name };
 
-    const drops = rollDrop(container, allItems, stateRef.current.collectionLog);
-    const coinDrops = drops.filter((d) => d.item.id === "coins");
-    const itemDrops = drops.filter((d) => d.item.id !== "coins");
-    const coinsGained = coinDrops.reduce((sum, d) => sum + d.quantity, 0);
-    let overflow: RolledDrop[] = [];
-
-    setState((prev) => {
-      const slot = prev.inventory[index];
-      if (!slot || slot.itemId !== container.itemId) return prev;
-
-      const consumedInventory = [...prev.inventory];
-      consumedInventory[index] = slot.quantity > 1 ? { ...slot, quantity: slot.quantity - 1 } : null;
-
-      const { inventory, overflow: ov } = addDropsToInventory(consumedInventory, itemDrops);
-      overflow = ov;
-
-      const openNumber = (prev.containerOpenCounts[container.itemId] ?? 0) + 1;
-      const logEntry: LogEntry = {
-        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        timestamp: Date.now(),
-        npcId: container.itemId,
-        npcName: container.name,
-        sourceType: "container",
-        sourceCount: openNumber,
-        drops: drops.map((d) => ({ itemId: d.item.id, quantity: d.quantity, source: d.source })),
-      };
-
-      const collectionLog = { ...prev.collectionLog };
-      const collectionLogFirsts = { ...prev.collectionLogFirsts };
-      for (const d of drops) {
-        const isFirst = !(d.item.id in collectionLog);
-        collectionLog[d.item.id] = (collectionLog[d.item.id] ?? 0) + d.quantity;
-        if (isFirst && d.item.id !== "coins") {
-          collectionLogFirsts[d.item.id] = {
-            itemId: d.item.id,
-            sourceType: "container",
-            sourceId: container.itemId,
-            sourceName: container.name,
-            sourceCount: openNumber,
-            timestamp: Date.now(),
-          };
-        }
-      }
-
-      return {
-        ...prev,
-        inventory,
-        gp: prev.gp + coinsGained,
-        log: [logEntry, ...prev.log].slice(0, MAX_LOG_ENTRIES),
-        containerOpenCounts: { ...prev.containerOpenCounts, [container.itemId]: openNumber },
-        collectionLog,
-        collectionLogFirsts,
-      };
-    });
-
-    if (userId && supabase) {
-      enqueueCloudMutation(
-        () =>
-          supabase!.rpc("open_container", {
-            p_container_item_id: container.itemId,
-            p_gp_gained: coinsGained,
-            p_items: itemDrops.map((d) => ({ item_id: d.item.id, quantity: d.quantity })),
-          }),
-        () => {
-          setState((prev) => ({
-            ...prev,
-            gp: prev.gp - coinsGained,
-            containerOpenCounts: {
-              ...prev.containerOpenCounts,
-              [container.itemId]: Math.max(0, (prev.containerOpenCounts[container.itemId] ?? 1) - 1),
-            },
-          }));
-        },
-      );
+    if (!userId || !supabase) {
+      const drops = rollDrop(container, allItems, stateRef.current.collectionLog);
+      const overflow = creditDrops(source, drops, null, index);
+      setLastContainerOpen({ drops, overflow, containerName: container.name });
+      return;
     }
 
-    const result: ContainerOpenResult = { drops, overflow, containerName: container.name };
-    setLastContainerOpen(result);
-    return result;
-  }, [userId, allItems, containers, enqueueCloudMutation]);
+    enqueueCloudMutation(async () => {
+      const { data, error } = await supabase!.rpc("open_container_v2", { p_container_item_id: container.itemId });
+      if (!error && data) {
+        const drops = fromServerDrops(data.drops);
+        const overflow = creditDrops(source, drops, Number(data.open_count), index);
+        setState((prev) => ({ ...prev, gp: Number(data.gp) }));
+        setLastContainerOpen({ drops, overflow, containerName: container.name });
+      }
+      return { error };
+    });
+  }, [userId, allItems, containers, creditDrops, fromServerDrops, enqueueCloudMutation]);
 
   const moveItem = useCallback((from: number, to: number) => {
     setState((prev) => {

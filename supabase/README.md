@@ -42,4 +42,4 @@ apply the same `email-templates/confirm-signup.html` pattern to those if you wan
 
 ## What's NOT validated
 
-Item counts and GP are authoritative server-side. The 28-slot inventory grid's exact layout is a trusted, unvalidated "cloud save" purely for display continuity across devices — faking your own local display doesn't affect the leaderboard, since that only reads `gp`.
+Item counts and GP are authoritative server-side, and signed-in drops are rolled by the server (`kill`, `open_container_v2`), so a client cannot invent loot. The 28-slot inventory grid's exact layout is a trusted, unvalidated "cloud save" purely for display continuity across devices — faking your own local display doesn't affect the leaderboards, which read server-only stats.

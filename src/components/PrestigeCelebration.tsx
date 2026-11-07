@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { prestigeBadgeFor } from "../data/badges";
 
 interface PrestigeCelebrationProps {
   prestigeCount: number;
@@ -8,10 +9,11 @@ interface PrestigeCelebrationProps {
 const PARTICLE_COUNT = 20;
 
 export default function PrestigeCelebration({ prestigeCount, onDismiss }: PrestigeCelebrationProps) {
+  const badge = prestigeBadgeFor(prestigeCount);
   useEffect(() => {
-    const timer = setTimeout(onDismiss, 3800);
+    const timer = setTimeout(onDismiss, badge ? 5500 : 3800);
     return () => clearTimeout(timer);
-  }, [onDismiss]);
+  }, [onDismiss, badge]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={onDismiss}>
@@ -47,6 +49,15 @@ export default function PrestigeCelebration({ prestigeCount, onDismiss }: Presti
         <p className="unlock-text-pop relative z-10 mt-1 max-w-xs text-center text-xs text-osrs-parchment-dark/70">
           Every monster unlocked. GP, unlocks, and kills are back to zero, and it's on the leaderboard.
         </p>
+        {badge && (
+          <div className="unlock-text-pop osrs-bevel relative z-10 mt-4 flex items-center gap-3 bg-osrs-gold/15 px-4 py-2">
+            <img src={badge.icon} alt="" className="h-10 w-10 object-contain" onError={(e) => (e.currentTarget.style.display = "none")} />
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-osrs-parchment-dark/70">New permanent badge</p>
+              <p className="font-display text-base font-bold text-osrs-gold">{badge.name}</p>
+            </div>
+          </div>
+        )}
         <p className="unlock-text-pop relative z-10 mt-4 text-[11px] text-osrs-parchment-dark/50">
           Click anywhere to continue
         </p>

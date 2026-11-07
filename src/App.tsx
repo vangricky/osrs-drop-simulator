@@ -25,6 +25,8 @@ const ConfirmModal = lazy(() => import("./components/ConfirmModal"));
 const ContainerModal = lazy(() => import("./components/ContainerModal"));
 const HowToPlayModal = lazy(() => import("./components/HowToPlayModal"));
 const Leaderboard = lazy(() => import("./components/Leaderboard"));
+const LinkPluginModal = lazy(() => import("./components/LinkPluginModal"));
+const ProfileModal = lazy(() => import("./components/ProfileModal"));
 const PrestigeCelebration = lazy(() => import("./components/PrestigeCelebration"));
 const UnlockCelebration = lazy(() => import("./components/UnlockCelebration"));
 
@@ -71,6 +73,8 @@ function App() {
   const [showCollectionLog, setShowCollectionLog] = useState(false);
   const [showPrestigeConfirm, setShowPrestigeConfirm] = useState(false);
   const [celebratingPrestige, setCelebratingPrestige] = useState<number | null>(null);
+  const [showProfile, setShowProfile] = useState(false);
+  const [showLinkPlugin, setShowLinkPlugin] = useState(false);
   const auth = useAuth();
   const game = useGameState(auth.userId);
   // Defaults to whichever boss this browser last had selected (so a reload
@@ -171,6 +175,8 @@ function App() {
         unlockedNpcCount={game.unlockedNpcCount}
         totalNpcCount={game.totalNpcCount}
         onOpenPrestige={() => setShowPrestigeConfirm(true)}
+        onOpenProfile={() => setShowProfile(true)}
+        onOpenLinkPlugin={() => setShowLinkPlugin(true)}
       />
 
       {/* Widened from the old 1600px cap now that the side ad columns are
@@ -322,6 +328,10 @@ function App() {
         )}
 
         {showHowToPlay && <HowToPlayModal onClose={() => setShowHowToPlay(false)} />}
+
+        {showProfile && auth.username && <ProfileModal username={auth.username} onClose={() => setShowProfile(false)} />}
+
+        {showLinkPlugin && <LinkPluginModal onClose={() => setShowLinkPlugin(false)} />}
 
         {showCollectionLog && (
           <CollectionLogModal

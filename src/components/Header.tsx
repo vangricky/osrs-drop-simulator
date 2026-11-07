@@ -18,6 +18,8 @@ interface HeaderProps {
   unlockedNpcCount: number;
   totalNpcCount: number;
   onOpenPrestige: () => void;
+  onOpenProfile: () => void;
+  onOpenLinkPlugin: () => void;
 }
 
 const GHOST_BTN =
@@ -42,6 +44,8 @@ export default function Header({
   unlockedNpcCount,
   totalNpcCount,
   onOpenPrestige,
+  onOpenProfile,
+  onOpenLinkPlugin,
 }: HeaderProps) {
   const prestigeTitle = canPrestige
     ? "Every monster is unlocked. Prestige to reset and climb again."
@@ -193,6 +197,29 @@ export default function Header({
               <div className="px-3 pb-0.5 pt-1 text-xs text-osrs-parchment-dark/70">
                 Signed in as <span className="font-semibold text-osrs-gold">{username}</span>
               </div>
+            )}
+
+            {authEnabled && username && (
+              <>
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onOpenProfile();
+                  }}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  My profile &amp; badges
+                </button>
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onOpenLinkPlugin();
+                  }}
+                  className="rounded-lg px-3 py-2 text-left font-semibold text-osrs-gold transition hover:bg-osrs-gold/15"
+                >
+                  Link RuneLite plugin
+                </button>
+              </>
             )}
 
             {authEnabled && username ? (

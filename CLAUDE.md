@@ -94,12 +94,22 @@ exist, not just the item definition.
 `src/hooks/useGameState.ts` is the core game state (inventory, GP, kill counts, collection log, unlocks,
 prestige). Guests are local-only (`localStorage`). Signed-in players (`src/hooks/useAuth.ts`, Supabase Auth) get
 the same state synced from Postgres on load, and every GP-affecting action calls a Supabase RPC
-(`record_kill`, `open_container`, `sell_item`, `sell_all_items`, `unlock_npc`, `prestige`) in addition to the
-optimistic local update — those RPCs are the actual source of truth for a signed-in player's GP, re-validated
-server-side against `npc_reference` / `item_reference` / `container_reference` so a client can't just edit its
-own save to an arbitrary number. The 28-slot inventory *arrangement* (not its GP-relevant contents) is synced
-separately via `sync_inventory_cache`/`sync_collection_log_firsts` as a trusted, unvalidated display cache —
-faking that locally has no effect on the leaderboard, which only reads `gp`.
+(`kill`, `open_container_v2`, `sell_item`, `sell_all_items`, `unlock_npc`, `prestige`, `discard_*`).
+**Signed-in drops are rolled by the server**, not the browser: `kill`/`open_container_v2` roll
+`npc_reference.loot`/`container_reference.loot` with `public._roll_loot` (a plpgsql port of `rollDrop()` in
+`src/utils/dropLogic.ts`, so keep the two in sync) and return the drops for the client to display. The old
+client-trusted `record_kill`/`open_container`/`sync_collection_log_firsts` are revoked: they let a client claim
+any item at any quantity. Collection-log firsts are written server-side. Guests still roll locally (no
+leaderboard stakes). The 28-slot inventory *arrangement* is synced via `sync_inventory_cache` as a trusted,
+unvalidated display cache.
+
+Every action has one internal `_name(uid, ...)` implementation. The website calls wrappers passing
+`auth.uid()`; the RuneLite plugin (`vangricky/osrs-drop-simulator-plugin`) calls `device_*` wrappers with a
+revocable device token from `create_link_code`/`redeem_link_code`. Competitive stats (`lifetime_value`, weekly
+`week_value`/`week_start`, `clog_slots`, `total_kills`), permanent `user_badges`, `seasons`, the
+`leaderboard_*` views and `get_profile` all live in
+`supabase/migrations/20261107000000_server_side_rolls_competitive.sql`. Badge display names/icons are in
+`src/data/badges.ts` (the plugin has a matching copy).
 
 Guests get every boss unlocked immediately (no account, no stakes). Signed-in players start with only
 `unlockCost === 0` bosses and grind GP for the rest, same rule as everything else.
